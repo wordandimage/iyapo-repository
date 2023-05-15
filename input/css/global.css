@@ -1,0 +1,144 @@
+:root{
+    --bg:#0A0101;
+    --fg:white;
+    --mid:#808080;
+
+
+    --nav-height:36px;
+}
+
+body{
+    background-color:var(--bg);
+    color:var(--fg);
+}
+
+
+#window{
+    position:sticky;
+    top:0;
+    width:100vw;
+    height:100vh;
+    cursor:none;
+    mask:url(../assets/mask.svg#box) no-repeat;
+    -webkit-mask:url(../assets/mask.svg#box) no-repeat;
+}
+
+
+#scroll-overlay{
+    min-height:100vh;
+    position:relative;
+}
+
+h1{
+    font-size:30px;
+    font-family:'VTC DuBois Wide';
+    font-weight:600;
+    text-transform:uppercase;
+}
+
+nav{
+    position:relative;
+    top:-9px;
+    height:var(--nav-height);
+    transform:translateY(-100%);
+    display:flex;
+    flex-flow:row nowrap;
+    width:100%;
+    justify-content:center;
+    z-index:3;
+}
+
+#svg-perch{
+    height:0;
+    position:relative;
+    pointer-events:none;
+    z-index:2;
+}
+
+#svg-wrapper{
+    width:100vw;
+    height:100vh;
+    bottom:0;
+    position:absolute;
+    
+}
+
+#svg-wrapper svg{
+    width:100%;
+    height:100%;
+    position:relative;
+    z-index:5;
+}
+
+
+
+
+
+#aperture,#aperture-back{
+    /* opacity:0; */
+    stroke-width:1px;
+    stroke:var(--mid);
+    fill:none;
+    /* box-shadow: inset 0px 0px 20px 0px var(--mid); */
+}
+
+#aperture-back{
+    fill:var(--bg);
+    /* mix-blend-mode:color; */
+}
+
+.paths path{
+    stroke-width:1px;
+    stroke:var(--mid);
+    fill:none;
+}
+
+#aperture-glow{
+    /* opacity:0; */
+    position:absolute;
+    top:0;
+    left:0;
+    width:180px;
+    height:180px;
+    z-index:2;
+    /* box-shadow: 0px 0px 15px 11px rgba(255, 255, 255, 0.05) inset; */
+}
+
+#lens{
+    position:absolute;
+    left:50%;
+    bottom:90px;
+    --rad:0rad;
+    transform:translate(-50%,50%) rotate(var(--rad));
+    width:7px;
+    height:65px;
+    background-color:var(--fg);
+    z-index:20;
+}
+
+#mask-test{
+    font-size:16vw;
+    color:rgba(255,255,255,0.1);
+}
+
+
+/* min(70px,6vw); */
+
+@font-face {
+    font-family: 'VTC DuBois Narrow';
+    src: url('../assets/fonts/vtc-du-bois-narrow-trial.woff2') format('woff2');
+    font-weight:400;
+    font-style:normal;
+}
+@font-face {
+    font-family: 'VTC DuBois Narrow';
+    src: url('../assets/fonts/vtc-du-bois-narrow-italic-trial.woff2') format('woff2');
+    font-weight:400;
+    font-style:italic;
+}
+@font-face {
+    font-family: 'VTC DuBois Wide';
+    src: url('../assets/fonts/vtc-du-bois-bold-wide-trial.woff2') format('woff2');
+    font-weight:600;
+    font-style:normal;
+}

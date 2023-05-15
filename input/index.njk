@@ -1,0 +1,66 @@
+---
+eleventyExcludeFromCollections: true
+---
+{% set rootpath="" %}
+{# {% import 'favicon.njk' as favicon %} #}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Iyapo Repository</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0A0101">
+    <link rel="stylesheet" href="{{ rootpath }}css/clearstyle.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/global.css">
+    {# <link rel="stylesheet" href="{{ rootpath }}css/galaxy.css"> #}
+    
+    <script type="module" src="js/d3.js" charset="utf-8" preload></script>
+    <script src="{{ rootpath }}js/global.js" charset="utf-8"></script>
+    <script src="{{ rootpath }}js/galaxy.js" charset="utf-8"></script>
+    {# <link rel="preload" href="data/index.json" as="fetch" crossOrigin="false"> #}
+
+    <!-- favicon -->
+    {# {{ favicon.html() }} #}
+  
+  </head>
+
+  <body>
+    <div id="window">
+      <p id="mask-test">Hello, I hope you’re having a nice day</p>
+    </div>
+    <section id="scroll-overlay">
+      <div id="svg-perch">
+        <div id="svg-wrapper">
+          <div id="aperture-glow"></div>
+          <svg id="spotlight-logo">
+          
+            <path id="aperture"></path>
+            <path id="aperture-back"></path>
+          </svg>
+          <div id="lens"></div>
+
+        </div>
+        
+      </div>
+      {# <svg id="spotlight-logo"></svg> #}
+      <nav>
+        <h1>Iyapo Repository</h1>
+      </nav>
+
+    </section>
+    {# <svg width="343" height="97" viewBox="0 0 343 97" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M165.824 93.5L135.999 75H129L158.825 93.5H165.824Z" fill="#0A0101" stroke="#F8F8F8" stroke-linejoin="round"/>
+      <path d="M165.824 93.5L135.999 75V10L165.824 28.5V93.5Z" fill="#0A0101" stroke="#F8F8F8" stroke-linejoin="round"/>
+      <path d="M338.208 18.617L342 51.671L331.822 32.4731L328.629 1L338.208 18.617Z" fill="#0A0101" stroke="#898181" stroke-linejoin="round"/>
+      <path d="M342 51.6705L162.643 62.4218L158.67 57.0462L331.821 32.4727L342 51.6705Z" fill="#0A0101" stroke="#898181" stroke-linejoin="round"/>
+      <path d="M328.628 1L331.821 32.4731L158.67 57.0467V46.3901L328.628 1Z" fill="#0A0101" stroke="#898181" stroke-linejoin="round"/>
+      <path d="M128.74 68.7523L22.0048 95.981L1 87.8851L128.925 59.7129L128.74 68.7523Z" fill="#0A0101" stroke="#898181" stroke-linejoin="round"/>
+      <path d="M1 87.8857L5.28669 59.7136L129.015 50.6816L128.925 59.7136L1 87.8857Z" fill="#0A0101" stroke="#898181" stroke-linejoin="round"/>
+    </svg> #}
+
+    
+
+  </body>
+</html>
