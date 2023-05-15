@@ -2,3 +2,5 @@ node_modules/
 .npm
 _site/
 assets/images/raw
+gh-pages
+gh-pages.pub
