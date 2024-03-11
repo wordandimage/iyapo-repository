@@ -1,0 +1,22 @@
+[
+    {
+        "title":"About",
+        "permalink":"/#about"
+    },
+    {
+        "title":"Events",
+        "permalink":"/events"
+    },
+    {
+        "title":"Resources",
+        "permalink":"/resources"
+    },
+    {
+        "title":"Workshop",
+        "permalink":"/workshop"
+    },
+    {
+        "title":"Contact",
+        "permalink":"/contact"
+    }
+]

@@ -1,0 +1,40 @@
+{% macro test(msg) %}
+<div>{{msg}}</div>
+{% endmacro %}
+
+{% macro bevel_box(sides,corners) %}
+<div class="bevel-box {{sides}}">
+        {% for corner in corners %}
+            <div class='corner {{corner}}'></div>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+
+{% macro logo() %}
+
+<svg id="logo" width="343" height="97" viewBox="0 0 343 97" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path class='hull' d="M166.12 93.7812L136.296 75.2812H129.297L159.122 93.7812H166.12Z" stroke="#F8F8F8" stroke-linejoin="round"/>
+    <path class='hull' d="M166.122 93.7812L136.297 75.2812V10.2812L166.122 28.7812V93.7812Z" stroke="#F8F8F8" stroke-linejoin="round"/>
+    <path d="M338.501 18.8983L342.293 51.9523L332.115 32.7544L328.922 1.28125L338.501 18.8983Z" stroke="#898181" stroke-linejoin="round"/>
+    <path d="M342.298 51.9518L162.942 62.7031L158.969 57.3274L332.12 32.7539L342.298 51.9518Z" stroke="#898181" stroke-linejoin="round"/>
+    <path d="M328.927 1.28125L332.12 32.7544L158.969 57.3279V46.6713L328.927 1.28125Z" stroke="#898181" stroke-linejoin="round"/>
+    <path d="M129.037 69.0316L22.3016 96.2603L1.29688 88.1644L129.222 59.9922L129.037 69.0316Z" stroke="#898181" stroke-linejoin="round"/>
+    <path d="M1.29688 88.165L5.58357 59.9929L129.312 50.9609L129.222 59.9929L1.29688 88.165Z" stroke="#898181" stroke-linejoin="round"/>
+    <rect class='hull' x="129.297" y="10.2812" width="7" height="65" stroke="#F8F8F8" stroke-linejoin="round"/>
+</svg>
+
+
+{% endmacro %}
+
+{# {% macro bevel_box({sides,corners}) %}
+<div class="bevel-box {{sides}}">
+    {% for corner in corners %}
+        <div class='corner {{corner}}'></div>
+    {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro test(msg) %}
+<div>{{msg}}</div>
+{% endmacro %} #}

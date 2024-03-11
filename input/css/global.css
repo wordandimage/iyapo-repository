@@ -1,119 +1,393 @@
 :root{
     --bg:#0A0101;
     --fg:white;
+    
     --mid:#808080;
+    --m:20px;
+    --spacing:15px;
+    --logo-height:75px;
+    --hundredvh:100vh;
+    --hundredvh:100svh;
+    --nav-height:75px;
+    --max-w:min(calc(100% - var(--m) * 2), 1210px);
+    --scrolly:0;
 
 
-    --nav-height:36px;
+    --archive-h:calc(var(--hundredvh) - (var(--m) + var(--spacing) + var(--logo-height) +  var(--nav-height) - 14px));
+    /*  */
+    --border:1px solid var(--fg);
+    --bevel-size:20px;
+
+    /* fonts */
+    --dubois-narrow:'VTC DuBois Narrow';
+    --dubois-wide:'VTC DuBois Wide';
 }
 
 body{
     background-color:var(--bg);
     color:var(--fg);
-}
-
-
-#window{
-    position:sticky;
-    top:0;
-    width:100vw;
-    height:100vh;
-    cursor:none;
-    mask:url(../assets/mask.svg#box) no-repeat;
-    -webkit-mask:url(../assets/mask.svg#box) no-repeat;
-}
-
-
-#scroll-overlay{
-    min-height:100vh;
-    position:relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1{
-    font-size:30px;
+    font-size:50px;
     font-family:'VTC DuBois Wide';
     font-weight:600;
     text-transform:uppercase;
+    text-align:center;
 }
 
-nav{
-    position:relative;
-    top:-9px;
-    height:var(--nav-height);
-    transform:translateY(-100%);
-    display:flex;
-    flex-flow:row nowrap;
+a{
+    color:var(--fg);
+    text-decoration:none;
+}
+
+.sticky-top{
+    position:sticky;
+    top:0;
+    height:fit-content;
     width:100%;
-    justify-content:center;
-    z-index:3;
-}
-
-#svg-perch{
-    height:0;
-    position:relative;
+    /* overflow:hidden; */
+    margin-bottom:-14px;
     pointer-events:none;
-    z-index:2;
-}
+    z-index:130;
 
-#svg-wrapper{
-    width:100vw;
-    height:100vh;
-    bottom:0;
-    position:absolute;
     
 }
 
-#svg-wrapper svg{
+#page-nav{
+    width:100%;
+    display:flex;
+    flex-flow:row nowrap;
+    max-width:var(--max-w);
+    margin:auto;
+    position:relative;
+    z-index:10;
+    pointer-events:all;
+    background-color: var(--bg);
+    &::before, &::after{
+        content:'';
+        width:20px;
+        position:absolute;
+        height:calc(var(--nav-height) - var(--spacing) + 1px);
+        top:0;
+        left:0;
+        background-color: var(--bg);
+        z-index:5;
+    }
+
+    &::after{
+        right:0;
+        left:auto;
+    }
+
+    
+}
+
+#page-nav a{
+    flex:1;
+    box-sizing:border-box;
+    margin-right:-1px;
+    padding:15px;
+    padding-top:10px;
+    position:relative;
+    z-index:10;
+    background-color: var(--bg);
+}
+
+
+h2{
+    font-family:var(--dubois-wide);
+    font-size:16px;
+    line-height:21px;
+}
+
+
+#archive-top-bevel{
+    position:relative;
+    
+    height:14px;
+    max-width:var(--max-w);
+    margin:auto;
+    margin-top:var(--spacing);
+    z-index:15;
+    pointer-events:none;
+
+    & h2{
+        position:absolute;
+        top:15px;
+        left:15px;
+    }
+}
+
+
+
+#archive-window{
+    z-index:99;
+    width:var(--max-w);
+    /* background-color: var(--bg); */
+    --max-opacity:0;
+    
+    height:var(--archive-h);
+    margin:0 auto;
+    position:sticky;
+    /* top:calc((var(--archive-h) - 20px) * -1); */
+    top:calc(var(--archive-h) * -1 + 110px);
+    cursor:none;
+
+    &::before,&::after{
+        content:'';
+        position:sticky;
+        width:100%;
+        height:49px;
+        background-color: var(--bg);
+        top:calc(var(--nav-height) + var(--spacing));
+        display:block;
+        pointer-events:none;
+        
+    }
+    &::before{
+        transform: translateY(-77px);
+        z-index:10;
+        
+    }
+
+    &::after{
+        z-index:1;
+    }
+}
+
+.scrolled #archive-window{
+    cursor:unset;
+}
+
+.transitioned-logo #archive-window::before{
+    opacity:0;
+}
+
+
+#lens-gap{
+    position:absolute;
+    bottom:0px;
+    height:2px;
+    background-color: var(--bg);
+    left:50%;
+    width:clamp(0px,calc(1px * (100 - (var(--scrolly) - 50) )),100px);
+    transform:translateX(-50%);
+    z-index:20;
+    /* transition:width 1s; */
+}
+
+.scrolled #lens-gap{
+    /* width:0; */
+}
+
+#lens-wrapper{
+    /* position:absolute; */
+    top:calc(var(--spacing) * -1);
+    height:80px;
+    /* transform:translateY(-40px); */
+    width:100%;
+    z-index:200;
+    position:relative;
+    margin-bottom:-50px;
+}
+
+#logo{
+    position:absolute;
+    top:-73px;
+    left:50%;
+    transform:translateX(-150px);
+    --o:clamp(0,calc(var(--scrolly) / 40),1);
+    --o:clamp(0,calc(((var(--scrolly) - 150) / 100)),1);
+    opacity:var(--o);
+    pointer-events:none;
+
+    & path{
+        fill:var(--bg);
+        stroke:var(--mid);
+    }
+
+    & path.hull,rect{
+        stroke:var(--fg);
+    }
+}
+
+
+#lens{
+    position:absolute;
+    top:-33px;
+    left:50%;
+    width:8px;
+    height:66px;
+    background-color: var(--fg);
+    --rad:0;
+    --base:0rad;
+    --ratio:clamp(0,calc((1 - (var(--scrolly) - 20) / 100)),1);
+    --r:calc(var(--base) + var(--rad) * var(--ratio) );
+    --logo-bump:calc((1 - var( --ratio)) * 17);
+    --x-offset:calc(-4px  - var(--logo-bump) * 1px);
+    transform-origin:50% 50%;
+    --y:calc(var(--ratio) * 30px - 30px);
+    /* --y:0px; */
+    transform:translate(var(--x-offset),var(--y)) rotate(var(--r));
+    
+}
+
+.scrolled #lens{
+    /* transform:translate(-50%,-50%) rotate(0); */
+    /* transition:transform 0.3s; */
+}
+
+#lens.left{
+    --r:calc(var(--base) + (var(--rad) - 3.14rad) * var(--ratio) );
+    /* --base:3.14rad; */
+    /* transform:translate(-50%,-50%) rotate(180deg); */
+}
+
+
+article{
+    max-width:var(--max-w);
+    margin:auto;
+    margin-top:var(--spacing);
+    --delay:120px;
+    position:relative;
+    
+    & .content-wrap{
+        position:sticky;
+        z-index:130;
+        top:calc(var(--archive-h) + var(--nav-height));
+        min-height:var(--hundredvh);
+    }
+
+
+
+    & .delay-spacer{
+        height:var(--delay);
+    }
+}
+
+.transitioned-logo article .content-wrap{
+    z-index:10;
+}
+
+
+@media(hover:hover){
+    #page-nav a:hover{
+        background-color: var(--fg);
+        color:var(--bg);
+    }
+
+    body:not(.scrolled) #archive-window:hover{
+        --max-opacity:1;
+
+        /* & .paths path{
+            stroke-dashoffset:0;
+        } */
+    }
+    /* #archive-window.scrolled:hover{
+        --max-opacity:0;
+    } */
+}
+
+#archive-content-wrapper{
+    mask:url(../assets/mask.svg#box) no-repeat;
+    -webkit-mask:url(../assets/mask.svg#box) no-repeat;
+    
+    /* cursor:crosshair; */
+    /* overflow:scroll; */
+}
+
+
+.fill-frame{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:5;
+    opacity:var(--max-opacity);
+    transition:opacity 0.5s;
+    transition-delay:0.1s;
+    
+    /* opacity:clamp(0,calc(var(--max-opacity) - var(--scrolly)/100),1); */
+}
+
+#scope-wrapper{
+    pointer-events:none;
+    
+    & svg{
+        opacity:clamp(0,calc((1 - (var(--scrolly)) / 100)),1);
+    }
+}
+
+
+
+
+#scope{
     width:100%;
     height:100%;
     position:relative;
     z-index:5;
 }
 
-
-
-
+#scope-wrapper #scope-back{
+    height:100%;
+    z-index:5;
+    position:absolute;
+    bottom:1px;
+    left:50%;
+    transform:translate(-50%,100%);
+}
 
 #aperture,#aperture-back{
-    /* opacity:0; */
     stroke-width:1px;
     stroke:var(--mid);
     fill:none;
-    /* box-shadow: inset 0px 0px 20px 0px var(--mid); */
 }
 
 #aperture-back{
     fill:var(--bg);
-    /* mix-blend-mode:color; */
 }
 
 .paths path{
     stroke-width:1px;
     stroke:var(--mid);
     fill:none;
+    /* stroke-dasharray:var(--l);
+    stroke-dashoffset:var(--l);
+    transition:stroke-dashoffset 0.5s; */
+}
+
+#crosshair line{
+    stroke-width:1px;
+    stroke:var(--mid);
+}
+
+.paths path.side-back{
+    z-index:20;
 }
 
 #aperture-glow{
-    /* opacity:0; */
     position:absolute;
     top:0;
     left:0;
     width:180px;
     height:180px;
     z-index:2;
-    /* box-shadow: 0px 0px 15px 11px rgba(255, 255, 255, 0.05) inset; */
 }
 
-#lens{
+
+
+
+#aperture-glow{
     position:absolute;
-    left:50%;
-    bottom:90px;
-    --rad:0rad;
-    transform:translate(-50%,50%) rotate(var(--rad));
-    width:7px;
-    height:65px;
-    background-color:var(--fg);
-    z-index:20;
+    top:0;
+    left:0;
+    width:180px;
+    height:180px;
+    z-index:2;
 }
 
 #mask-test{
@@ -122,7 +396,102 @@ nav{
 }
 
 
-/* min(70px,6vw); */
+article p{
+    font-size:14px;
+    color:white;
+    max-width:600px;
+    margin:0px auto 20px;
+    font-family:'Courier New';
+}
+
+
+
+
+ .bevel-box{
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    position:absolute;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:10;
+    &::before{
+        content:'';
+        top:0;
+        left:0;
+        position:absolute;
+        width:100%;
+        height:100%;
+        box-sizing:border-box;
+    }
+
+    &.left::before{
+        border-left:1px solid var(--fg);
+    }
+
+    &.right::before{
+        border-right:1px solid var(--fg);
+    }
+
+    &.top::before{
+        border-top:1px solid var(--fg);
+    }
+
+    &.bottom::before{
+        border-bottom:1px solid var(--fg);
+    }
+
+    & .corner{
+        background-color: var(--bg);
+        width:var(--bevel-size);
+        height:var(--bevel-size);
+        position:absolute;
+        border-top:var(--border);
+        --tx:-50%;
+        --ty:50%;
+        --tr:var(--tx),var(--ty);
+        --rot:45deg;
+        transform:translate(var(--tr)) rotate(var(--rot));
+        transform-origin:50% 50%;
+    }
+
+    & .corner.br{
+        --rot:-45deg;
+    }
+
+    & .corner.bl{
+        --rot:45deg;
+    }
+
+    & .corner.tl{
+        --rot:135deg;
+    }
+
+    & .corner.tr{
+        --rot:-135deg;
+    }
+
+    & .corner.br,.corner.bl{
+        bottom:0;
+        --ty:50%;
+    }
+    & .corner.tr,.corner.tl{
+        top:0;
+        --ty:-50%;
+    }
+
+    & .corner.tr,.corner.br{
+        right:0;
+        --tx:50%;
+    }
+
+    & .corner.tl,.corner.bl{
+        left:0;
+        --tx:-50%;
+    }
+}
+
 
 @font-face {
     font-family: 'VTC DuBois Narrow';
@@ -136,9 +505,16 @@ nav{
     font-weight:400;
     font-style:italic;
 }
+
 @font-face {
     font-family: 'VTC DuBois Wide';
-    src: url('../assets/fonts/vtc-du-bois-bold-wide-trial.woff2') format('woff2');
+    src: url('../assets/fonts/vtc-du-bois-wide-regular-trial.otf') format('opentype');
+    font-style:normal;
+}
+
+@font-face {
+    font-family: 'VTC DuBois Wide';
+    src: url('../assets/fonts/vtc-du-bois-wide-bold-trial.woff2') format('woff2');
     font-weight:600;
     font-style:normal;
 }
