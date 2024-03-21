@@ -22,15 +22,20 @@ eleventyExcludeFromCollections: true
 
     <!-- favicon -->
     {# {{ favicon.html() }} #}
+
+    <script>
+      console.log({{sheet | dump | safe}})
+    </script>
   
   </head>
 
   <body>
     <div class='sticky-top'>
         <nav id="page-nav">
+          {# {% set page0 = sheet[0] %} #}
           {% for page in pages %}
             <a href="{{page.permalink}}">
-              {{macros.bevel_box("left right bottom",["br","bl"]) }}
+              {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
               <h2>{{page.title}}</h2>
             </a>
           {% endfor %}
@@ -51,10 +56,10 @@ eleventyExcludeFromCollections: true
             <div id="aperture-glow"></div>
             <svg id="scope">
               <path id="aperture"></path>
-              <g id='crosshair'>
+              {# <g id='crosshair'>
                 <line x1="0" x2="20" y1="10" y2="10" />
                 <line x1="10" x2="10" y1="0" y2="20" />
-              </g>
+              </g> #}
               {# <path id="aperture-back"></path> #}
             </svg>
             <svg id="scope-back">

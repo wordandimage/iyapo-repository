@@ -78,7 +78,7 @@ function init(){
     dom.archive_window=d3.select('#archive-window');
     dom.archive_content=d3.select('#archive-content-wrapper');
     svg.aperture=d3.select('#aperture');
-    svg.crosshair=d3.select('#crosshair');
+    // svg.crosshair=d3.select('#crosshair');
     svg_back.aperture=d3.select('#aperture-back');
     svg.aperture_glow=d3.select('#aperture-glow');
     dom.lens=d3.select('#lens')
@@ -93,6 +93,7 @@ function init(){
    
     set_size();
     set_up_logo();
+    set_scroll();
     window.addEventListener('resize',set_size);
     window.addEventListener('scroll',set_scroll)
     
@@ -179,7 +180,7 @@ function update_scope(pos){
         right:pos.x+90
     }
 
-    svg.crosshair.style('transform',`translate(${pos.x-10}px,${pos.y-10}px)`)
+    // svg.crosshair.style('transform',`translate(${pos.x-10}px,${pos.y-10}px)`)
 
    
     // svg.aperture.attr("points",`${box.left},${box.top} ${box.right},${box.top} ${box.right},${box.bot} ${box.left},${box.bot} ${box.left},${box.top}`).style('opacity',1);

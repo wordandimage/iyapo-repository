@@ -15,8 +15,10 @@
 
     --archive-h:calc(var(--hundredvh) - (var(--m) + var(--spacing) + var(--logo-height) +  var(--nav-height) - 14px));
     /*  */
-    --border:1px solid var(--fg);
-    --bevel-size:20px;
+    /* --stroke-width:0.8px; */
+    --stroke-width:1px;
+    --border:var(--stroke-width) solid var(--fg);
+    --bevel-size:15px;
 
     /* fonts */
     --dubois-narrow:'VTC DuBois Narrow';
@@ -31,7 +33,7 @@ body{
 }
 
 h1{
-    font-size:50px;
+    font-size:36px;
     font-family:'VTC DuBois Wide';
     font-weight:600;
     text-transform:uppercase;
@@ -66,11 +68,12 @@ a{
     z-index:10;
     pointer-events:all;
     background-color: var(--bg);
+    padding-top:var(--spacing);
     &::before, &::after{
         content:'';
         width:20px;
         position:absolute;
-        height:calc(var(--nav-height) - var(--spacing) + 1px);
+        height:calc(var(--nav-height) + 1px);
         top:0;
         left:0;
         background-color: var(--bg);
@@ -89,7 +92,7 @@ a{
     flex:1;
     box-sizing:border-box;
     margin-right:-1px;
-    padding:15px;
+    padding:10px 15px;
     padding-top:10px;
     position:relative;
     z-index:10;
@@ -98,8 +101,13 @@ a{
 
 
 h2{
-    font-family:var(--dubois-wide);
+    /* font-family:var(--dubois-wide);
     font-size:16px;
+    line-height:21px; */
+
+    font-family:'jetbrains';
+    font-size:16px;
+    font-weight:200;
     line-height:21px;
 }
 
@@ -116,7 +124,7 @@ h2{
 
     & h2{
         position:absolute;
-        top:15px;
+        top:10px;
         left:15px;
     }
 }
@@ -133,14 +141,14 @@ h2{
     margin:0 auto;
     position:sticky;
     /* top:calc((var(--archive-h) - 20px) * -1); */
-    top:calc(var(--archive-h) * -1 + 110px);
-    cursor:none;
+    top:calc(var(--archive-h) * -1 + 113px);
+    cursor:crosshair;
 
     &::before,&::after{
         content:'';
         position:sticky;
         width:100%;
-        height:49px;
+        height:42px;
         background-color: var(--bg);
         top:calc(var(--nav-height) + var(--spacing));
         display:block;
@@ -173,7 +181,7 @@ h2{
     height:2px;
     background-color: var(--bg);
     left:50%;
-    width:clamp(0px,calc(1px * (100 - (var(--scrolly) - 50) )),100px);
+    width:clamp(0px,calc(1px * (100 - (var(--scrolly) - 50) )),150px);
     transform:translateX(-50%);
     z-index:20;
     /* transition:width 1s; */
@@ -198,7 +206,7 @@ h2{
     position:absolute;
     top:-73px;
     left:50%;
-    transform:translateX(-150px);
+    transform:translateX(-170px);
     --o:clamp(0,calc(var(--scrolly) / 40),1);
     --o:clamp(0,calc(((var(--scrolly) - 150) / 100)),1);
     opacity:var(--o);
@@ -206,7 +214,8 @@ h2{
 
     & path{
         fill:var(--bg);
-        stroke:var(--mid);
+        stroke:var(--fg);
+        stroke-width:var(--stroke-width);
     }
 
     & path.hull,rect{
@@ -222,11 +231,11 @@ h2{
     width:8px;
     height:66px;
     background-color: var(--fg);
-    --rad:0;
+    --rad:0rad;
     --base:0rad;
-    --ratio:clamp(0,calc((1 - (var(--scrolly) - 20) / 100)),1);
+    --ratio:clamp(0,calc((1 - (var(--scrolly)) / 100)),1);
     --r:calc(var(--base) + var(--rad) * var(--ratio) );
-    --logo-bump:calc((1 - var( --ratio)) * 17);
+    --logo-bump:calc((1 - var( --ratio)) * 37);
     --x-offset:calc(-4px  - var(--logo-bump) * 1px);
     transform-origin:50% 50%;
     --y:calc(var(--ratio) * 30px - 30px);
@@ -277,6 +286,7 @@ article{
     #page-nav a:hover{
         background-color: var(--fg);
         color:var(--bg);
+        /* flex:2; */
     }
 
     body:not(.scrolled) #archive-window:hover{
@@ -342,8 +352,8 @@ article{
 }
 
 #aperture,#aperture-back{
-    stroke-width:1px;
-    stroke:var(--mid);
+    stroke-width:var(--stroke-width);
+    stroke:var(--fg);
     fill:none;
 }
 
@@ -352,8 +362,8 @@ article{
 }
 
 .paths path{
-    stroke-width:1px;
-    stroke:var(--mid);
+    stroke-width:var(--stroke-width);
+    stroke:var(--fg);
     fill:none;
     /* stroke-dasharray:var(--l);
     stroke-dashoffset:var(--l);
@@ -361,8 +371,9 @@ article{
 }
 
 #crosshair line{
-    stroke-width:1px;
-    stroke:var(--mid);
+    stroke-width:var(--stroke-width);
+    stroke:var(--fg);
+    
 }
 
 .paths path.side-back{
@@ -427,19 +438,19 @@ article p{
     }
 
     &.left::before{
-        border-left:1px solid var(--fg);
+        border-left:var(--border);
     }
 
     &.right::before{
-        border-right:1px solid var(--fg);
+        border-right:var(--border);
     }
 
     &.top::before{
-        border-top:1px solid var(--fg);
+        border-top:var(--border);
     }
 
     &.bottom::before{
-        border-bottom:1px solid var(--fg);
+        border-bottom:var(--border);
     }
 
     & .corner{
@@ -517,4 +528,16 @@ article p{
     src: url('../assets/fonts/vtc-du-bois-wide-bold-trial.woff2') format('woff2');
     font-weight:600;
     font-style:normal;
+}
+
+
+@font-face {
+    font-family: 'jetbrains';
+    src: url('../assets/fonts/jetbrains-variable.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'jetbrains';
+    font-style:italic;
+    src: url('../assets/fonts/jetbrains-variable-italic.ttf') format('truetype');
 }
