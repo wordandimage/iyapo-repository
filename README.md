@@ -29,4 +29,4 @@ Instructions:
 
 You can make edits in notion and refresh the page to see them reflected — note that the preview waits at least one minute between updates, to prevent overloading the notion server.
 
-More info to come on how to make edits, adding images, and pushing changes to the live website.
+More info to come on how to make edits, add images, and push changes to the live website!
