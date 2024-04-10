@@ -1,6 +1,14 @@
 :root{
     --bg:#0A0101;
-    --fg:white;
+    --fg:rgb(250,250,250);
+    --hl:#D940FF;
+
+    /* --bg:#1b1b1b;
+    --fg:rgb(250,250,250); */
+
+    /* --fg:#0A0101;
+    --bg:white;
+     */
     
     --mid:#808080;
     --m:20px;
@@ -8,12 +16,12 @@
     --logo-height:75px;
     --hundredvh:100vh;
     --hundredvh:100svh;
-    --nav-height:75px;
-    --max-w:min(calc(100% - var(--m) * 2), 1210px);
+    --nav-height:70px;
+    --max-w:calc(100% - var(--m) * 2);
     --scrolly:0;
 
 
-    --archive-h:calc(var(--hundredvh) - (var(--m) + var(--spacing) + var(--logo-height) +  var(--nav-height) - 14px));
+    
     /*  */
     /* --stroke-width:0.8px; */
     --stroke-width:1px;
@@ -25,19 +33,33 @@
     --dubois-wide:'VTC DuBois Wide';
 }
 
+
+
+
 body{
     background-color:var(--bg);
     color:var(--fg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    --archive-h:40px;
+}
+
+body.landing{
+    --archive-h:calc(var(--hundredvh) - (var(--m) + var(--spacing) + var(--logo-height) +  var(--nav-height) - 14px));
 }
 
 h1{
     font-size:36px;
     font-family:'VTC DuBois Wide';
-    font-weight:600;
+    font-weight:200;
     text-transform:uppercase;
     text-align:center;
+    letter-spacing:0.03em;
+    margin-bottom:20px;
+}
+
+.landing h1{
+    font-weight:600;
 }
 
 a{
@@ -58,6 +80,19 @@ a{
     
 }
 
+#home-link{
+    position:absolute;
+    top:-1px;
+    left:0;
+    z-index:5;
+    width:100%;
+    height:100%;
+}
+#home-link:hover{
+    background-color: var(--fg);
+}
+
+
 #page-nav{
     width:100%;
     display:flex;
@@ -67,7 +102,7 @@ a{
     position:relative;
     z-index:10;
     pointer-events:all;
-    background-color: var(--bg);
+    /* background-color: var(--bg); */
     padding-top:var(--spacing);
     &::before, &::after{
         content:'';
@@ -144,26 +179,32 @@ h2{
     top:calc(var(--archive-h) * -1 + 113px);
     cursor:crosshair;
 
-    &::before,&::after{
-        content:'';
-        position:sticky;
-        width:100%;
-        height:42px;
-        background-color: var(--bg);
-        top:calc(var(--nav-height) + var(--spacing));
-        display:block;
-        pointer-events:none;
-        
-    }
-    &::before{
-        transform: translateY(-77px);
-        z-index:10;
-        
-    }
+    
+}
 
-    &::after{
-        z-index:1;
-    }
+#archive-window::before,#archive-window::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:42px;
+    background-color: var(--bg);
+    top:-1px;
+    display:block;
+    pointer-events:none;
+}
+.landing #archive-window::before,.landing #archive-window::after{
+    position:sticky;
+    top:calc(var(--nav-height) + var(--spacing));
+}
+
+.landing #archive-window::before{
+    transform: translateY(-77px);
+    z-index:10;
+    
+}
+
+#archive-window::after{
+    z-index:1;
 }
 
 .scrolled #archive-window{
@@ -176,6 +217,7 @@ h2{
 
 
 #lens-gap{
+    display:none;
     position:absolute;
     bottom:0px;
     height:2px;
@@ -185,6 +227,10 @@ h2{
     transform:translateX(-50%);
     z-index:20;
     /* transition:width 1s; */
+}
+
+.landing #lens-gap{
+    display:unset;
 }
 
 .scrolled #lens-gap{
@@ -200,6 +246,11 @@ h2{
     z-index:200;
     position:relative;
     margin-bottom:-50px;
+    opacity:0;
+}
+
+.landing #lens-wrapper{
+    opacity:1;
 }
 
 #logo{
@@ -263,18 +314,22 @@ article{
     --delay:120px;
     position:relative;
     
-    & .content-wrap{
-        position:sticky;
-        z-index:130;
-        top:calc(var(--archive-h) + var(--nav-height));
-        min-height:var(--hundredvh);
-    }
-
-
 
     & .delay-spacer{
         height:var(--delay);
     }
+}
+
+article .content-wrap{
+    position:relative;
+    min-height:var(--hundredvh);
+    
+}
+
+.landing article .content-wrap{
+    position:sticky;
+    top:calc(var(--archive-h) + var(--nav-height));
+    z-index:130;
 }
 
 .transitioned-logo article .content-wrap{
@@ -289,16 +344,9 @@ article{
         /* flex:2; */
     }
 
-    body:not(.scrolled) #archive-window:hover{
+    body.landing:not(.scrolled) #archive-window:hover{
         --max-opacity:1;
-
-        /* & .paths path{
-            stroke-dashoffset:0;
-        } */
     }
-    /* #archive-window.scrolled:hover{
-        --max-opacity:0;
-    } */
 }
 
 #archive-content-wrapper{
@@ -406,15 +454,50 @@ article{
     color:rgba(255,255,255,0.1);
 }
 
-
-article p{
-    font-size:14px;
-    color:white;
-    max-width:600px;
-    margin:0px auto 20px;
-    font-family:'Courier New';
+.prose{
+    /* display:flex; */
+    /* flex-flow:column nowrap;
+    align-items:flex-start;
+    justify-content: flex-start; */
 }
 
+.prose em{
+    font-style:italic;
+}
+
+.prose .block{
+    max-width:660px;
+    margin:0px auto 10px;
+    color:var(--fg);
+    font-family: 'jetbrains';
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 26px;
+    letter-spacing:0.01em;
+}
+
+
+
+.prose h2{
+    border-top:1px solid var(--fg);
+    padding-top:10px;
+    text-transform:uppercase;
+    margin-top:50px;
+    /* margin-bottom:0px; */
+}
+
+.prose a{
+    color:var(--hl);
+    font-weight:400;
+}
+
+.prose h3{
+    display:inline-block;
+    border-bottom:1px solid var(--fg);
+    /* padding-top:4px; */
+    text-transform:uppercase;
+    margin-top:10px;
+}
 
 
 
@@ -529,6 +612,14 @@ article p{
     font-weight:600;
     font-style:normal;
 }
+
+@font-face {
+    font-family: 'VTC DuBois Wide';
+    src: url('../assets/fonts/vtc-du-bois-wide-light-trial.otf') format('opentype');
+    font-weight:200;
+    font-style:normal;
+}
+
 
 
 @font-face {

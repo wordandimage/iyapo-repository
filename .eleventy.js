@@ -1,8 +1,18 @@
 
 const marked = require('marked');
+marked.use({mangle: false,headerIds: false});
 
 module.exports = function (eleventyConfig) {
 
+    eleventyConfig.addNunjucksFilter( "md", function(value) {    
+        var result;
+          try {
+            result = marked.parse(value)
+            return result;
+          } catch (e) {
+            return "";
+          }
+      });
 
     eleventyConfig.addPassthroughCopy("assets");
     eleventyConfig.setServerPassthroughCopyBehavior("passthrough");

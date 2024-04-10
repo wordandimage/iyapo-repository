@@ -1,0 +1,103 @@
+---
+title: Iyapo Repository
+landing: false
+---
+
+{% set rootpath="" if landing else "../" %}
+{# {% import 'favicon.njk' as favicon %} #}
+{% import 'macros.njk' as macros %}
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Iyapo Repository{{"- " + pg.properties.title.value if not landing else "" }}</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0A0101">
+    <link rel="stylesheet" href="{{ rootpath }}css/clearstyle.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/global.css">
+    
+    <script>
+      let is_landing={{landing | dump | safe}};
+      console.log({{cms | dump | safe}})
+      console.log({{pg | dump | safe}})
+    </script>
+    <script type="module" src="{{ rootpath }}js/d3.js" charset="utf-8" preload></script>
+    <script src="{{ rootpath }}js/global.js" charset="utf-8"></script>
+
+    <!-- favicon -->
+    {# {{ favicon.html() }} #}
+
+    
+  
+  </head>
+
+  <body class="{{ 'landing' if landing else '' }}">
+    <div class='sticky-top'>
+        <nav id="page-nav">
+          {# {% set page0 = sheet[0] %} #}
+          {% for page in cms.pages %}
+            {%set title = page.properties.title.value %}
+            <a href="/{{title | slugify }}">
+              {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
+              <h2>{{title}}</h2>
+            </a>
+          {% endfor %}
+        </nav>
+        <div id="archive-top-bevel">
+          {{macros.bevel_box("top",["tr","tl"]) }}
+          {# <h2>Archive</h2> #}
+          
+        </div>
+      </div>
+      
+      <div id="archive-window" class='bevel-stroke'>
+        {{macros.bevel_box("left right bottom",["br","bl"]) }}
+          <div id="archive-content-wrapper" class='fill-frame'>
+             <p id="mask-test">Hello, I hope you’re having a nice day</p>
+          </div>
+          <div id="scope-wrapper"  class='fill-frame'>
+            <div id="aperture-glow"></div>
+            <svg id="scope">
+              <path id="aperture"></path>
+            </svg>
+            <svg id="scope-back">
+              <path id="aperture-back"></path>
+            </svg>
+            
+          </div>
+          <div id='lens-gap'> </div>
+          {% if not landing %}
+          <a href="/" id="home-link"></a>
+          {% endif %}
+      </div>
+      <article>
+        
+        
+        <div class='content-wrap'>
+          <div id='lens-wrapper'>
+            {{macros.logo() }}
+            <div id="lens"></div>
+          </div>
+          <h1>{{pg.properties.title.value if not landing else title}}</h1>
+          <section class='prose'>
+            {% if not landing %}
+                {% for block in pg.mdcontent %}
+                <div class='block'>
+                    {{ block.value | md | safe }}
+                </div>
+                {% endfor %}
+            {% endif %}
+          </section>
+          
+          
+        </div>
+        <div class='delay-spacer'></div>
+      </article>
+
+
+
+  </body>
+</html>

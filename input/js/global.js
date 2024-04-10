@@ -72,14 +72,14 @@ let scope_back_paths=[
 window.addEventListener('load',init);
 
 function init(){
-    dom.svg=d3.select('#scope');
-    dom.svg_back=d3.select('#scope-back')
-    dom.body=d3.select('body')
-    dom.archive_window=d3.select('#archive-window');
-    dom.archive_content=d3.select('#archive-content-wrapper');
-    svg.aperture=d3.select('#aperture');
-    // svg.crosshair=d3.select('#crosshair');
-    svg_back.aperture=d3.select('#aperture-back');
+    if(is_landing){
+        dom.svg=d3.select('#scope');
+        dom.svg_back=d3.select('#scope-back')
+        dom.body=d3.select('body')
+        dom.archive_window=d3.select('#archive-window');
+        dom.archive_content=d3.select('#archive-content-wrapper');
+        svg.aperture=d3.select('#aperture');
+        svg_back.aperture=d3.select('#aperture-back');
     svg.aperture_glow=d3.select('#aperture-glow');
     dom.lens=d3.select('#lens')
     svg.paths=dom.svg
@@ -98,6 +98,10 @@ function init(){
     window.addEventListener('scroll',set_scroll)
     
     dom.archive_window.on('mousemove',set_cursor)
+    }
+    
+    // svg.crosshair=d3.select('#crosshair');
+    
     
     // addEventListener('mousemove',set_cursor)
 }
@@ -107,7 +111,7 @@ function set_scroll(){
     
     requestAnimationFrame(()=>{
         dom.body.style('--scrolly',scroll_y);
-        dom.body.classed('scrolled',scroll_y>20)
+        dom.body.classed('scrolled',scroll_y>2)
         dom.body.classed('transitioned-logo',scroll_y>100)
     })
 }

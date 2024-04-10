@@ -1,0 +1,8 @@
+---
+pagination:
+  data: cms.pages
+  size: 1
+  alias: pg
+permalink: "{{ pg.properties.title.value | slugify }}/"
+layout: main.njk
+---

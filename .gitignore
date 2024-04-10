@@ -1,6 +1,8 @@
 node_modules/
 .npm
 _site/
-assets/images/raw
+assets/images_raw
 gh-pages
 gh-pages.pub
+.env
+.cache
