@@ -40,7 +40,7 @@ landing: false
           {# {% set page0 = sheet[0] %} #}
           {% for page in cms.pages %}
             {%set title = page.properties.title.value %}
-            <a href="/{{title | slugify }}">
+            <a href="{{ "BASE_URL" | env }}{{title | slugify }}">
               {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
               <h2>{{title}}</h2>
             </a>

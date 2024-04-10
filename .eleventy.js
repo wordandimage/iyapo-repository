@@ -1,8 +1,13 @@
 
 const marked = require('marked');
 marked.use({mangle: false,headerIds: false});
+require('dotenv').config();
 
 module.exports = function (eleventyConfig) {
+
+    eleventyConfig.addNunjucksFilter( "env", function(value) {    
+      return process.env[value]
+    });
 
     eleventyConfig.addNunjucksFilter( "md", function(value) {    
         var result;
