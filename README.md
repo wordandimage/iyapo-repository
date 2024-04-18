@@ -20,7 +20,7 @@ Instructions:
 
 2. Once you’ve clone the repository, there will be a new folder called “iyapo-repository” in whichever location you chose to save it on your computer. In a terminal window, navigate into this folder. Also pull it up in your finder.
 
-3. Take the `.env` file, which should have been sent to you, and drag it into the `iyapo-repository` folder. This contains the password to read data from Notion.
+3. Take the `.env` file, which will have been sent to you, and drag it into the `iyapo-repository` folder. This contains the password to read data from Notion.
 
 4. Still in the terminal, type and enter the command `npm install`. This installs all the code needed to preview and modify the site.
 
