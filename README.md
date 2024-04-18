@@ -11,7 +11,7 @@ Prerequisites:
 
 - get to know [the basics](https://tutorials.codebar.io/command-line/introduction/tutorial.html) of using the terminal/command line on your computer, especially the `cd` command.
 - have [git](https://git-scm.com/), [node, and npm](https://github.com/nvm-sh/nvm#install--update-script) installed on your computer. These programs will allow you to preview the website and make edits. 
-- Also make sure you are added as a member to the Iyapo Repository Notion workspace, where site content is managed.
+- Also make sure you are added to the Iyapo Repository Notion workspace, where site content is managed.
 - get to know [some basic git terminology](https://docs.github.com/en/repositories/creating-and-managing-repositories/about-repositories)
 
 Instructions:
