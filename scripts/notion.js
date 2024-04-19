@@ -1,5 +1,6 @@
 const { Client } = require("@notionhq/client");
 const { NotionToMarkdown } = require("notion-to-md");
+const process_images=require('./process-images.js');
 require('dotenv').config();
 
 let pages_database_id="98c44354161641b39e15bbb26816ad33";
@@ -9,17 +10,39 @@ let artifacts_database_id="dd406cccfd91406f8207b62effb45912";
 
 let secret=process.env.NOTION_TOKEN;
 
+let image_processing_queue=[];
+
+
+
+let acceptable_extension=(filename)=>{
+    let fExtension = filename.match(/\.[^/.]+$/)[0];
+    let acceptableExt = ['.jpg', '.png', '.jpeg', '.webp'];
+    return fExtension && acceptableExt.includes(fExtension.toLowerCase());
+}
 
 
 const notion = new Client({
     auth: secret
 })
 const n2m = new NotionToMarkdown({ notionClient: notion });
+n2m.setCustomTransformer("image", async (block) => {
+    // console.log(block)
+    // const { image } = block;
+    // let def=await n2m.blockToMarkdown(image);
+    return '';
+  });
+
+  n2m.setCustomTransformer("callout", async (block) => {
+    // console.log(block.callout);
+        // TODO: FETCH CHILDREN TO GET IMAGES
+        // COME UP WITH PARSING SYSTEM
+    return '';
+  });
 
 
 const delay = (t) => new Promise(resolve => setTimeout(resolve, t));
 
-async function fetch_database(database_id,sort_prop,include_content=false){
+async function fetch_database(database_id,{sort_prop,include_content=false,archive_type}){
     let has_more=true;
     let next_cursor;
 
@@ -48,6 +71,8 @@ async function fetch_database(database_id,sort_prop,include_content=false){
     results=results.map(a=>{
         // console.log(a.properties);
         let properties={};
+        let manuscript_id=a?.properties?.manuscript_id?.number;
+        let artifact_subid=a?.properties?.artifact_subid?.number;
 
         for(let prop of Object.keys(a.properties)){
             let b=a.properties[prop];
@@ -76,6 +101,48 @@ async function fetch_database(database_id,sort_prop,include_content=false){
                         value:b.rich_text
                     }
                     break;
+                case 'files':
+                    
+                    let input_file_array=b.files;
+
+                    let output_file_array=[];
+
+                    for(let file of input_file_array){
+                        if(file.type=='file'&&acceptable_extension(file.name)){
+                            let metadata={
+                                manuscript_id,
+                                sizes:['sm','lg']
+                            }
+                            if(archive_type=='artifact'){
+                                metadata.artifact_subid=artifact_subid;
+
+                            }
+
+                            output_file_array.push({
+                                type:'image',
+                                name:file.name
+                            })
+                            
+                            image_processing_queue.push({
+                                type:archive_type,
+                                url:file.file.url,
+                                name:file.name,
+                                metadata
+                            })
+                        }else if(file.type=='external'){
+                            output_file_array.push({
+                                type:'embed',
+                                url:file.external.url
+                            })
+                        }
+                        
+                    }
+                 
+                    properties[prop]=  {
+                        type:'files',
+                        value:output_file_array
+                    }
+                    break;
                 default:
                     properties[prop]=  {
                         type:b.type,
@@ -96,7 +163,7 @@ async function fetch_database(database_id,sort_prop,include_content=false){
         for(let item of results){
             let mdcontent=[];
             console.log(`   loading ${item.properties.title.value}`)
-       
+            
             mdcontent=await n2m.pageToMarkdown(item.item_id);
             mdcontent=mdcontent.map(a=>{
                 return {
@@ -119,22 +186,30 @@ async function fetch_database(database_id,sort_prop,include_content=false){
     
 // }
 
-module.exports = async function load_data(){
+module.exports = async function load_data({do_image_processing=false}){
     console.log('loading notion data...')
 
     console.log('   loading manuscripts')
-    let manuscripts=await fetch_database(manuscripts_database_id);
+    let manuscripts=await fetch_database(manuscripts_database_id,{archive_type:'manuscript'});
     await delay(500);
     console.log('   loading artifacts')
-    let artifacts=await fetch_database(artifacts_database_id);
+    let artifacts=await fetch_database(artifacts_database_id,{archive_type:'artifact'});
     console.log('   loading pages')
-    let pages=await fetch_database(pages_database_id,'nav_order',true);
+    let pages=await fetch_database(pages_database_id,{sort_prop:'nav_order',include_content:true});
     
-    return {
+
+    let cms={
         manuscripts,
         artifacts,
         pages
+    };
+    
+    if(process_images){
+        console.log('downloading and processing new images...')
+        await process_images(image_processing_queue,cms)
     }
+
+    return cms
 }
 
 // load_data();

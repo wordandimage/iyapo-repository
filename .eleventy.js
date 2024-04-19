@@ -9,6 +9,16 @@ module.exports = function (eleventyConfig) {
       return process.env[value]
     });
 
+    eleventyConfig.addNunjucksFilter( "notion_data_find", function(array,property,value) {   
+      return array.find(item=>item.properties[property].value==value);
+    });
+
+    eleventyConfig.addNunjucksFilter( "notion_data_sort_int", function(array,property) {    
+      return array.sort((a,b)=>{
+        return a.properties[property].value - b.properties[property].value;
+      });
+    });
+
     eleventyConfig.addNunjucksFilter( "md", function(value) {    
         var result;
           try {

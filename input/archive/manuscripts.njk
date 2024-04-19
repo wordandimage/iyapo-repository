@@ -1,0 +1,50 @@
+---
+title: Iyapo Repository
+---
+
+{% set rootpath="../../" %}
+{# {% import 'favicon.njk' as favicon %} #}
+{% import 'macros.njk' as macros %}
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Iyapo Repository - Manuscripts</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0A0101">
+    <link rel="stylesheet" href="{{ rootpath }}css/clearstyle.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/global.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/cluster.css">
+    
+
+
+    <!-- favicon -->
+    {# {{ favicon.html() }} #}
+
+
+  
+  </head>
+
+  <body >
+    <main class='grid' data-type="manuscripts">
+        {% for manuscript in cms.manuscripts | notion_data_sort_int("manuscript_id") %}
+          {% set id = manuscript.properties.manuscript_id.value%}
+          <a class="manuscript" href="./manuscript-{{id}}">
+            <span class="id-no">{{id}}</span>
+            {%if manuscript.properties.scan.value.length > 0 %}
+              <picture>
+                <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.webp" type="image/webp">
+                <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.jpg">
+                <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.jpg">
+              </picture>
+            {% endif %}
+          </a>
+        {% endfor %}
+    </main>
+    
+
+  
+  </body>
+</html>

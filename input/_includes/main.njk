@@ -30,7 +30,7 @@ landing: false
     <!-- favicon -->
     {# {{ favicon.html() }} #}
 
-    
+    {% set homepage_content = cms.pages | notion_data_find("use_on_homepage",1) %}
   
   </head>
 
@@ -40,7 +40,8 @@ landing: false
           {# {% set page0 = sheet[0] %} #}
           {% for page in cms.pages %}
             {%set title = page.properties.title.value %}
-            <a href="{{ "BASE_URL" | env }}{{title | slugify }}">
+            {%set url_base = "#" + title | slugify if page.properties.use_on_homepage.value else title | slugify %}
+            <a href="{{ "BASE_URL" | env }}{{url_base }}">
               {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
               <h2>{{title}}</h2>
             </a>
@@ -56,6 +57,9 @@ landing: false
       <div id="archive-window" class='bevel-stroke'>
         {{macros.bevel_box("left right bottom",["br","bl"]) }}
           <div id="archive-content-wrapper" class='fill-frame'>
+            {# {% for section archive_sections%}
+
+            {% endfor %} #}
              <p id="mask-test">Hello, I hope you’re having a nice day</p>
           </div>
           <div id="scope-wrapper"  class='fill-frame'>
@@ -67,13 +71,14 @@ landing: false
               <path id="aperture-back"></path>
             </svg>
             
+            
           </div>
           <div id='lens-gap'> </div>
           {% if not landing %}
           <a href="{{"BASE_URL" | env}}" id="home-link"></a>
           {% endif %}
       </div>
-      <article>
+      <article id="{{pg.properties.title.value if not landing else homepage_content.properties.title.value | slugify}}">
         
         
         <div class='content-wrap'>
@@ -84,12 +89,15 @@ landing: false
           <h1>{{pg.properties.title.value if not landing else title}}</h1>
           <section class='prose'>
             {% if not landing %}
-                {% for block in pg.mdcontent %}
+              {% set pagetext = pg.mdcontent %}
+            {% else %}
+              {% set pagetext = homepage_content.mdcontent %}
+            {% endif %}
+            {% for block in pagetext %}
                 <div class='block'>
                     {{ block.value | md | safe }}
                 </div>
                 {% endfor %}
-            {% endif %}
           </section>
           
           

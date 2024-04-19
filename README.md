@@ -24,9 +24,8 @@ Instructions:
 
 4. Still in the terminal, type and enter the command `npm install`. This installs all the code needed to preview and modify the site.
 
-5. Now, you should be able to start a live preview of the website by running this command: `npm run preview`. This preview will only be accessible on your personal network. When you run the command it will give you a link for where to find this preview (usually `http://localhost:8080/`).
+5. Run `npm run sync`. This will download and process the latest data and images from notion.
 
-
-You can make edits in notion and refresh the page to see them reflected — note that the preview waits at least one minute between updates, to prevent overloading the notion server.
+6. Now, you should be able to start a live preview of the website by running this command: `npm run preview`. This preview will only be accessible on your personal network. When you run the command it will give you a link for where to find this preview (usually `http://localhost:8080/`).
 
 More info to come on how to make edits, add images, and push changes to the live website!

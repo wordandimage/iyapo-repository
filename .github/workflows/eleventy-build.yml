@@ -19,6 +19,11 @@ jobs:
       - run: npm ci
         continue-on-error: true
 
+      - run: npm run sync
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          BASE_URL: /iyapo-repository/
+
       - run: npm run build
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
