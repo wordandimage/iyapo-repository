@@ -186,7 +186,7 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
     
 // }
 
-module.exports = async function load_data({do_image_processing=false}){
+module.exports = async function load_data({do_image_processing=false}={}){
     console.log('loading notion data...')
 
     console.log('   loading manuscripts')
