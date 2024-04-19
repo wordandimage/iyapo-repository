@@ -1,0 +1,42 @@
+.grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    box-sizing:border-box;
+    width:var(--max-w);
+    grid-gap:10px;
+    max-width:1200px;
+    margin:auto;
+    padding-top:40px;
+}
+
+img{
+    max-width:100%;
+    position:relative;
+    z-index:10;
+
+}
+
+.manuscript{
+    aspect-ratio:0.775;
+    box-sizing:border-box;
+    border:1px solid var(--fg);
+    display:flex;
+    flex-flow:column nowrap;
+    position:relative;
+}
+
+.id-no{
+    position:absolute;
+    top:5px;
+    left:10px;
+    z-index:5;
+    font-family: 'jetbrains';
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 26px;
+    letter-spacing:0.01em;
+}
+
+picture{
+    display:contents;
+}
