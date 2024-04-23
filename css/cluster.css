@@ -30,11 +30,6 @@ img{
     top:5px;
     left:10px;
     z-index:5;
-    font-family: 'jetbrains';
-    font-size: 16px;
-    font-weight: 200;
-    line-height: 26px;
-    letter-spacing:0.01em;
 }
 
 picture{
