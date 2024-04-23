@@ -1,0 +1,21 @@
+[
+    {
+        "name":"manuscripts",
+        "single":"manuscript",
+        "pos":{"x":0.65,"y":0.2}
+    },
+    {
+        "name":"artifacts",
+        "single":"artifact",
+        "pos":{"x":0.15,"y":0.45}
+    },
+    {
+        "name":"moving images",
+        "single":"moving image",
+        "pos":{"x":0.8,"y":0.6}
+    },
+    {
+        "name":"rare media",
+        "pos":{"x":0.4,"y":0.8}
+    }
+]

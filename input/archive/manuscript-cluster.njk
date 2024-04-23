@@ -32,7 +32,7 @@ title: Iyapo Repository
         {% for manuscript in cms.manuscripts | notion_data_sort_int("manuscript_id") %}
           {% set id = manuscript.properties.manuscript_id.value%}
           <a class="manuscript" href="./manuscript-{{id}}">
-            <span class="id-no">{{id}}</span>
+            <span class="mono id-no">{{id}}</span>
             {%if manuscript.properties.scan.value.length > 0 %}
               <picture>
                 <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.webp" type="image/webp">

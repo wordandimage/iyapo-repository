@@ -80,31 +80,147 @@ function init(){
         dom.archive_content=d3.select('#archive-content-wrapper');
         svg.aperture=d3.select('#aperture');
         svg_back.aperture=d3.select('#aperture-back');
-    svg.aperture_glow=d3.select('#aperture-glow');
-    dom.lens=d3.select('#lens')
-    svg.paths=dom.svg
-        .insert('g','path')
-        .attr('class','paths')
-        .selectAll('path')
-    svg_back.paths=dom.svg_back
-        .insert('g','path')
-        .attr('class','paths')
-        .selectAll('path')
-   
-    set_size();
-    set_up_logo();
-    set_scroll();
-    window.addEventListener('resize',set_size);
-    window.addEventListener('scroll',set_scroll)
+        svg.aperture_dom=d3.select('#aperture-dom');
+        dom.lens=d3.select('#lens')
+        svg.paths=dom.svg
+            .insert('g','path')
+            .attr('class','paths')
+            .selectAll('path')
+        svg_back.paths=dom.svg_back
+            .insert('g','path')
+            .attr('class','paths')
+            .selectAll('path')
     
-    dom.archive_window.on('mousemove',set_cursor)
+        set_size();
+        set_up_logo();
+        set_scroll();
+        window.addEventListener('resize',set_size);
+        window.addEventListener('scroll',set_scroll)
+        
+        dom.archive_window.on('mousemove',set_cursor)
+
+        generate_galaxy();
     }
     
-    // svg.crosshair=d3.select('#crosshair');
-    
-    
-    // addEventListener('mousemove',set_cursor)
 }
+
+
+function poisson_point_place(points=[],dimensions={x:1,y:1},radius=0.05,constraints={x:[0,1],y:[0,1]}){
+    let new_point={x:-1,y:-1};
+    let half_r=radius*0.5;
+    let attempts=0;
+
+    let x={
+        span:constraints.x[1] - constraints.x[0],
+        min:constraints.x[0]
+    }
+
+    let y={
+        span:constraints.y[1] - constraints.y[0],
+        min:constraints.y[0]
+    }
+
+    while(new_point.x==-1&&new_point.y==-1){
+        let try_coords={
+            x: (x.min + x.span * Math.random())*dimensions.w,
+            y:(y.min + y.span * Math.random())*dimensions.h
+        };
+        let in_range=points.filter(a=>{
+            return a.x>try_coords.x-half_r
+                 &&a.x<try_coords.x+half_r
+                 &&a.y>try_coords.y-half_r
+                 &&a.y<try_coords.y+half_r
+        })
+        let fits=true;
+        for(let p of in_range){
+            if(distance(p,try_coords)<radius&&attempts<50) fits=false;
+        }
+        if(fits) new_point=try_coords;
+        else attempts++;
+    }
+
+    return new_point;
+
+}
+
+function distance(p0,p1){
+    return Math.sqrt((p0.x - p1.x)**2 + (p0.y - p1.y)**2);
+}
+
+function generate_galaxy(){
+    let points=[];
+    let dims=win;
+
+    let dist=0.1;
+    for(let cluster of archive_clusters){
+        let radius=0.05;
+        let constraints={
+            x:[cluster.pos.x-radius,cluster.pos.x+radius],
+            y:[cluster.pos.y-radius,cluster.pos.y+radius]
+        }
+        for(let p=0;p<7;p++){
+            let point=poisson_point_place(points,dims,dims.w*0.015,constraints);
+            point.i=p;
+            point.type='cluster '+cluster.name;
+            points.push(point);
+        }
+    }
+
+    for(let p=0;p<30;p++){
+        let point=poisson_point_place(points,dims,dims.w*dist);
+        point.i=p;
+        point.type='';
+        points.push(point);
+    }
+
+    
+    let points_mapped=points.map(a=>{
+        return {
+            i:a.i,
+            type:a.type,
+            x:a.x/dims.w,
+            y:a.y/dims.h
+        }
+    })
+
+
+
+
+
+    d3.select('#galaxy').selectAll('span').data(points_mapped,(d)=>d.type+d.i)
+    .join(
+        enter=>enter.append('span').text('*').attr('class',(d)=>`star ${d.type}`).style('--x',(d)=>d.x).style('--y',(d)=>d.y)
+    )
+
+    let cluster_points=points_mapped.filter(a=>a.type.includes('cluster'))
+
+    d3.select('#archive-content-wrapper .star-shadows').selectAll('span').data(cluster_points,(d)=>d.type+d.i)
+    .join(
+        enter=>enter.append('span').text('*').attr('class',(d)=>`star ${d.type}`).style('--x',(d)=>d.x).style('--y',(d)=>d.y)
+    )
+
+    dom.cluster_stars=d3.selectAll('.star.cluster')
+
+    // console.log(archive_clusters);
+    // for(let cluster of archive_clusters){
+    //     let boxes=d3.selectAll(`.cluster[data-cluster="${cluster.name}"]`);
+    //     let stars=[];
+    //     for(let i=1; i<8; i++){
+    //         stars.push([0,1]);
+    //     }
+    // }
+
+    // let galaxy=d3.select('#galaxy');
+   
+
+
+
+    // for(let i=0; i<7; i++){
+
+    // }
+
+}
+
 
 function set_scroll(){
     scroll_y=window.scrollY;
@@ -118,6 +234,7 @@ function set_scroll(){
 
 function set_size(){
     win.w= dom.archive_window.node().offsetWidth;
+    dom.archive_window.style('--archive-w',win.w+'px');
     // win.h=dom.archive_content.node().offsetHeight;
     win.h= dom.archive_window.node().offsetHeight;
     win.axis={x:win.w/2,y:win.h};
@@ -199,13 +316,28 @@ function update_scope(pos){
     // svg.aperture_back.attr('d',`M ${back.left} ${back.top} H ${back.right} V ${back.bot} H ${back.left} Z`).style('opacity',1);
 
 
-    svg.aperture_glow.style('left',box.left+'px').style('top',box.top+'px');
+    svg.aperture_dom.style('left',box.left+'px').style('top',box.top+'px');
     dom.archive_content.style('mask-position',`${box.left}px ${box.top}px`).style('-webkit-mask-position',`${box.left}px ${box.top}px`);
     
     let angle=Math.atan2(box.center.x-win.axis.x,box.center.y-win.axis.y);
     dom.lens.style('--rad',(-1*angle+Math.PI/2)+'rad');
     dom.lens.classed('left',pos.x<win.axis.x)
     // console.log(pos.x,win.x/2)
+
+
+
+    let intersecting=dom.cluster_stars.filter((d,i)=>{
+        let left=d.x * win.w;
+        let top=d.y * win.h;
+
+        return left>box.left 
+            && left<box.right
+            && top>box.top
+            && top<box.bot;
+    }).data()
+    
+    dom.svg.classed('intersecting-cluster',intersecting.length>0);
+    svg.aperture_dom.text(intersecting.length>0?intersecting[0].type.replace('cluster ',''):'');
 
     update_paths({box,back})
 
@@ -216,6 +348,7 @@ function update_paths(coords){
         .join(
             enter=>enter.append('path').attr('class',d=>'side-'+d.side)
             .attr('data-line',d=>`${d.x}-${d.y}-${d.side}`)
+            .attr('vector-effect','non-scaling-stroke')
             .attr('d',d=>{
                 return `M ${win.axis.x} ${win.axis.y}  L ${coords[d.side][d.y]} ${coords[d.side][d.x]}`
             }).each((d,i,nodes)=>{
@@ -231,6 +364,7 @@ function update_paths(coords){
         .join(
             enter=>enter.append('path').attr('class',d=>'side-'+d.side)
             .attr('data-line',d=>`${d.x}-${d.y}-${d.side}`)
+            .attr('vector-effect','non-scaling-stroke')
             .attr('d',d=>{
                 return `M ${win.axis.x} ${win.axis.y}  L ${coords[d.side][d.y]} ${coords[d.side][d.x]}`
             }).each((d,i,nodes)=>{

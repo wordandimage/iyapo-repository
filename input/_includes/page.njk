@@ -18,9 +18,11 @@ landing: false
     <meta name="theme-color" content="#0A0101">
     <link rel="stylesheet" href="{{ rootpath }}css/clearstyle.css">
     <link rel="stylesheet" href="{{ rootpath }}css/global.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/page.css">
     
     <script>
       let is_landing={{landing | dump | safe}};
+      let archive_clusters={{archive_clusters | dump | safe}};
       console.log({{cms | dump | safe}})
       console.log({{pg | dump | safe}})
     </script>
@@ -43,7 +45,7 @@ landing: false
             {%set url_base = "#" + title | slugify if page.properties.use_on_homepage.value else title | slugify %}
             <a href="{{ "BASE_URL" | env }}{{url_base }}">
               {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
-              <h2>{{title}}</h2>
+              <h2 class="mono">{{title}}</h2>
             </a>
           {% endfor %}
         </nav>
@@ -56,14 +58,23 @@ landing: false
       
       <div id="archive-window" class='bevel-stroke'>
         {{macros.bevel_box("left right bottom",["br","bl"]) }}
+          <div id="galaxy" class="fill-frame">
+            {# {% for cluster in archive_clusters %}
+              <div class="cluster" data-cluster="{{cluster.name}}"></div>
+            {% endfor %} #}
+          </div>
           <div id="archive-content-wrapper" class='fill-frame'>
+            <div class='star-shadows fill-frame'></div>
+            {# {% for cluster in archive_clusters %}
+              <div class="cluster" data-cluster="{{cluster.name}}"></div>
+            {% endfor %} #}
             {# {% for section archive_sections%}
 
             {% endfor %} #}
-             <p id="mask-test">Hello, I hope you’re having a nice day</p>
+             {# <p id="mask-test">Hello, I hope you’re having a nice day</p> #}
           </div>
           <div id="scope-wrapper"  class='fill-frame'>
-            <div id="aperture-glow"></div>
+            <div id="aperture-dom" class="mono"></div>
             <svg id="scope">
               <path id="aperture"></path>
             </svg>
@@ -87,7 +98,7 @@ landing: false
             <div id="lens"></div>
           </div>
           <h1>{{pg.properties.title.value if not landing else title}}</h1>
-          <section class='prose'>
+          <section class='prose mono'>
             {% if not landing %}
               {% set pagetext = pg.mdcontent %}
             {% else %}

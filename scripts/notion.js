@@ -204,7 +204,7 @@ module.exports = async function load_data({do_image_processing=false}={}){
         pages
     };
     
-    if(process_images){
+    if(do_image_processing){
         console.log('downloading and processing new images...')
         await process_images(image_processing_queue,cms)
     }
