@@ -421,13 +421,12 @@ article .content-wrap{
     position:absolute;
     top:0;
     left:0;
-    width:180px;
-    height:180px;
     z-index:100;
     box-sizing:border-box;
     padding:5px 10px;
     color:var(--bg);
-    text-transform:uppercase;
+    /* text-transform:uppercase; */
+    text-transform:capitalize;
 }
 
 #aperture-dom::before{
