@@ -56,22 +56,15 @@ landing: false
         </div>
       </div>
       
-      <div id="archive-window" class='bevel-stroke'>
+      <div id="archive-window" class='bevel-stroke' data-view="galaxy">
         {{macros.bevel_box("left right bottom",["br","bl"]) }}
           <div id="galaxy" class="fill-frame">
-            {# {% for cluster in archive_clusters %}
-              <div class="cluster" data-cluster="{{cluster.name}}"></div>
-            {% endfor %} #}
+            <div class="stars fill-frame"></div>
           </div>
-          <div id="archive-content-wrapper" class='fill-frame'>
+          
+          <div id="masked-content" class='fill-frame'>
             <div class='star-shadows fill-frame'></div>
-            {# {% for cluster in archive_clusters %}
-              <div class="cluster" data-cluster="{{cluster.name}}"></div>
-            {% endfor %} #}
-            {# {% for section archive_sections%}
-
-            {% endfor %} #}
-             {# <p id="mask-test">Hello, I hope you’re having a nice day</p> #}
+      
           </div>
           <div id="scope-wrapper"  class='fill-frame'>
             <div id="aperture-dom" class="mono"></div>
@@ -85,9 +78,18 @@ landing: false
             
           </div>
           <div id='lens-gap'> </div>
-          {% if not landing %}
-          <a href="{{"BASE_URL" | env}}" id="home-link"></a>
-          {% endif %}
+          {# {% if not landing %}
+          <a href="{{"BASE_URL" | env}}#" id="home-link">
+            <div id="logo-small">
+              {{macros.logo('small') }}
+            </div>
+          </a>
+          {% endif %} #}
+          <a href="{{"BASE_URL" | env}}#" id="home-link">
+            <div id="logo-small">
+              {{macros.logo('small') }}
+            </div>
+          </a>
       </div>
       <article id="{{pg.properties.title.value if not landing else homepage_content.properties.title.value | slugify}}">
         
