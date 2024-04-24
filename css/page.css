@@ -44,6 +44,14 @@ h1{
     background-color: var(--fg);
 }
 
+#home-link:hover #logo-small path{
+    fill:var(--bg);
+}
+
+.landing #home-link{
+    pointer-events:none;
+}
+
 
 #page-nav{
     width:100%;
@@ -216,13 +224,33 @@ h2.mono{
 
 }
 
-#logo path{
+#logo-small{
+    pointer-events:none;
+    position: sticky;
+    z-index: 110;
+    top: calc(9px + var(--nav-height));
+    left: 50%;
+    width: fit-content;
+    /* margin-left: 50%; */
+    transform: translateX(-50%);
+    --step:min(1,max(calc(var(--scrolly) - (var(--archive-scroll-dist) + 100)),0));
+    transition:opacity 0.3s;
+    opacity:var(--step);
+    
+    /* opacity:calc((var(--scrolly) - var(--archive-scroll-dist) + 200)/var(--archive-scroll-dist)); */
+}
+
+#logo-small path{
+    fill:var(--fg);
+}
+
+.logo-styles path{
     fill:var(--bg);
     stroke:var(--fg);
     stroke-width:var(--stroke-width);
 }
 
-#logo path.hull,rect{
+.logo-styles path.hull,rect{
     stroke:var(--fg);
 }
 
@@ -258,6 +286,7 @@ article{
     margin-top:var(--spacing);
     --delay:120px;
     position:relative;
+    scroll-margin-top:-15px;
     
 }
 
@@ -287,13 +316,19 @@ article .content-wrap{
 }
 
 
-#archive-content-wrapper{
+#masked-content{
     mask:url(../assets/mask.svg#box) no-repeat;
     -webkit-mask:url(../assets/mask.svg#box) no-repeat;
     pointer-events:none;
     opacity:var(--max-opacity);
     z-index:10;
 }
+
+#masked-content,#scope-wrapper{
+    transition:opacity 0.5s;
+    transition-delay:0.1s;
+}
+
 
 
 .fill-frame{
@@ -304,13 +339,20 @@ article .content-wrap{
     height:100%;
     z-index:5;
     
-    transition:opacity 0.5s;
-    transition-delay:0.1s;
+    
 }
 
 #galaxy{
     pointer-events:none;
     overflow:hidden;
+    /* --archive-scale:calc(var(--archive-h) / 1px); */
+    /* opacity:calc(5 - var(--scrolly)/100); */
+    opacity:calc(1 - (var(--scrolly) - var(--archive-scroll-dist)*0.75 + 20)/(var(--archive-scroll-dist) * 0.25));
+    
+}
+
+#galaxy .stars{
+    transform:translateY(calc(var(--scrolly) / 2 * 1px));
 }
 
 .star{
@@ -319,6 +361,7 @@ article .content-wrap{
     top:calc(var(--archive-h) * var(--y));
     font-family: 'VTC DuBois Narrow';
     font-size:18px;
+    transform:translate(-50%,-50%);
     /* font-weight:600; */
 }
 
@@ -342,7 +385,7 @@ article .content-wrap{
     top:calc(var(--y) * 100% - var(--s) / 2);
 }
 
-#archive-content-wrapper .cluster{
+#masked-content .cluster{
     background-color: var(--hl);
 } */
 

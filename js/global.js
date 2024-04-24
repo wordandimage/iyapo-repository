@@ -18,6 +18,7 @@ let mouse={
     y:0
 }
 
+let hovered_cluster='';
 
 const scope_paths=[
     {
@@ -77,7 +78,7 @@ function init(){
         dom.svg_back=d3.select('#scope-back')
         dom.body=d3.select('body')
         dom.archive_window=d3.select('#archive-window');
-        dom.archive_content=d3.select('#archive-content-wrapper');
+        dom.masked_content=d3.select('#masked-content');
         svg.aperture=d3.select('#aperture');
         svg_back.aperture=d3.select('#aperture-back');
         svg.aperture_dom=d3.select('#aperture-dom');
@@ -92,12 +93,17 @@ function init(){
             .selectAll('path')
     
         set_size();
+        // mouse={
+        //     x:win.w/2,
+        //     y:win.y/2
+        // }
         set_up_logo();
         set_scroll();
         window.addEventListener('resize',set_size);
         window.addEventListener('scroll',set_scroll)
         
         dom.archive_window.on('mousemove',set_cursor)
+        dom.archive_window.on('click',handle_click)
 
         generate_galaxy();
     }
@@ -187,14 +193,14 @@ function generate_galaxy(){
 
 
 
-    d3.select('#galaxy').selectAll('span').data(points_mapped,(d)=>d.type+d.i)
+    d3.select('#galaxy .stars').selectAll('span').data(points_mapped,(d)=>d.type+d.i)
     .join(
         enter=>enter.append('span').text('*').attr('class',(d)=>`star ${d.type}`).style('--x',(d)=>d.x).style('--y',(d)=>d.y)
     )
 
     let cluster_points=points_mapped.filter(a=>a.type.includes('cluster'))
 
-    d3.select('#archive-content-wrapper .star-shadows').selectAll('span').data(cluster_points,(d)=>d.type+d.i)
+    d3.select('#masked-content .star-shadows').selectAll('span').data(cluster_points,(d)=>d.type+d.i)
     .join(
         enter=>enter.append('span').text('*').attr('class',(d)=>`star ${d.type}`).style('--x',(d)=>d.x).style('--y',(d)=>d.y)
     )
@@ -235,8 +241,9 @@ function set_scroll(){
 function set_size(){
     win.w= dom.archive_window.node().offsetWidth;
     dom.archive_window.style('--archive-w',win.w+'px');
-    // win.h=dom.archive_content.node().offsetHeight;
+    // win.h=dom.masked_content.node().offsetHeight;
     win.h= dom.archive_window.node().offsetHeight;
+    dom.archive_window.style('--archive-scroll-dist',win.h);
     win.axis={x:win.w/2,y:win.h};
     dom.svg.attr('height',win.h)
     dom.svg.attr('width',win.w)
@@ -289,10 +296,18 @@ function set_cursor(){
     // console.log(event);
 }
 
+function handle_click(e){
+    
+    if(e.currentTarget.dataset.view=='galaxy'&&hovered_cluster!==''){
+        console.log('enter ',hovered_cluster)
+    }
+}
+
 
 
 
 function update_scope(pos){
+    // console.log('mousemove?')
     let box={
         center:{x:pos.x,y:pos.y},
         top:pos.y-90,
@@ -317,7 +332,7 @@ function update_scope(pos){
 
 
     svg.aperture_dom.style('left',box.left+'px').style('top',box.top+'px');
-    dom.archive_content.style('mask-position',`${box.left}px ${box.top}px`).style('-webkit-mask-position',`${box.left}px ${box.top}px`);
+    dom.masked_content.style('mask-position',`${box.left}px ${box.top}px`).style('-webkit-mask-position',`${box.left}px ${box.top}px`);
     
     let angle=Math.atan2(box.center.x-win.axis.x,box.center.y-win.axis.y);
     dom.lens.style('--rad',(-1*angle+Math.PI/2)+'rad');
@@ -337,7 +352,8 @@ function update_scope(pos){
     }).data()
     
     dom.svg.classed('intersecting-cluster',intersecting.length>0);
-    svg.aperture_dom.text(intersecting.length>0?intersecting[0].type.replace('cluster ',''):'');
+    hovered_cluster=intersecting.length>0?intersecting[0].type.replace('cluster ',''):'';
+    svg.aperture_dom.text(hovered_cluster);
 
     update_paths({box,back})
 
