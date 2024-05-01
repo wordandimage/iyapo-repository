@@ -7,6 +7,9 @@
     --fg:rgb(250,250,250); */
 
     /* --fg:#0A0101;
+    --bg:rgb(220,220,220); */
+
+    /* --fg:#0A0101;
     --bg:white; */
     
     
@@ -18,6 +21,8 @@
     --hundredvh:100svh;
     --nav-height:70px;
     --scrolly:0;
+
+    --archive-content-width:1200px;
 
 
     
