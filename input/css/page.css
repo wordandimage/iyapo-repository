@@ -2,6 +2,13 @@ body{
     --archive-h:40px;
     --max-w:calc(100% - var(--m) * 2);
 }
+
+
+body:not(body[data-view="galaxy"]){
+    overflow:hidden;
+}
+
+
 body.landing{
     --archive-h:calc(var(--hundredvh) - (var(--m) + var(--spacing) + var(--logo-height) +  var(--nav-height) - 14px));
 }
@@ -134,9 +141,19 @@ h2.mono{
     position:sticky;
     /* top:calc((var(--archive-h) - 20px) * -1); */
     top:calc(var(--archive-h) * -1 + 113px);
-    cursor:crosshair;
+    
+    --archive-scroll-dist:100px;
 
     
+}
+
+body[data-view="galaxy"] #archive-window,body[data-spotlightmode="transition"] #archive-window{
+    cursor:crosshair;
+}
+
+body[data-view="galaxy"] iframe,body[data-spotlightmode="transition"] iframe{
+    pointer-events:none;
+    opacity:0;
 }
 
 #archive-window::before,#archive-window::after{
@@ -231,13 +248,13 @@ h2.mono{
     top: calc(9px + var(--nav-height));
     left: 50%;
     width: fit-content;
-    /* margin-left: 50%; */
     transform: translateX(-50%);
-    --step:min(1,max(calc(var(--scrolly) - (var(--archive-scroll-dist) + 100)),0));
     transition:opacity 0.3s;
-    opacity:var(--step);
-    
-    /* opacity:calc((var(--scrolly) - var(--archive-scroll-dist) + 200)/var(--archive-scroll-dist)); */
+    opacity:0;
+}
+
+.collapsed #logo-small{
+    opacity:1;
 }
 
 #logo-small path{
@@ -320,9 +337,17 @@ article .content-wrap{
     mask:url(../assets/mask.svg#box) no-repeat;
     -webkit-mask:url(../assets/mask.svg#box) no-repeat;
     pointer-events:none;
-    opacity:var(--max-opacity);
+    --mask-opacity:0;
+    opacity:min(var(--mask-opacity),var(--max-opacity));
     z-index:10;
+    transition:opacity 0.3s;
 }
+
+body[data-view="galaxy"] #masked-content{
+    --mask-opacity:1;
+    transition:none;
+}
+
 
 #masked-content,#scope-wrapper{
     transition:opacity 0.5s;
@@ -369,6 +394,9 @@ article .content-wrap{
     color:var(--hl);
 }
 
+
+
+
 .star-shadows .star.cluster{
     color:var(--bg);
 }
@@ -412,9 +440,12 @@ article .content-wrap{
     --col:var(--fg);
 }
 
-#scope.intersecting-cluster{
+#scope.intersecting-cluster,
+body[data-view="cluster"] #scope.intersecting-cluster{
     --col:var(--hl);
 }
+
+
 
 #scope-wrapper #scope-back{
     height:100%;
@@ -423,6 +454,13 @@ article .content-wrap{
     bottom:1px;
     left:50%;
     transform:translate(-50%,100%);
+    opacity:0;
+    transition:opacity 0.3s;
+}
+
+body[data-view="galaxy"] #archive-window #scope-wrapper #scope-back{
+    opacity:1;
+    transition:none;
 }
 
 #aperture,#aperture-back{
@@ -432,10 +470,29 @@ article .content-wrap{
     transition:fill 0.3s,stroke 0.3s;
 }
 
-.intersecting-cluster #aperture{
+
+
+.intersecting-cluster #aperture,
+body[data-spotlightmode="transition"] #aperture,
+body[data-view="cluster"] #aperture{
     fill:var(--hl);
+    
 }
 
+body[data-view="cluster"] #scope{
+    transition:opacity 0.9s;
+    transition-delay:0.2s;
+}
+
+body[data-view="cluster"][data-spotlightmode="hide"] #archive-window .galaxy-element{
+    opacity:0;
+}
+
+
+body[data-spotlightmode="hide"] #scope{
+    opacity:0;
+    
+}
 
 
 #aperture-back{
@@ -470,6 +527,13 @@ article .content-wrap{
     color:var(--bg);
     /* text-transform:uppercase; */
     text-transform:capitalize;
+    opacity:0;
+    transition:opacity 0.3s;
+}
+
+
+body[data-view="galaxy"] #aperture-dom{
+    opacity:1;
 }
 
 #aperture-dom::before{
@@ -536,4 +600,7 @@ article .content-wrap{
     body.landing:not(.scrolled) #archive-window:hover{
         --max-opacity:1;
     }
+
+    
+
 }

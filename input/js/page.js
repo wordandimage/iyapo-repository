@@ -15,10 +15,31 @@ const svg_back={}
 
 let mouse={
     x:0,
-    y:0
+    y:0,
+    changed:false
 }
 
+
+let spotlight_mode='mouse';
+let cluster_transition_start=0;
+let cluster_transition_duration=400;
+let cluster_transition_start_pos={x:0,y:0};
+
+let current_view='galaxy';
 let hovered_cluster='';
+
+function update_spotlight_mode(v){
+    spotlight_mode=v;
+    dom.body.node().dataset.spotlightmode=v;
+}
+function update_archive_view(v){
+    current_view=v;
+    dom.body.node().dataset.view=v=='galaxy'?v:'cluster';
+}
+
+
+
+
 
 const scope_paths=[
     {
@@ -77,6 +98,7 @@ function init(){
         dom.svg=d3.select('#scope');
         dom.svg_back=d3.select('#scope-back')
         dom.body=d3.select('body')
+        dom.portal=d3.select('#portal');
         dom.archive_window=d3.select('#archive-window');
         dom.masked_content=d3.select('#masked-content');
         svg.aperture=d3.select('#aperture');
@@ -104,9 +126,14 @@ function init(){
         
         dom.archive_window.on('mousemove',set_cursor)
         dom.archive_window.on('click',handle_click)
+        
+        
+
 
         generate_galaxy();
     }
+
+    requestAnimationFrame(update_scope);
     
 }
 
@@ -235,6 +262,8 @@ function set_scroll(){
         dom.body.style('--scrolly',scroll_y);
         dom.body.classed('scrolled',scroll_y>2)
         dom.body.classed('transitioned-logo',scroll_y>100)
+
+        dom.archive_window.classed('collapsed',scroll_y-100>win.h)
     })
 }
 
@@ -287,75 +316,107 @@ function set_up_logo(){
 function set_cursor(){
     mouse={
         x:mousex=event.offsetX,
-        y:mousex=event.offsetY
+        y:mousex=event.offsetY,
+        changed:true
     };
-    requestAnimationFrame(function(){
-        update_scope(mouse);
-    })
     
-    // console.log(event);
 }
 
 function handle_click(e){
     
-    if(e.currentTarget.dataset.view=='galaxy'&&hovered_cluster!==''){
-        console.log('enter ',hovered_cluster)
+    if(current_view=='galaxy'&&hovered_cluster!==''&&scroll_y<=0){
+        update_archive_view(hovered_cluster)
+        update_spotlight_mode('transition');
+        cluster_transition_start=performance.now();
+        cluster_transition_start_pos.x=mouse.x;
+        cluster_transition_start_pos.y=mouse.y;
+
+        // dom.portal.node().setAttribute('src',base_url+'archive/'+hovered_cluster.replace(' ','-')+'-cluster')
+        dom.portal.attr('src',base_url+'archive/'+hovered_cluster.replace(' ','-')+'-cluster')
+        dom.portal.on('load',function(){
+            console.log('new url',dom.portal.node().contentWindow.location.href);
+        })
+        
+        
+        // console.log(dom.portal.node().contentWindow.document);
+        
+        
     }
 }
 
+function portal_click(){
+    console.log('iframe click')
+}
 
 
-
-function update_scope(pos){
+function update_scope(){
+    let pos=spotlight_mode=='transition'?cluster_transition_start_pos:mouse;
     // console.log('mousemove?')
-    let box={
-        center:{x:pos.x,y:pos.y},
-        top:pos.y-90,
-        bot:pos.y+90,
-        left:pos.x-90,
-        right:pos.x+90
+
+
+    if(mouse.changed&&spotlight_mode=='mouse'||spotlight_mode=='transition'){
+
+        let box={
+            center:{x:pos.x,y:pos.y},
+            top:pos.y-90,
+            bot:pos.y+90,
+            left:pos.x-90,
+            right:pos.x+90
+        }
+
+        if(spotlight_mode=='transition'){
+            let progress=(performance.now() - cluster_transition_start) / cluster_transition_duration;
+            box.top=box.top * (1 - progress);
+            box.left=box.left * (1 - progress);
+            box.right=box.right+ (win.w - box.right) * progress;
+            box.bot=box.bot+ (win.h - box.bot) * progress;
+            box.center.x=box.center.x + (win.w/2 - box.center.x)*progress;
+            box.center.y=box.center.y + (win.h/2 - box.center.y)*progress;
+
+            if(progress>=1){
+                update_spotlight_mode('hide');
+            }
+        }
+        
+        svg.aperture.attr('d',`M ${box.left} ${box.top} H ${box.right} V ${box.bot} H ${box.left} Z`)
+        let back={
+            left:win.axis.x +  (box.left - win.axis.x) * -1 * 20,
+            right:win.axis.x + (box.right - win.axis.x) * -1 * 20,
+            top:win.axis.y + (box.top - win.axis.y) * -1 * 20,
+            bot:win.axis.y + (box.bot - win.axis.y) * -1 * 20
+        }
+    
+    
+        svg.aperture_dom.style('left',box.left+'px').style('top',box.top+'px');
+        dom.masked_content.style('mask-position',`${box.left}px ${box.top}px`).style('-webkit-mask-position',`${box.left}px ${box.top}px`);
+        
+        let angle=Math.atan2(box.center.x-win.axis.x,box.center.y-win.axis.y);
+        dom.lens.style('--rad',(-1*angle+Math.PI/2)+'rad');
+        dom.lens.classed('left',pos.x<win.axis.x)
+    
+        let intersecting=dom.cluster_stars.filter((d,i)=>{
+            let left=d.x * win.w;
+            let top=d.y * win.h;
+    
+            return left>box.left 
+                && left<box.right
+                && top>box.top
+                && top<box.bot;
+        }).data()
+        
+        dom.svg.classed('intersecting-cluster',intersecting.length>0);
+        hovered_cluster=intersecting.length>0?intersecting[0].type.replace('cluster ',''):'';
+        svg.aperture_dom.text(hovered_cluster);
+    
+        update_paths({box,back})
+
+        mouse.changed=false;
     }
 
-    // svg.crosshair.style('transform',`translate(${pos.x-10}px,${pos.y-10}px)`)
 
-   
-    // svg.aperture.attr("points",`${box.left},${box.top} ${box.right},${box.top} ${box.right},${box.bot} ${box.left},${box.bot} ${box.left},${box.top}`).style('opacity',1);
-    svg.aperture.attr('d',`M ${box.left} ${box.top} H ${box.right} V ${box.bot} H ${box.left} Z`)
-    let back={
-        left:win.axis.x +  (box.left - win.axis.x) * -1 * 20,
-        right:win.axis.x + (box.right - win.axis.x) * -1 * 20,
-        top:win.axis.y + (box.top - win.axis.y) * -1 * 20,
-        bot:win.axis.y + (box.bot - win.axis.y) * -1 * 20
-    }
-
-    // svg.aperture_back.attr('d',`M ${back.left} ${back.top} H ${back.right} V ${back.bot} H ${back.left} Z`).style('opacity',1);
-
-
-    svg.aperture_dom.style('left',box.left+'px').style('top',box.top+'px');
-    dom.masked_content.style('mask-position',`${box.left}px ${box.top}px`).style('-webkit-mask-position',`${box.left}px ${box.top}px`);
     
-    let angle=Math.atan2(box.center.x-win.axis.x,box.center.y-win.axis.y);
-    dom.lens.style('--rad',(-1*angle+Math.PI/2)+'rad');
-    dom.lens.classed('left',pos.x<win.axis.x)
-    // console.log(pos.x,win.x/2)
 
-
-
-    let intersecting=dom.cluster_stars.filter((d,i)=>{
-        let left=d.x * win.w;
-        let top=d.y * win.h;
-
-        return left>box.left 
-            && left<box.right
-            && top>box.top
-            && top<box.bot;
-    }).data()
-    
-    dom.svg.classed('intersecting-cluster',intersecting.length>0);
-    hovered_cluster=intersecting.length>0?intersecting[0].type.replace('cluster ',''):'';
-    svg.aperture_dom.text(hovered_cluster);
-
-    update_paths({box,back})
+    requestAnimationFrame(update_scope);
 
 }
 
