@@ -1,5 +1,5 @@
 
-// M${d.source.x},${d.source.y}A0,0 0 0,1 ${d.target.x},${d.target.y}
+
 let win={
     w:undefined,
     h:undefined,
@@ -26,6 +26,7 @@ let cluster_transition_duration=400;
 let cluster_transition_start_pos={x:0,y:0};
 
 let current_view='galaxy';
+let current_cluster;
 let hovered_cluster='';
 
 function update_spotlight_mode(v){
@@ -34,6 +35,13 @@ function update_spotlight_mode(v){
 }
 function update_archive_view(v){
     current_view=v;
+    console.log(v)
+    if(v!=='galaxy'){
+        dom.body.node().dataset.cluster=v;
+        current_cluster=archive_clusters.find(a=>a.name==v)
+    }
+        
+        
     dom.body.node().dataset.view=v=='galaxy'?v:'cluster';
 }
 
@@ -126,6 +134,10 @@ function init(){
         
         dom.archive_window.on('mousemove',set_cursor)
         dom.archive_window.on('click',handle_click)
+        // d3.selectAll('#cluster-nav a').on('click',(e)=>{
+     
+        //     update_archive_view(e.currentTarget.dataset.name);
+        // })
         
         
 
@@ -218,8 +230,6 @@ function generate_galaxy(){
 
 
 
-
-
     d3.select('#galaxy .stars').selectAll('span').data(points_mapped,(d)=>d.type+d.i)
     .join(
         enter=>enter.append('span').text('*').attr('class',(d)=>`star ${d.type}`).style('--x',(d)=>d.x).style('--y',(d)=>d.y)
@@ -234,24 +244,6 @@ function generate_galaxy(){
 
     dom.cluster_stars=d3.selectAll('.star.cluster')
 
-    // console.log(archive_clusters);
-    // for(let cluster of archive_clusters){
-    //     let boxes=d3.selectAll(`.cluster[data-cluster="${cluster.name}"]`);
-    //     let stars=[];
-    //     for(let i=1; i<8; i++){
-    //         stars.push([0,1]);
-    //     }
-    // }
-
-    // let galaxy=d3.select('#galaxy');
-   
-
-
-
-    // for(let i=0; i<7; i++){
-
-    // }
-
 }
 
 
@@ -261,6 +253,7 @@ function set_scroll(){
     requestAnimationFrame(()=>{
         dom.body.style('--scrolly',scroll_y);
         dom.body.classed('scrolled',scroll_y>2)
+        if(scroll_y>2) dom.archive_window.classed('mousemoved',false);
         dom.body.classed('transitioned-logo',scroll_y>100)
 
         dom.archive_window.classed('collapsed',scroll_y-100>win.h)
@@ -270,7 +263,6 @@ function set_scroll(){
 function set_size(){
     win.w= dom.archive_window.node().offsetWidth;
     dom.archive_window.style('--archive-w',win.w+'px');
-    // win.h=dom.masked_content.node().offsetHeight;
     win.h= dom.archive_window.node().offsetHeight;
     dom.archive_window.style('--archive-scroll-dist',win.h);
     win.axis={x:win.w/2,y:win.h};
@@ -302,18 +294,14 @@ function set_up_logo(){
         if(entries[0].isIntersecting){
             console.log('!')
             update_scope(mouse);
-        }else{
-            // update_scope({
-            //     x:90,
-            //     y:win.axis.y
-            // });
-            
         }
         
     }
 }
 
 function set_cursor(){
+    if(scroll_y<=2) dom.archive_window.classed('mousemoved',true);
+
     mouse={
         x:mousex=event.offsetX,
         y:mousex=event.offsetY,
@@ -334,7 +322,8 @@ function handle_click(e){
         // dom.portal.node().setAttribute('src',base_url+'archive/'+hovered_cluster.replace(' ','-')+'-cluster')
         dom.portal.attr('src',base_url+'archive/'+hovered_cluster.replace(' ','-')+'-cluster')
         dom.portal.on('load',function(){
-            console.log('new url',dom.portal.node().contentWindow.location.href);
+            let location=parse_archive_location(dom.portal.node().contentWindow.location.href)
+            console.log(location);
         })
         
         
@@ -343,6 +332,24 @@ function handle_click(e){
         
     }
 }
+
+function parse_archive_location(url=''){
+    let base_url=window.location.origin+'/';
+    let paths=url.replace(base_url,'').split('/').filter(a=>a.length>0&&a!=='archive');
+    update_archive_view(paths[0].replace('-cluster','').replace('-',' '));
+
+
+    let location={
+        cluster:paths[0].replace('-cluster','')
+    }
+
+
+    if(paths.length>1) location.constellation=paths[1].replace(`${current_cluster.single}-`,'').split('-').map(a=>parseInt(a));
+       
+    return location;
+
+}
+
 
 function portal_click(){
     console.log('iframe click')
@@ -370,7 +377,7 @@ function update_scope(){
             box.left=box.left * (1 - progress);
             box.right=box.right+ (win.w - box.right) * progress;
             box.bot=box.bot+ (win.h - box.bot) * progress;
-            box.center.x=box.center.x + (win.w/2 - box.center.x)*progress;
+            box.center.x=box.center.x + (win.axis.x - box.center.x)*progress;
             box.center.y=box.center.y + (win.h/2 - box.center.y)*progress;
 
             if(progress>=1){

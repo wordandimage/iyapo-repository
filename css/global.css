@@ -26,9 +26,9 @@
 
 
     
-    /*  */
-    /* --stroke-width:0.8px; */
-    --stroke-width:1px;
+
+    --stroke-width:0.8px;
+    /* --stroke-width:1px; */
     --border:var(--stroke-width) solid var(--fg);
     --bevel-size:15px;
 
@@ -140,6 +140,25 @@ a{
     }
 }
 
+.grid{
+    display:grid;
+    --col-count:2;
+    grid-template-columns:repeat(var(--col-count),1fr);
+    grid-template-rows: min-content;
+    box-sizing:border-box;
+    width:calc(100% - 40px);
+    grid-gap:15px;
+    max-width:var(--archive-content-width);
+    margin:auto;
+}
+
+
+
+@media(min-width:600px){
+    .grid{
+        --col-count:12;
+    }
+}
 
 @font-face {
     font-family: 'VTC DuBois Narrow';
