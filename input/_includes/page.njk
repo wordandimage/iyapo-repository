@@ -37,7 +37,7 @@ landing: false
   
   </head>
 
-  <body class="{{ 'landing' if landing else '' }}" data-view="galaxy" data-spotlightmode="mouse">
+  <body class="{{ 'landing' if landing else '' }}" data-view="galaxy" data-spotlightmode="mouse" data-cluster="manuscripts">
     <div class='sticky-top'>
         <nav id="page-nav">
           {# {% set page0 = sheet[0] %} #}
@@ -59,7 +59,7 @@ landing: false
       
       <div id="archive-window" class='bevel-stroke {{"collapsed" if not landing else ""}}'>
         {{macros.bevel_box("left right bottom",["br","bl"]) }}
-          <iframe id="portal" class='fill-frame' same-origin></iframe>
+          <iframe id="portal" name="portal" class='fill-frame' same-origin></iframe>
           <div id="galaxy" class="fill-frame galaxy-element">
             <div class="stars fill-frame"></div>
           </div>
@@ -86,6 +86,11 @@ landing: false
               {{macros.logo('small') }}
             </div>
           </a>
+          <nav id="cluster-nav">
+            {% for cluster in archive_clusters%}
+              <a class='mono' target="portal" data-i="{{loop.index0}}" data-name="{{cluster.name}}" href="{{base_url }}archive/{{cluster.name | slugify}}-cluster">{{cluster.name}}</a>
+            {% endfor %}
+          </nav>
       </div>
       <article id="{{pg.properties.title.value if not landing else homepage_content.properties.title.value | slugify}}">
         

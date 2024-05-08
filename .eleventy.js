@@ -13,6 +13,24 @@ module.exports = function (eleventyConfig) {
       return array.find(item=>item.properties[property].value==value);
     });
 
+
+    eleventyConfig.addNunjucksFilter( "get_constellation_props", function(item,type,cms) {   
+      if(type=='manuscript'){
+        let props=[
+          {type:'text',label:'Name',value:item.properties.manuscript_name.value},
+          {type:'tags',value:{
+            narrative: item.properties.narrative.value,
+            domain: item.properties.domain.value,
+            object: item.properties.object.value
+          }},
+          {type:'accordion',label:'Description',value:item.properties.manuscript_description.value[0]?.plain_text},
+          {type:'relatives',label:'Descendant artifacts',value:cms.artifacts.find(a=>a.properties.manuscript_id.value==item.properties.manuscript_id.value)}
+        ]
+
+        return props;
+      }
+    });
+
     eleventyConfig.addNunjucksFilter( "notion_data_sort_int", function(array,property) {    
       return array.sort((a,b)=>{
         return a.properties[property].value - b.properties[property].value;

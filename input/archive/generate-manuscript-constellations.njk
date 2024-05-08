@@ -2,7 +2,8 @@
 pagination:
   data: cms.manuscripts
   size: 1
-  alias: manuscript
-permalink: "archive/manuscripts-cluster/manuscript-{{ manuscript.properties.manuscript_id.value }}/"
-layout: manuscript-constellation.njk
+  alias: item
+permalink: "archive/manuscripts-cluster/manuscript-{{ item.properties.manuscript_id.value }}/"
+layout: constellation.njk
+archive_item_type: "manuscript"
 ---

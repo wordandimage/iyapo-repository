@@ -11,7 +11,7 @@
     },
     {
         "name":"moving images",
-        "single":"moving image",
+        "single":"moving-image",
         "pos":{"x":0.8,"y":0.6}
     },
     {

@@ -120,7 +120,7 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
 
                             output_file_array.push({
                                 type:'image',
-                                name:file.name
+                                name:archive_type=='artifact'?file.name:'scan'
                             })
                             
                             image_processing_queue.push({

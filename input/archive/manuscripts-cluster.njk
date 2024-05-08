@@ -29,7 +29,7 @@ title: Iyapo Repository
 
   <body >
     <nav id="filter-bar"></nav>
-    <main class='grid' data-type="manuscripts" data-cols="6">
+    <main class='grid cluster-content' data-type="manuscripts" data-cols="6">
         {% for manuscript in cms.manuscripts | notion_data_sort_int("manuscript_id") %}
           {% set id = manuscript.properties.manuscript_id.value%}
           <a class="manuscript" href="./manuscript-{{id}}">

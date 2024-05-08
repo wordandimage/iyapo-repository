@@ -1,0 +1,80 @@
+{% set rootpath="../../../" %}
+{# {% import 'favicon.njk' as favicon %} #}
+{% import 'macros.njk' as macros %}
+
+{# cms.pages | notion_data_find("use_on_homepage",1) #}
+{% set manuscript_id = item.properties.manuscript_id.value %}
+{% set constellation_props = item | get_constellation_props(archive_item_type,cms) %}
+
+
+
+{% if archive_item_type == "manuscript" %}
+  {% set archive_item_id = manuscript_id %}
+  {% set media = item.properties.scan.value %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Iyapo Repository - {{archive_item_type | capitalize}} {{archive_item_id}}</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0A0101">
+    <link rel="stylesheet" href="{{ rootpath }}css/clearstyle.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/global.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/constellation.css">
+
+    <!-- favicon -->
+    {# {{ favicon.html() }} #}
+    <script>
+      console.log({{item | dump | safe}})
+      console.log({{constellation_props | dump | safe}})
+    </script>
+
+
+  
+  </head>
+
+  <body >
+    <div class='constellation-content grid'>
+      <section class='media'>
+        {% for asset in media %}
+          <figure>
+            {% if asset.type == 'image' %}
+              <picture>
+                <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{manuscript_id}}/{{asset.name}}@@lg.webp" type="image/webp">
+                <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{manuscript_id}}/{{asset.name}}@@lg.jpg">
+                <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/manuscript{{manuscript_id}}/{{asset.name}}@@lg.jpg">
+              </picture>
+            {% endif %}
+          </figure>
+        {% endfor %}
+      </section>
+      <section class='props'>
+        {% for prop in constellation_props %}
+          <div class="prop mono" data-type="{{prop.type}}">
+            {% if prop.type == 'text' %}
+              <h4 class='prop-label'>{{prop.label}}</h4>
+              <p class='value'>{{prop.value}}</p>
+            {% elseif prop.type == 'accordion' %}
+              <details class='noselect'>
+                  <summary>{{prop.label}}</summary>
+                  <p>{{prop.value}}</p>
+              </details>
+            {% elseif prop.type == 'tags' %}
+              <p>[tags TK]</p>
+              
+              
+            {% elseif prop.type == 'relatives' %}
+              <h4 class='prop-label'>{{prop.label}}</h4>
+              <p>[descendants TK]</p>
+            {% endif %}
+            
+          </div>
+        {% endfor %}
+      </section>
+    </div>
+
+
+  </body>
+</html>
