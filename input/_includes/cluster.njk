@@ -1,0 +1,75 @@
+{% set rootpath="../../" %}
+{# {% import 'favicon.njk' as favicon %} #}
+{% import 'macros.njk' as macros %}
+
+
+{% if cluster == 'manuscripts' %}
+    {% set items = cms.manuscripts | notion_data_sort_int("manuscript_id") %}
+    {% set media_prop = "scan" %}
+{% elseif cluster == 'artifacts' %}
+    {% set items = cms.artifacts | notion_data_sort_int("manuscript_id") | notion_data_sort_int("artifact_subid") %}
+    {% set media_prop = "media" %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Iyapo Repository - {{cluster}}</title>
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0A0101">
+    <link rel="stylesheet" href="{{ rootpath }}css/clearstyle.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/global.css">
+    <link rel="stylesheet" href="{{ rootpath }}css/cluster.css">
+    
+
+
+    <!-- favicon -->
+    {# {{ favicon.html() }} #}
+
+    {% set base_url="BASE_URL" | env%}
+  
+  </head>
+
+  <body >
+    <nav id="filter-bar">
+      {{ macros.breadcrumbs(cluster,base_url) }}
+    </nav>
+    <main class='grid cluster-content' data-type="{{cluster}}" data-cols="6">
+        {% for item in items %}
+          {% if cluster == 'manuscripts' %}
+            {% set id = item.properties.manuscript_id.value %}
+            {% set href = "./manuscript-" + id%}
+            {% set display_id = "#"  + id | zero_string%}
+            {% set archive_img_root = "manuscript" + id + "/" %}
+          {% elseif cluster == 'artifacts' %}
+            {% set id = item.properties.artifact_subid.value%}
+            {% set href = './artifact-' + item.properties.manuscript_id.value + '-' + id %}
+            {% set display_id =  "#" + item.properties.manuscript_id.value | zero_string + ':' + id | zero_string(2) %}
+            {% set archive_img_root = "manuscript" + item.properties.manuscript_id.value + "/artifact" + id + '/img@@' %}
+          {% endif %}
+
+          <a class="card {{"vertical" if cluster == 'manuscripts' else "landscape"}}" href="{{href}}">
+            <span class="mono id-no">{{display_id}}</span>
+            {%if item.properties[media_prop].value.length > 0 %}
+                {% set media = item.properties[media_prop].value %}
+                <picture>
+                    <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{media[0].name}}@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{media[0].name}}@@sm.jpg">
+                    <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{media[0].name}}@@sm.jpg">
+                </picture>
+
+              <picture>
+                {# <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.webp" type="image/webp">
+                <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.jpg">
+                <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.jpg">
+              </picture> #}
+            {% endif %}
+          </a>
+        {% endfor %}
+    </main>
+    
+
+  
+  </body>
+</html>

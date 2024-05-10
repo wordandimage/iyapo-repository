@@ -1,0 +1,10 @@
+---
+pagination:
+  data: cms.artifacts
+  size: 1
+  alias: item
+permalink: "archive/artifacts-cluster/artifact-{{ item.properties.manuscript_id.value }}-{{ item.properties.artifact_subid.value }}/"
+layout: constellation.njk
+archive_item_type: "artifact"
+cluster: "artifacts"
+---

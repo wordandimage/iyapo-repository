@@ -217,6 +217,10 @@ a{
     object-fit:cover;
 }
 
+.card.vertical{
+    aspect-ratio:0.77;
+}
+
 .card.landscape{
     aspect-ratio:4/3;
 }

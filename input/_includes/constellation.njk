@@ -10,14 +10,23 @@
 
 {% if archive_item_type == "manuscript" %}
   {% set archive_item_id = manuscript_id %}
+  {% set archive_item_id_url = manuscript_id %}
   {% set archive_item_id_display = "#" + manuscript_id | zero_string %}
   {% set media = item.properties.scan.value %}
+  {% set archive_img_root = "manuscript" + manuscript_id + "/" %}
+{% elseif archive_item_type == "artifact"%}
+  {% set artifact_subid = item.properties.artifact_subid.value %}
+  {% set archive_item_id = artifact_subid %}
+  {% set archive_item_id_url = manuscript_id + '-' + artifact_subid  %}
+  {% set archive_item_id_display = "#" + manuscript_id | zero_string + ':' + artifact_subid | zero_string(2) %}
+  {% set media = item.properties.media.value %}
+  {% set archive_img_root = "manuscript" + manuscript_id + "/artifact" + artifact_subid + "/img@@" %}
 {% endif %}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Iyapo Repository - {{archive_item_type | capitalize}} {{archive_item_id}}</title>
+    <title>Iyapo Repository - {{archive_item_type | capitalize}} {{archive_item_id_display}}</title>
     <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0A0101">
@@ -37,15 +46,16 @@
   </head>
   <body >
     <div class='constellation-content grid'>
-      {{ macros.breadcrumbs(cluster,base_url,archive_item_id,archive_item_id_display,archive_item_type) }}
+      {{ macros.breadcrumbs(cluster,base_url,archive_item_id_url,archive_item_id_display,archive_item_type) }}
       <section class='media'>
         {% for asset in media %}
           <figure>
             {% if asset.type == 'image' %}
+              
               <picture>
-                <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{manuscript_id}}/{{asset.name}}@@lg.webp" type="image/webp">
-                <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{manuscript_id}}/{{asset.name}}@@lg.jpg">
-                <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/manuscript{{manuscript_id}}/{{asset.name}}@@lg.jpg">
+                <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.webp" type="image/webp">
+                <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.jpg">
+                <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.jpg">
               </picture>
             {% endif %}
           </figure>
@@ -74,7 +84,7 @@
               <h4 class='prop-label'>{{prop.label}}</h4>
               <div class='relative-grid'>
                 {% for item in prop.value %}
-                  <a href="{{base_url}}{{ item.url }}" class='card landscape'>
+                  <a href="{{base_url}}{{ item.url }}" class='card {{item.orientation}}'>
                     {% if item.image %}
                       <picture>
                         <source type="image/webp" srcset="{{ rootpath }}{{ item.image }}.webp" type="image/webp">

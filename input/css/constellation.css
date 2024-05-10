@@ -1,8 +1,4 @@
-.constellation-content{
-    height:var(--hundredvh);
-    min-height:var(--hundredvh);
-    max-height:var(--hundredvh);
-}
+
 
 
 .constellation-content section{
@@ -84,6 +80,12 @@ details[open] summary::marker{
 }
 
 @media(min-width:800px){
+    .constellation-content{
+        height:var(--hundredvh);
+        min-height:var(--hundredvh);
+        max-height:var(--hundredvh);
+    }
+    
     .constellation-content section{
         grid-column: auto / span calc(var(--col-count) / 2);
         height:var(--hundredvh);
