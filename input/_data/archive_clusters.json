@@ -7,7 +7,7 @@
     {
         "name":"artifacts",
         "single":"artifact",
-        "pos":{"x":0.15,"y":0.45}
+        "pos":{"x":0.2,"y":0.45}
     },
     {
         "name":"moving images",

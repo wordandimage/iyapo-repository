@@ -42,7 +42,7 @@ landing: false
         <nav id="page-nav">
           {# {% set page0 = sheet[0] %} #}
           <div class='page-link-wrapper'>
-            <a href="/" id="mobile-logo">
+            <a href="/" id="mobile-logo" class='bevel-mask'>
               {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
               <svg width="94" height="26">
                 <use href="#small-logo-path" />
@@ -51,7 +51,7 @@ landing: false
             {% for page in cms.pages %}
               {%set title = page.properties.title.value %}
               {%set url_base = "#" + title | slugify if page.properties.use_on_homepage.value else title | slugify %}
-              <a href="{{ "BASE_URL" | env }}{{url_base }}" class="expand-link">
+              <a href="{{ "BASE_URL" | env }}{{url_base }}" class="expand-link bevel-mask">
                 {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
                 <h2 class="mono">{{title}}</h2>
               </a>
@@ -59,7 +59,7 @@ landing: false
           </div>
           <button id="toggle-nav">
             {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
-            <svg viewBox="0 0 100 100">
+            <svg viewBox="0 0 100 100" class='bevel-mask'>
                 <g class="nav-open">
                   <line x1="10" y1="30" x2="90" y2="30" vector-effect="non-scaling-stroke"></line>
                   <line x1="10" y1="50" x2="90" y2="50" vector-effect="non-scaling-stroke"></line>
@@ -73,7 +73,7 @@ landing: false
           </button>
         </nav>
         <div id="archive-top-bevel">
-          {{macros.bevel_box("top",["tr","tl"]) }}
+          {{macros.bevel_box("top",["tr","tl"],"top-only") }}
           {# <h2>Archive</h2> #}
           
         </div>
@@ -81,18 +81,18 @@ landing: false
       
       <div id="archive-window" class='bevel-stroke {{"collapsed" if not landing else ""}}'>
         {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
-          <iframe id="portal" name="portal" class='fill-frame' same-origin></iframe>
-          <div id="galaxy" class="fill-frame galaxy-element">
+          <iframe id="portal" name="portal" class='fill-frame bevel-mask' same-origin></iframe>
+          <div id="galaxy" class="fill-frame galaxy-element bevel-mask">
             <div class="stars fill-frame"></div>
           </div>
           
-          <div id="masked-content" class='fill-frame galaxy-element'>
+          <div id="masked-content" class='fill-frame galaxy-element bevel-mask'>
             <div class='star-shadows fill-frame'></div>
       
           </div>
           <div id="scope-wrapper"  class='fill-frame'>
             <div id="aperture-dom" class="mono"></div>
-            <svg id="scope">
+            <svg id="scope" class="bevel-mask">
               <path id="aperture"></path>
             </svg>
             <svg id="scope-back">
@@ -103,14 +103,14 @@ landing: false
           </div>
           <div id='lens-gap'> </div>
          
-          <a href="{{"BASE_URL" | env}}#" id="home-link">
+          <a href="{{"BASE_URL" | env}}#" id="home-link" class='bevel-mask'>
             <div id="logo-small">
               {{macros.logo('small') }}
             </div>
           </a>
           <nav id="cluster-nav">
             {% for cluster in archive_clusters%}
-              <a class='mono' target="portal" data-i="{{loop.index0}}" data-name="{{cluster.name}}" href="{{base_url }}archive/{{cluster.name | slugify}}-cluster">{{cluster.name}}</a>
+              <a class='mono' style="--x:{{cluster.pos.x}}; --y:{{cluster.pos.y}};"  target="portal" data-i="{{loop.index0}}" data-name="{{cluster.name}}" href="{{base_url }}archive/{{cluster.name | slugify}}-cluster">{{cluster.name}}</a>
             {% endfor %}
           </nav>
       </div>
@@ -123,7 +123,7 @@ landing: false
             <div id="lens"></div>
           </div>
           {% if landing %}
-            <a href="{{base_url}}"><h1>{{title}}</h1></a>
+            <a href="{{base_url }}archive" target="portal"><h1>{{title}}</h1></a>
           {% else %}
             <h1>{{pg.properties.title.value}}</h1>
           {% endif %}

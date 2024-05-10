@@ -14,18 +14,21 @@ body.landing{
 }
 
 h1{
-    font-size:36px;
+    font-size:min(8.8vw,36px);
     font-family:'VTC DuBois Wide';
     font-weight:200;
     text-transform:uppercase;
     text-align:center;
     letter-spacing:0.03em;
     margin-bottom:20px;
+    margin-top:30px;
     transition:transform 0.9s;
+    white-space:nowrap;
 }
 
 .landing h1{
     font-weight:600;
+    margin-top:0;
 }
 
 .sticky-top{
@@ -97,8 +100,13 @@ h1{
     height:calc(var(--nav-height) - var(--spacing));
     top:0;
     left:0;
-    background-color: var(--bg);
+    background-color: transparent;
     z-index:5;
+}
+
+#page-nav::after{
+    bottom:0;
+    left:auto;
 }
 
 .expand-link{
@@ -150,6 +158,10 @@ h1{
     flex-flow:column nowrap;
 }
 
+#toggle-nav .bevel-box{
+    background-color: var(--bg);
+}
+
 #toggle-nav line{
     stroke:var(--fg);
     stroke-width:var(--stroke-width);
@@ -159,7 +171,7 @@ h1{
     width:100%;
     height:100%;
     position:absolute;
-    z-index:30;
+    z-index:110;
 }
 
 #page-nav a{
@@ -197,6 +209,8 @@ h2.mono{
         left:15px;
     }
 }
+
+
 
 
 
@@ -269,55 +283,39 @@ body[data-view="galaxy"] iframe,body[data-spotlightmode="transition"] iframe{
 
 #cluster-nav{
     position:absolute;
-    bottom:-2.5em;
-    left:50%;
-    
-    
-    display:none;
-    flex-flow:row nowrap;
-    gap:1.5em;
-    text-transform:capitalize;
     opacity:0;
-    transition:opacity 0.8s, transform 0.8s;
+    pointer-events:none;
+    text-transform:capitalize;
+    z-index:100;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body[data-view="galaxy"] #cluster-nav{
+    opacity:1;
+    pointer-events:all;
 }
 
 #cluster-nav a{
-    color:var(--mid);
+    color:var(--hl);
+    height:9em;
+    width:9em;
+    display:block;
+    border:var(--stroke-width) solid var(--hl);
+    box-sizing:border-box;
+    padding:4px;
     transition:color 0.3s;
     white-space:nowrap;
+
+    position:absolute;
+    left:calc(100% * var(--x));
+    top:calc(100% * var(--y));
+    transform:translate(-50%,-50%) translateY(-10px);
 }
 
 
-body[data-cluster="manuscripts"] #cluster-nav{
-    transform:translateX(-3em);
-}
-
-
-body[data-cluster="manuscripts"] #cluster-nav a[data-i="0"],
-body[data-cluster="artifacts"] #cluster-nav a[data-i="1"],
-body[data-cluster="moving images"] #cluster-nav a[data-i="2"],
-body[data-cluster="rare media"] #cluster-nav a[data-i="3"]{
-    color:var(--fg);
-}
-
-
-
-
-body[data-cluster="artifacts"] #cluster-nav{
-    transform:translateX(-10.9em);
-}
-
-body[data-cluster="moving images"] #cluster-nav{
-    transform:translateX(-19em);
-}
-
-body[data-cluster="rare media"] #cluster-nav{
-    transform:translateX(-27.5em);
-}
-
-body[data-view="cluster"] #cluster-nav{
-    opacity:1;
-}
 
 
 
@@ -331,11 +329,12 @@ body[data-view="cluster"] #cluster-nav{
     width:clamp(0px,calc(1px * (100 - (var(--scrolly) - 50) )),150px);
     transform:translateX(-50%);
     z-index:200;
+    pointer-events:none;
     /* transition:width 1s; */
 }
 
-.landing #lens-gap{
-    display:unset;
+#lens-wrapper,#scope-wrapper,#masked-content{
+    display:none;
 }
 
 .scrolled #lens-gap{
@@ -442,13 +441,12 @@ article{
     
 }
 
-article .delay-spacer{
+.delay-spacer{
     height:var(--delay);
-}
-
-body:not(.landing) .delay-spacer{
     display:none;
 }
+
+
 
 
 article .content-wrap{
@@ -466,8 +464,8 @@ body[data-view="cluster"] h1{
 }
 
 .landing article .content-wrap{
-    position:sticky;
-    top:calc(var(--archive-h) + var(--nav-height));
+    /* position:sticky;
+    top:calc(var(--archive-h) + var(--nav-height)); */
     z-index:130;
 }
 
@@ -519,9 +517,6 @@ body[data-view="galaxy"] #masked-content{
     
 }
 
-#galaxy .stars{
-    transform:translateY(calc(var(--scrolly) / 2 * 1px));
-}
 
 .star{
     position:absolute;
@@ -708,6 +703,10 @@ body[data-view="galaxy"] #aperture-dom{
     letter-spacing:0.01em; */
 }
 
+.prose .block:first-child h2{
+    margin-top:0;
+}
+
 
 
 .prose h2{
@@ -731,19 +730,40 @@ body[data-view="galaxy"] #aperture-dom{
     margin-top:10px;
 }
 
-@media(max-width:839px){
-    body[data-view="cluster"] h1{
-        transform:translateY(-15px);
-    }
-}
-
 @media(min-width:840px){
+
+    .landing article .content-wrap{
+        position:sticky;
+        top:calc(var(--archive-h) + var(--nav-height));
+    }
+
+    body.landing .delay-spacer{
+        display:block;
+    }
+
+    h1{
+        margin-top:0;
+    }
+    
 
     #archive-window{
         position:sticky;
         top:calc(var(--archive-h) * -1 + 111px);
         display:block;
     }
+    
+    #lens-wrapper,#scope-wrapper,#masked-content{
+        display:block;
+    }
+
+    .landing #lens-gap{
+        display:unset;
+    }
+
+    #galaxy .stars{
+        transform:translateY(calc(var(--scrolly) / 2 * 1px));
+    }
+    
 
 
 
@@ -766,6 +786,7 @@ body[data-view="galaxy"] #aperture-dom{
 
     #page-nav::before{
         height:calc(var(--nav-height) + 1px);
+        background-color: var(--bg);
     }
 
     #mobile-logo{
@@ -782,6 +803,62 @@ body[data-view="galaxy"] #aperture-dom{
 
     #cluster-nav{
         display:flex;
+        bottom:-2.5em;
+        top:auto;
+        left:50%;
+        flex-flow:row nowrap;
+        gap:1.5em;
+        transition:opacity 0.8s, transform 0.8s;
+        width:unset;
+        height:unset;
+    }
+
+    body[data-view="galaxy"] #cluster-nav{
+        opacity:0;
+        pointer-events:none;
+    }
+
+    body[data-cluster="manuscripts"] #cluster-nav{
+        transform:translateX(-3em);
+    }
+
+    #cluster-nav a{
+        color:var(--mid);
+        border:none;
+        display:inline;
+        height:unset;
+        width:unset;
+        padding:0;
+        position:relative;
+        left:0;
+        top:0;
+        transform:none;
+    }
+    
+    
+    body[data-cluster="manuscripts"] #cluster-nav a[data-i="0"],
+    body[data-cluster="artifacts"] #cluster-nav a[data-i="1"],
+    body[data-cluster="moving images"] #cluster-nav a[data-i="2"],
+    body[data-cluster="rare media"] #cluster-nav a[data-i="3"]{
+        color:var(--fg);
+    }
+    
+    
+    body[data-cluster="artifacts"] #cluster-nav{
+        transform:translateX(-10.9em);
+    }
+    
+    body[data-cluster="moving images"] #cluster-nav{
+        transform:translateX(-19em);
+    }
+    
+    body[data-cluster="rare media"] #cluster-nav{
+        transform:translateX(-27.5em);
+    }
+    
+    body[data-view="cluster"] #cluster-nav{
+        opacity:1;
+        pointer-events:all;
     }
 
     #toggle-nav{

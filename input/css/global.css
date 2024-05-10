@@ -21,7 +21,7 @@
     --mid:#808080;
     --m:20px;
     --spacing:15px;
-    --logo-height:75px;
+    --logo-height:45px;
     --hundredvh:100vh;
     --hundredvh:100svh;
     --nav-height:70px;
@@ -34,7 +34,7 @@
     
 
     --stroke-width:0.8px;
-    /* --stroke-width:1px; */
+    --stroke-width:1px;
     --border:var(--stroke-width) solid var(--fg);
     --bevel-size:15px;
 
@@ -42,6 +42,7 @@
     --dubois-narrow:'VTC DuBois Narrow';
     --dubois-wide:'VTC DuBois Wide';
 }
+
 
 
 
@@ -97,7 +98,7 @@ a{
     }
 
     & .corner{
-        background-color: var(--bg);
+        /* background-color: var(--bg); */
         width:var(--bevel-size);
         height:var(--bevel-size);
         position:absolute;
@@ -144,6 +145,33 @@ a{
         left:0;
         --tx:-50%;
     }
+}
+
+.bevel-box,
+.bevel-mask{
+    --b: 100px;  /* border */
+    --s: calc(var(--bevel-size) - 5px);
+
+    clip-path: polygon(0 var(--s),var(--s) 0,calc(100% - var(--s)) 0,100% var(--s),100% calc(100% - var(--s)),calc(100% - var(--s)) 100%,var(--s) 100%,0 calc(100% - var(--s)));
+    /* --g1:#000 var(--b),#0000 0 calc(100% - var(--b)),#000 0;
+    --g2:#0000   calc(0.707*var(--s)), 
+        #000  0 calc(0.707*var(--s) + var(--b)),
+        #0000 0 calc(100% - 0.707*var(--s) - var(--b)),
+        #000  0 calc(100% - 0.707*var(--s)),
+        #0000 0;
+    mask:
+        linear-gradient(45deg ,var(--g2)),
+        linear-gradient(-45deg,var(--g2)),
+        linear-gradient(90deg ,var(--g1)) 50%/100% calc(100% - 2*var(--s)) no-repeat,
+        linear-gradient(180deg,var(--g1)) 50%/calc(100% - 2*var(--s)) 100% no-repeat; */
+}
+
+.bevel-box.top-only{
+    clip-path: polygon(0 0,0 0,calc(100%) 0,100% 0,100% 100%,0 100%);
+}
+
+.bevel-box.top-only .corner{
+    background-color: var(--bg);
 }
 
 .grid{
@@ -277,6 +305,12 @@ a{
 @media(min-width:800px){
     .breadcrumbs{
         display:none;
+    }
+}
+
+@media(min-width:840px){
+    :root{
+        --logo-height:75px;
     }
 }
 

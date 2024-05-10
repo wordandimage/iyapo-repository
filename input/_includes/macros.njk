@@ -2,8 +2,8 @@
 <div>{{msg}}</div>
 {% endmacro %}
 
-{% macro bevel_box(sides,corners) %}
-<div class="bevel-box {{sides}}">
+{% macro bevel_box(sides,corners,options='') %}
+<div class="bevel-box {{sides}} {{options}}">
         {% for corner in corners %}
             <div class='corner {{corner}}'></div>
         {% endfor %}
