@@ -287,8 +287,9 @@ body[data-view="galaxy"] iframe,body[data-spotlightmode="transition"] iframe{
     pointer-events:none;
     text-transform:capitalize;
     z-index:100;
-    top:0;
-    width:100%;
+    top:0px;
+    left:1px;
+    width:calc(100% - 2px);
     height:100%;
     overflow:hidden;
 }

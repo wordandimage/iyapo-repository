@@ -261,7 +261,8 @@ function generate_galaxy({n1=7,n2=30,r1=0.015,r2=0.1}){
         }
     })
 
-
+    d3.select('#galaxy .stars').selectAll('span').remove();
+    d3.select('#masked-content .star-shadows').selectAll('span').remove();
 
     d3.select('#galaxy .stars').selectAll('span').data(points_mapped,(d)=>d.type+d.i)
     .join(
