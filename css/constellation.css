@@ -54,14 +54,27 @@ details[open] summary::marker{
     
 }
 
+.prop[data-type="relatives"] h4{
+    margin-bottom:4px;
+}
+
+.prop.empty{
+    display:none;
+}
+
 .prop-label::after{
     content:':';
 }
 
-.media{
-    padding-top:20px;
+.relative-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-gap:15px;
 }
 
+.props{
+    padding-top:10px;
+}
 
 .props::after{
     content:'';
@@ -70,7 +83,7 @@ details[open] summary::marker{
     min-height:20px;
 }
 
-@media(min-width:700px){
+@media(min-width:800px){
     .constellation-content section{
         grid-column: auto / span calc(var(--col-count) / 2);
         height:var(--hundredvh);
@@ -84,5 +97,20 @@ details[open] summary::marker{
         display:block;
         width:100%;
         min-height:20px;
+    }
+}
+
+@media(min-width:900px){
+    .prop[data-type="tags"]:not(.empty){
+        display:flex;
+        flex-flow:row nowrap;
+        gap:15px;
+    }
+    .prop[data-type="tags"] p{
+        min-width:0;
+        display:flex;
+        flex-flow:column nowrap;
+        flex:1;
+        min-height:52px;
     }
 }

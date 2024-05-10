@@ -21,6 +21,7 @@ h1{
     text-align:center;
     letter-spacing:0.03em;
     margin-bottom:20px;
+    transition:transform 0.9s;
 }
 
 .landing h1{
@@ -33,7 +34,7 @@ h1{
     height:fit-content;
     width:100%;
     /* overflow:hidden; */
-    margin-bottom:-14px;
+    margin-bottom:var(--spacing);
     pointer-events:none;
     z-index:130;
 }
@@ -46,13 +47,15 @@ h1{
     z-index:5;
     width:100%;
     height:calc(100% + 2px);
+    display:none;
 }
 
 #home-link:hover{
     background-color: var(--fg);
 }
 
-#home-link:hover #logo-small path{
+#home-link:hover #logo-small path
+{
     fill:var(--bg);
 }
 
@@ -69,7 +72,7 @@ h1{
     width:100%;
     display:flex;
     flex-flow:row nowrap;
-    gap:15px;
+    gap:var(--spacing);
     max-width:var(--max-w);
     margin:auto;
     position:relative;
@@ -77,16 +80,7 @@ h1{
     pointer-events:all;
     /* background-color: var(--bg); */
     padding-top:var(--spacing);
-    &::before{
-        content:'';
-        width:100%;
-        position:absolute;
-        height:calc(var(--nav-height) + 1px);
-        top:0;
-        left:0;
-        background-color: var(--bg);
-        z-index:5;
-    }
+    height: 41px;
 
     &::after{
         right:0;
@@ -94,6 +88,78 @@ h1{
     }
 
     
+}
+
+#page-nav::before{
+    content:'';
+    width:100%;
+    position:absolute;
+    height:calc(var(--nav-height) - var(--spacing));
+    top:0;
+    left:0;
+    background-color: var(--bg);
+    z-index:5;
+}
+
+.expand-link{
+    display:none;
+}
+
+
+
+#page-nav.open .expand-link{
+    display:block;
+}
+
+#page-nav .nav-close{
+    opacity:0;
+}
+
+#page-nav.open .nav-close{
+    opacity:1;
+}
+
+#page-nav.open .nav-open{
+    opacity:0;
+}
+
+
+.page-link-wrapper{
+    display:flex;
+    flex-flow:column nowrap;
+    gap:var(--spacing);
+    flex:1;
+}
+
+#mobile-logo{
+    height:41px;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+}
+#mobile-logo svg{
+    transform:translateY(-3px) scale(0.95);
+}
+
+#toggle-nav{
+    width:55px;
+    min-width:55px;
+    height:41px;
+    position:relative;
+    display:flex;
+    flex-flow:column nowrap;
+}
+
+#toggle-nav line{
+    stroke:var(--fg);
+    stroke-width:var(--stroke-width);
+}
+
+#toggle-nav svg{
+    width:100%;
+    height:100%;
+    position:absolute;
+    z-index:30;
 }
 
 #page-nav a{
@@ -105,6 +171,7 @@ h1{
     position:relative;
     z-index:10;
     background-color: var(--bg);
+    text-align:center;
 }
 
 
@@ -115,6 +182,7 @@ h2.mono{
 
 #archive-top-bevel{
     position:relative;
+    display:none;
     
     height:14px;
     max-width:var(--max-w);
@@ -140,16 +208,21 @@ h2.mono{
     width:var(--max-w);
     /* background-color: var(--bg); */
     --max-opacity:0;
+    position: relative;
     
     height:var(--archive-h);
     margin:0 auto;
-    position:sticky;
+    
     /* top:calc((var(--archive-h) - 20px) * -1); */
-    top:calc(var(--archive-h) * -1 + 113px);
+    
     
     --archive-scroll-dist:100px;
 
-    
+    display:none;
+}
+
+body.landing #archive-window{
+    display:block;
 }
 
 body[data-view="galaxy"] #archive-window,body[data-spotlightmode="transition"] #archive-window{
@@ -200,7 +273,7 @@ body[data-view="galaxy"] iframe,body[data-spotlightmode="transition"] iframe{
     left:50%;
     
     
-    display:flex;
+    display:none;
     flex-flow:row nowrap;
     gap:1.5em;
     text-transform:capitalize;
@@ -658,7 +731,67 @@ body[data-view="galaxy"] #aperture-dom{
     margin-top:10px;
 }
 
+@media(max-width:839px){
+    body[data-view="cluster"] h1{
+        transform:translateY(-15px);
+    }
+}
 
+@media(min-width:840px){
+
+    #archive-window{
+        position:sticky;
+        top:calc(var(--archive-h) * -1 + 111px);
+        display:block;
+    }
+
+
+
+    .sticky-top{
+        margin-bottom:-14px;
+    }
+
+    #archive-top-bevel{
+        display:block;
+    }
+
+
+    #page-nav{
+        height:unset;
+    }
+
+    #home-link{
+        display:block;
+    }
+
+    #page-nav::before{
+        height:calc(var(--nav-height) + 1px);
+    }
+
+    #mobile-logo{
+        display:none;
+    }
+
+    #page-nav .expand-link{
+        display:block;
+    }
+
+    #page-nav a{
+        text-align:left;
+    }
+
+    #cluster-nav{
+        display:flex;
+    }
+
+    #toggle-nav{
+        display:none;
+    }
+
+    .page-link-wrapper{
+        flex-flow:row nowrap;
+    }
+}
 
 
 @media(hover:hover){
