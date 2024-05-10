@@ -1,7 +1,7 @@
 
 
 .cluster-content{
-    padding-top:20px;
+    /* padding-top:20px; */
     --n:2;
     --colspan:calc(var(--col-count) / var(--n));
 }
@@ -17,13 +17,13 @@
     border-bottom:var(--stroke-width) solid var(--fg);
     width:calc(100% - 40px);
     margin:auto;
-    height:100px;
     max-width:var(--archive-content-width);
     box-sizing:border-box;
     background-color: var(--bg);
     position:sticky;
     top:0;
     z-index:100;
+    margin-bottom:var(--spacing);
 }
 
 
@@ -45,6 +45,7 @@ img{
     position:relative;
     background-color:rgba(255,255,255,0.1);
     grid-column:auto / span var(--colspan);
+    margin-bottom:15px;
 }
 
 .manuscript::after{

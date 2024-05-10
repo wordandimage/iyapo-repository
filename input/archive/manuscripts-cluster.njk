@@ -23,17 +23,19 @@ title: Iyapo Repository
     <!-- favicon -->
     {# {{ favicon.html() }} #}
 
-
+    {% set base_url="BASE_URL" | env%}
   
   </head>
 
   <body >
-    <nav id="filter-bar"></nav>
+    <nav id="filter-bar">
+      {{ macros.breadcrumbs("manuscripts",base_url) }}
+    </nav>
     <main class='grid cluster-content' data-type="manuscripts" data-cols="6">
         {% for manuscript in cms.manuscripts | notion_data_sort_int("manuscript_id") %}
           {% set id = manuscript.properties.manuscript_id.value%}
           <a class="manuscript" href="./manuscript-{{id}}">
-            <span class="mono id-no">{{id}}</span>
+            <span class="mono id-no">{{id | zero_string}}</span>
             {%if manuscript.properties.scan.value.length > 0 %}
               <picture>
                 <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.webp" type="image/webp">

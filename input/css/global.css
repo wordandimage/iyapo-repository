@@ -3,6 +3,11 @@
     --fg:rgb(250,250,250);
     --hl:#D940FF;
 
+    --tag-narrative:#FFAFCC;
+    --tag-object:#EFF27E;
+    --tag-domain:#A4E2FF;
+
+
     /* --bg:#1b1b1b;
     --fg:rgb(250,250,250); */
 
@@ -21,6 +26,7 @@
     --hundredvh:100svh;
     --nav-height:70px;
     --scrolly:0;
+
 
     --archive-content-width:1200px;
 
@@ -146,17 +152,131 @@ a{
     grid-template-columns:repeat(var(--col-count),1fr);
     grid-template-rows: min-content;
     box-sizing:border-box;
-    width:calc(100% - 40px);
-    grid-gap:15px;
+    width:calc(100% - var(--spacing) * 2);
+    grid-gap:0px 15px;
     max-width:var(--archive-content-width);
     margin:auto;
 }
 
 
 
+.col-narrative{
+    color:var(--tag-narrative);
+}
+.col-object{
+    color:var(--tag-object);
+}
+.col-domain{
+    color:var(--tag-domain);
+}
+
+.card{
+    position:relative;
+    background-color:rgba(255,255,255,0.1);
+    margin-bottom:var(--spacing);
+}
+
+.card picture{
+    display:contents;
+}
+
+.card img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    object-fit:cover;
+}
+
+.card.landscape{
+    aspect-ratio:4/3;
+}
+
+.card::after{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:var(--hl);
+    mix-blend-mode:hard-light;
+    z-index:90;
+    opacity:0;
+}
+
+
+.breadcrumbs{
+    grid-column:1 / span var(--col-count);
+    padding-top:20px;
+    padding-bottom:10px;
+}
+
+.breadcrumbs a{
+    color:var(--mid);
+}
+
+.breadcrumbs a:last-child{
+    color:var(--fg);
+}
+
+@media(hover:hover){
+    .card:hover::after{
+        opacity:1;
+    }
+
+    .breadcrumbs a:hover{
+        color:var(--hl);
+    }
+}
+
+.mono{
+    font-family: 'jetbrains';
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 200;
+    letter-spacing:0.01em;
+}
+
+.mono.small-caps{
+    font-size:11px;
+    line-height:15px;
+    text-transform:uppercase;
+    font-weight:600;
+    letter-spacing:0.05em;
+}
+
 @media(min-width:600px){
     .grid{
         --col-count:12;
+        width:calc(100% - 40px);
+    }
+}
+
+@media(max-width:699px){
+    .desktop-only{
+        display:none !important;
+    }
+}
+
+@media(min-width:700px){
+    
+
+    .mono{
+        font-size:16px;
+        line-height: 26px;
+    }
+
+    .mono.small-caps{
+        font-size:12px;
+        line-height:16px;
+    }
+}
+
+@media(min-width:800px){
+    .breadcrumbs{
+        display:none;
     }
 }
 
@@ -206,10 +326,3 @@ a{
     src: url('../assets/fonts/jetbrains-variable-italic.ttf') format('truetype');
 }
 
-.mono{
-    font-family: 'jetbrains';
-    font-size: 16px;
-    font-weight: 200;
-    line-height: 26px;
-    letter-spacing:0.01em;
-}

@@ -134,6 +134,9 @@ function init(){
         
         dom.archive_window.on('mousemove',set_cursor)
         dom.archive_window.on('click',handle_click)
+
+       
+
         // d3.selectAll('#cluster-nav a').on('click',(e)=>{
      
         //     update_archive_view(e.currentTarget.dataset.name);
@@ -144,6 +147,10 @@ function init(){
 
         generate_galaxy();
     }
+
+    d3.select('#toggle-nav').on('click',function(){
+        document.querySelector('#page-nav').classList.toggle('open')
+    })
 
     requestAnimationFrame(update_scope);
     
@@ -335,7 +342,7 @@ function handle_click(e){
 
 function parse_archive_location(url=''){
     let base_url=window.location.origin+'/';
-    let paths=url.replace(base_url,'').split('/').filter(a=>a.length>0&&a!=='archive');
+    let paths=url.replace(base_url,'').split('/').filter(a=>a.length>0&&a!=='archive'&&a!=='iyapo-repository');
     update_archive_view(paths[0].replace('-cluster','').replace('-',' '));
 
 

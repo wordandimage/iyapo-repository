@@ -6,10 +6,11 @@
 {% set manuscript_id = item.properties.manuscript_id.value %}
 {% set constellation_props = item | get_constellation_props(archive_item_type,cms) %}
 
-
+{% set base_url="BASE_URL" | env%}
 
 {% if archive_item_type == "manuscript" %}
   {% set archive_item_id = manuscript_id %}
+  {% set archive_item_id_display = "#" + manuscript_id | zero_string %}
   {% set media = item.properties.scan.value %}
 {% endif %}
 
@@ -34,9 +35,9 @@
 
   
   </head>
-
   <body >
     <div class='constellation-content grid'>
+      {{ macros.breadcrumbs(cluster,base_url,archive_item_id,archive_item_id_display,archive_item_type) }}
       <section class='media'>
         {% for asset in media %}
           <figure>
@@ -51,23 +52,41 @@
         {% endfor %}
       </section>
       <section class='props'>
+        <div class="prop desktop-only mono">
+            <p class='value'>{{archive_item_id_display}}</p>
+          </div>
         {% for prop in constellation_props %}
+          
           <div class="prop mono" data-type="{{prop.type}}">
             {% if prop.type == 'text' %}
               <h4 class='prop-label'>{{prop.label}}</h4>
               <p class='value'>{{prop.value}}</p>
             {% elseif prop.type == 'accordion' %}
-              <details class='noselect'>
-                  <summary>{{prop.label}}</summary>
+              <details>
+                  <summary class='noselect'>{{prop.label}}</summary>
                   <p>{{prop.value}}</p>
               </details>
             {% elseif prop.type == 'tags' %}
-              <p>[tags TK]</p>
-              
-              
+              <p><span>{% if prop.value.narrative.length>-1%}Narrative:{% endif %}</span><span class="col-narrative">{{prop.value.narrative}}</span></p>
+              <p><span>{% if prop.value.object.length>-1%}Object:{% endif %}</span><span class="col-object">{{prop.value.object}}</span></p>
+              <p><span>{% if prop.value.domain.length>-1%}Domain:{% endif %}</span><span class="col-domain">{{prop.value.domain}}</span></p>
             {% elseif prop.type == 'relatives' %}
               <h4 class='prop-label'>{{prop.label}}</h4>
-              <p>[descendants TK]</p>
+              <div class='relative-grid'>
+                {% for item in prop.value %}
+                  <a href="{{base_url}}{{ item.url }}" class='card landscape'>
+                    {% if item.image %}
+                      <picture>
+                        <source type="image/webp" srcset="{{ rootpath }}{{ item.image }}.webp" type="image/webp">
+                        <source type="image/jpg" srcset="{{ rootpath }}{{ item.image }}.jpg">
+                        <img loading="lazy" src="{{ rootpath }}{{ item.image }}.jpg">
+                      </picture>
+                    {% endif %}
+                  </a>
+                  
+                {% endfor %}
+              </div>
+              
             {% endif %}
             
           </div>
