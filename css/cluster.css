@@ -15,7 +15,7 @@
 
 #filter-bar{
     border-bottom:var(--stroke-width) solid var(--fg);
-    width:calc(100% - 40px);
+    width:calc(100% - var(--spacing) * 2);
     margin:auto;
     max-width:var(--archive-content-width);
     box-sizing:border-box;
@@ -81,6 +81,10 @@ picture{
 @media(min-width:600px){
     .cluster-content[data-cols="6"]{
         --n:4;
+    }
+
+    #filter-bar{
+        width:calc(100% - 40px);
     }
 }
 

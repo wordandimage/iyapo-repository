@@ -19,6 +19,26 @@ let mouse={
     changed:false
 }
 
+let isDesktop=window.matchMedia('(min-width:840px)');
+
+let current_size=isDesktop.matches?'desktop':'mobile';
+
+let galaxy_settings={
+    desktop:{
+        n1:7,
+        n2:30,
+        r1:0.015,
+        r2:0.1
+    },
+    mobile:{
+        n1:5,
+        n2:15,
+        r1:0.08,
+        r2:0.2
+    }
+}
+
+
 
 let spotlight_mode='mouse';
 let cluster_transition_start=0;
@@ -34,6 +54,7 @@ function update_spotlight_mode(v){
     dom.body.node().dataset.spotlightmode=v;
 }
 function update_archive_view(v){
+    console.log('update archive view!',v)
     current_view=v;
     console.log(v)
     if(v!=='galaxy'){
@@ -143,10 +164,15 @@ function init(){
         // })
         
         
+        dom.portal.on('load',function(){
+            let location=parse_archive_location(dom.portal.node().contentWindow.location.href)
+            console.log(location);
+        })
 
-
-        generate_galaxy();
+        generate_galaxy(galaxy_settings[current_size])
     }
+
+    
 
     d3.select('#toggle-nav').on('click',function(){
         document.querySelector('#page-nav').classList.toggle('open')
@@ -199,27 +225,27 @@ function distance(p0,p1){
     return Math.sqrt((p0.x - p1.x)**2 + (p0.y - p1.y)**2);
 }
 
-function generate_galaxy(){
+function generate_galaxy({n1=7,n2=30,r1=0.015,r2=0.1}){
     let points=[];
     let dims=win;
 
-    let dist=0.1;
+
     for(let cluster of archive_clusters){
         let radius=0.05;
         let constraints={
             x:[cluster.pos.x-radius,cluster.pos.x+radius],
             y:[cluster.pos.y-radius,cluster.pos.y+radius]
         }
-        for(let p=0;p<7;p++){
-            let point=poisson_point_place(points,dims,dims.w*0.015,constraints);
+        for(let p=0;p<n1;p++){
+            let point=poisson_point_place(points,dims,dims.w*r1,constraints);
             point.i=p;
             point.type='cluster '+cluster.name;
             points.push(point);
         }
     }
 
-    for(let p=0;p<30;p++){
-        let point=poisson_point_place(points,dims,dims.w*dist);
+    for(let p=0;p<n2;p++){
+        let point=poisson_point_place(points,dims,dims.w*r2);
         point.i=p;
         point.type='';
         points.push(point);
@@ -281,6 +307,17 @@ function set_size(){
     let margin=(full_win_w - win.w) / 2;
     console.log(margin)
 
+
+    let new_size=isDesktop.matches?'desktop':'mobile';
+    if(new_size!==current_size){
+        console.log('change size...')
+        generate_galaxy(galaxy_settings[new_size])
+        current_size=new_size;
+    }
+
+    // current_size
+
+
     dom.svg_back.attr('height',win.h)
     dom.svg_back.attr('width',full_win_w)
     dom.svg_back.style('width',full_win_w+'px')
@@ -319,7 +356,7 @@ function set_cursor(){
 
 function handle_click(e){
     
-    if(current_view=='galaxy'&&hovered_cluster!==''&&scroll_y<=0){
+    if(current_view=='galaxy'&&hovered_cluster!==''&&scroll_y<=0&&isDesktop.matches){
         update_archive_view(hovered_cluster)
         update_spotlight_mode('transition');
         cluster_transition_start=performance.now();
@@ -328,10 +365,7 @@ function handle_click(e){
 
         // dom.portal.node().setAttribute('src',base_url+'archive/'+hovered_cluster.replace(' ','-')+'-cluster')
         dom.portal.attr('src',base_url+'archive/'+hovered_cluster.replace(' ','-')+'-cluster')
-        dom.portal.on('load',function(){
-            let location=parse_archive_location(dom.portal.node().contentWindow.location.href)
-            console.log(location);
-        })
+        
         
         
         // console.log(dom.portal.node().contentWindow.document);
@@ -341,17 +375,30 @@ function handle_click(e){
 }
 
 function parse_archive_location(url=''){
+    console.log('location change!',url)
     let base_url=window.location.origin+'/';
     let paths=url.replace(base_url,'').split('/').filter(a=>a.length>0&&a!=='archive'&&a!=='iyapo-repository');
-    update_archive_view(paths[0].replace('-cluster','').replace('-',' '));
-
+    if(paths.length>0){
+        update_archive_view(paths[0].replace('-cluster','').replace('-',' '));
+        if(!isDesktop.matches){
+            update_spotlight_mode('hide');
+        }
+    } else {
+        update_archive_view('galaxy');
+        update_spotlight_mode('mouse');
+    }
+    
 
     let location={
-        cluster:paths[0].replace('-cluster','')
+        cluster:paths[0]?.replace('-cluster','') || ''
     }
 
 
-    if(paths.length>1) location.constellation=paths[1].replace(`${current_cluster.single}-`,'').split('-').map(a=>parseInt(a));
+    if(paths.length>1){
+        location.constellation=paths[1].replace(`${current_cluster.single}-`,'').split('-').map(a=>parseInt(a));
+    }
+        
+    window.scroll({top:0,behavior:'smooth'});
        
     return location;
 
