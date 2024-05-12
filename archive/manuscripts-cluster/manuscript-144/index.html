@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"40a03dd3-995a-4356-bd9d-1566cbe86cd1","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":144},"narrative":{"type":"select","value":"Revolutionary"},"object":{"type":"select","value":"Has a Motor"},"domain":{"type":"select","value":"Music"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}}})
       console.log([{"type":"tags","value":{"narrative":"Revolutionary","domain":"Music","object":"Has a Motor"}}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-144">#0144</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0144</p>
           </div>
@@ -63,8 +91,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

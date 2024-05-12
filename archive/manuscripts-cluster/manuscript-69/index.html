@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"90124238-38de-4895-9acb-0a8c4d3ad337","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"This is an MDMA suppository machine that you wear as a belt  with gentle robo hands that shove the drugs into your bum. In this future all parts have butt hole opnenings to allow for easy access. Health and happiness abounds.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"This is an MDMA suppository machine that you wear as a belt  with gentle robo hands that shove the drugs into your bum. In this future all parts have butt hole opnenings to allow for easy access. Health and happiness abounds.","href":null}]},"manuscript_id":{"type":"number","value":69},"narrative":{"type":"select","value":""},"object":{"type":"select","value":""},"domain":{"type":"select","value":""},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Hannah Epstain"}}})
       console.log([{"type":"text","label":"Name","value":"Hannah Epstain"},{"type":"accordion","label":"Description","value":"This is an MDMA suppository machine that you wear as a belt  with gentle robo hands that shove the drugs into your bum. In this future all parts have butt hole opnenings to allow for easy access. Health and happiness abounds."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-69">#0069</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0069</p>
           </div>
@@ -73,8 +101,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

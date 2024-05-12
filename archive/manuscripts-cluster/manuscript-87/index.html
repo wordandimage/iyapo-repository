@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"eca3d7cd-073a-4b80-bfe9-a0f7042e5b38","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Living in a world of complere and utter dystopia where land masses have turned into food deserts. The human body must generate and sustain all the nutrients, it will need throughtout the life continium. Therefore, after woman gives births, placenta is transformed into nutrient cartridge delievered throught a tube which is attached to each newborn on a fitbit like wrist device. The device feeds an IV tube, through the body which provides the essential vitamins and nutrients to preserve life.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Living in a world of complere and utter dystopia where land masses have turned into food deserts. The human body must generate and sustain all the nutrients, it will need throughtout the life continium. Therefore, after woman gives births, placenta is transformed into nutrient cartridge delievered throught a tube which is attached to each newborn on a fitbit like wrist device. The device feeds an IV tube, through the body which provides the essential vitamins and nutrients to preserve life.","href":null}]},"manuscript_id":{"type":"number","value":87},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Tube"},"domain":{"type":"select","value":"Food"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Ayana Allen, Sarah Hesson, Michael Da"}}})
       console.log([{"type":"text","label":"Name","value":"Ayana Allen, Sarah Hesson, Michael Da"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Food","object":"Tube"}},{"type":"accordion","label":"Description","value":"Living in a world of complere and utter dystopia where land masses have turned into food deserts. The human body must generate and sustain all the nutrients, it will need throughtout the life continium. Therefore, after woman gives births, placenta is transformed into nutrient cartridge delievered throught a tube which is attached to each newborn on a fitbit like wrist device. The device feeds an IV tube, through the body which provides the essential vitamins and nutrients to preserve life."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-87">#0087</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0087</p>
           </div>
@@ -83,8 +111,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

@@ -32,33 +32,61 @@
     <script>
       console.log({"item_id":"1b9348e8-a4b5-49cf-b611-97ee1c5e21fa","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"These earrings produce sounds that interpret heartbeat and moods and makes music out of it to let people know how are you feeling. Also,play sounds/music that other people want you to hear when you’re looking at them or their work.\n","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"These earrings produce sounds that interpret heartbeat and moods and makes music out of it to let people know how are you feeling. Also,play sounds/music that other people want you to hear when you’re looking at them or their work.\n","href":null}]},"manuscript_id":{"type":"number","value":4},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Makes Sound"},"domain":{"type":"select","value":"Space Travel"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Azamna Zhang"}}})
       console.log([{"type":"text","label":"Name","value":"Azamna Zhang"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Space Travel","object":"Makes Sound"}},{"type":"accordion","label":"Description","value":"These earrings produce sounds that interpret heartbeat and moods and makes music out of it to let people know how are you feeling. Also,play sounds/music that other people want you to hear when you’re looking at them or their work.\n"}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-4">#0004</a>
 </nav>
 
-      <section class='media'>
+      
         
-          <figure>
-            
+    <section class='media'>
+          
+            <figure>
               
-              <picture>
-                <source type="image/webp" srcset="../../../assets/images_for_web/archive/manuscript4/scan@@lg.webp" type="image/webp">
-                <source type="image/jpg" srcset="../../../assets/images_for_web/archive/manuscript4/scan@@lg.jpg">
-                <img loading="lazy" src="../../../assets/images_for_web/archive/manuscript4/scan@@lg.jpg">
-              </picture>
-            
-          </figure>
+                
+                <picture>
+                  <source type="image/webp" srcset="../../../assets/images_for_web/archive/manuscript4/scan@@lg.webp" type="image/webp">
+                  <source type="image/jpg" srcset="../../../assets/images_for_web/archive/manuscript4/scan@@lg.jpg">
+                  <img loading="lazy" src="../../../assets/images_for_web/archive/manuscript4/scan@@lg.jpg">
+                </picture>
+              
+            </figure>
+          
+        </section>
+  
         
-      </section>
-      <section class='props'>
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0004</p>
           </div>
@@ -95,8 +123,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

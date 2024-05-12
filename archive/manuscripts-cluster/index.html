@@ -25,27 +25,197 @@
     
 
     
+    <script>
+        let cluster="manuscripts";
+        let tags={"narrative":["Utopian","Dystopian","Revolutionary","Apocalyptic"],"domain":["Game","Environment","Music","Fashion","Security","Politics","Space Travel","Food","Health","Education"],"object":["Makes Sound","Changes Color","Self Defense","Sphere","Pumps Air","Tube","3D Printed","Transmits Data","Wearable","Has a Motor"]};
+    </script>
+    <script src="../../js/cluster.js" charset="utf-8"></script>
   
   </head>
 
   <body >
-    <nav id="filter-bar">
+    <nav id="top-bar">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a>
 </nav>
 
+      
+        <div id="filter-wrapper">
+            <details id='filter' class="mono" data-selected="0">
+                <summary class='noselect'>
+                    <p class='filter-prompt desktop-only'>Filter by <span class="col-narrative">Narrative</span>, <span class="col-object">Object</span>, or <span class="col-domain">Domain</span></p>
+                    <p class='filter-prompt mobile-only'>Filter</p>
+                    <p class='none-selected-placeholder'>None selected</p>
+                    <p class='selected-tags'></p>
+                    <svg class='dropdown-arrow' width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 8L13 1" /></svg>
+                </summary>
+                <div id="filter-menu">
+                    
+
+                    
+                        <div class="taglist" data-category="narrative">
+                            <p>Narrative:</p>
+                            
+                                <p class="col-narrative noselect tag-select">
+                                    <input data-tag="Utopian" type="checkbox" name="narrative-utopian" id="narrative-utopian">
+                                    <label data-tag="Utopian" for="narrative-utopian">Utopian</label>
+                                </p>
+                            
+                                <p class="col-narrative noselect tag-select">
+                                    <input data-tag="Dystopian" type="checkbox" name="narrative-dystopian" id="narrative-dystopian">
+                                    <label data-tag="Dystopian" for="narrative-dystopian">Dystopian</label>
+                                </p>
+                            
+                                <p class="col-narrative noselect tag-select">
+                                    <input data-tag="Revolutionary" type="checkbox" name="narrative-revolutionary" id="narrative-revolutionary">
+                                    <label data-tag="Revolutionary" for="narrative-revolutionary">Revolutionary</label>
+                                </p>
+                            
+                                <p class="col-narrative noselect tag-select">
+                                    <input data-tag="Apocalyptic" type="checkbox" name="narrative-apocalyptic" id="narrative-apocalyptic">
+                                    <label data-tag="Apocalyptic" for="narrative-apocalyptic">Apocalyptic</label>
+                                </p>
+                            
+                        </div>
+                    
+                    
+                        <div class="taglist" data-category="object">
+                            <p>Object:</p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Makes Sound" type="checkbox" name="object-makes-sound" id="object-makes-sound">
+                                    <label data-tag="Makes Sound" for="object-makes-sound">Makes Sound</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Changes Color" type="checkbox" name="object-changes-color" id="object-changes-color">
+                                    <label data-tag="Changes Color" for="object-changes-color">Changes Color</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Self Defense" type="checkbox" name="object-self-defense" id="object-self-defense">
+                                    <label data-tag="Self Defense" for="object-self-defense">Self Defense</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Sphere" type="checkbox" name="object-sphere" id="object-sphere">
+                                    <label data-tag="Sphere" for="object-sphere">Sphere</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Pumps Air" type="checkbox" name="object-pumps-air" id="object-pumps-air">
+                                    <label data-tag="Pumps Air" for="object-pumps-air">Pumps Air</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Tube" type="checkbox" name="object-tube" id="object-tube">
+                                    <label data-tag="Tube" for="object-tube">Tube</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="3D Printed" type="checkbox" name="object-3d-printed" id="object-3d-printed">
+                                    <label data-tag="3D Printed" for="object-3d-printed">3D Printed</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Transmits Data" type="checkbox" name="object-transmits-data" id="object-transmits-data">
+                                    <label data-tag="Transmits Data" for="object-transmits-data">Transmits Data</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Wearable" type="checkbox" name="object-wearable" id="object-wearable">
+                                    <label data-tag="Wearable" for="object-wearable">Wearable</label>
+                                </p>
+                            
+                                <p class="col-object noselect tag-select">
+                                    <input data-tag="Has a Motor" type="checkbox" name="object-has-a-motor" id="object-has-a-motor">
+                                    <label data-tag="Has a Motor" for="object-has-a-motor">Has a Motor</label>
+                                </p>
+                            
+                        </div>
+                    
+                    
+                        <div class="taglist" data-category="domain">
+                            <p>Domain:</p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Game" type="checkbox" name="domain-game" id="domain-game">
+                                    <label data-tag="Game" for="domain-game">Game</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Environment" type="checkbox" name="domain-environment" id="domain-environment">
+                                    <label data-tag="Environment" for="domain-environment">Environment</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Music" type="checkbox" name="domain-music" id="domain-music">
+                                    <label data-tag="Music" for="domain-music">Music</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Fashion" type="checkbox" name="domain-fashion" id="domain-fashion">
+                                    <label data-tag="Fashion" for="domain-fashion">Fashion</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Security" type="checkbox" name="domain-security" id="domain-security">
+                                    <label data-tag="Security" for="domain-security">Security</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Politics" type="checkbox" name="domain-politics" id="domain-politics">
+                                    <label data-tag="Politics" for="domain-politics">Politics</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Space Travel" type="checkbox" name="domain-space-travel" id="domain-space-travel">
+                                    <label data-tag="Space Travel" for="domain-space-travel">Space Travel</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Food" type="checkbox" name="domain-food" id="domain-food">
+                                    <label data-tag="Food" for="domain-food">Food</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Health" type="checkbox" name="domain-health" id="domain-health">
+                                    <label data-tag="Health" for="domain-health">Health</label>
+                                </p>
+                            
+                                <p class="col-domain noselect tag-select">
+                                    <input data-tag="Education" type="checkbox" name="domain-education" id="domain-education">
+                                    <label data-tag="Education" for="domain-education">Education</label>
+                                </p>
+                            
+                        </div>
+                    
+                </div>
+                
+            </details>
+        </div>
+      
+      
     </nav>
-    <main class='grid cluster-content' data-type="manuscripts" data-cols="6">
+    <main id="cards" class='grid cluster-content' data-type="manuscripts" data-cols="6">
         
           
             
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-1">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Changes Color" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-1">
             <span class="mono id-no">#0001</span>
             
                 
@@ -65,9 +235,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-2">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-2">
             <span class="mono id-no">#0002</span>
             
                 
@@ -87,9 +265,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-3">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-3">
             <span class="mono id-no">#0003</span>
             
                 
@@ -109,9 +295,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-4">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Makes Sound" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-4">
             <span class="mono id-no">#0004</span>
             
                 
@@ -131,9 +325,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-5">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Makes Sound" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-5">
             <span class="mono id-no">#0005</span>
             
                 
@@ -153,9 +355,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-6">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-6">
             <span class="mono id-no">#0006</span>
             
                 
@@ -175,9 +385,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-7">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-7">
             <span class="mono id-no">#0007</span>
             
                 
@@ -197,9 +415,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-8">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Self Defense" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-8">
             <span class="mono id-no">#0008</span>
             
                 
@@ -219,9 +445,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-9">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-9">
             <span class="mono id-no">#0009</span>
             
                 
@@ -241,9 +475,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-10">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Transmits Data" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-10">
             <span class="mono id-no">#0010</span>
             
                 
@@ -263,9 +505,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-11">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-11">
             <span class="mono id-no">#0011</span>
             
                 
@@ -285,9 +535,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-12">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-12">
             <span class="mono id-no">#0012</span>
             
                 
@@ -307,9 +565,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-13">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-13">
             <span class="mono id-no">#0013</span>
             
           </a>
@@ -319,9 +585,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-14">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Self Defense" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-14">
             <span class="mono id-no">#0014</span>
             
           </a>
@@ -331,9 +605,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-15">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-15">
             <span class="mono id-no">#0015</span>
             
           </a>
@@ -343,9 +625,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-16">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-16">
             <span class="mono id-no">#0016</span>
             
           </a>
@@ -355,9 +645,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-17">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-17">
             <span class="mono id-no">#0017</span>
             
           </a>
@@ -367,9 +665,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-18">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-18">
             <span class="mono id-no">#0018</span>
             
           </a>
@@ -379,9 +685,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-19">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-19">
             <span class="mono id-no">#0019</span>
             
           </a>
@@ -391,9 +705,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-20">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-20">
             <span class="mono id-no">#0020</span>
             
                 
@@ -413,9 +735,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-21">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-21">
             <span class="mono id-no">#0021</span>
             
           </a>
@@ -425,9 +755,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-22">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-22">
             <span class="mono id-no">#0022</span>
             
           </a>
@@ -437,9 +775,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-23">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Changes Color" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-23">
             <span class="mono id-no">#0023</span>
             
           </a>
@@ -449,9 +795,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-24">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-24">
             <span class="mono id-no">#0024</span>
             
           </a>
@@ -461,9 +815,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-25">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-25">
             <span class="mono id-no">#0025</span>
             
           </a>
@@ -473,9 +835,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-26">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Makes Sound" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-26">
             <span class="mono id-no">#0026</span>
             
           </a>
@@ -485,9 +855,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-27">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Self Defense" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-27">
             <span class="mono id-no">#0027</span>
             
           </a>
@@ -497,9 +875,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-28">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Transmits Data" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-28">
             <span class="mono id-no">#0028</span>
             
           </a>
@@ -509,9 +895,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-29">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-29">
             <span class="mono id-no">#0029</span>
             
           </a>
@@ -521,9 +915,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-30">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Tube" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-30">
             <span class="mono id-no">#0030</span>
             
           </a>
@@ -533,9 +935,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-31">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-31">
             <span class="mono id-no">#0031</span>
             
           </a>
@@ -545,9 +955,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-32">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-32">
             <span class="mono id-no">#0032</span>
             
           </a>
@@ -557,9 +975,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-33">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-33">
             <span class="mono id-no">#0033</span>
             
           </a>
@@ -569,9 +995,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-34">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-34">
             <span class="mono id-no">#0034</span>
             
           </a>
@@ -581,9 +1015,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-35">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Wearable" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-35">
             <span class="mono id-no">#0035</span>
             
           </a>
@@ -593,9 +1035,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-36">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Tube" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-36">
             <span class="mono id-no">#0036</span>
             
           </a>
@@ -605,9 +1055,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-37">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-37">
             <span class="mono id-no">#0037</span>
             
           </a>
@@ -617,9 +1075,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-38">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-38">
             <span class="mono id-no">#0038</span>
             
           </a>
@@ -629,9 +1095,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-39">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Transmits Data" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-39">
             <span class="mono id-no">#0039</span>
             
           </a>
@@ -641,9 +1115,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-40">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Wearable" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-40">
             <span class="mono id-no">#0040</span>
             
           </a>
@@ -653,9 +1135,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-41">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Changes Color" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-41">
             <span class="mono id-no">#0041</span>
             
           </a>
@@ -665,9 +1155,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-42">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Has a Motor" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-42">
             <span class="mono id-no">#0042</span>
             
           </a>
@@ -677,9 +1175,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-43">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Makes Sound" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-43">
             <span class="mono id-no">#0043</span>
             
           </a>
@@ -689,9 +1195,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-44">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Self Defense" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-44">
             <span class="mono id-no">#0044</span>
             
           </a>
@@ -701,9 +1215,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-45">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-45">
             <span class="mono id-no">#0045</span>
             
           </a>
@@ -713,9 +1235,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-46">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-46">
             <span class="mono id-no">#0046</span>
             
                 
@@ -735,9 +1265,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-47">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Has a Motor" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-47">
             <span class="mono id-no">#0047</span>
             
           </a>
@@ -747,9 +1285,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-48">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-48">
             <span class="mono id-no">#0048</span>
             
           </a>
@@ -759,9 +1305,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-49">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-49">
             <span class="mono id-no">#0049</span>
             
           </a>
@@ -771,9 +1325,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-50">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Tube" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-50">
             <span class="mono id-no">#0050</span>
             
           </a>
@@ -783,9 +1345,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-52">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Transmits Data" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-52">
             <span class="mono id-no">#0052</span>
             
           </a>
@@ -795,9 +1365,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-53">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Self Defense" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-53">
             <span class="mono id-no">#0053</span>
             
           </a>
@@ -807,9 +1385,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-54">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Sphere" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-54">
             <span class="mono id-no">#0054</span>
             
           </a>
@@ -819,9 +1405,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-55">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Changes Color" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-55">
             <span class="mono id-no">#0055</span>
             
           </a>
@@ -831,9 +1425,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-56">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-56">
             <span class="mono id-no">#0056</span>
             
           </a>
@@ -843,9 +1445,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-57">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-57">
             <span class="mono id-no">#0057</span>
             
           </a>
@@ -855,9 +1465,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-58">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Makes Sound" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-58">
             <span class="mono id-no">#0058</span>
             
           </a>
@@ -867,9 +1485,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-59">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Tube" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-59">
             <span class="mono id-no">#0059</span>
             
           </a>
@@ -879,9 +1505,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-60">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Has a Motor" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-60">
             <span class="mono id-no">#0060</span>
             
           </a>
@@ -891,9 +1525,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-61">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Has a Motor" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-61">
             <span class="mono id-no">#0061</span>
             
           </a>
@@ -903,9 +1545,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-62">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-62">
             <span class="mono id-no">#0062</span>
             
           </a>
@@ -915,9 +1565,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-63">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Tube" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-63">
             <span class="mono id-no">#0063</span>
             
           </a>
@@ -927,9 +1585,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-64">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Wearable" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-64">
             <span class="mono id-no">#0064</span>
             
           </a>
@@ -939,9 +1605,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-65">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-65">
             <span class="mono id-no">#0065</span>
             
           </a>
@@ -951,9 +1625,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-66">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Wearable" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-66">
             <span class="mono id-no">#0066</span>
             
           </a>
@@ -963,9 +1645,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-67">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Pumps Air" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-67">
             <span class="mono id-no">#0067</span>
             
           </a>
@@ -975,9 +1665,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-68">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Changes Color" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-68">
             <span class="mono id-no">#0068</span>
             
           </a>
@@ -987,9 +1685,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-69">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-69">
             <span class="mono id-no">#0069</span>
             
           </a>
@@ -999,9 +1705,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-70">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-70">
             <span class="mono id-no">#0070</span>
             
           </a>
@@ -1011,9 +1725,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-71">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Transmits Data" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-71">
             <span class="mono id-no">#0071</span>
             
           </a>
@@ -1023,9 +1745,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-72">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Pumps Air" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-72">
             <span class="mono id-no">#0072</span>
             
           </a>
@@ -1035,9 +1765,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-73">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Transmits Data" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-73">
             <span class="mono id-no">#0073</span>
             
           </a>
@@ -1047,9 +1785,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-74">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Has a Motor" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-74">
             <span class="mono id-no">#0074</span>
             
           </a>
@@ -1059,9 +1805,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-75">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-75">
             <span class="mono id-no">#0075</span>
             
           </a>
@@ -1071,9 +1825,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-76">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Sphere" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-76">
             <span class="mono id-no">#0076</span>
             
           </a>
@@ -1083,9 +1845,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-77">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-77">
             <span class="mono id-no">#0077</span>
             
           </a>
@@ -1095,9 +1865,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-78">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Tube" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-78">
             <span class="mono id-no">#0078</span>
             
           </a>
@@ -1107,9 +1885,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-79">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-79">
             <span class="mono id-no">#0079</span>
             
           </a>
@@ -1119,9 +1905,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-80">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Transmits Data" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-80">
             <span class="mono id-no">#0080</span>
             
           </a>
@@ -1131,9 +1925,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-81">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-81">
             <span class="mono id-no">#0081</span>
             
           </a>
@@ -1143,9 +1945,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-82">
+          <a 
+          data-narrative="Utopian" 
+          data-object="3D Printed" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-82">
             <span class="mono id-no">#0082</span>
             
           </a>
@@ -1155,9 +1965,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-83">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Wearable" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-83">
             <span class="mono id-no">#0083</span>
             
           </a>
@@ -1167,9 +1985,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-84">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Has a Motor" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-84">
             <span class="mono id-no">#0084</span>
             
           </a>
@@ -1179,9 +2005,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-85">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Sphere" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-85">
             <span class="mono id-no">#0085</span>
             
           </a>
@@ -1191,9 +2025,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-86">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-86">
             <span class="mono id-no">#0086</span>
             
           </a>
@@ -1203,9 +2045,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-87">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Tube" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-87">
             <span class="mono id-no">#0087</span>
             
           </a>
@@ -1215,9 +2065,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-88">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Self Defense" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-88">
             <span class="mono id-no">#0088</span>
             
           </a>
@@ -1227,9 +2085,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-89">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-89">
             <span class="mono id-no">#0089</span>
             
           </a>
@@ -1239,9 +2105,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-90">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Makes Sound" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-90">
             <span class="mono id-no">#0090</span>
             
           </a>
@@ -1251,9 +2125,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-91">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Makes Sound" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-91">
             <span class="mono id-no">#0091</span>
             
           </a>
@@ -1263,9 +2145,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-92">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Transmits Data" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-92">
             <span class="mono id-no">#0092</span>
             
           </a>
@@ -1275,9 +2165,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-93">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-93">
             <span class="mono id-no">#0093</span>
             
           </a>
@@ -1287,9 +2185,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-94">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-94">
             <span class="mono id-no">#0094</span>
             
           </a>
@@ -1299,9 +2205,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-95">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Self Defense" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-95">
             <span class="mono id-no">#0095</span>
             
           </a>
@@ -1311,9 +2225,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-96">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Wearable" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-96">
             <span class="mono id-no">#0096</span>
             
           </a>
@@ -1323,9 +2245,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-97">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-97">
             <span class="mono id-no">#0097</span>
             
           </a>
@@ -1335,9 +2265,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-98">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Sphere" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-98">
             <span class="mono id-no">#0098</span>
             
           </a>
@@ -1347,9 +2285,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-99">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-99">
             <span class="mono id-no">#0099</span>
             
           </a>
@@ -1359,9 +2305,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-100">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-100">
             <span class="mono id-no">#0100</span>
             
           </a>
@@ -1371,9 +2325,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-101">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Sphere" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-101">
             <span class="mono id-no">#0101</span>
             
           </a>
@@ -1383,9 +2345,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-102">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Tube" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-102">
             <span class="mono id-no">#0102</span>
             
           </a>
@@ -1395,9 +2365,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-103">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Changes Color" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-103">
             <span class="mono id-no">#0103</span>
             
           </a>
@@ -1407,9 +2385,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-104">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-104">
             <span class="mono id-no">#0104</span>
             
           </a>
@@ -1419,9 +2405,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-105">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-105">
             <span class="mono id-no">#0105</span>
             
           </a>
@@ -1431,9 +2425,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-106">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Tube" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-106">
             <span class="mono id-no">#0106</span>
             
           </a>
@@ -1443,9 +2445,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-107">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Transmits Data" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-107">
             <span class="mono id-no">#0107</span>
             
           </a>
@@ -1455,9 +2465,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-108">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-108">
             <span class="mono id-no">#0108</span>
             
           </a>
@@ -1467,9 +2485,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-109">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Makes Sound" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-109">
             <span class="mono id-no">#0109</span>
             
           </a>
@@ -1479,9 +2505,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-110">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Has a Motor" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-110">
             <span class="mono id-no">#0110</span>
             
           </a>
@@ -1491,9 +2525,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-111">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-111">
             <span class="mono id-no">#0111</span>
             
           </a>
@@ -1503,9 +2545,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-112">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Pumps Air" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-112">
             <span class="mono id-no">#0112</span>
             
           </a>
@@ -1515,9 +2565,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-113">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Pumps Air" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-113">
             <span class="mono id-no">#0113</span>
             
           </a>
@@ -1527,9 +2585,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-114">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Tube" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-114">
             <span class="mono id-no">#0114</span>
             
           </a>
@@ -1539,9 +2605,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-115">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Transmits Data" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-115">
             <span class="mono id-no">#0115</span>
             
           </a>
@@ -1551,9 +2625,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-116">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-116">
             <span class="mono id-no">#0116</span>
             
           </a>
@@ -1563,9 +2645,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-117">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-117">
             <span class="mono id-no">#0117</span>
             
           </a>
@@ -1575,9 +2665,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-118">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Self Defense" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-118">
             <span class="mono id-no">#0118</span>
             
           </a>
@@ -1587,9 +2685,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-119">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Pumps Air" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-119">
             <span class="mono id-no">#0119</span>
             
           </a>
@@ -1599,9 +2705,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-120">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Has a Motor" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-120">
             <span class="mono id-no">#0120</span>
             
           </a>
@@ -1611,9 +2725,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-121">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Has a Motor" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-121">
             <span class="mono id-no">#0121</span>
             
           </a>
@@ -1623,9 +2745,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-122">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Transmits Data" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-122">
             <span class="mono id-no">#0122</span>
             
           </a>
@@ -1635,9 +2765,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-123">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Sphere" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-123">
             <span class="mono id-no">#0123</span>
             
           </a>
@@ -1647,9 +2785,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-124">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Changes Color" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-124">
             <span class="mono id-no">#0124</span>
             
           </a>
@@ -1659,9 +2805,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-125">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-125">
             <span class="mono id-no">#0125</span>
             
           </a>
@@ -1671,9 +2825,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-126">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-126">
             <span class="mono id-no">#0126</span>
             
           </a>
@@ -1683,9 +2845,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-127">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="3D Printed" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-127">
             <span class="mono id-no">#0127</span>
             
           </a>
@@ -1695,9 +2865,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-128">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Self Defense" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-128">
             <span class="mono id-no">#0128</span>
             
           </a>
@@ -1707,9 +2885,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-129">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Wearable" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-129">
             <span class="mono id-no">#0129</span>
             
           </a>
@@ -1719,9 +2905,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-130">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-130">
             <span class="mono id-no">#0130</span>
             
           </a>
@@ -1731,9 +2925,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-131">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Sphere" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-131">
             <span class="mono id-no">#0131</span>
             
           </a>
@@ -1743,9 +2945,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-132">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Makes Sound" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-132">
             <span class="mono id-no">#0132</span>
             
           </a>
@@ -1755,9 +2965,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-133">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Makes Sound" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-133">
             <span class="mono id-no">#0133</span>
             
           </a>
@@ -1767,9 +2985,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-134">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Transmits Data" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-134">
             <span class="mono id-no">#0134</span>
             
           </a>
@@ -1779,9 +3005,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-135">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Tube" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-135">
             <span class="mono id-no">#0135</span>
             
           </a>
@@ -1791,9 +3025,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-136">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Transmits Data" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-136">
             <span class="mono id-no">#0136</span>
             
           </a>
@@ -1803,9 +3045,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-137">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Wearable" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-137">
             <span class="mono id-no">#0137</span>
             
           </a>
@@ -1815,9 +3065,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-138">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Wearable" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-138">
             <span class="mono id-no">#0138</span>
             
           </a>
@@ -1827,9 +3085,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-139">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Changes Color" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-139">
             <span class="mono id-no">#0139</span>
             
           </a>
@@ -1839,9 +3105,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-140">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Tube" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-140">
             <span class="mono id-no">#0140</span>
             
           </a>
@@ -1851,9 +3125,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-141">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-141">
             <span class="mono id-no">#0141</span>
             
           </a>
@@ -1863,9 +3145,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-142">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Self Defense" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-142">
             <span class="mono id-no">#0142</span>
             
           </a>
@@ -1875,9 +3165,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-143">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-143">
             <span class="mono id-no">#0143</span>
             
           </a>
@@ -1887,9 +3185,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-144">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Has a Motor" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-144">
             <span class="mono id-no">#0144</span>
             
           </a>
@@ -1899,9 +3205,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-145">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-145">
             <span class="mono id-no">#0145</span>
             
           </a>
@@ -1911,9 +3225,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-146">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-146">
             <span class="mono id-no">#0146</span>
             
           </a>
@@ -1923,9 +3245,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-147">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-147">
             <span class="mono id-no">#0147</span>
             
           </a>
@@ -1935,9 +3265,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-148">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-148">
             <span class="mono id-no">#0148</span>
             
           </a>
@@ -1947,9 +3285,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-149">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Tube" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-149">
             <span class="mono id-no">#0149</span>
             
           </a>
@@ -1959,9 +3305,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-150">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Pumps Air" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-150">
             <span class="mono id-no">#0150</span>
             
           </a>
@@ -1971,9 +3325,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-151">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Transmits Data" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-151">
             <span class="mono id-no">#0151</span>
             
           </a>
@@ -1983,9 +3345,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-152">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="3D Printed" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-152">
             <span class="mono id-no">#0152</span>
             
           </a>
@@ -1995,9 +3365,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-153">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Changes Color" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-153">
             <span class="mono id-no">#0153</span>
             
           </a>
@@ -2007,9 +3385,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-154">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Has a Motor" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-154">
             <span class="mono id-no">#0154</span>
             
           </a>
@@ -2019,9 +3405,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-155">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Sphere" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-155">
             <span class="mono id-no">#0155</span>
             
           </a>
@@ -2031,9 +3425,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-156">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Tube" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-156">
             <span class="mono id-no">#0156</span>
             
           </a>
@@ -2043,9 +3445,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-157">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Has a Motor" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-157">
             <span class="mono id-no">#0157</span>
             
           </a>
@@ -2055,9 +3465,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-158">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-158">
             <span class="mono id-no">#0158</span>
             
           </a>
@@ -2067,9 +3485,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-159">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Sphere" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-159">
             <span class="mono id-no">#0159</span>
             
           </a>
@@ -2079,9 +3505,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-160">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-160">
             <span class="mono id-no">#0160</span>
             
           </a>
@@ -2091,9 +3525,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-161">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Wearable" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-161">
             <span class="mono id-no">#0161</span>
             
           </a>
@@ -2103,9 +3545,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-162">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Has a Motor" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-162">
             <span class="mono id-no">#0162</span>
             
           </a>
@@ -2115,9 +3565,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-163">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-163">
             <span class="mono id-no">#0163</span>
             
           </a>
@@ -2127,9 +3585,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-164">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Self Defense" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-164">
             <span class="mono id-no">#0164</span>
             
           </a>
@@ -2139,9 +3605,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-165">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Tube" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-165">
             <span class="mono id-no">#0165</span>
             
           </a>
@@ -2151,9 +3625,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-166">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Has a Motor" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-166">
             <span class="mono id-no">#0166</span>
             
           </a>
@@ -2163,9 +3645,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-167">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Wearable" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-167">
             <span class="mono id-no">#0167</span>
             
           </a>
@@ -2175,9 +3665,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-168">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Pumps Air" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-168">
             <span class="mono id-no">#0168</span>
             
           </a>
@@ -2187,9 +3685,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-169">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Has a Motor" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-169">
             <span class="mono id-no">#0169</span>
             
           </a>
@@ -2199,9 +3705,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-170">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Tube" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-170">
             <span class="mono id-no">#0170</span>
             
           </a>
@@ -2211,9 +3725,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-171">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Tube" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-171">
             <span class="mono id-no">#0171</span>
             
           </a>
@@ -2223,9 +3745,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-172">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-172">
             <span class="mono id-no">#0172</span>
             
           </a>
@@ -2235,9 +3765,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-173">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Has a Motor" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-173">
             <span class="mono id-no">#0173</span>
             
           </a>
@@ -2247,9 +3785,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-174">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Makes Sound" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-174">
             <span class="mono id-no">#0174</span>
             
           </a>
@@ -2259,9 +3805,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-175">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-175">
             <span class="mono id-no">#0175</span>
             
           </a>
@@ -2271,9 +3825,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-176">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Changes Color" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-176">
             <span class="mono id-no">#0176</span>
             
           </a>
@@ -2283,9 +3845,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-177">
+          <a 
+          data-narrative="" 
+          data-object="Makes Sound" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-177">
             <span class="mono id-no">#0177</span>
             
           </a>
@@ -2295,9 +3865,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-178">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Self Defense" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-178">
             <span class="mono id-no">#0178</span>
             
           </a>
@@ -2307,9 +3885,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-179">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Changes Color" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-179">
             <span class="mono id-no">#0179</span>
             
           </a>
@@ -2319,9 +3905,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-180">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Pumps Air" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-180">
             <span class="mono id-no">#0180</span>
             
           </a>
@@ -2331,9 +3925,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-181">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-181">
             <span class="mono id-no">#0181</span>
             
           </a>
@@ -2343,9 +3945,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-182">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Pumps Air" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-182">
             <span class="mono id-no">#0182</span>
             
           </a>
@@ -2355,9 +3965,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-183">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-183">
             <span class="mono id-no">#0183</span>
             
           </a>
@@ -2367,9 +3985,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-184">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-184">
             <span class="mono id-no">#0184</span>
             
           </a>
@@ -2379,9 +4005,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-185">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Transmits Data" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-185">
             <span class="mono id-no">#0185</span>
             
           </a>
@@ -2391,9 +4025,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-186">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-186">
             <span class="mono id-no">#0186</span>
             
           </a>
@@ -2403,9 +4045,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-187">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-187">
             <span class="mono id-no">#0187</span>
             
           </a>
@@ -2415,9 +4065,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-188">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-188">
             <span class="mono id-no">#0188</span>
             
           </a>
@@ -2427,9 +4085,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-189">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="3D Printed" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-189">
             <span class="mono id-no">#0189</span>
             
           </a>
@@ -2439,9 +4105,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-190">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-190">
             <span class="mono id-no">#0190</span>
             
           </a>
@@ -2451,9 +4125,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-191">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-191">
             <span class="mono id-no">#0191</span>
             
           </a>
@@ -2463,9 +4145,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-192">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Pumps Air" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-192">
             <span class="mono id-no">#0192</span>
             
           </a>
@@ -2475,9 +4165,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-193">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-193">
             <span class="mono id-no">#0193</span>
             
           </a>
@@ -2487,9 +4185,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-194">
+          <a 
+          data-narrative="Utopian" 
+          data-object="3D Printed" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-194">
             <span class="mono id-no">#0194</span>
             
           </a>
@@ -2499,9 +4205,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-195">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Changes Color" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-195">
             <span class="mono id-no">#0195</span>
             
           </a>
@@ -2511,9 +4225,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-196">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Education" 
+          class="card vertical" href="./manuscript-196">
             <span class="mono id-no">#0196</span>
             
           </a>
@@ -2523,9 +4245,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-197">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Sphere" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-197">
             <span class="mono id-no">#0197</span>
             
           </a>
@@ -2535,9 +4265,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-198">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Changes Color" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-198">
             <span class="mono id-no">#0198</span>
             
           </a>
@@ -2547,9 +4285,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-199">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Sphere" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-199">
             <span class="mono id-no">#0199</span>
             
           </a>
@@ -2559,9 +4305,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-200">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-200">
             <span class="mono id-no">#0200</span>
             
           </a>
@@ -2571,9 +4325,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-201">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-201">
             <span class="mono id-no">#0201</span>
             
           </a>
@@ -2583,9 +4345,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-202">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-202">
             <span class="mono id-no">#0202</span>
             
           </a>
@@ -2595,9 +4365,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-203">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-203">
             <span class="mono id-no">#0203</span>
             
           </a>
@@ -2607,9 +4385,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-204">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Makes Sound" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-204">
             <span class="mono id-no">#0204</span>
             
           </a>
@@ -2619,9 +4405,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-205">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Health" 
+          class="card vertical" href="./manuscript-205">
             <span class="mono id-no">#0205</span>
             
           </a>
@@ -2631,9 +4425,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-206">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-206">
             <span class="mono id-no">#0206</span>
             
           </a>
@@ -2643,9 +4445,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-207">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Transmits Data" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-207">
             <span class="mono id-no">#0207</span>
             
           </a>
@@ -2655,9 +4465,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-208">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Changes Color" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-208">
             <span class="mono id-no">#0208</span>
             
           </a>
@@ -2667,9 +4485,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-209">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Self Defense" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-209">
             <span class="mono id-no">#0209</span>
             
           </a>
@@ -2679,9 +4505,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-210">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-210">
             <span class="mono id-no">#0210</span>
             
           </a>
@@ -2691,9 +4525,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-211">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-211">
             <span class="mono id-no">#0211</span>
             
           </a>
@@ -2703,9 +4545,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-212">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Transmits Data" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-212">
             <span class="mono id-no">#0212</span>
             
           </a>
@@ -2715,9 +4565,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-213">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-213">
             <span class="mono id-no">#0213</span>
             
           </a>
@@ -2727,9 +4585,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-214">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-214">
             <span class="mono id-no">#0214</span>
             
           </a>
@@ -2739,9 +4605,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-215">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-215">
             <span class="mono id-no">#0215</span>
             
           </a>
@@ -2751,9 +4625,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-216">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Makes Sound" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-216">
             <span class="mono id-no">#0216</span>
             
           </a>
@@ -2763,9 +4645,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-217">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="3D Printed" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-217">
             <span class="mono id-no">#0217</span>
             
           </a>
@@ -2775,9 +4665,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-218">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Changes Color" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-218">
             <span class="mono id-no">#0218</span>
             
           </a>
@@ -2787,9 +4685,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-219">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Self Defense" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-219">
             <span class="mono id-no">#0219</span>
             
           </a>
@@ -2799,9 +4705,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-220">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Changes Color" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-220">
             <span class="mono id-no">#0220</span>
             
           </a>
@@ -2811,9 +4725,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-221">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Self Defense" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-221">
             <span class="mono id-no">#0221</span>
             
           </a>
@@ -2823,9 +4745,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-222">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Changes Color" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-222">
             <span class="mono id-no">#0222</span>
             
           </a>
@@ -2835,9 +4765,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-223">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-223">
             <span class="mono id-no">#0223</span>
             
           </a>
@@ -2847,9 +4785,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-224">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Space Travel" 
+          class="card vertical" href="./manuscript-224">
             <span class="mono id-no">#0224</span>
             
           </a>
@@ -2859,9 +4805,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-225">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-225">
             <span class="mono id-no">#0225</span>
             
           </a>
@@ -2871,9 +4825,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-226">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Tube" 
+          data-domain="Politics" 
+          class="card vertical" href="./manuscript-226">
             <span class="mono id-no">#0226</span>
             
           </a>
@@ -2883,9 +4845,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-227">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Music" 
+          class="card vertical" href="./manuscript-227">
             <span class="mono id-no">#0227</span>
             
           </a>
@@ -2895,9 +4865,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-228">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="Changes Color" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-228">
             <span class="mono id-no">#0228</span>
             
           </a>
@@ -2907,9 +4885,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-229">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Sphere" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-229">
             <span class="mono id-no">#0229</span>
             
           </a>
@@ -2919,9 +4905,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-230">
+          <a 
+          data-narrative="Revolutionary" 
+          data-object="Sphere" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-230">
             <span class="mono id-no">#0230</span>
             
           </a>
@@ -2931,9 +4925,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-231">
+          <a 
+          data-narrative="Apocalyptic" 
+          data-object="3D Printed" 
+          data-domain="Fashion" 
+          class="card vertical" href="./manuscript-231">
             <span class="mono id-no">#0231</span>
             
           </a>
@@ -2943,9 +4945,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-232">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Pumps Air" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-232">
             <span class="mono id-no">#0232</span>
             
           </a>
@@ -2955,9 +4965,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-233">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-233">
             <span class="mono id-no">#0233</span>
             
           </a>
@@ -2967,9 +4985,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-234">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Changes Color" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-234">
             <span class="mono id-no">#0234</span>
             
           </a>
@@ -2979,9 +5005,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-235">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-235">
             <span class="mono id-no">#0235</span>
             
           </a>
@@ -2991,9 +5025,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-236">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-236">
             <span class="mono id-no">#0236</span>
             
           </a>
@@ -3003,9 +5045,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-237">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Changes Color" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-237">
             <span class="mono id-no">#0237</span>
             
           </a>
@@ -3015,9 +5065,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-238">
+          <a 
+          data-narrative="Utopian" 
+          data-object="Makes Sound" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-238">
             <span class="mono id-no">#0238</span>
             
           </a>
@@ -3027,9 +5085,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-239">
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Game" 
+          class="card vertical" href="./manuscript-239">
             <span class="mono id-no">#0239</span>
             
           </a>
@@ -3039,9 +5105,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-240">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-240">
             <span class="mono id-no">#0240</span>
             
           </a>
@@ -3051,9 +5125,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-241">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-241">
             <span class="mono id-no">#0241</span>
             
           </a>
@@ -3063,9 +5145,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-242">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-242">
             <span class="mono id-no">#0242</span>
             
           </a>
@@ -3075,9 +5165,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-243">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-243">
             <span class="mono id-no">#0243</span>
             
           </a>
@@ -3087,9 +5185,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-244">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-244">
             <span class="mono id-no">#0244</span>
             
           </a>
@@ -3099,9 +5205,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-245">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-245">
             <span class="mono id-no">#0245</span>
             
           </a>
@@ -3111,9 +5225,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-246">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-246">
             <span class="mono id-no">#0246</span>
             
           </a>
@@ -3123,9 +5245,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-247">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-247">
             <span class="mono id-no">#0247</span>
             
           </a>
@@ -3135,9 +5265,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-248">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-248">
             <span class="mono id-no">#0248</span>
             
           </a>
@@ -3147,9 +5285,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-249">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-249">
             <span class="mono id-no">#0249</span>
             
           </a>
@@ -3159,9 +5305,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-250">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-250">
             <span class="mono id-no">#0250</span>
             
           </a>
@@ -3171,9 +5325,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-251">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-251">
             <span class="mono id-no">#0251</span>
             
           </a>
@@ -3183,9 +5345,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-252">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-252">
             <span class="mono id-no">#0252</span>
             
           </a>
@@ -3195,9 +5365,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-253">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-253">
             <span class="mono id-no">#0253</span>
             
           </a>
@@ -3207,9 +5385,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-254">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-254">
             <span class="mono id-no">#0254</span>
             
           </a>
@@ -3219,9 +5405,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-255">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-255">
             <span class="mono id-no">#0255</span>
             
           </a>
@@ -3231,9 +5425,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-256">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-256">
             <span class="mono id-no">#0256</span>
             
           </a>
@@ -3243,9 +5445,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-257">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-257">
             <span class="mono id-no">#0257</span>
             
           </a>
@@ -3255,9 +5465,17 @@
             
             
             
+            
+            
+            
+            
           
 
-          <a class="card vertical" href="./manuscript-258">
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-258">
             <span class="mono id-no">#0258</span>
             
           </a>

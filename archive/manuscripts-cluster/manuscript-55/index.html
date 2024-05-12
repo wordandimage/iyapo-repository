@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"349a0b4a-7d5b-46ae-97bf-317e63fa04f0","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Tired of microaggressions? This hoodie’s got your back.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Tired of microaggressions? This hoodie’s got your back.","href":null}]},"manuscript_id":{"type":"number","value":55},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Environment"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Dyani Douze"}}})
       console.log([{"type":"text","label":"Name","value":"Dyani Douze"},{"type":"tags","value":{"narrative":"Utopian","domain":"Environment","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"Tired of microaggressions? This hoodie’s got your back."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-55">#0055</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0055</p>
           </div>
@@ -83,8 +111,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

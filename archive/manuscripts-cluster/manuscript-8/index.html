@@ -32,33 +32,61 @@
     <script>
       console.log({"item_id":"dce0c010-201d-4067-b940-7bdef4e2dc10","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"A spaceship that is driven by playing it like an instrument. All keys play sounds like dystopian present and utopian future.Sound would range from a baby laughing and a bullet being fired.Only people in love could fly the spaceship.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A spaceship that is driven by playing it like an instrument. All keys play sounds like dystopian present and utopian future.Sound would range from a baby laughing and a bullet being fired.Only people in love could fly the spaceship.","href":null}]},"manuscript_id":{"type":"number","value":8},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Self Defense"},"domain":{"type":"select","value":"Education"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Love Aoz"}}})
       console.log([{"type":"text","label":"Name","value":"Love Aoz"},{"type":"tags","value":{"narrative":"Utopian","domain":"Education","object":"Self Defense"}},{"type":"accordion","label":"Description","value":"A spaceship that is driven by playing it like an instrument. All keys play sounds like dystopian present and utopian future.Sound would range from a baby laughing and a bullet being fired.Only people in love could fly the spaceship."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-8">#0008</a>
 </nav>
 
-      <section class='media'>
+      
         
-          <figure>
-            
+    <section class='media'>
+          
+            <figure>
               
-              <picture>
-                <source type="image/webp" srcset="../../../assets/images_for_web/archive/manuscript8/scan@@lg.webp" type="image/webp">
-                <source type="image/jpg" srcset="../../../assets/images_for_web/archive/manuscript8/scan@@lg.jpg">
-                <img loading="lazy" src="../../../assets/images_for_web/archive/manuscript8/scan@@lg.jpg">
-              </picture>
-            
-          </figure>
+                
+                <picture>
+                  <source type="image/webp" srcset="../../../assets/images_for_web/archive/manuscript8/scan@@lg.webp" type="image/webp">
+                  <source type="image/jpg" srcset="../../../assets/images_for_web/archive/manuscript8/scan@@lg.jpg">
+                  <img loading="lazy" src="../../../assets/images_for_web/archive/manuscript8/scan@@lg.jpg">
+                </picture>
+              
+            </figure>
+          
+        </section>
+  
         
-      </section>
-      <section class='props'>
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0008</p>
           </div>
@@ -94,8 +122,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

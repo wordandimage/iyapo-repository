@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"8cc49920-3b40-4b10-833e-8de25ea0b3a6","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"The state of the city is such that overcrowding has perpetuated rampant homelessness. Most people don’t have traditional homes. Instead people live in their clothing. Infused with rigid fibres that lengthen when attached to a power source. The power source is located in the black muffler and is also known as the ankh. This model is configured to blend into the rocky landscape of city rubble.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"The state of the city is such that overcrowding has perpetuated rampant homelessness. Most people don’t have traditional homes. Instead people live in their clothing. Infused with rigid fibres that lengthen when attached to a power source. The power source is located in the black muffler and is also known as the ankh. This model is configured to blend into the rocky landscape of city rubble.","href":null}]},"manuscript_id":{"type":"number","value":38},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Fashion"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Amira Moore"}}})
       console.log([{"type":"text","label":"Name","value":"Amira Moore"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Fashion","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"The state of the city is such that overcrowding has perpetuated rampant homelessness. Most people don’t have traditional homes. Instead people live in their clothing. Infused with rigid fibres that lengthen when attached to a power source. The power source is located in the black muffler and is also known as the ankh. This model is configured to blend into the rocky landscape of city rubble."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-38">#0038</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0038</p>
           </div>
@@ -83,8 +111,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

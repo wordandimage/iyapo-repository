@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"409f8230-a0b7-4dd9-b52d-467e067cecf3","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"We make a shoe that has pumps to make people go to space. It has buttons that sends...","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"We make a shoe that has pumps to make people go to space. It has buttons that sends...","href":null}]},"manuscript_id":{"type":"number","value":113},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Pumps Air"},"domain":{"type":"select","value":"Space Travel"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}}})
       console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Space Travel","object":"Pumps Air"}},{"type":"accordion","label":"Description","value":"We make a shoe that has pumps to make people go to space. It has buttons that sends..."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-113">#0113</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0113</p>
           </div>
@@ -74,8 +102,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

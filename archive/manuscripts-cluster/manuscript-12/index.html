@@ -32,33 +32,61 @@
     <script>
       console.log({"item_id":"21445710-9dd1-49fe-b976-8e5df3fa0830","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Sensory suit that simulates the feeling of being underwater.This suit also has sensory units inside that collect data from subjects such as heat, pressure, vital signs etc to evaluate the subject during their “underwater experience”.This suit helps trauma victims and other people with water related phobias as a form of therapy. Also useful for Alzheimer's patients who aren’t capable of swimming to have a satisfying feeling to the their need.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Sensory suit that simulates the feeling of being underwater.This suit also has sensory units inside that collect data from subjects such as heat, pressure, vital signs etc to evaluate the subject during their “underwater experience”.This suit helps trauma victims and other people with water related phobias as a form of therapy. Also useful for Alzheimer's patients who aren’t capable of swimming to have a satisfying feeling to the their need.","href":null}]},"manuscript_id":{"type":"number","value":12},"narrative":{"type":"select","value":""},"object":{"type":"select","value":""},"domain":{"type":"select","value":""},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"M.P"}}})
       console.log([{"type":"text","label":"Name","value":"M.P"},{"type":"accordion","label":"Description","value":"Sensory suit that simulates the feeling of being underwater.This suit also has sensory units inside that collect data from subjects such as heat, pressure, vital signs etc to evaluate the subject during their “underwater experience”.This suit helps trauma victims and other people with water related phobias as a form of therapy. Also useful for Alzheimer's patients who aren’t capable of swimming to have a satisfying feeling to the their need."},{"type":"relatives","label":"Descendant Artifacts","value":[{"orientation":"landscape","url":"archive/artifacts-cluster/artifact-12-1","image":"assets/images_for_web/archive/manuscript12/artifact1/img@@artifact12-1@@sm"}]}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-12">#0012</a>
 </nav>
 
-      <section class='media'>
+      
         
-          <figure>
-            
+    <section class='media'>
+          
+            <figure>
               
-              <picture>
-                <source type="image/webp" srcset="../../../assets/images_for_web/archive/manuscript12/scan@@lg.webp" type="image/webp">
-                <source type="image/jpg" srcset="../../../assets/images_for_web/archive/manuscript12/scan@@lg.jpg">
-                <img loading="lazy" src="../../../assets/images_for_web/archive/manuscript12/scan@@lg.jpg">
-              </picture>
-            
-          </figure>
+                
+                <picture>
+                  <source type="image/webp" srcset="../../../assets/images_for_web/archive/manuscript12/scan@@lg.webp" type="image/webp">
+                  <source type="image/jpg" srcset="../../../assets/images_for_web/archive/manuscript12/scan@@lg.jpg">
+                  <img loading="lazy" src="../../../assets/images_for_web/archive/manuscript12/scan@@lg.jpg">
+                </picture>
+              
+            </figure>
+          
+        </section>
+  
         
-      </section>
-      <section class='props'>
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0012</p>
           </div>
@@ -107,8 +135,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

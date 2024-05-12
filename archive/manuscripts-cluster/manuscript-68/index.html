@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"1555e8e8-c7ad-4735-b4b8-03fecfb55056","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"This seed tube is a machine that transports seeds to the places that need food.  With its air beams, the seed tube hovers at high speed and has the ability to change colors, so it camouflages to its surroundings. This artifact will allow for people in unfortunate environments who luck food  to grow their own crops.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"This seed tube is a machine that transports seeds to the places that need food.  With its air beams, the seed tube hovers at high speed and has the ability to change colors, so it camouflages to its surroundings. This artifact will allow for people in unfortunate environments who luck food  to grow their own crops.","href":null}]},"manuscript_id":{"type":"number","value":68},"narrative":{"type":"select","value":"Revolutionary"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Food"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Faith Kim"}}})
       console.log([{"type":"text","label":"Name","value":"Faith Kim"},{"type":"tags","value":{"narrative":"Revolutionary","domain":"Food","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"This seed tube is a machine that transports seeds to the places that need food.  With its air beams, the seed tube hovers at high speed and has the ability to change colors, so it camouflages to its surroundings. This artifact will allow for people in unfortunate environments who luck food  to grow their own crops."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-68">#0068</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0068</p>
           </div>
@@ -83,8 +111,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

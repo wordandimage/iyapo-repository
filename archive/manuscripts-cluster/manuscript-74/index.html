@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"c0c87ee8-60df-4d38-b79e-a0f4bca2b943","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Warning!Warning! Dystopian World-  Hot Spot - Danger Zone. Walk unexpectedly into danger hot spot and tou will be trapped by motored satellite - transmitting strange experimental drugs and tracking devices","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Warning!Warning! Dystopian World-  Hot Spot - Danger Zone. Walk unexpectedly into danger hot spot and tou will be trapped by motored satellite - transmitting strange experimental drugs and tracking devices","href":null}]},"manuscript_id":{"type":"number","value":74},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Has a Motor"},"domain":{"type":"select","value":"Politics"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Jana Rosen Cony"}}})
       console.log([{"type":"text","label":"Name","value":"Jana Rosen Cony"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Politics","object":"Has a Motor"}},{"type":"accordion","label":"Description","value":"Warning!Warning! Dystopian World-  Hot Spot - Danger Zone. Walk unexpectedly into danger hot spot and tou will be trapped by motored satellite - transmitting strange experimental drugs and tracking devices"}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-74">#0074</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0074</p>
           </div>
@@ -83,8 +111,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

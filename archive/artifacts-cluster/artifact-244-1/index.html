@@ -33,22 +33,45 @@
     <script>
       console.log({"item_id":"c1b8e4a2-dd90-4851-a2aa-30a378437c48","properties":{"manuscript_id":{"type":"number","value":244},"media":{"type":"files","value":[]},"artifact_description":{"type":"rich_text","value":[]},"comments":{"type":"rich_text","value":[]},"artifact_subid":{"type":"number","value":1},"artifact_name":{"type":"title","value":"Flags created by Arabic Language School"}}})
       console.log([{"type":"text","label":"Name","value":"Flags created by Arabic Language School"},{"type":"relatives","label":"Ancestor Manuscript","value":[{"orientation":"vertical","url":"archive/manuscripts-cluster/manuscript-244","image":""}]}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="artifacts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/artifacts-cluster/">artifacts</a> / <a href="/iyapo-repository/archive/artifacts-cluster/artifact-244-1">#0244:01</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0244:01</p>
           </div>
@@ -80,8 +103,18 @@
           </div>
         
       </section>
+  
+        
+    <section class='media'>
+          
+        </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

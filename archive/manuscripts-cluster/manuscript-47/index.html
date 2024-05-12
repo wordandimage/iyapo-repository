@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"32bb5785-c046-457a-a09d-af62c99ab597","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"WIND GHOSTS. Large fans blow wind in a dark room. From the fans, stips of fabric blow. This is a game you play with your body. You enter the room and try to play hopscotch. If you miss a spot, lose your balance -- you must start again. The places of the hopscotch squares change every time you play the game/have to restart. You win the game when you make it across the room without losing your sense of self or rooting. This is about forgetting and remembering. You are reminded of ghosts.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"WIND GHOSTS. Large fans blow wind in a dark room. From the fans, stips of fabric blow. This is a game you play with your body. You enter the room and try to play hopscotch. If you miss a spot, lose your balance -- you must start again. The places of the hopscotch squares change every time you play the game/have to restart. You win the game when you make it across the room without losing your sense of self or rooting. This is about forgetting and remembering. You are reminded of ghosts.","href":null}]},"manuscript_id":{"type":"number","value":47},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Has a Motor"},"domain":{"type":"select","value":"Game"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Amani Sampson"}}})
       console.log([{"type":"text","label":"Name","value":"Amani Sampson"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Game","object":"Has a Motor"}},{"type":"accordion","label":"Description","value":"WIND GHOSTS. Large fans blow wind in a dark room. From the fans, stips of fabric blow. This is a game you play with your body. You enter the room and try to play hopscotch. If you miss a spot, lose your balance -- you must start again. The places of the hopscotch squares change every time you play the game/have to restart. You win the game when you make it across the room without losing your sense of self or rooting. This is about forgetting and remembering. You are reminded of ghosts."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-47">#0047</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0047</p>
           </div>
@@ -83,8 +111,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"db89a01e-cc15-490b-8f1c-ef26bcd1b9cb","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Plunge pool of clear liquid to cover and protect every surface of your body. This liquid would be invisible, quick drying and non greasy. It would not only protect from UV rays and harmful pollutants but also have cooling properties to protect from rising temperatures.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Plunge pool of clear liquid to cover and protect every surface of your body. This liquid would be invisible, quick drying and non greasy. It would not only protect from UV rays and harmful pollutants but also have cooling properties to protect from rising temperatures.","href":null}]},"manuscript_id":{"type":"number","value":108},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Self Defense"},"domain":{"type":"select","value":"Environment"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}}})
       console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Environment","object":"Self Defense"}},{"type":"accordion","label":"Description","value":"Plunge pool of clear liquid to cover and protect every surface of your body. This liquid would be invisible, quick drying and non greasy. It would not only protect from UV rays and harmful pollutants but also have cooling properties to protect from rising temperatures."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-108">#0108</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0108</p>
           </div>
@@ -74,8 +102,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

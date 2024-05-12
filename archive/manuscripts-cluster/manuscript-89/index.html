@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"57db7f4c-29e9-4200-9bc4-6fc05312de92","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Space-time varnish. A sealant that protects human bodies during entry and exit to/from the atmosphere. The varnish seals in pockets of oxygen to allow for breathing. The varnish contains nanoparticles of energy that maintain human body temperature in the cold of space or protect from the heat of the sun. It is a painted varnish, therefore inexpensive and accessible to many. Sensors in the varnish collect audio, visual and sensory data for space exploration.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Space-time varnish. A sealant that protects human bodies during entry and exit to/from the atmosphere. The varnish seals in pockets of oxygen to allow for breathing. The varnish contains nanoparticles of energy that maintain human body temperature in the cold of space or protect from the heat of the sun. It is a painted varnish, therefore inexpensive and accessible to many. Sensors in the varnish collect audio, visual and sensory data for space exploration.","href":null}]},"manuscript_id":{"type":"number","value":89},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Wearable"},"domain":{"type":"select","value":"Space Travel"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}}})
       console.log([{"type":"tags","value":{"narrative":"Utopian","domain":"Space Travel","object":"Wearable"}},{"type":"accordion","label":"Description","value":"Space-time varnish. A sealant that protects human bodies during entry and exit to/from the atmosphere. The varnish seals in pockets of oxygen to allow for breathing. The varnish contains nanoparticles of energy that maintain human body temperature in the cold of space or protect from the heat of the sun. It is a painted varnish, therefore inexpensive and accessible to many. Sensors in the varnish collect audio, visual and sensory data for space exploration."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-89">#0089</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0089</p>
           </div>
@@ -74,8 +102,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

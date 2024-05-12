@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"68f74f27-8ace-492c-9e70-b072d9ca8226","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"This is a quick sketch of the vacation I never had. Never been on a beach in a my life. All I know is work work work! The utopian because it's something out of the ordinary for me. A game cuase of volleyball on the beach. Makes sound because of ocean waves.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"This is a quick sketch of the vacation I never had. Never been on a beach in a my life. All I know is work work work! The utopian because it's something out of the ordinary for me. A game cuase of volleyball on the beach. Makes sound because of ocean waves.","href":null}]},"manuscript_id":{"type":"number","value":238},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Makes Sound"},"domain":{"type":"select","value":"Game"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}}})
       console.log([{"type":"tags","value":{"narrative":"Utopian","domain":"Game","object":"Makes Sound"}},{"type":"accordion","label":"Description","value":"This is a quick sketch of the vacation I never had. Never been on a beach in a my life. All I know is work work work! The utopian because it's something out of the ordinary for me. A game cuase of volleyball on the beach. Makes sound because of ocean waves."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-238">#0238</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0238</p>
           </div>
@@ -74,8 +102,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

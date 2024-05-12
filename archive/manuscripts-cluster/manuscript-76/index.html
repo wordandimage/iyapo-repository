@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"b04701ed-19ca-4f03-bff7-360c448c09d6","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"It's a full body dress that you put on. Your head goes into the top sphere with spikes. Your hands go into the lower spheres. closer to the ground with spikes. There is a nuther seat of spheres above of where you put your hands that has spikes and what you use for a weapon.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"It's a full body dress that you put on. Your head goes into the top sphere with spikes. Your hands go into the lower spheres. closer to the ground with spikes. There is a nuther seat of spheres above of where you put your hands that has spikes and what you use for a weapon.","href":null}]},"manuscript_id":{"type":"number","value":76},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Sphere"},"domain":{"type":"select","value":"Fashion"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Sofia Benete"}}})
       console.log([{"type":"text","label":"Name","value":"Sofia Benete"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Fashion","object":"Sphere"}},{"type":"accordion","label":"Description","value":"It's a full body dress that you put on. Your head goes into the top sphere with spikes. Your hands go into the lower spheres. closer to the ground with spikes. There is a nuther seat of spheres above of where you put your hands that has spikes and what you use for a weapon."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-76">#0076</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0076</p>
           </div>
@@ -83,8 +111,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

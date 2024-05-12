@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"a7eef78d-b20e-4e5e-8233-04229a41d419","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"A machine where we type on the computer about problems in life and about who. The computer prints wants to fix the problems.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"A machine where we type on the computer about problems in life and about who. The computer prints wants to fix the problems.","href":null}]},"manuscript_id":{"type":"number","value":111},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Transmits Data"},"domain":{"type":"select","value":"Game"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}}})
       console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Game","object":"Transmits Data"}},{"type":"accordion","label":"Description","value":"A machine where we type on the computer about problems in life and about who. The computer prints wants to fix the problems."},{"type":"relatives","label":"Descendant Artifacts","value":[{"orientation":"landscape","url":"archive/artifacts-cluster/artifact-111-1","image":""}]}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-111">#0111</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0111</p>
           </div>
@@ -91,8 +119,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

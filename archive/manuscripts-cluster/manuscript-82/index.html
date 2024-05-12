@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"d66893c2-e80b-483b-9703-6cafe123e63a","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Peacekeepers utility belt w/replicator","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Peacekeepers utility belt w/replicator","href":null}]},"manuscript_id":{"type":"number","value":82},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"3D Printed"},"domain":{"type":"select","value":"Security"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"#cpar 2016"}}})
       console.log([{"type":"text","label":"Name","value":"#cpar 2016"},{"type":"tags","value":{"narrative":"Utopian","domain":"Security","object":"3D Printed"}},{"type":"accordion","label":"Description","value":"Peacekeepers utility belt w/replicator"}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-82">#0082</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0082</p>
           </div>
@@ -83,8 +111,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+

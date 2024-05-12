@@ -32,22 +32,50 @@
     <script>
       console.log({"item_id":"bd3a2034-889b-4e66-8a0f-07d750a133c6","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"There is a virtual radio station \"MOTHER\" that streams sounds of our motherlands. Headphones tha stream rhythms, poems, sounds, songs, sayings, statements of \"home.\" Home is motherland - but that is also fluid. Africa, Caribbean, Puerto Rico, El Yunque, the ocean.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"There is a virtual radio station \"MOTHER\" that streams sounds of our motherlands. Headphones tha stream rhythms, poems, sounds, songs, sayings, statements of \"home.\" Home is motherland - but that is also fluid. Africa, Caribbean, Puerto Rico, El Yunque, the ocean.","href":null}]},"manuscript_id":{"type":"number","value":112},"narrative":{"type":"select","value":"Revolutionary"},"object":{"type":"select","value":"Pumps Air"},"domain":{"type":"select","value":"Politics"},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}}})
       console.log([{"type":"tags","value":{"narrative":"Revolutionary","domain":"Politics","object":"Pumps Air"}},{"type":"accordion","label":"Description","value":"There is a virtual radio station \"MOTHER\" that streams sounds of our motherlands. Headphones tha stream rhythms, poems, sounds, songs, sayings, statements of \"home.\" Home is motherland - but that is also fluid. Africa, Caribbean, Puerto Rico, El Yunque, the ocean."}])
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
+
+    
+  
+
   <body >
-    <div class='constellation-content grid'>
+    <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-112">#0112</a>
 </nav>
 
-      <section class='media'>
+      
         
-      </section>
-      <section class='props'>
+    <section class='media'>
+          
+        </section>
+  
+        
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0112</p>
           </div>
@@ -74,8 +102,13 @@
           </div>
         
       </section>
+  
+      
+      
     </div>
 
 
   </body>
 </html>
+
+
