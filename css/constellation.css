@@ -100,7 +100,7 @@ details[open]{
     padding-top:10px;
 }
 
-.props::after{
+.constellation-content section:last-of-type::after{
     content:'';
     display:block;
     width:100%;
