@@ -24,6 +24,14 @@ function init(){
         card_container=document.querySelector('#cards');
         cards=Array.from(document.querySelectorAll('.card'));
 
+
+        let resize_observer=new ResizeObserver(function(){
+            console.log('resize box')
+            filter_box.style.setProperty('--h',document.querySelector('#top-bar').offsetHeight+'px')
+        })
+
+        resize_observer.observe(document.querySelector('#top-bar'));
+
        tag_boxes.forEach((checkbox)=>{
             checkbox.addEventListener('change',evaluate_tags)
         })

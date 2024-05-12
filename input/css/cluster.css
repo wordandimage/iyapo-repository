@@ -11,6 +11,7 @@
     width:100%;
     height:60px;
     grid-column-start:1;
+    order:2;
 }
 
 #top-bar{
@@ -32,6 +33,7 @@
 }
 
 #filter{
+    --h:var(--h);
     padding-bottom:4px;
     border-bottom:var(--stroke-width) solid var(--fg);
     /* background-color: var(--bg); */
@@ -49,6 +51,9 @@
     transform:rotate(180deg);
     transform-origin:50% 50%;
 }
+
+
+
 
 #filter[open] .filter-prompt,
 #filter:not(#filter[data-selected="0"]) .filter-prompt{
@@ -75,7 +80,7 @@
     display:grid;
     grid-template-columns:repeat(var(--col-count),1fr);
     grid-gap:0px var(--spacing);
-    max-height:calc(100vh - 90px);
+    max-height:calc(100vh - var(--h));
     overflow:scroll;
 }
 
@@ -84,40 +89,17 @@
     color:var(--fg);
 }
 
-.selected-tags button:last-of-type::before{
-    content:',\00a0 and\00a0';
-}
-
-
-#filter[data-selected="2"] .selected-tags button:last-of-type::before{
-    content:'\00a0 and\00a0';
-}
-
-.selected-tags button:first-of-type::before{
-    content:'';
-}
-
-
-
-.selected-tags button::before{
+.selected-tags button::after{
     content:',\00a0';
-}
-
-/* .selected-tags button::after{
-    content:',\00a0';
-}
-
-#filter:not(#filter[data-selected="0"]) .selected-tags button:last-of-type::before{
-    content:' and ';
 }
 
 .selected-tags button:last-of-type::after{
     content:'';
-} */
-
+}
 
 .taglist{
     grid-column:auto / span var(--col-count);
+    margin-top:var(--spacing);
 }
 
 .tag-select{
@@ -176,6 +158,8 @@ img{
 
 #cards.filtering .card:not(.in-filter){
     opacity:0.1;
+    order:2;
+    /* display:none; */
 }
 
 .card{
@@ -229,6 +213,16 @@ picture{
 
     #top-bar{
         width:calc(100% - 40px);
+    }
+}
+
+@media(max-width:799px){
+    #filter:not(#filter[open]) summary{
+        /* white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box; */
     }
 }
 

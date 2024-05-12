@@ -52,7 +52,7 @@
                 <div id="filter-menu">
                     {% macro taglist(category) %}
                         <div class="taglist" data-category="{{category}}">
-                            <p>{{category | capitalize}}:</p>
+                            <p class='taglist-head'>{{category | capitalize}}:</p>
                             {% for tag in cms.tags[category] %}
                                 <p class="col-{{category}} noselect tag-select">
                                     <input data-tag="{{tag}}" type="checkbox" name="{{category}}-{{tag | slugify}}" id="{{category}}-{{tag | lower | replace(" ", "-")}}">
