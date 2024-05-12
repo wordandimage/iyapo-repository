@@ -39,29 +39,56 @@
     <script>
       console.log({{item | dump | safe}})
       console.log({{constellation_props | dump | safe}})
+      
+      window.addEventListener('load',img_listeners);
+      
+
+      function img_listeners(){
+        Array.from(document?.querySelectorAll('img') || []).forEach((img)=>{
+            if (img.complete) {
+              img.style.opacity=1;
+            } else {
+              img.addEventListener('load', show_img)
+            }
+        })
+      }
+
+      function show_img(e){
+        e.currentTarget.style.opacity=1;
+      }
+
+
+
     </script>
 
 
   
   </head>
-  <body >
-    <div class='constellation-content grid'>
-      {{ macros.breadcrumbs(cluster,base_url,archive_item_id_url,archive_item_id_display,archive_item_type) }}
-      <section class='media'>
-        {% for asset in media %}
-          <figure>
-            {% if asset.type == 'image' %}
-              
-              <picture>
-                <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.webp" type="image/webp">
-                <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.jpg">
-                <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.jpg">
-              </picture>
-            {% endif %}
-          </figure>
-        {% endfor %}
-      </section>
-      <section class='props'>
+
+    {% macro media_section() %}
+    <section class='media'>
+          {% for asset in media %}
+            <figure>
+              {% if asset.type == 'image' %}
+                
+                <picture>
+                  <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.webp" type="image/webp">
+                  <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.jpg">
+                  <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.jpg">
+                </picture>
+              {% elseif asset.type=='embed' %}
+              <div class='embed-wrapper'>
+                <iframe src="{{asset.url}}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+              </div>
+              <script src="https://player.vimeo.com/api/player.js"></script>
+                
+              {% endif %}
+            </figure>
+          {% endfor %}
+        </section>
+  {% endmacro %}
+  {% macro props_section() %}
+  <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>{{archive_item_id_display}}</p>
           </div>
@@ -102,8 +129,23 @@
           </div>
         {% endfor %}
       </section>
+  {% endmacro %}
+
+  <body >
+    <div class='constellation-content grid' data-cluster="{{cluster}}">
+      {{ macros.breadcrumbs(cluster,base_url,archive_item_id_url,archive_item_id_display,archive_item_type) }}
+      {% if cluster == 'manuscripts' %}
+        {{ media_section() }}
+        {{ props_section() }}
+      {% else %}
+        {{ props_section() }}
+        {{ media_section() }}
+      {% endif %}
+      
     </div>
 
 
   </body>
 </html>
+
+

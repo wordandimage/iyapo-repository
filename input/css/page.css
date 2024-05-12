@@ -211,7 +211,15 @@ h2.mono{
 }
 
 
+#archive-window .bevel-box{
+    /* z-index:1000; */
+    clip-path:none;
+}
 
+#archive-window .bevel-box .corner{
+    background-color: var(--bg);
+    z-index:1000;
+}
 
 
 

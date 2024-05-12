@@ -1,6 +1,7 @@
 const { Client } = require("@notionhq/client");
 const { NotionToMarkdown } = require("notion-to-md");
 const process_images=require('./process-images.js');
+const slugify = require('slugify');
 require('dotenv').config();
 
 let pages_database_id="98c44354161641b39e15bbb26816ad33";
@@ -118,15 +119,18 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
 
                             }
 
+                            let filename=slugify(file.name.replace(/\.[^/.]+$/, ''))
+                            
+
                             output_file_array.push({
                                 type:'image',
-                                name:archive_type=='artifact'?file.name.replace(/\.[^/.]+$/, ''):'scan'
+                                name:archive_type=='artifact'?filename:'scan'
                             })
                             
                             image_processing_queue.push({
                                 type:archive_type,
                                 url:file.file.url,
-                                name:file.name,
+                                name:filename,
                                 metadata
                             })
                         }else if(file.type=='external'){
@@ -196,12 +200,22 @@ module.exports = async function load_data({do_image_processing=false}={}){
     let artifacts=await fetch_database(artifacts_database_id,{archive_type:'artifact'});
     console.log('   loading pages')
     let pages=await fetch_database(pages_database_id,{sort_prop:'nav_order',include_content:true});
-    
+    console.log('   compiling tags')
+    let tags={narrative:[],domain:[],object:[]}
+    for(let manuscript of manuscripts){
+        let narrative=manuscript.properties.narrative.value;
+        let object=manuscript.properties.object.value;
+        let domain=manuscript.properties.domain.value;
+        if(narrative&&!tags.narrative.some(a=>a==narrative)) tags.narrative.push(narrative)
+        if(object&&!tags.object.some(a=>a==object)) tags.object.push(object)
+        if(domain&&!tags.domain.some(a=>a==domain)) tags.domain.push(domain)
+    }
 
     let cms={
         manuscripts,
         artifacts,
-        pages
+        pages,
+        tags
     };
     
     if(do_image_processing){

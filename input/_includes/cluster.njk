@@ -7,7 +7,7 @@
     {% set items = cms.manuscripts | notion_data_sort_int("manuscript_id") %}
     {% set media_prop = "scan" %}
 {% elseif cluster == 'artifacts' %}
-    {% set items = cms.artifacts | notion_data_sort_int("manuscript_id") | notion_data_sort_int("artifact_subid") %}
+    {% set items = cms.artifacts | notion_data_sort_int("manuscript_id") %}
     {% set media_prop = "media" %}
 {% endif %}
 
@@ -28,28 +28,74 @@
     {# {{ favicon.html() }} #}
 
     {% set base_url="BASE_URL" | env%}
+    <script>
+        let cluster="{{cluster | safe}}";
+        let tags={{cms.tags | dump | safe}};
+    </script>
+    <script src="{{ rootpath }}js/cluster.js" charset="utf-8"></script>
   
   </head>
 
   <body >
-    <nav id="filter-bar">
+    <nav id="top-bar">
       {{ macros.breadcrumbs(cluster,base_url) }}
+      {% if cluster == "manuscripts" %}
+        <div id="filter-wrapper">
+            <details id='filter' class="mono" data-selected="0">
+                <summary class='noselect'>
+                    <p class='filter-prompt desktop-only'>Filter by <span class="col-narrative">Narrative</span>, <span class="col-object">Object</span>, or <span class="col-domain">Domain</span></p>
+                    <p class='filter-prompt mobile-only'>Filter</p>
+                    <p class='none-selected-placeholder'>None selected</p>
+                    <p class='selected-tags'></p>
+                    <svg class='dropdown-arrow' width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 8L13 1" /></svg>
+                </summary>
+                <div id="filter-menu">
+                    {% macro taglist(category) %}
+                        <div class="taglist" data-category="{{category}}">
+                            <p>{{category | capitalize}}:</p>
+                            {% for tag in cms.tags[category] %}
+                                <p class="col-{{category}} noselect tag-select">
+                                    <input data-tag="{{tag}}" type="checkbox" name="{{category}}-{{tag | slugify}}" id="{{category}}-{{tag | lower | replace(" ", "-")}}">
+                                    <label data-tag="{{tag}}" for="{{category}}-{{tag | slugify}}">{{tag}}</label>
+                                </p>
+                            {% endfor %}
+                        </div>
+                    {% endmacro %}
+
+                    {{ taglist("narrative") }}
+                    {{ taglist("object") }}
+                    {{ taglist("domain") }}
+                </div>
+                
+            </details>
+        </div>
+      {% endif %}
+      
     </nav>
-    <main class='grid cluster-content' data-type="{{cluster}}" data-cols="6">
+    <main id="cards" class='grid cluster-content' data-type="{{cluster}}" data-cols="6">
         {% for item in items %}
           {% if cluster == 'manuscripts' %}
             {% set id = item.properties.manuscript_id.value %}
             {% set href = "./manuscript-" + id%}
             {% set display_id = "#"  + id | zero_string%}
             {% set archive_img_root = "manuscript" + id + "/" %}
+            {% set narrative = 'data-narrative='+item.properties.narrative.value | dump  %}
+            {% set object = 'data-object='+item.properties.object.value | dump  %}
+            {% set domain = 'data-domain='+item.properties.domain.value | dump  %}
+            {% set tag_string = narrative+object+domain %}
           {% elseif cluster == 'artifacts' %}
             {% set id = item.properties.artifact_subid.value%}
             {% set href = './artifact-' + item.properties.manuscript_id.value + '-' + id %}
             {% set display_id =  "#" + item.properties.manuscript_id.value | zero_string + ':' + id | zero_string(2) %}
             {% set archive_img_root = "manuscript" + item.properties.manuscript_id.value + "/artifact" + id + '/img@@' %}
+            {% set tag_string = "" %}
           {% endif %}
 
-          <a class="card {{"vertical" if cluster == 'manuscripts' else "landscape"}}" href="{{href}}">
+          <a 
+          {{narrative | safe if narrative else ""}} 
+          {{object | safe if object else ""}} 
+          {{domain | safe if domain else ""}} 
+          class="card {{"vertical" if cluster == 'manuscripts' else "landscape"}}" href="{{href}}">
             <span class="mono id-no">{{display_id}}</span>
             {%if item.properties[media_prop].value.length > 0 %}
                 {% set media = item.properties[media_prop].value %}
