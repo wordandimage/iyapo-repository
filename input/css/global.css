@@ -43,6 +43,59 @@
     --dubois-wide:'VTC DuBois Wide';
 }
 
+body[data-theme='bow']{
+    --fg:#0A0101;
+    --bg:rgb(250,250,250);
+    --bg:#C1C1C1;
+    --bg:#d2d0d0;
+    --stroke-width:1px;
+    --border:var(--stroke-width) solid var(--fg);
+}
+body[data-theme='soft-black']{
+    --bg:#171717;
+}
+
+body[data-theme='cream']{
+    --bg:#F4F4E6;
+    --fg:#2E242F;
+    --stroke-width:1px;
+    --border:var(--stroke-width) solid var(--fg);
+}
+
+
+
+
+/* "value":"bow" */
+
+
+
+body[data-theme='bow'] .card.vertical,
+body[data-theme='cream'] .card.vertical{
+    border-top:1px solid var(--fg);
+}
+
+
+body[data-theme='bow'] .card,
+body[data-theme='cream'] .card{
+    background-color:rgba(0,0,0,0.05);
+}
+
+
+body[data-theme='bow'] .col-narrative,
+body[data-theme='bow'] .col-object,
+body[data-theme='bow'] .col-domain,
+body[data-theme='cream'] .col-narrative,
+body[data-theme='cream'] .col-object,
+body[data-theme='cream'] .col-domain{
+    color:var(--fg);
+    background-size: 110% 1.1em;
+    background-repeat: no-repeat;
+    background-position: 0% 60%;
+    background-image:linear-gradient(to left, var(--g), var(--g));
+}
+
+
+
 
 
 
@@ -189,13 +242,17 @@ a{
 
 
 .col-narrative{
-    color:var(--tag-narrative);
+    --g:var(--tag-narrative);
 }
 .col-object{
-    color:var(--tag-object);
+    --g:var(--tag-object);
 }
 .col-domain{
-    color:var(--tag-domain);
+    --g:var(--tag-domain);
+}
+
+.col-narrative,.col-object,.col-domain{
+    color:var(--g);
 }
 
 .card{

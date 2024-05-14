@@ -47,7 +47,8 @@ module.exports = function (eleventyConfig) {
             domain: item.properties.domain.value,
             object: item.properties.object.value
           }:false },
-          {type:'accordion',label:'Description',value:item.properties.manuscript_description.value[0]?.plain_text},
+          {type:'accordion',label:'Description',value:item.properties.manuscript_description.value[0]?.plain_text.split('\n').map(a=>`<p>${a}</p>`).join('')
+        },
           {type:'relatives',label:'Descendant Artifacts',value:artifacts.length>0?artifacts:false}
         ]
 
@@ -64,7 +65,11 @@ module.exports = function (eleventyConfig) {
 
         props=[
           {type:'text',label:'Name',value:item.properties.artifact_name.value},
-          {type:'accordion',label:'Description',value:item.properties.artifact_description.value[0]?.plain_text},
+          {type:'accordion',label:'Description',
+          value:item.properties.artifact_description.value[0]?.plain_text
+            .split('\n').map(a=>`<p>${a}</p>`).join('')
+
+          },
           {type:'relatives',label:'Ancestor Manuscript',value:manuscripts.length>0?manuscripts:false}
         ]
       }

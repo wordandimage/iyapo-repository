@@ -99,10 +99,7 @@
               <h4 class='prop-label'>{{prop.label}}</h4>
               <p class='value'>{{prop.value}}</p>
             {% elseif prop.type == 'accordion' %}
-              <details>
-                  <summary class='noselect'>{{prop.label}}</summary>
-                  <p>{{prop.value}}</p>
-              </details>
+              <p>{{prop.value | safe}}</p>
             {% elseif prop.type == 'tags' %}
               <p><span>{% if prop.value.narrative.length>-1%}Narrative:{% endif %}</span><span class="col-narrative">{{prop.value.narrative}}</span></p>
               <p><span>{% if prop.value.object.length>-1%}Object:{% endif %}</span><span class="col-object">{{prop.value.object}}</span></p>
@@ -131,16 +128,18 @@
       </section>
   {% endmacro %}
 
-  <body >
+  <body  data-theme="{{theme.value}}">
     <div class='constellation-content grid' data-cluster="{{cluster}}">
       {{ macros.breadcrumbs(cluster,base_url,archive_item_id_url,archive_item_id_display,archive_item_type) }}
-      {% if cluster == 'manuscripts' %}
+      {{ media_section() }}
+      {{ props_section() }}
+      {# {% if cluster == 'manuscripts' %}
         {{ media_section() }}
         {{ props_section() }}
       {% else %}
         {{ props_section() }}
         {{ media_section() }}
-      {% endif %}
+      {% endif %} #}
       
     </div>
 

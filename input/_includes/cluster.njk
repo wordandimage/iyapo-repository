@@ -36,7 +36,7 @@
   
   </head>
 
-  <body >
+  <body data-theme="{{theme.value}}">
     <nav id="top-bar">
       {{ macros.breadcrumbs(cluster,base_url) }}
       {% if cluster == "manuscripts" %}
@@ -54,9 +54,9 @@
                         <div class="taglist" data-category="{{category}}">
                             <p class='taglist-head'>{{category | capitalize}}:</p>
                             {% for tag in cms.tags[category] %}
-                                <p class="col-{{category}} noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="{{tag}}" type="checkbox" name="{{category}}-{{tag | slugify}}" id="{{category}}-{{tag | lower | replace(" ", "-")}}">
-                                    <label data-tag="{{tag}}" for="{{category}}-{{tag | slugify}}">{{tag}}</label>
+                                    <label data-tag="{{tag}}" for="{{category}}-{{tag | slugify}}"><span class="col-{{category}}">{{tag}}</span></label>
                                 </p>
                             {% endfor %}
                         </div>

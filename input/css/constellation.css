@@ -78,6 +78,17 @@ details[open]{
     
 }
 
+.prop[data-type="accordion"]{
+    padding-bottom:8px;
+}
+
+
+.prop[data-type="accordion"] p:not(p:last-of-type){
+    margin-bottom:4px;
+}
+
+
+
 .prop[data-type="relatives"] h4{
     margin-bottom:4px;
 }
@@ -93,7 +104,7 @@ details[open]{
 .relative-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    grid-gap:15px;
+    grid-gap:0px 15px;
 }
 
 .constellation-content section:last-of-type{
@@ -132,6 +143,15 @@ details[open]{
 }
 
 @media(min-width:900px){
+
+    .grid:not(.grid[data-cluster="manuscripts"]) .props{
+        order:1;
+    }
+
+    .grid:not(.grid[data-cluster="manuscripts"]) .media{
+        order:2;
+    }
+
     .prop[data-type="tags"]:not(.empty){
         display:flex;
         flex-flow:row nowrap;
