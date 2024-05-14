@@ -46,8 +46,14 @@
 body[data-theme='bow']{
     --fg:#0A0101;
     --bg:rgb(250,250,250);
-    --bg:#C1C1C1;
+    
+    --stroke-width:1px;
+    --border:var(--stroke-width) solid var(--fg);
+}
+
+body[data-theme='grey']{
     --bg:#d2d0d0;
+    --fg:#0A0101;
     --stroke-width:1px;
     --border:var(--stroke-width) solid var(--fg);
 }
@@ -70,13 +76,15 @@ body[data-theme='cream']{
 
 
 body[data-theme='bow'] .card.vertical,
-body[data-theme='cream'] .card.vertical{
+body[data-theme='cream'] .card.vertical,
+body[data-theme='grey'] .card.vertical{
     border-top:1px solid var(--fg);
 }
 
 
 body[data-theme='bow'] .card,
-body[data-theme='cream'] .card{
+body[data-theme='cream'] .card,
+body[data-theme='grey'] .card{
     background-color:rgba(0,0,0,0.05);
 }
 
@@ -86,7 +94,10 @@ body[data-theme='bow'] .col-object,
 body[data-theme='bow'] .col-domain,
 body[data-theme='cream'] .col-narrative,
 body[data-theme='cream'] .col-object,
-body[data-theme='cream'] .col-domain{
+body[data-theme='cream'] .col-domain,
+body[data-theme='grey'] .col-narrative,
+body[data-theme='grey'] .col-object,
+body[data-theme='grey'] .col-domain{
     color:var(--fg);
     background-size: 110% 1.1em;
     background-repeat: no-repeat;
