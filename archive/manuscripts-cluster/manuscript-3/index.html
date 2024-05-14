@@ -31,7 +31,7 @@
     
     <script>
       console.log({"item_id":"e409b848-40a2-4281-89d3-626aa3cb56ce","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Spaceships and components, including spacesuits can blackout disappearing into space when in a potentially threatening situation. Can also adapt like chameleons according to new geographics.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Spaceships and components, including spacesuits can blackout disappearing into space when in a potentially threatening situation. Can also adapt like chameleons according to new geographics.","href":null}]},"manuscript_id":{"type":"number","value":3},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Space Travel"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Beth Altringer"}}})
-      console.log([{"type":"text","label":"Name","value":"Beth Altringer"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Space Travel","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"Spaceships and components, including spacesuits can blackout disappearing into space when in a potentially threatening situation. Can also adapt like chameleons according to new geographics."}])
+      console.log([{"type":"text","label":"Name","value":"Beth Altringer"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Space Travel","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"<p>Spaceships and components, including spacesuits can blackout disappearing into space when in a potentially threatening situation. Can also adapt like chameleons according to new geographics.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -61,7 +61,7 @@
     
   
 
-  <body >
+  <body  data-theme="soft-black">
     <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
@@ -69,7 +69,6 @@
 </nav>
 
       
-        
     <section class='media'>
           
             <figure>
@@ -85,7 +84,7 @@
           
         </section>
   
-        
+      
   <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0003</p>
@@ -113,10 +112,7 @@
           
           <div class="prop mono" data-type="accordion">
             
-              <details>
-                  <summary class='noselect'>Description</summary>
-                  <p>Spaceships and components, including spacesuits can blackout disappearing into space when in a potentially threatening situation. Can also adapt like chameleons according to new geographics.</p>
-              </details>
+              <p><p>Spaceships and components, including spacesuits can blackout disappearing into space when in a potentially threatening situation. Can also adapt like chameleons according to new geographics.</p></p>
             
             
           </div>

@@ -31,8 +31,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"08c16a6c-a01d-498b-b065-d6239ad54f58","properties":{"manuscript_id":{"type":"number","value":118},"media":{"type":"files","value":[]},"artifact_description":{"type":"rich_text","value":[]},"comments":{"type":"rich_text","value":[]},"artifact_subid":{"type":"number","value":1},"artifact_name":{"type":"title","value":"Music Air Ballon"}}})
-      console.log([{"type":"text","label":"Name","value":"Music Air Ballon"},{"type":"relatives","label":"Ancestor Manuscript","value":[{"orientation":"vertical","url":"archive/manuscripts-cluster/manuscript-118","image":""}]}])
+      console.log({"item_id":"08c16a6c-a01d-498b-b065-d6239ad54f58","properties":{"manuscript_id":{"type":"number","value":118},"media":{"type":"files","value":[{"type":"embed","url":"https://player.vimeo.com/video/945961700"}]},"artifact_description":{"type":"rich_text","value":[]},"comments":{"type":"rich_text","value":[]},"artifact_subid":{"type":"number","value":1},"artifact_name":{"type":"title","value":"Music Air Ballon"}}})
+      console.log([{"type":"text","label":"Name","value":"Music Air Ballon"},{"type":"relatives","label":"Ancestor Manuscript","value":[{"orientation":"vertical","url":"archive/manuscripts-cluster/manuscript-118","image":"assets/images_for_web/archive/manuscript118/scan@@sm"}]}])
       
       window.addEventListener('load',img_listeners);
       
@@ -62,7 +62,7 @@
     
   
 
-  <body >
+  <body  data-theme="soft-black">
     <div class='constellation-content grid' data-cluster="artifacts">
       
 <nav class="breadcrumbs mono small-caps">
@@ -70,7 +70,21 @@
 </nav>
 
       
-        
+    <section class='media'>
+          
+            <figure>
+              
+              <div class='embed-wrapper'>
+                <iframe src="https://player.vimeo.com/video/945961700" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+              </div>
+              <script src="https://player.vimeo.com/api/player.js"></script>
+                
+              
+            </figure>
+          
+        </section>
+  
+      
   <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0118:01</p>
@@ -93,6 +107,12 @@
                 
                   <a href="/iyapo-repository/archive/manuscripts-cluster/manuscript-118" class='card vertical'>
                     
+                      <picture>
+                        <source type="image/webp" srcset="../../../assets/images_for_web/archive/manuscript118/scan@@sm.webp" type="image/webp">
+                        <source type="image/jpg" srcset="../../../assets/images_for_web/archive/manuscript118/scan@@sm.jpg">
+                        <img loading="lazy" src="../../../assets/images_for_web/archive/manuscript118/scan@@sm.jpg">
+                      </picture>
+                    
                   </a>
                   
                 
@@ -103,11 +123,6 @@
           </div>
         
       </section>
-  
-        
-    <section class='media'>
-          
-        </section>
   
       
       

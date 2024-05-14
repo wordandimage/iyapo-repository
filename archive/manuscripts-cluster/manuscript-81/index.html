@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"653d88d7-68b7-4b9a-8b2f-f28fc42a8557","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":81},"narrative":{"type":"select","value":""},"object":{"type":"select","value":""},"domain":{"type":"select","value":""},"scan":{"type":"files","value":[]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Andi Irwin"}}})
-      console.log([{"type":"text","label":"Name","value":"Andi Irwin"}])
+      console.log({"item_id":"d66893c2-e80b-483b-9703-6cafe123e63a","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Peacekeepers utility belt w/replicator","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Peacekeepers utility belt w/replicator","href":null}]},"manuscript_id":{"type":"number","value":81},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"3D Printed"},"domain":{"type":"select","value":"Security"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"#cpar 2016"}}})
+      console.log([{"type":"text","label":"Name","value":"#cpar 2016"},{"type":"tags","value":{"narrative":"Utopian","domain":"Security","object":"3D Printed"}},{"type":"accordion","label":"Description","value":"<p>Peacekeepers utility belt w/replicator</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -61,7 +61,7 @@
     
   
 
-  <body >
+  <body  data-theme="soft-black">
     <div class='constellation-content grid' data-cluster="manuscripts">
       
 <nav class="breadcrumbs mono small-caps">
@@ -69,12 +69,22 @@
 </nav>
 
       
-        
     <section class='media'>
+          
+            <figure>
+              
+                
+                <picture>
+                  <source type="image/webp" srcset="../../../assets/images_for_web/archive/manuscript81/scan@@lg.webp" type="image/webp">
+                  <source type="image/jpg" srcset="../../../assets/images_for_web/archive/manuscript81/scan@@lg.jpg">
+                  <img loading="lazy" src="../../../assets/images_for_web/archive/manuscript81/scan@@lg.jpg">
+                </picture>
+              
+            </figure>
           
         </section>
   
-        
+      
   <section class='props'>
         <div class="prop desktop-only mono">
             <p class='value'>#0081</p>
@@ -84,7 +94,25 @@
           <div class="prop mono" data-type="text">
             
               <h4 class='prop-label'>Name</h4>
-              <p class='value'>Andi Irwin</p>
+              <p class='value'>#cpar 2016</p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="tags">
+            
+              <p><span>Narrative:</span><span class="col-narrative">Utopian</span></p>
+              <p><span>Object:</span><span class="col-object">3D Printed</span></p>
+              <p><span>Domain:</span><span class="col-domain">Security</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>Peacekeepers utility belt w/replicator</p></p>
             
             
           </div>

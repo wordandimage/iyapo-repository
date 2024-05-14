@@ -27,13 +27,13 @@
     
     <script>
         let cluster="manuscripts";
-        let tags={"narrative":["Utopian","Dystopian","Revolutionary","Apocalyptic"],"domain":["Game","Environment","Music","Fashion","Security","Politics","Space Travel","Food","Health","Education"],"object":["Makes Sound","Changes Color","Self Defense","Sphere","Pumps Air","Tube","3D Printed","Transmits Data","Wearable","Has a Motor"]};
+        let tags={"narrative":["Dystopian","Utopian","Revolutionary","Apocalyptic"],"domain":["Security","Game","Environment","Music","Fashion","Politics","Space Travel","Food","Health","Education"],"object":["Self Defense","Makes Sound","Changes Color","Sphere","Pumps Air","Tube","3D Printed","Transmits Data","Wearable","Has a Motor"]};
     </script>
     <script src="../../js/cluster.js" charset="utf-8"></script>
   
   </head>
 
-  <body >
+  <body data-theme="soft-black">
     <nav id="top-bar">
       
 <nav class="breadcrumbs mono small-caps">
@@ -57,24 +57,24 @@
                         <div class="taglist" data-category="narrative">
                             <p class='taglist-head'>Narrative:</p>
                             
-                                <p class="col-narrative noselect tag-select">
-                                    <input data-tag="Utopian" type="checkbox" name="narrative-utopian" id="narrative-utopian">
-                                    <label data-tag="Utopian" for="narrative-utopian">Utopian</label>
-                                </p>
-                            
-                                <p class="col-narrative noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Dystopian" type="checkbox" name="narrative-dystopian" id="narrative-dystopian">
-                                    <label data-tag="Dystopian" for="narrative-dystopian">Dystopian</label>
+                                    <label data-tag="Dystopian" for="narrative-dystopian"><span class="col-narrative">Dystopian</span></label>
                                 </p>
                             
-                                <p class="col-narrative noselect tag-select">
+                                <p class="noselect tag-select">
+                                    <input data-tag="Utopian" type="checkbox" name="narrative-utopian" id="narrative-utopian">
+                                    <label data-tag="Utopian" for="narrative-utopian"><span class="col-narrative">Utopian</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
                                     <input data-tag="Revolutionary" type="checkbox" name="narrative-revolutionary" id="narrative-revolutionary">
-                                    <label data-tag="Revolutionary" for="narrative-revolutionary">Revolutionary</label>
+                                    <label data-tag="Revolutionary" for="narrative-revolutionary"><span class="col-narrative">Revolutionary</span></label>
                                 </p>
                             
-                                <p class="col-narrative noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Apocalyptic" type="checkbox" name="narrative-apocalyptic" id="narrative-apocalyptic">
-                                    <label data-tag="Apocalyptic" for="narrative-apocalyptic">Apocalyptic</label>
+                                    <label data-tag="Apocalyptic" for="narrative-apocalyptic"><span class="col-narrative">Apocalyptic</span></label>
                                 </p>
                             
                         </div>
@@ -83,54 +83,54 @@
                         <div class="taglist" data-category="object">
                             <p class='taglist-head'>Object:</p>
                             
-                                <p class="col-object noselect tag-select">
-                                    <input data-tag="Makes Sound" type="checkbox" name="object-makes-sound" id="object-makes-sound">
-                                    <label data-tag="Makes Sound" for="object-makes-sound">Makes Sound</label>
-                                </p>
-                            
-                                <p class="col-object noselect tag-select">
-                                    <input data-tag="Changes Color" type="checkbox" name="object-changes-color" id="object-changes-color">
-                                    <label data-tag="Changes Color" for="object-changes-color">Changes Color</label>
-                                </p>
-                            
-                                <p class="col-object noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Self Defense" type="checkbox" name="object-self-defense" id="object-self-defense">
-                                    <label data-tag="Self Defense" for="object-self-defense">Self Defense</label>
+                                    <label data-tag="Self Defense" for="object-self-defense"><span class="col-object">Self Defense</span></label>
                                 </p>
                             
-                                <p class="col-object noselect tag-select">
+                                <p class="noselect tag-select">
+                                    <input data-tag="Makes Sound" type="checkbox" name="object-makes-sound" id="object-makes-sound">
+                                    <label data-tag="Makes Sound" for="object-makes-sound"><span class="col-object">Makes Sound</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
+                                    <input data-tag="Changes Color" type="checkbox" name="object-changes-color" id="object-changes-color">
+                                    <label data-tag="Changes Color" for="object-changes-color"><span class="col-object">Changes Color</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
                                     <input data-tag="Sphere" type="checkbox" name="object-sphere" id="object-sphere">
-                                    <label data-tag="Sphere" for="object-sphere">Sphere</label>
+                                    <label data-tag="Sphere" for="object-sphere"><span class="col-object">Sphere</span></label>
                                 </p>
                             
-                                <p class="col-object noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Pumps Air" type="checkbox" name="object-pumps-air" id="object-pumps-air">
-                                    <label data-tag="Pumps Air" for="object-pumps-air">Pumps Air</label>
+                                    <label data-tag="Pumps Air" for="object-pumps-air"><span class="col-object">Pumps Air</span></label>
                                 </p>
                             
-                                <p class="col-object noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Tube" type="checkbox" name="object-tube" id="object-tube">
-                                    <label data-tag="Tube" for="object-tube">Tube</label>
+                                    <label data-tag="Tube" for="object-tube"><span class="col-object">Tube</span></label>
                                 </p>
                             
-                                <p class="col-object noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="3D Printed" type="checkbox" name="object-3d-printed" id="object-3d-printed">
-                                    <label data-tag="3D Printed" for="object-3d-printed">3D Printed</label>
+                                    <label data-tag="3D Printed" for="object-3d-printed"><span class="col-object">3D Printed</span></label>
                                 </p>
                             
-                                <p class="col-object noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Transmits Data" type="checkbox" name="object-transmits-data" id="object-transmits-data">
-                                    <label data-tag="Transmits Data" for="object-transmits-data">Transmits Data</label>
+                                    <label data-tag="Transmits Data" for="object-transmits-data"><span class="col-object">Transmits Data</span></label>
                                 </p>
                             
-                                <p class="col-object noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Wearable" type="checkbox" name="object-wearable" id="object-wearable">
-                                    <label data-tag="Wearable" for="object-wearable">Wearable</label>
+                                    <label data-tag="Wearable" for="object-wearable"><span class="col-object">Wearable</span></label>
                                 </p>
                             
-                                <p class="col-object noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Has a Motor" type="checkbox" name="object-has-a-motor" id="object-has-a-motor">
-                                    <label data-tag="Has a Motor" for="object-has-a-motor">Has a Motor</label>
+                                    <label data-tag="Has a Motor" for="object-has-a-motor"><span class="col-object">Has a Motor</span></label>
                                 </p>
                             
                         </div>
@@ -139,54 +139,54 @@
                         <div class="taglist" data-category="domain">
                             <p class='taglist-head'>Domain:</p>
                             
-                                <p class="col-domain noselect tag-select">
-                                    <input data-tag="Game" type="checkbox" name="domain-game" id="domain-game">
-                                    <label data-tag="Game" for="domain-game">Game</label>
-                                </p>
-                            
-                                <p class="col-domain noselect tag-select">
-                                    <input data-tag="Environment" type="checkbox" name="domain-environment" id="domain-environment">
-                                    <label data-tag="Environment" for="domain-environment">Environment</label>
-                                </p>
-                            
-                                <p class="col-domain noselect tag-select">
-                                    <input data-tag="Music" type="checkbox" name="domain-music" id="domain-music">
-                                    <label data-tag="Music" for="domain-music">Music</label>
-                                </p>
-                            
-                                <p class="col-domain noselect tag-select">
-                                    <input data-tag="Fashion" type="checkbox" name="domain-fashion" id="domain-fashion">
-                                    <label data-tag="Fashion" for="domain-fashion">Fashion</label>
-                                </p>
-                            
-                                <p class="col-domain noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Security" type="checkbox" name="domain-security" id="domain-security">
-                                    <label data-tag="Security" for="domain-security">Security</label>
+                                    <label data-tag="Security" for="domain-security"><span class="col-domain">Security</span></label>
                                 </p>
                             
-                                <p class="col-domain noselect tag-select">
+                                <p class="noselect tag-select">
+                                    <input data-tag="Game" type="checkbox" name="domain-game" id="domain-game">
+                                    <label data-tag="Game" for="domain-game"><span class="col-domain">Game</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
+                                    <input data-tag="Environment" type="checkbox" name="domain-environment" id="domain-environment">
+                                    <label data-tag="Environment" for="domain-environment"><span class="col-domain">Environment</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
+                                    <input data-tag="Music" type="checkbox" name="domain-music" id="domain-music">
+                                    <label data-tag="Music" for="domain-music"><span class="col-domain">Music</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
+                                    <input data-tag="Fashion" type="checkbox" name="domain-fashion" id="domain-fashion">
+                                    <label data-tag="Fashion" for="domain-fashion"><span class="col-domain">Fashion</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
                                     <input data-tag="Politics" type="checkbox" name="domain-politics" id="domain-politics">
-                                    <label data-tag="Politics" for="domain-politics">Politics</label>
+                                    <label data-tag="Politics" for="domain-politics"><span class="col-domain">Politics</span></label>
                                 </p>
                             
-                                <p class="col-domain noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Space Travel" type="checkbox" name="domain-space-travel" id="domain-space-travel">
-                                    <label data-tag="Space Travel" for="domain-space-travel">Space Travel</label>
+                                    <label data-tag="Space Travel" for="domain-space-travel"><span class="col-domain">Space Travel</span></label>
                                 </p>
                             
-                                <p class="col-domain noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Food" type="checkbox" name="domain-food" id="domain-food">
-                                    <label data-tag="Food" for="domain-food">Food</label>
+                                    <label data-tag="Food" for="domain-food"><span class="col-domain">Food</span></label>
                                 </p>
                             
-                                <p class="col-domain noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Health" type="checkbox" name="domain-health" id="domain-health">
-                                    <label data-tag="Health" for="domain-health">Health</label>
+                                    <label data-tag="Health" for="domain-health"><span class="col-domain">Health</span></label>
                                 </p>
                             
-                                <p class="col-domain noselect tag-select">
+                                <p class="noselect tag-select">
                                     <input data-tag="Education" type="checkbox" name="domain-education" id="domain-education">
-                                    <label data-tag="Education" for="domain-education">Education</label>
+                                    <label data-tag="Education" for="domain-education"><span class="col-domain">Education</span></label>
                                 </p>
                             
                         </div>
@@ -199,6 +199,26 @@
       
     </nav>
     <main id="cards" class='grid cluster-content' data-type="manuscripts" data-cols="6">
+        
+          
+            
+            
+            
+            
+            
+            
+            
+            
+          
+
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
+          class="card vertical" href="./manuscript-0">
+            <span class="mono id-no">#0000</span>
+            
+          </a>
         
           
             
@@ -1052,9 +1072,9 @@
           
 
           <a 
-          data-narrative="" 
-          data-object="" 
-          data-domain="" 
+          data-narrative="Revolutionary" 
+          data-object="Changes Color" 
+          data-domain="Security" 
           class="card vertical" href="./manuscript-29">
             <span class="mono id-no">#0029</span>
             
@@ -2315,8 +2335,18 @@
           data-narrative="Dystopian" 
           data-object="Pumps Air" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-72">
-            <span class="mono id-no">#0072</span>
+          class="card vertical" href="./manuscript-71">
+            <span class="mono id-no">#0071</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript71/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript71/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript71/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2335,8 +2365,18 @@
           data-narrative="Revolutionary" 
           data-object="Transmits Data" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-73">
-            <span class="mono id-no">#0073</span>
+          class="card vertical" href="./manuscript-72">
+            <span class="mono id-no">#0072</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript72/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript72/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript72/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2355,8 +2395,18 @@
           data-narrative="Dystopian" 
           data-object="Has a Motor" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-74">
-            <span class="mono id-no">#0074</span>
+          class="card vertical" href="./manuscript-73">
+            <span class="mono id-no">#0073</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript73/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript73/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript73/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2375,8 +2425,8 @@
           data-narrative="" 
           data-object="" 
           data-domain="" 
-          class="card vertical" href="./manuscript-75">
-            <span class="mono id-no">#0075</span>
+          class="card vertical" href="./manuscript-74">
+            <span class="mono id-no">#0074</span>
             
           </a>
         
@@ -2395,8 +2445,18 @@
           data-narrative="Dystopian" 
           data-object="Sphere" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-76">
-            <span class="mono id-no">#0076</span>
+          class="card vertical" href="./manuscript-75">
+            <span class="mono id-no">#0075</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript75/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript75/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript75/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2415,8 +2475,18 @@
           data-narrative="Utopian" 
           data-object="Wearable" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-77">
-            <span class="mono id-no">#0077</span>
+          class="card vertical" href="./manuscript-76">
+            <span class="mono id-no">#0076</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript76/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript76/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript76/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2435,8 +2505,18 @@
           data-narrative="Apocalyptic" 
           data-object="Tube" 
           data-domain="Game" 
-          class="card vertical" href="./manuscript-78">
-            <span class="mono id-no">#0078</span>
+          class="card vertical" href="./manuscript-77">
+            <span class="mono id-no">#0077</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript77/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript77/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript77/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2455,8 +2535,18 @@
           data-narrative="Dystopian" 
           data-object="Changes Color" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-79">
-            <span class="mono id-no">#0079</span>
+          class="card vertical" href="./manuscript-78">
+            <span class="mono id-no">#0078</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript78/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript78/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript78/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2475,8 +2565,18 @@
           data-narrative="Utopian" 
           data-object="Transmits Data" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-80">
-            <span class="mono id-no">#0080</span>
+          class="card vertical" href="./manuscript-79">
+            <span class="mono id-no">#0079</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript79/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript79/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript79/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2495,8 +2595,18 @@
           data-narrative="" 
           data-object="" 
           data-domain="" 
-          class="card vertical" href="./manuscript-81">
-            <span class="mono id-no">#0081</span>
+          class="card vertical" href="./manuscript-80">
+            <span class="mono id-no">#0080</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript80/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript80/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript80/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2515,8 +2625,18 @@
           data-narrative="Utopian" 
           data-object="3D Printed" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-82">
-            <span class="mono id-no">#0082</span>
+          class="card vertical" href="./manuscript-81">
+            <span class="mono id-no">#0081</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript81/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript81/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript81/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2535,8 +2655,18 @@
           data-narrative="Apocalyptic" 
           data-object="Wearable" 
           data-domain="Health" 
-          class="card vertical" href="./manuscript-83">
-            <span class="mono id-no">#0083</span>
+          class="card vertical" href="./manuscript-82">
+            <span class="mono id-no">#0082</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript82/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript82/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript82/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2555,8 +2685,18 @@
           data-narrative="Utopian" 
           data-object="Has a Motor" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-84">
-            <span class="mono id-no">#0084</span>
+          class="card vertical" href="./manuscript-83">
+            <span class="mono id-no">#0083</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript83/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript83/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript83/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2575,8 +2715,18 @@
           data-narrative="Utopian" 
           data-object="Sphere" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-85">
-            <span class="mono id-no">#0085</span>
+          class="card vertical" href="./manuscript-84">
+            <span class="mono id-no">#0084</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript84/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript84/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript84/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2595,8 +2745,18 @@
           data-narrative="Dystopian" 
           data-object="Transmits Data" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-86">
-            <span class="mono id-no">#0086</span>
+          class="card vertical" href="./manuscript-85">
+            <span class="mono id-no">#0085</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript85/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript85/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript85/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2615,8 +2775,18 @@
           data-narrative="Dystopian" 
           data-object="Tube" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-87">
-            <span class="mono id-no">#0087</span>
+          class="card vertical" href="./manuscript-86">
+            <span class="mono id-no">#0086</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript86/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript86/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript86/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2635,8 +2805,18 @@
           data-narrative="Apocalyptic" 
           data-object="Self Defense" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-88">
-            <span class="mono id-no">#0088</span>
+          class="card vertical" href="./manuscript-87">
+            <span class="mono id-no">#0087</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript87/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript87/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript87/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2655,8 +2835,18 @@
           data-narrative="Utopian" 
           data-object="Wearable" 
           data-domain="Space Travel" 
-          class="card vertical" href="./manuscript-89">
-            <span class="mono id-no">#0089</span>
+          class="card vertical" href="./manuscript-88">
+            <span class="mono id-no">#0088</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript88/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript88/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript88/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2675,8 +2865,18 @@
           data-narrative="Apocalyptic" 
           data-object="Makes Sound" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-90">
-            <span class="mono id-no">#0090</span>
+          class="card vertical" href="./manuscript-89">
+            <span class="mono id-no">#0089</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript89/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript89/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript89/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2695,8 +2895,18 @@
           data-narrative="Revolutionary" 
           data-object="Makes Sound" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-91">
-            <span class="mono id-no">#0091</span>
+          class="card vertical" href="./manuscript-90">
+            <span class="mono id-no">#0090</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript90/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript90/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript90/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2715,8 +2925,18 @@
           data-narrative="Revolutionary" 
           data-object="Transmits Data" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-92">
-            <span class="mono id-no">#0092</span>
+          class="card vertical" href="./manuscript-91">
+            <span class="mono id-no">#0091</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript91/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript91/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript91/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2735,8 +2955,18 @@
           data-narrative="" 
           data-object="" 
           data-domain="" 
-          class="card vertical" href="./manuscript-93">
-            <span class="mono id-no">#0093</span>
+          class="card vertical" href="./manuscript-92">
+            <span class="mono id-no">#0092</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript92/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript92/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript92/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2755,8 +2985,18 @@
           data-narrative="Dystopian" 
           data-object="Transmits Data" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-94">
-            <span class="mono id-no">#0094</span>
+          class="card vertical" href="./manuscript-93">
+            <span class="mono id-no">#0093</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript93/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript93/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript93/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2775,8 +3015,18 @@
           data-narrative="Revolutionary" 
           data-object="Self Defense" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-95">
-            <span class="mono id-no">#0095</span>
+          class="card vertical" href="./manuscript-94">
+            <span class="mono id-no">#0094</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript94/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript94/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript94/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2795,8 +3045,18 @@
           data-narrative="Apocalyptic" 
           data-object="Wearable" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-96">
-            <span class="mono id-no">#0096</span>
+          class="card vertical" href="./manuscript-95">
+            <span class="mono id-no">#0095</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript95/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript95/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript95/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2814,29 +3074,49 @@
           <a 
           data-narrative="Dystopian" 
           data-object="Self Defense" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-96">
+            <span class="mono id-no">#0096</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript96/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript96/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript96/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
+            
+          </a>
+        
+          
+            
+            
+            
+            
+            
+            
+            
+            
+          
+
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Sphere" 
           data-domain="Environment" 
           class="card vertical" href="./manuscript-97">
             <span class="mono id-no">#0097</span>
             
-          </a>
-        
-          
-            
-            
-            
-            
-            
-            
-            
-            
-          
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript97/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript97/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript97/scan@@sm.jpg">
+                </picture>
 
-          <a 
-          data-narrative="Dystopian" 
-          data-object="Sphere" 
-          data-domain="Environment" 
-          class="card vertical" href="./manuscript-98">
-            <span class="mono id-no">#0098</span>
+              <picture>
+                
             
           </a>
         
@@ -2855,8 +3135,18 @@
           data-narrative="Dystopian" 
           data-object="Transmits Data" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-99">
-            <span class="mono id-no">#0099</span>
+          class="card vertical" href="./manuscript-98">
+            <span class="mono id-no">#0098</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript98/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript98/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript98/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2875,8 +3165,18 @@
           data-narrative="Revolutionary" 
           data-object="" 
           data-domain="" 
-          class="card vertical" href="./manuscript-100">
-            <span class="mono id-no">#0100</span>
+          class="card vertical" href="./manuscript-99">
+            <span class="mono id-no">#0099</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript99/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript99/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript99/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2895,8 +3195,18 @@
           data-narrative="Utopian" 
           data-object="Sphere" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-101">
-            <span class="mono id-no">#0101</span>
+          class="card vertical" href="./manuscript-100">
+            <span class="mono id-no">#0100</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript100/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript100/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript100/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2915,8 +3225,18 @@
           data-narrative="Apocalyptic" 
           data-object="Tube" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-102">
-            <span class="mono id-no">#0102</span>
+          class="card vertical" href="./manuscript-101">
+            <span class="mono id-no">#0101</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript101/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript101/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript101/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2935,8 +3255,18 @@
           data-narrative="Utopian" 
           data-object="Changes Color" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-103">
-            <span class="mono id-no">#0103</span>
+          class="card vertical" href="./manuscript-102">
+            <span class="mono id-no">#0102</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript102/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript102/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript102/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2955,8 +3285,18 @@
           data-narrative="Utopian" 
           data-object="Wearable" 
           data-domain="Health" 
-          class="card vertical" href="./manuscript-104">
-            <span class="mono id-no">#0104</span>
+          class="card vertical" href="./manuscript-103">
+            <span class="mono id-no">#0103</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript103/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript103/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript103/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2975,8 +3315,18 @@
           data-narrative="Dystopian" 
           data-object="Changes Color" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-105">
-            <span class="mono id-no">#0105</span>
+          class="card vertical" href="./manuscript-104">
+            <span class="mono id-no">#0104</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript104/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript104/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript104/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -2995,8 +3345,18 @@
           data-narrative="Utopian" 
           data-object="Tube" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-106">
-            <span class="mono id-no">#0106</span>
+          class="card vertical" href="./manuscript-105">
+            <span class="mono id-no">#0105</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript105/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript105/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript105/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3015,8 +3375,18 @@
           data-narrative="Utopian" 
           data-object="Transmits Data" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-107">
-            <span class="mono id-no">#0107</span>
+          class="card vertical" href="./manuscript-106">
+            <span class="mono id-no">#0106</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript106/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript106/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript106/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3035,8 +3405,18 @@
           data-narrative="Dystopian" 
           data-object="Self Defense" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-108">
-            <span class="mono id-no">#0108</span>
+          class="card vertical" href="./manuscript-107">
+            <span class="mono id-no">#0107</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript107/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript107/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript107/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3055,8 +3435,18 @@
           data-narrative="Apocalyptic" 
           data-object="Makes Sound" 
           data-domain="Game" 
-          class="card vertical" href="./manuscript-109">
-            <span class="mono id-no">#0109</span>
+          class="card vertical" href="./manuscript-108">
+            <span class="mono id-no">#0108</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript108/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript108/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript108/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3075,8 +3465,18 @@
           data-narrative="Utopian" 
           data-object="Has a Motor" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-110">
-            <span class="mono id-no">#0110</span>
+          class="card vertical" href="./manuscript-109">
+            <span class="mono id-no">#0109</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript109/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript109/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript109/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3095,8 +3495,18 @@
           data-narrative="Dystopian" 
           data-object="Transmits Data" 
           data-domain="Game" 
-          class="card vertical" href="./manuscript-111">
-            <span class="mono id-no">#0111</span>
+          class="card vertical" href="./manuscript-110">
+            <span class="mono id-no">#0110</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript110/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript110/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript110/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3115,8 +3525,18 @@
           data-narrative="Revolutionary" 
           data-object="Pumps Air" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-112">
-            <span class="mono id-no">#0112</span>
+          class="card vertical" href="./manuscript-111">
+            <span class="mono id-no">#0111</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript111/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript111/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript111/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3135,8 +3555,18 @@
           data-narrative="Dystopian" 
           data-object="Pumps Air" 
           data-domain="Space Travel" 
-          class="card vertical" href="./manuscript-113">
-            <span class="mono id-no">#0113</span>
+          class="card vertical" href="./manuscript-112">
+            <span class="mono id-no">#0112</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript112/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript112/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript112/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3155,8 +3585,18 @@
           data-narrative="Utopian" 
           data-object="Tube" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-114">
-            <span class="mono id-no">#0114</span>
+          class="card vertical" href="./manuscript-113">
+            <span class="mono id-no">#0113</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript113/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript113/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript113/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3175,8 +3615,18 @@
           data-narrative="Utopian" 
           data-object="Transmits Data" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-115">
-            <span class="mono id-no">#0115</span>
+          class="card vertical" href="./manuscript-114">
+            <span class="mono id-no">#0114</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript114/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript114/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript114/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3192,11 +3642,21 @@
           
 
           <a 
-          data-narrative="" 
-          data-object="" 
-          data-domain="" 
-          class="card vertical" href="./manuscript-116">
-            <span class="mono id-no">#0116</span>
+          data-narrative="Utopian" 
+          data-object="Has a Motor" 
+          data-domain="Environment" 
+          class="card vertical" href="./manuscript-115">
+            <span class="mono id-no">#0115</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript115/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript115/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript115/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3215,8 +3675,18 @@
           data-narrative="Dystopian" 
           data-object="Changes Color" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-117">
-            <span class="mono id-no">#0117</span>
+          class="card vertical" href="./manuscript-116">
+            <span class="mono id-no">#0116</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript116/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript116/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript116/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3235,8 +3705,18 @@
           data-narrative="Revolutionary" 
           data-object="Self Defense" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-118">
-            <span class="mono id-no">#0118</span>
+          class="card vertical" href="./manuscript-117">
+            <span class="mono id-no">#0117</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript117/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript117/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript117/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3255,8 +3735,48 @@
           data-narrative="Dystopian" 
           data-object="Pumps Air" 
           data-domain="Music" 
+          class="card vertical" href="./manuscript-118">
+            <span class="mono id-no">#0118</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript118/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript118/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript118/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
+            
+          </a>
+        
+          
+            
+            
+            
+            
+            
+            
+            
+            
+          
+
+          <a 
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Health" 
           class="card vertical" href="./manuscript-119">
             <span class="mono id-no">#0119</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript119/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript119/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript119/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3278,25 +3798,15 @@
           class="card vertical" href="./manuscript-120">
             <span class="mono id-no">#0120</span>
             
-          </a>
-        
-          
-            
-            
-            
-            
-            
-            
-            
-            
-          
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript120/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript120/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript120/scan@@sm.jpg">
+                </picture>
 
-          <a 
-          data-narrative="Apocalyptic" 
-          data-object="Has a Motor" 
-          data-domain="Health" 
-          class="card vertical" href="./manuscript-121">
-            <span class="mono id-no">#0121</span>
+              <picture>
+                
             
           </a>
         
@@ -3315,8 +3825,18 @@
           data-narrative="Apocalyptic" 
           data-object="Transmits Data" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-122">
-            <span class="mono id-no">#0122</span>
+          class="card vertical" href="./manuscript-121">
+            <span class="mono id-no">#0121</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript121/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript121/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript121/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3335,8 +3855,18 @@
           data-narrative="Utopian" 
           data-object="Sphere" 
           data-domain="Game" 
-          class="card vertical" href="./manuscript-123">
-            <span class="mono id-no">#0123</span>
+          class="card vertical" href="./manuscript-122">
+            <span class="mono id-no">#0122</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript122/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript122/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript122/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3355,8 +3885,18 @@
           data-narrative="Utopian" 
           data-object="Changes Color" 
           data-domain="Space Travel" 
-          class="card vertical" href="./manuscript-124">
-            <span class="mono id-no">#0124</span>
+          class="card vertical" href="./manuscript-123">
+            <span class="mono id-no">#0123</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript123/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript123/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript123/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3375,8 +3915,18 @@
           data-narrative="Dystopian" 
           data-object="Self Defense" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-125">
-            <span class="mono id-no">#0125</span>
+          class="card vertical" href="./manuscript-124">
+            <span class="mono id-no">#0124</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript124/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript124/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript124/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3395,8 +3945,18 @@
           data-narrative="Dystopian" 
           data-object="Self Defense" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-126">
-            <span class="mono id-no">#0126</span>
+          class="card vertical" href="./manuscript-125">
+            <span class="mono id-no">#0125</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript125/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript125/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript125/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3415,8 +3975,18 @@
           data-narrative="Revolutionary" 
           data-object="3D Printed" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-127">
-            <span class="mono id-no">#0127</span>
+          class="card vertical" href="./manuscript-126">
+            <span class="mono id-no">#0126</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript126/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript126/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript126/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3435,8 +4005,18 @@
           data-narrative="Utopian" 
           data-object="Self Defense" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-128">
-            <span class="mono id-no">#0128</span>
+          class="card vertical" href="./manuscript-127">
+            <span class="mono id-no">#0127</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript127/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript127/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript127/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3455,8 +4035,18 @@
           data-narrative="Apocalyptic" 
           data-object="Wearable" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-129">
-            <span class="mono id-no">#0129</span>
+          class="card vertical" href="./manuscript-128">
+            <span class="mono id-no">#0128</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript128/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript128/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript128/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3472,11 +4062,21 @@
           
 
           <a 
-          data-narrative="Utopian" 
-          data-object="Wearable" 
-          data-domain="Health" 
-          class="card vertical" href="./manuscript-130">
-            <span class="mono id-no">#0130</span>
+          data-narrative="Dystopian" 
+          data-object="Self Defense" 
+          data-domain="Security" 
+          class="card vertical" href="./manuscript-129">
+            <span class="mono id-no">#0129</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript129/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript129/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript129/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3495,8 +4095,48 @@
           data-narrative="Dystopian" 
           data-object="Sphere" 
           data-domain="Fashion" 
+          class="card vertical" href="./manuscript-130">
+            <span class="mono id-no">#0130</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript130/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript130/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript130/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
+            
+          </a>
+        
+          
+            
+            
+            
+            
+            
+            
+            
+            
+          
+
+          <a 
+          data-narrative="Dystopian" 
+          data-object="Makes Sound" 
+          data-domain="Environment" 
           class="card vertical" href="./manuscript-131">
             <span class="mono id-no">#0131</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript131/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript131/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript131/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3518,25 +4158,15 @@
           class="card vertical" href="./manuscript-132">
             <span class="mono id-no">#0132</span>
             
-          </a>
-        
-          
-            
-            
-            
-            
-            
-            
-            
-            
-          
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript132/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript132/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript132/scan@@sm.jpg">
+                </picture>
 
-          <a 
-          data-narrative="Dystopian" 
-          data-object="Makes Sound" 
-          data-domain="Environment" 
-          class="card vertical" href="./manuscript-133">
-            <span class="mono id-no">#0133</span>
+              <picture>
+                
             
           </a>
         
@@ -3555,8 +4185,18 @@
           data-narrative="Revolutionary" 
           data-object="Transmits Data" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-134">
-            <span class="mono id-no">#0134</span>
+          class="card vertical" href="./manuscript-133">
+            <span class="mono id-no">#0133</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript133/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript133/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript133/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3575,8 +4215,18 @@
           data-narrative="Apocalyptic" 
           data-object="Tube" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-135">
-            <span class="mono id-no">#0135</span>
+          class="card vertical" href="./manuscript-134">
+            <span class="mono id-no">#0134</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript134/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript134/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript134/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3595,8 +4245,18 @@
           data-narrative="Revolutionary" 
           data-object="Transmits Data" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-136">
-            <span class="mono id-no">#0136</span>
+          class="card vertical" href="./manuscript-135">
+            <span class="mono id-no">#0135</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript135/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript135/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript135/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3615,8 +4275,18 @@
           data-narrative="Apocalyptic" 
           data-object="Wearable" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-137">
-            <span class="mono id-no">#0137</span>
+          class="card vertical" href="./manuscript-136">
+            <span class="mono id-no">#0136</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript136/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript136/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript136/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3635,8 +4305,18 @@
           data-narrative="Revolutionary" 
           data-object="Wearable" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-138">
-            <span class="mono id-no">#0138</span>
+          class="card vertical" href="./manuscript-137">
+            <span class="mono id-no">#0137</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript137/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript137/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript137/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3655,8 +4335,18 @@
           data-narrative="Utopian" 
           data-object="Changes Color" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-139">
-            <span class="mono id-no">#0139</span>
+          class="card vertical" href="./manuscript-138">
+            <span class="mono id-no">#0138</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript138/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript138/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript138/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3675,8 +4365,18 @@
           data-narrative="Apocalyptic" 
           data-object="Tube" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-140">
-            <span class="mono id-no">#0140</span>
+          class="card vertical" href="./manuscript-139">
+            <span class="mono id-no">#0139</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript139/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript139/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript139/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3695,8 +4395,18 @@
           data-narrative="Utopian" 
           data-object="Makes Sound" 
           data-domain="Health" 
-          class="card vertical" href="./manuscript-141">
-            <span class="mono id-no">#0141</span>
+          class="card vertical" href="./manuscript-140">
+            <span class="mono id-no">#0140</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript140/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript140/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript140/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3715,8 +4425,18 @@
           data-narrative="Apocalyptic" 
           data-object="Self Defense" 
           data-domain="Health" 
-          class="card vertical" href="./manuscript-142">
-            <span class="mono id-no">#0142</span>
+          class="card vertical" href="./manuscript-141">
+            <span class="mono id-no">#0141</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript141/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript141/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript141/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3735,8 +4455,18 @@
           data-narrative="Utopian" 
           data-object="Wearable" 
           data-domain="Space Travel" 
-          class="card vertical" href="./manuscript-143">
-            <span class="mono id-no">#0143</span>
+          class="card vertical" href="./manuscript-142">
+            <span class="mono id-no">#0142</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript142/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript142/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript142/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3755,8 +4485,18 @@
           data-narrative="Revolutionary" 
           data-object="Has a Motor" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-144">
-            <span class="mono id-no">#0144</span>
+          class="card vertical" href="./manuscript-143">
+            <span class="mono id-no">#0143</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript143/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript143/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript143/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3775,8 +4515,18 @@
           data-narrative="Dystopian" 
           data-object="Transmits Data" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-145">
-            <span class="mono id-no">#0145</span>
+          class="card vertical" href="./manuscript-144">
+            <span class="mono id-no">#0144</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript144/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript144/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript144/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3795,8 +4545,18 @@
           data-narrative="Dystopian" 
           data-object="Self Defense" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-146">
-            <span class="mono id-no">#0146</span>
+          class="card vertical" href="./manuscript-145">
+            <span class="mono id-no">#0145</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript145/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript145/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript145/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3815,8 +4575,18 @@
           data-narrative="Dystopian" 
           data-object="Changes Color" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-147">
-            <span class="mono id-no">#0147</span>
+          class="card vertical" href="./manuscript-146">
+            <span class="mono id-no">#0146</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript146/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript146/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript146/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3835,8 +4605,18 @@
           data-narrative="Utopian" 
           data-object="Makes Sound" 
           data-domain="Health" 
-          class="card vertical" href="./manuscript-148">
-            <span class="mono id-no">#0148</span>
+          class="card vertical" href="./manuscript-147">
+            <span class="mono id-no">#0147</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript147/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript147/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript147/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3855,8 +4635,18 @@
           data-narrative="Apocalyptic" 
           data-object="Tube" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-149">
-            <span class="mono id-no">#0149</span>
+          class="card vertical" href="./manuscript-148">
+            <span class="mono id-no">#0148</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript148/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript148/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript148/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3875,8 +4665,18 @@
           data-narrative="Revolutionary" 
           data-object="Pumps Air" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-150">
-            <span class="mono id-no">#0150</span>
+          class="card vertical" href="./manuscript-149">
+            <span class="mono id-no">#0149</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript149/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript149/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript149/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3895,8 +4695,18 @@
           data-narrative="Revolutionary" 
           data-object="Transmits Data" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-151">
-            <span class="mono id-no">#0151</span>
+          class="card vertical" href="./manuscript-150">
+            <span class="mono id-no">#0150</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript150/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript150/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript150/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3915,8 +4725,18 @@
           data-narrative="Revolutionary" 
           data-object="3D Printed" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-152">
-            <span class="mono id-no">#0152</span>
+          class="card vertical" href="./manuscript-151">
+            <span class="mono id-no">#0151</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript151/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript151/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript151/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3935,8 +4755,18 @@
           data-narrative="Utopian" 
           data-object="Changes Color" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-153">
-            <span class="mono id-no">#0153</span>
+          class="card vertical" href="./manuscript-152">
+            <span class="mono id-no">#0152</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript152/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript152/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript152/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3955,8 +4785,18 @@
           data-narrative="Apocalyptic" 
           data-object="Has a Motor" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-154">
-            <span class="mono id-no">#0154</span>
+          class="card vertical" href="./manuscript-153">
+            <span class="mono id-no">#0153</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript153/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript153/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript153/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3975,8 +4815,18 @@
           data-narrative="Apocalyptic" 
           data-object="Sphere" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-155">
-            <span class="mono id-no">#0155</span>
+          class="card vertical" href="./manuscript-154">
+            <span class="mono id-no">#0154</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript154/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript154/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript154/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -3995,8 +4845,18 @@
           data-narrative="Revolutionary" 
           data-object="Tube" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-156">
-            <span class="mono id-no">#0156</span>
+          class="card vertical" href="./manuscript-155">
+            <span class="mono id-no">#0155</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript155/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript155/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript155/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4015,8 +4875,18 @@
           data-narrative="Dystopian" 
           data-object="Has a Motor" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-157">
-            <span class="mono id-no">#0157</span>
+          class="card vertical" href="./manuscript-156">
+            <span class="mono id-no">#0156</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript156/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript156/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript156/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4035,8 +4905,18 @@
           data-narrative="Dystopian" 
           data-object="Self Defense" 
           data-domain="Space Travel" 
-          class="card vertical" href="./manuscript-158">
-            <span class="mono id-no">#0158</span>
+          class="card vertical" href="./manuscript-157">
+            <span class="mono id-no">#0157</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript157/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript157/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript157/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4055,8 +4935,18 @@
           data-narrative="Apocalyptic" 
           data-object="Sphere" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-159">
-            <span class="mono id-no">#0159</span>
+          class="card vertical" href="./manuscript-158">
+            <span class="mono id-no">#0158</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript158/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript158/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript158/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4072,11 +4962,21 @@
           
 
           <a 
-          data-narrative="" 
-          data-object="" 
-          data-domain="" 
-          class="card vertical" href="./manuscript-160">
-            <span class="mono id-no">#0160</span>
+          data-narrative="Utopian" 
+          data-object="Wearable" 
+          data-domain="Food" 
+          class="card vertical" href="./manuscript-159">
+            <span class="mono id-no">#0159</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript159/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript159/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript159/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4095,8 +4995,18 @@
           data-narrative="Revolutionary" 
           data-object="Wearable" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-161">
-            <span class="mono id-no">#0161</span>
+          class="card vertical" href="./manuscript-160">
+            <span class="mono id-no">#0160</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript160/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript160/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript160/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4115,8 +5025,18 @@
           data-narrative="Utopian" 
           data-object="Has a Motor" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-162">
-            <span class="mono id-no">#0162</span>
+          class="card vertical" href="./manuscript-161">
+            <span class="mono id-no">#0161</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript161/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript161/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript161/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4135,8 +5055,18 @@
           data-narrative="Utopian" 
           data-object="Makes Sound" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-163">
-            <span class="mono id-no">#0163</span>
+          class="card vertical" href="./manuscript-162">
+            <span class="mono id-no">#0162</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript162/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript162/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript162/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4155,8 +5085,18 @@
           data-narrative="Apocalyptic" 
           data-object="Self Defense" 
           data-domain="Space Travel" 
-          class="card vertical" href="./manuscript-164">
-            <span class="mono id-no">#0164</span>
+          class="card vertical" href="./manuscript-163">
+            <span class="mono id-no">#0163</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript163/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript163/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript163/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4175,8 +5115,18 @@
           data-narrative="Apocalyptic" 
           data-object="Tube" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-165">
-            <span class="mono id-no">#0165</span>
+          class="card vertical" href="./manuscript-164">
+            <span class="mono id-no">#0164</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript164/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript164/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript164/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4195,8 +5145,18 @@
           data-narrative="Utopian" 
           data-object="Has a Motor" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-166">
-            <span class="mono id-no">#0166</span>
+          class="card vertical" href="./manuscript-165">
+            <span class="mono id-no">#0165</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript165/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript165/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript165/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4215,8 +5175,18 @@
           data-narrative="Revolutionary" 
           data-object="Wearable" 
           data-domain="Security" 
-          class="card vertical" href="./manuscript-167">
-            <span class="mono id-no">#0167</span>
+          class="card vertical" href="./manuscript-166">
+            <span class="mono id-no">#0166</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript166/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript166/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript166/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4235,8 +5205,18 @@
           data-narrative="Revolutionary" 
           data-object="Pumps Air" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-168">
-            <span class="mono id-no">#0168</span>
+          class="card vertical" href="./manuscript-167">
+            <span class="mono id-no">#0167</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript167/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript167/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript167/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4255,8 +5235,18 @@
           data-narrative="Dystopian" 
           data-object="Has a Motor" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-169">
-            <span class="mono id-no">#0169</span>
+          class="card vertical" href="./manuscript-168">
+            <span class="mono id-no">#0168</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript168/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript168/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript168/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4275,8 +5265,18 @@
           data-narrative="Revolutionary" 
           data-object="Tube" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-170">
-            <span class="mono id-no">#0170</span>
+          class="card vertical" href="./manuscript-169">
+            <span class="mono id-no">#0169</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript169/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript169/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript169/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4295,8 +5295,18 @@
           data-narrative="Dystopian" 
           data-object="Tube" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-171">
-            <span class="mono id-no">#0171</span>
+          class="card vertical" href="./manuscript-170">
+            <span class="mono id-no">#0170</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript170/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript170/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript170/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4315,8 +5325,18 @@
           data-narrative="" 
           data-object="" 
           data-domain="" 
-          class="card vertical" href="./manuscript-172">
-            <span class="mono id-no">#0172</span>
+          class="card vertical" href="./manuscript-171">
+            <span class="mono id-no">#0171</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript171/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript171/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript171/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4335,8 +5355,18 @@
           data-narrative="Utopian" 
           data-object="Has a Motor" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-173">
-            <span class="mono id-no">#0173</span>
+          class="card vertical" href="./manuscript-172">
+            <span class="mono id-no">#0172</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript172/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript172/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript172/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4355,8 +5385,18 @@
           data-narrative="Apocalyptic" 
           data-object="Makes Sound" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-174">
-            <span class="mono id-no">#0174</span>
+          class="card vertical" href="./manuscript-173">
+            <span class="mono id-no">#0173</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript173/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript173/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript173/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4375,8 +5415,18 @@
           data-narrative="Utopian" 
           data-object="Makes Sound" 
           data-domain="Health" 
-          class="card vertical" href="./manuscript-175">
-            <span class="mono id-no">#0175</span>
+          class="card vertical" href="./manuscript-174">
+            <span class="mono id-no">#0174</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript174/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript174/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript174/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4395,8 +5445,18 @@
           data-narrative="Apocalyptic" 
           data-object="Changes Color" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-176">
-            <span class="mono id-no">#0176</span>
+          class="card vertical" href="./manuscript-175">
+            <span class="mono id-no">#0175</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript175/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript175/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript175/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4415,8 +5475,18 @@
           data-narrative="" 
           data-object="Makes Sound" 
           data-domain="Space Travel" 
-          class="card vertical" href="./manuscript-177">
-            <span class="mono id-no">#0177</span>
+          class="card vertical" href="./manuscript-176">
+            <span class="mono id-no">#0176</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript176/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript176/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript176/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4435,8 +5505,18 @@
           data-narrative="Apocalyptic" 
           data-object="Self Defense" 
           data-domain="Game" 
-          class="card vertical" href="./manuscript-178">
-            <span class="mono id-no">#0178</span>
+          class="card vertical" href="./manuscript-177">
+            <span class="mono id-no">#0177</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript177/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript177/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript177/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4455,8 +5535,18 @@
           data-narrative="Revolutionary" 
           data-object="Changes Color" 
           data-domain="Space Travel" 
-          class="card vertical" href="./manuscript-179">
-            <span class="mono id-no">#0179</span>
+          class="card vertical" href="./manuscript-178">
+            <span class="mono id-no">#0178</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript178/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript178/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript178/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4475,8 +5565,18 @@
           data-narrative="Utopian" 
           data-object="Pumps Air" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-180">
-            <span class="mono id-no">#0180</span>
+          class="card vertical" href="./manuscript-179">
+            <span class="mono id-no">#0179</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript179/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript179/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript179/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4495,8 +5595,18 @@
           data-narrative="Dystopian" 
           data-object="Changes Color" 
           data-domain="Music" 
-          class="card vertical" href="./manuscript-181">
-            <span class="mono id-no">#0181</span>
+          class="card vertical" href="./manuscript-180">
+            <span class="mono id-no">#0180</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript180/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript180/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript180/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -4515,6 +5625,36 @@
           data-narrative="Utopian" 
           data-object="Pumps Air" 
           data-domain="Education" 
+          class="card vertical" href="./manuscript-181">
+            <span class="mono id-no">#0181</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript181/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript181/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript181/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
+            
+          </a>
+        
+          
+            
+            
+            
+            
+            
+            
+            
+            
+          
+
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
           class="card vertical" href="./manuscript-182">
             <span class="mono id-no">#0182</span>
             
@@ -4552,31 +5692,11 @@
           
 
           <a 
-          data-narrative="" 
-          data-object="" 
-          data-domain="" 
-          class="card vertical" href="./manuscript-184">
-            <span class="mono id-no">#0184</span>
-            
-          </a>
-        
-          
-            
-            
-            
-            
-            
-            
-            
-            
-          
-
-          <a 
           data-narrative="Revolutionary" 
           data-object="Transmits Data" 
           data-domain="Politics" 
-          class="card vertical" href="./manuscript-185">
-            <span class="mono id-no">#0185</span>
+          class="card vertical" href="./manuscript-184">
+            <span class="mono id-no">#0184</span>
             
           </a>
         
@@ -4595,6 +5715,26 @@
           data-narrative="Dystopian" 
           data-object="Transmits Data" 
           data-domain="Environment" 
+          class="card vertical" href="./manuscript-185">
+            <span class="mono id-no">#0185</span>
+            
+          </a>
+        
+          
+            
+            
+            
+            
+            
+            
+            
+            
+          
+
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
           class="card vertical" href="./manuscript-186">
             <span class="mono id-no">#0186</span>
             
@@ -4632,9 +5772,9 @@
           
 
           <a 
-          data-narrative="" 
-          data-object="" 
-          data-domain="" 
+          data-narrative="Dystopian" 
+          data-object="3D Printed" 
+          data-domain="Food" 
           class="card vertical" href="./manuscript-188">
             <span class="mono id-no">#0188</span>
             
@@ -4652,9 +5792,9 @@
           
 
           <a 
-          data-narrative="Dystopian" 
-          data-object="3D Printed" 
-          data-domain="Food" 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
           class="card vertical" href="./manuscript-189">
             <span class="mono id-no">#0189</span>
             
@@ -4692,9 +5832,9 @@
           
 
           <a 
-          data-narrative="" 
-          data-object="" 
-          data-domain="" 
+          data-narrative="Apocalyptic" 
+          data-object="Pumps Air" 
+          data-domain="Politics" 
           class="card vertical" href="./manuscript-191">
             <span class="mono id-no">#0191</span>
             
@@ -4712,31 +5852,11 @@
           
 
           <a 
-          data-narrative="Apocalyptic" 
-          data-object="Pumps Air" 
-          data-domain="Politics" 
-          class="card vertical" href="./manuscript-192">
-            <span class="mono id-no">#0192</span>
-            
-          </a>
-        
-          
-            
-            
-            
-            
-            
-            
-            
-            
-          
-
-          <a 
           data-narrative="" 
           data-object="" 
           data-domain="" 
-          class="card vertical" href="./manuscript-193">
-            <span class="mono id-no">#0193</span>
+          class="card vertical" href="./manuscript-192">
+            <span class="mono id-no">#0192</span>
             
           </a>
         
@@ -4755,8 +5875,8 @@
           data-narrative="Utopian" 
           data-object="3D Printed" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-194">
-            <span class="mono id-no">#0194</span>
+          class="card vertical" href="./manuscript-193">
+            <span class="mono id-no">#0193</span>
             
           </a>
         
@@ -4775,8 +5895,8 @@
           data-narrative="Apocalyptic" 
           data-object="Changes Color" 
           data-domain="Food" 
-          class="card vertical" href="./manuscript-195">
-            <span class="mono id-no">#0195</span>
+          class="card vertical" href="./manuscript-194">
+            <span class="mono id-no">#0194</span>
             
           </a>
         
@@ -4795,8 +5915,8 @@
           data-narrative="Dystopian" 
           data-object="Transmits Data" 
           data-domain="Education" 
-          class="card vertical" href="./manuscript-196">
-            <span class="mono id-no">#0196</span>
+          class="card vertical" href="./manuscript-195">
+            <span class="mono id-no">#0195</span>
             
           </a>
         
@@ -4815,8 +5935,8 @@
           data-narrative="Dystopian" 
           data-object="Sphere" 
           data-domain="Environment" 
-          class="card vertical" href="./manuscript-197">
-            <span class="mono id-no">#0197</span>
+          class="card vertical" href="./manuscript-196">
+            <span class="mono id-no">#0196</span>
             
           </a>
         
@@ -4835,8 +5955,8 @@
           data-narrative="Apocalyptic" 
           data-object="Changes Color" 
           data-domain="Fashion" 
-          class="card vertical" href="./manuscript-198">
-            <span class="mono id-no">#0198</span>
+          class="card vertical" href="./manuscript-197">
+            <span class="mono id-no">#0197</span>
             
           </a>
         
@@ -4855,6 +5975,26 @@
           data-narrative="Dystopian" 
           data-object="Sphere" 
           data-domain="Health" 
+          class="card vertical" href="./manuscript-198">
+            <span class="mono id-no">#0198</span>
+            
+          </a>
+        
+          
+            
+            
+            
+            
+            
+            
+            
+            
+          
+
+          <a 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
           class="card vertical" href="./manuscript-199">
             <span class="mono id-no">#0199</span>
             
@@ -4877,26 +6017,6 @@
           data-domain="" 
           class="card vertical" href="./manuscript-200">
             <span class="mono id-no">#0200</span>
-            
-          </a>
-        
-          
-            
-            
-            
-            
-            
-            
-            
-            
-          
-
-          <a 
-          data-narrative="" 
-          data-object="" 
-          data-domain="" 
-          class="card vertical" href="./manuscript-201">
-            <span class="mono id-no">#0201</span>
             
           </a>
         
