@@ -89,9 +89,11 @@ function filter_cards(){
         let domain=card.dataset.domain;
         card.classList.toggle('in-filter',
             n_selected==0
-            || tags_selected.narrative.includes(narrative)
-            || tags_selected.object.includes(object)
-            || tags_selected.domain.includes(domain)
+            || (
+               (tags_selected.narrative.length==0 || tags_selected.narrative.includes(narrative))
+                && (tags_selected.object.length==0 || tags_selected.object.includes(object))
+                && (tags_selected.domain.length==0 || tags_selected.domain.includes(domain))
+            )
         )
     }
 }
