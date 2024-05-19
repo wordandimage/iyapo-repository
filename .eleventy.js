@@ -3,7 +3,41 @@ const marked = require('marked');
 marked.use({mangle: false,headerIds: false});
 require('dotenv').config();
 
+
+function find_thumbnail(media,backup,path,type='manuscript'){
+  let thumbnail=media.filter(a=>a.type=='image')[0];
+  if(!thumbnail) thumbnail=backup.filter(a=>a.type=='image')[0];
+  if(thumbnail){
+    let name=type=='manuscript'?'scan@@sm':`img@@${thumbnail.name}@@sm`;
+    return path+name;
+  }else{
+    return '';
+  }
+}
+
 module.exports = function (eleventyConfig) {
+
+    eleventyConfig.addNunjucksFilter( "thumbnail", function(item,type='manuscript') {
+      if(type=='artifact'){
+        return find_thumbnail(
+          item.properties.media.value,
+          item.properties.thumbnail?.value,
+          `assets/images_for_web/archive/manuscript${item.properties.manuscript_id.value}/artifact${item.properties.artifact_subid.value}/`,
+          'artifact'
+        )
+      }else if(type=='manuscript'){
+        return find_thumbnail(
+          item.properties.scan.value,
+          [],
+          `assets/images_for_web/archive/manuscript${item.properties.manuscript_id.value}/`
+        )
+      }else {
+        return '';
+      }
+      
+
+      // return process.env[value]
+    });
 
     eleventyConfig.addNunjucksFilter( "env", function(value) {    
       return process.env[value]
@@ -35,7 +69,7 @@ module.exports = function (eleventyConfig) {
             return {
               orientation:'landscape',
               url: `archive/artifacts-cluster/artifact-${a.properties.manuscript_id.value}-${a.properties.artifact_subid.value}`,
-              image:a.properties.media.value[0]?`assets/images_for_web/archive/manuscript${a.properties.manuscript_id.value}/artifact${a.properties.artifact_subid.value}/img@@${a.properties.media.value[0]?.name}@@sm`:'' 
+              image:find_thumbnail(a.properties.media.value,a.properties.thumbnail?.value,`assets/images_for_web/archive/manuscript${a.properties.manuscript_id.value}/artifact${a.properties.artifact_subid.value}/`,'artifact')
             }
           })
         
@@ -59,7 +93,7 @@ module.exports = function (eleventyConfig) {
             return {
               orientation:'vertical',
               url: `archive/manuscripts-cluster/manuscript-${a.properties.manuscript_id.value}`,
-              image:a.properties.scan.value[0]?`assets/images_for_web/archive/manuscript${a.properties.manuscript_id.value}/scan@@sm`:'' 
+              image:find_thumbnail(a.properties.scan.value,[],`assets/images_for_web/archive/manuscript${a.properties.manuscript_id.value}/`)
             }
           })
 

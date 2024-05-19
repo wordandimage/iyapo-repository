@@ -83,12 +83,14 @@
             {% set object = 'data-object='+item.properties.object.value | dump  %}
             {% set domain = 'data-domain='+item.properties.domain.value | dump  %}
             {% set tag_string = narrative+object+domain %}
+            {% set thumb = item | thumbnail('manuscript') %}
           {% elseif cluster == 'artifacts' %}
             {% set id = item.properties.artifact_subid.value%}
             {% set href = './artifact-' + item.properties.manuscript_id.value + '-' + id %}
             {% set display_id =  "#" + item.properties.manuscript_id.value | zero_string + ':' + id | zero_string(2) %}
             {% set archive_img_root = "manuscript" + item.properties.manuscript_id.value + "/artifact" + id + '/img@@' %}
             {% set tag_string = "" %}
+            {% set thumb = item | thumbnail('artifact') %}
           {% endif %}
 
           <a 
@@ -97,12 +99,12 @@
           {{domain | safe if domain else ""}} 
           class="card {{"vertical" if cluster == 'manuscripts' else "landscape"}}" href="{{href}}">
             <span class="mono id-no">{{display_id}}</span>
-            {%if item.properties[media_prop].value.length > 0 %}
-                {% set media = item.properties[media_prop].value %}
+            {%if thumb %}
+                {# {% set media = item.properties[media_prop].value %} #}
                 <picture>
-                    <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{media[0].name}}@@sm.webp" type="image/webp">
-                    <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{media[0].name}}@@sm.jpg">
-                    <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{media[0].name}}@@sm.jpg">
+                    <source type="image/webp" srcset="{{rootpath}}{{ thumb }}.webp" type="image/webp">
+                    <source type="image/jpg" srcset="{{rootpath}}{{ thumb }}.jpg">
+                    <img loading="lazy" src="{{rootpath}}{{ thumb }}.jpg">
                 </picture>
 
               <picture>
