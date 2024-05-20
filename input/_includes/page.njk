@@ -5,7 +5,7 @@ landing: false
 
 {% set rootpath="" if landing else "../" %}
 {# {% import 'favicon.njk' as favicon %} #}
-{% import 'macros.njk' as macros %}
+{% import 'macros.njk' as macros with context %}
 
 
 
@@ -26,6 +26,7 @@ landing: false
       let base_url="{{base_url}}";
       console.log({{cms | dump | safe}})
       console.log({{pg | dump | safe}})
+      console.log("imgdata?",{{imgdata | dump | safe}})
     </script>
     <script type="module" src="{{ rootpath }}js/d3.js" charset="utf-8" preload></script>
     <script src="{{ rootpath }}js/page.js" charset="utf-8"></script>
@@ -135,10 +136,56 @@ landing: false
               {% set pagetext = homepage_content.mdcontent %}
             {% endif %}
             {% for block in pagetext %}
-                <div class='block'>
-                    {{ block.value | md | safe }}
+              
+                {% if block.type=='image' %}
+                  <div class="block image-wrapper">
+                    {{ macros.page_img(block.value,rootpath) }}
+                  </div>
+                {% elseif block.type=='gallery' %}
+                  <div class="block gallery {{ block.value.options | join }}" data-length="{{block.value.items.length}}">
+                    <div class="item-wrapper">
+                      {% for item in block.value.items %}
+                      {% if item.type == 'image' %}
+                        <div class="slide {{active if loop.index0 == 0 }}" data-i="{{loop.index0}}">
+                          {{ macros.page_img(item.value,rootpath) }}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                    </div>
+                    
+                  </div>
+                {% elseif block.type=='list' %}
+                <div class="block list">
+                  <ul>
+                    {{ macros.list_item(block.value.text,block.value.items) }}
+                  </ul>
                 </div>
-                {% endfor %}
+                {# <div class="block" style="min-height:1px;"></div> #}
+                  
+                {% elseif block.type=='diptych' %}
+                  <div class="diptych block {{ block.value.options | join }}">
+                    <div class="side">
+                      {{ macros.page_img(block.value.items[0].value,rootpath) }}
+                    </div>
+                    <div class="side">
+                      {% for p in block.value.items %}
+                        {% if loop.index0 !== 0 %}
+                        <div class="block">
+                          {{ p.value | md | safe }}
+                        </div>
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                    
+                  </div>
+                {% else %}
+                  <div class='block'>
+                    {{ block.value | md | safe }}
+                  </div>
+                      
+                {% endif %}
+              
+            {% endfor %}
           </section>
           
           

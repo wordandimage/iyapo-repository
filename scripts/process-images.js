@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const stream=require('stream');
 const fs = require('fs');
 
-
+let aspect_ratios={};
 
 let sizes={
     sm:500,
@@ -13,9 +13,11 @@ let sizes={
 
 
 let archive_root='assets/images_for_web/archive';
+let pages_root='assets/images_for_web/pages';
 
 let get_path={
     manuscript:(id,size,ext)=>`${archive_root}/manuscript${id}/scan@@${size}.${ext}`,
+    standalone:(name,size,ext)=>`${pages_root}/img@@${name}@@${size}.${ext}`,
     artifact:(id,subid,size,name,ext)=>`${archive_root}/manuscript${id}/artifact${subid}/img@@${name}@@${size}.${ext}`
 }
 
@@ -30,6 +32,8 @@ function get_path_pair(image,size){
                     size,
                     image.filename,
                     'jpg')
+            :image.type=='standalone'?
+                get_path.standalone(image.filename,size,'jpg')
             :'';
 
     let webp=image.type=='manuscript'?
@@ -41,6 +45,8 @@ function get_path_pair(image,size){
                     size,
                     image.filename,
                     'webp')
+            :image.type=='standalone'?
+                get_path.standalone(image.filename,size,'webp')
             :'';
 
     return {jpg,webp}
@@ -49,6 +55,8 @@ function get_path_pair(image,size){
 
 module.exports=async function process_images(image_processing_queue,cms){
     console.log(`   processing ${image_processing_queue.length} valid images...`)
+    let new_counter=0;
+
     // create any new directory folders
     for(let manuscript of cms.manuscripts){
         create_folders(manuscript,cms)
@@ -69,15 +77,25 @@ module.exports=async function process_images(image_processing_queue,cms){
 
         if(size_missing){
             console.log(`      downloading and resizing ${image.name}...`);
+            new_counter++;
             await load_image(image);
             // if at least one does not exist, redowload and process the image
-        }else{
-            console.log(`      ${image.name} already exists`);
         }
+
+        if(image.type=='standalone'){
+            let rendition=get_path_pair(image,image.metadata?.sizes[0]);
+            let aspect_ratio=await sharp(rendition.jpg).metadata().then((meta)=>{return meta?.height/meta?.width})
+            aspect_ratios["img-"+image.name]=aspect_ratio;
+        }
+
 
      
     }
-    
+
+    console.log(`   processed ${new_counter} new images.`);
+    return {
+        aspect_ratios
+    }
     // return true;
 }
 
@@ -113,6 +131,7 @@ function load_image(image){
                     .toFormat('jpg')
                     .toFile(path.jpg)
             );
+
             promises.push(
                 sharpStream
                     .clone()

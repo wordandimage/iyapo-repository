@@ -5,7 +5,7 @@ const { AssetCache } = require("@11ty/eleventy-fetch");
 
 async function get_cms_data(){
     let cached = new AssetCache("cms_data");
-    if (cached.isCacheValid("1m")) {
+    if (cached.isCacheValid("15s")) {
 		// return cached data.
 		return cached.getCachedValue(); // a promise
 	}

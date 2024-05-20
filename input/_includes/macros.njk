@@ -10,6 +10,42 @@
     </div>
 {% endmacro %}
 
+{% macro list_item(text,items) %}
+<li>
+    {{text  | replace("- "," ") }}
+    <ul>
+        {% if items %}
+            {% for li in items %}
+                {{list_item(li.value.text,li.value.items)}}
+            {% endfor %}
+        {% endif %}
+    </ul>
+    
+</li>
+{% endmacro %}
+
+
+{% macro page_img(image,rootpath) %}
+{% set aspect_ratio = imgdata.aspect_ratios["img-"+image.name] %}
+{% set landscape_or_vertical = "vertical" if aspect_ratio>1 else "landscape" %}
+<figure class="img {{landscape_or_vertical}}" data-aspect-ratio="{{aspect_ratio}}">
+    <picture>
+        <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/pages/img@@{{image.name}}@@lg.webp" type="image/webp">
+        <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/pages/img@@{{image.name}}@@lg.jpg">
+        <img loading="lazy" src="{{ rootpath }}assets/images_for_web/pages/img@@{{image.name}}@@lg.jpg">
+    </picture>
+    {% if image.caption%}
+        <figcaption class="mono small-caps">
+            {% for p in image.caption %}
+                <p>{{ p }}</p>
+            {% endfor %}
+        </figcaption>
+    {% endif %}
+    
+</figure>
+
+{% endmacro %}
+
 
 {% macro breadcrumbs(cluster,base_url,id,id_display,item_type) %}
 <nav class="breadcrumbs mono small-caps">

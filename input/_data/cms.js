@@ -13,7 +13,7 @@ module.exports = async function () {
 		return cached.getCachedValue(); // a promise
 	}
     
-    let data=await get_data();
+    let data=await get_data({do_image_processing:true});
     await cached.save(data, "json");
 
 	return data;

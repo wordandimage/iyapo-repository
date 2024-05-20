@@ -1,5 +1,6 @@
 const { Client } = require("@notionhq/client");
 const { NotionToMarkdown } = require("notion-to-md");
+const { AssetCache } = require("@11ty/eleventy-fetch");
 const process_images=require('./process-images.js');
 const slugify = require('slugify');
 require('dotenv').config();
@@ -26,22 +27,103 @@ const notion = new Client({
     auth: secret
 })
 const n2m = new NotionToMarkdown({ notionClient: notion });
-n2m.setCustomTransformer("image", async (block) => {
-    // console.log(block)
-    // const { image } = block;
-    // let def=await n2m.blockToMarkdown(image);
-    return '';
-  });
-
-  n2m.setCustomTransformer("callout", async (block) => {
-    // console.log(block.callout);
-        // TODO: FETCH CHILDREN TO GET IMAGES
-        // COME UP WITH PARSING SYSTEM
-    return '';
-  });
 
 
 const delay = (t) => new Promise(resolve => setTimeout(resolve, t));
+
+async function fetch_parse_block_content(block_id){
+    let has_more=true;
+    let next_cursor;
+
+    let results=[];
+
+    while(has_more){
+        let req_obj={
+            block_id,
+            page_size: 100,
+        };
+        if(next_cursor) req_obj.start_cursor=next_cursor;
+        let data=await notion.blocks.children.list(req_obj)
+        results=[...results,...data.results];
+        has_more=data.has_more;
+        if(has_more){
+            next_cursor=data.next_cursor;
+            await delay(500);
+        }
+    }
+
+    let content=[];
+
+    for(let block of results){
+        
+        let item;
+
+        if(block.type=='image'){
+            let metadata={
+                sizes:['md','lg']
+            }
+
+            let filename=slugify(block.id.replace(/\.[^/.]+$/, ''))
+            
+            item={
+                type:'image',
+                value:{
+                    name:filename,
+                    caption:block.image.caption.map(a=>a.plain_text)
+                }
+            }
+
+            image_processing_queue.push({
+                type:'standalone',
+                url:block.image.file.url,
+                name:filename,
+                metadata
+            })
+        }else if(block.type=='callout'){
+            let items=[];
+            if(block.has_children){
+                items=await fetch_parse_block_content(block.id)
+            }
+
+            let valid_custom_types=['gallery','diptych'];
+
+            let config=block.callout.rich_text[0]?.plain_text?.toLowerCase()?.split(':')?.map(a=>a.trim()) || []
+            let type=config[0];
+            if(config.length==1&&type=='gallery') config.push('regular')
+            if(valid_custom_types.includes(type)) item={
+                type,
+                value:{
+                    options:config?.slice(1),
+                    items
+                }
+            }
+        }else if(block.type=='bulleted_list_item'){
+            let n2m_output=await n2m.blockToMarkdown(block);
+            
+            item={
+                type:'list',
+                value:{
+                    text:n2m_output
+                }
+            }
+
+            if(block.has_children) item.value.items=await fetch_parse_block_content(block.id);
+        }else{
+            let n2m_output=await n2m.blockToMarkdown(block)
+            item={
+                type:block.type,
+                value:n2m_output
+            };
+        }
+
+        if(item) content.push(item);
+        
+    }
+    
+    return content;
+}
+
+
 
 async function fetch_database(database_id,{sort_prop,include_content=false,archive_type}){
     let has_more=true;
@@ -165,16 +247,32 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
 
     if(include_content){
         for(let item of results){
-            let mdcontent=[];
-            console.log(`   loading ${item.properties.title.value}`)
+    
+            console.log(`   loading ${item.properties.title.value} content`)
+            let mdcontent=await fetch_parse_block_content(item.item_id);
+
+
+            // let special_types=[
+
+            // ]
+
+
             
-            mdcontent=await n2m.pageToMarkdown(item.item_id);
-            mdcontent=mdcontent.map(a=>{
-                return {
-                    type:a.type,
-                    value:a.parent
-                }
-            })
+
+            // console.log(`   loading ${item.properties.title.value}`)
+            // let content=await notion.blocks.children.list({
+            //     block_id: item.item_id,
+            //     page_size: 100,
+            //   });
+            // console.log(content);
+            
+            // mdcontent=await n2m.pageToMarkdown(item.item_id);
+            // mdcontent=mdcontent.map(a=>{
+            //     return {
+            //         type:a.type,
+            //         value:a.parent
+            //     }
+            // })
             await delay(1000);
             
             item.mdcontent=mdcontent
@@ -220,10 +318,12 @@ module.exports = async function load_data({do_image_processing=false}={}){
     
     if(do_image_processing){
         console.log('downloading and processing new images...')
-        await process_images(image_processing_queue,cms)
+        let img_data=await process_images(image_processing_queue,cms);
+        let img_cache = new AssetCache("img_data");
+        img_cache.save(img_data, "json");
     }
 
-    return cms
+    return cms;
 }
 
 // load_data();
