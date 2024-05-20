@@ -172,7 +172,8 @@ function init(){
         generate_galaxy(galaxy_settings[current_size])
     }
 
-    
+    target_blank();
+    cycle_galleries();
 
     d3.select('#toggle-nav').on('click',function(){
         document.querySelector('#page-nav').classList.toggle('open')
@@ -514,4 +515,40 @@ function update_paths(coords){
         }).each((d,i,nodes)=>{
             d3.select(nodes[i]).style('--l',nodes[i].getTotalLength())
         }))
+}
+
+function cycle_galleries(){
+    let galleries=Array.from(document.querySelectorAll('.gallery.full'));
+    for(let gallery of galleries){
+        let l=parseInt(gallery.dataset.length);
+        set_current(0,l,gallery)
+        setInterval(()=>{
+            let n=parseInt(gallery.dataset.n);
+            n=n==l-1?0:n+1;
+            set_current(n,l,gallery)
+        },3000)
+    }
+
+    function set_current(n,l,gallery){
+        gallery.dataset.n=n;
+        for(let slide of Array.from(gallery.querySelectorAll('.slide') )){
+            let i=slide.dataset.i;
+            slide.classList.toggle(
+                "active",
+                i==n
+            )
+        }
+    }
+}
+
+
+
+
+function target_blank(){
+    document.querySelectorAll('a').forEach(link=>{
+        console.log(link.host,window.location.host);
+        if(link.host!==window.location.host){
+            link.setAttribute('target', '_blank');
+        }
+    })
 }
