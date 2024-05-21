@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"62db2c80-c7e9-46bf-a57b-da94306d684b","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":188},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"3D Printed"},"domain":{"type":"select","value":"Food"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript188"})
-      console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Food","object":"3D Printed"}}])
+      console.log({"item_id":"62db2c80-c7e9-46bf-a57b-da94306d684b","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Pairs nicely with a cold pinot Grigio on a hot day.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Pairs nicely with a cold pinot Grigio on a hot day.","href":null}]},"manuscript_id":{"type":"number","value":188},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"3D Printed"},"domain":{"type":"select","value":"Food"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Cyd"}},"dir":"assets/images_for_web/archive/manuscript188"})
+      console.log([{"type":"text","label":"Name","value":"Cyd"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Food","object":"3D Printed"}},{"type":"accordion","label":"Description","value":"<p>Pairs nicely with a cold pinot Grigio on a hot day.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Cyd</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Dystopian</span></p>
               <p><span>Object:</span><span class="col-object">3D Printed</span></p>
               <p><span>Domain:</span><span class="col-domain">Food</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>Pairs nicely with a cold pinot Grigio on a hot day.</p></p>
             
             
           </div>

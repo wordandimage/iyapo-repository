@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"383d53f0-a2d0-4727-b6fa-d292cdc34c77","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":233},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Environment"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript233"})
-      console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Environment","object":"Changes Color"}}])
+      console.log({"item_id":"383d53f0-a2d0-4727-b6fa-d292cdc34c77","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Healthy plants sprout makes an appearanceClouds turn black immediatelyPlant Die","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Healthy plants sprout makes an appearanceClouds turn black immediatelyPlant Die","href":null}]},"manuscript_id":{"type":"number","value":233},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Environment"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Lauren Goshinski"}},"dir":"assets/images_for_web/archive/manuscript233"})
+      console.log([{"type":"text","label":"Name","value":"Lauren Goshinski"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Environment","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"<p>Healthy plants sprout makes an appearanceClouds turn black immediatelyPlant Die</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Lauren Goshinski</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Dystopian</span></p>
               <p><span>Object:</span><span class="col-object">Changes Color</span></p>
               <p><span>Domain:</span><span class="col-domain">Environment</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>Healthy plants sprout makes an appearanceClouds turn black immediatelyPlant Die</p></p>
             
             
           </div>

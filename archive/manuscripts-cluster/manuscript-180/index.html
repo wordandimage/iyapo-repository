@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"80bdcb3c-902b-4695-8fe6-ebcbd8bb4c6d","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":180},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Music"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript180"})
-      console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Music","object":"Changes Color"}}])
+      console.log({"item_id":"80bdcb3c-902b-4695-8fe6-ebcbd8bb4c6d","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"The houses play music and it changes the color of people's skin.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"The houses play music and it changes the color of people's skin.","href":null}]},"manuscript_id":{"type":"number","value":180},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Music"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Jaimar"}},"dir":"assets/images_for_web/archive/manuscript180"})
+      console.log([{"type":"text","label":"Name","value":"Jaimar"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Music","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"<p>The houses play music and it changes the color of people's skin.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Jaimar</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Dystopian</span></p>
               <p><span>Object:</span><span class="col-object">Changes Color</span></p>
               <p><span>Domain:</span><span class="col-domain">Music</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>The houses play music and it changes the color of people's skin.</p></p>
             
             
           </div>

@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"c478bad0-fe6d-4fe3-aa47-1888bd0d076c","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":123},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Space Travel"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript123"})
-      console.log([{"type":"tags","value":{"narrative":"Utopian","domain":"Space Travel","object":"Changes Color"}}])
+      console.log({"item_id":"c478bad0-fe6d-4fe3-aa47-1888bd0d076c","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"“Color” change space bio suit.  This suit provides atmospheric support for space travel.  It allows the user to alter their appearance to adapt to be less threatening to species on new worlds.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"“Color” change space bio suit.  This suit provides atmospheric support for space travel.  It allows the user to alter their appearance to adapt to be less threatening to species on new worlds.","href":null}]},"manuscript_id":{"type":"number","value":123},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Space Travel"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"SoySos"}},"dir":"assets/images_for_web/archive/manuscript123"})
+      console.log([{"type":"text","label":"Name","value":"SoySos"},{"type":"tags","value":{"narrative":"Utopian","domain":"Space Travel","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"<p>“Color” change space bio suit.  This suit provides atmospheric support for space travel.  It allows the user to alter their appearance to adapt to be less threatening to species on new worlds.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>SoySos</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Utopian</span></p>
               <p><span>Object:</span><span class="col-object">Changes Color</span></p>
               <p><span>Domain:</span><span class="col-domain">Space Travel</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>“Color” change space bio suit.  This suit provides atmospheric support for space travel.  It allows the user to alter their appearance to adapt to be less threatening to species on new worlds.</p></p>
             
             
           </div>

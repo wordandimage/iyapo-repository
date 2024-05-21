@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"40ea852b-2f22-4e05-847b-54aac5b8a5e9","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":138},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Environment"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript138"})
-      console.log([{"type":"tags","value":{"narrative":"Utopian","domain":"Environment","object":"Changes Color"}}])
+      console.log({"item_id":"40ea852b-2f22-4e05-847b-54aac5b8a5e9","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Tree with expansive root system to collect data on the local biosphere.  Color patterns in the leaves reveal the data. ","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Tree with expansive root system to collect data on the local biosphere.  Color patterns in the leaves reveal the data. ","href":null}]},"manuscript_id":{"type":"number","value":138},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Environment"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Natasha RouseBenjamin C. Kinney"}},"dir":"assets/images_for_web/archive/manuscript138"})
+      console.log([{"type":"text","label":"Name","value":"Natasha RouseBenjamin C. Kinney"},{"type":"tags","value":{"narrative":"Utopian","domain":"Environment","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"<p>Tree with expansive root system to collect data on the local biosphere.  Color patterns in the leaves reveal the data. </p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Natasha RouseBenjamin C. Kinney</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Utopian</span></p>
               <p><span>Object:</span><span class="col-object">Changes Color</span></p>
               <p><span>Domain:</span><span class="col-domain">Environment</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>Tree with expansive root system to collect data on the local biosphere.  Color patterns in the leaves reveal the data. </p></p>
             
             
           </div>

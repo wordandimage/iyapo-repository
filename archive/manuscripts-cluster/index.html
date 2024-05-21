@@ -27,7 +27,7 @@
     
     <script>
         let cluster="manuscripts";
-        let tags={"narrative":["Dystopian","Utopian","Revolutionary","Apocalyptic"],"domain":["Security","Game","Environment","Music","Fashion","Politics","Space Travel","Food","Health","Education"],"object":["Self Defense","Makes Sound","Changes Color","Sphere","Pumps Air","Tube","3D Printed","Transmits Data","Wearable","Has a Motor"]};
+        let tags={"narrative":["Dystopian","Utopian","Revolutionary","Apocalyptic"],"domain":["Security","Game","Music","Fashion","Environment","Politics","Space Travel","Food","Health","Education"],"object":["Self Defense","AI","Makes Sound","Sphere","Changes Color","Pumps Air","Tube","3D Printed","Transmits Data","Wearable","Has a Motor"]};
     </script>
     <script src="../../js/cluster.js" charset="utf-8"></script>
   
@@ -89,18 +89,23 @@
                                 </p>
                             
                                 <p class="noselect tag-select">
+                                    <input data-tag="AI" type="checkbox" name="object-ai" id="object-ai">
+                                    <label data-tag="AI" for="object-ai"><span class="col-object">AI</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
                                     <input data-tag="Makes Sound" type="checkbox" name="object-makes-sound" id="object-makes-sound">
                                     <label data-tag="Makes Sound" for="object-makes-sound"><span class="col-object">Makes Sound</span></label>
                                 </p>
                             
                                 <p class="noselect tag-select">
-                                    <input data-tag="Changes Color" type="checkbox" name="object-changes-color" id="object-changes-color">
-                                    <label data-tag="Changes Color" for="object-changes-color"><span class="col-object">Changes Color</span></label>
+                                    <input data-tag="Sphere" type="checkbox" name="object-sphere" id="object-sphere">
+                                    <label data-tag="Sphere" for="object-sphere"><span class="col-object">Sphere</span></label>
                                 </p>
                             
                                 <p class="noselect tag-select">
-                                    <input data-tag="Sphere" type="checkbox" name="object-sphere" id="object-sphere">
-                                    <label data-tag="Sphere" for="object-sphere"><span class="col-object">Sphere</span></label>
+                                    <input data-tag="Changes Color" type="checkbox" name="object-changes-color" id="object-changes-color">
+                                    <label data-tag="Changes Color" for="object-changes-color"><span class="col-object">Changes Color</span></label>
                                 </p>
                             
                                 <p class="noselect tag-select">
@@ -150,11 +155,6 @@
                                 </p>
                             
                                 <p class="noselect tag-select">
-                                    <input data-tag="Environment" type="checkbox" name="domain-environment" id="domain-environment">
-                                    <label data-tag="Environment" for="domain-environment"><span class="col-domain">Environment</span></label>
-                                </p>
-                            
-                                <p class="noselect tag-select">
                                     <input data-tag="Music" type="checkbox" name="domain-music" id="domain-music">
                                     <label data-tag="Music" for="domain-music"><span class="col-domain">Music</span></label>
                                 </p>
@@ -162,6 +162,11 @@
                                 <p class="noselect tag-select">
                                     <input data-tag="Fashion" type="checkbox" name="domain-fashion" id="domain-fashion">
                                     <label data-tag="Fashion" for="domain-fashion"><span class="col-domain">Fashion</span></label>
+                                </p>
+                            
+                                <p class="noselect tag-select">
+                                    <input data-tag="Environment" type="checkbox" name="domain-environment" id="domain-environment">
+                                    <label data-tag="Environment" for="domain-environment"><span class="col-domain">Environment</span></label>
                                 </p>
                             
                                 <p class="noselect tag-select">
@@ -214,10 +219,20 @@
 
           <a 
           data-narrative="" 
-          data-object="" 
+          data-object="AI" 
           data-domain="" 
           class="card vertical" href="./manuscript-0">
             <span class="mono id-no">#0000</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript0/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript0/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript0/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -235,7 +250,7 @@
 
           <a 
           data-narrative="Apocalyptic" 
-          data-object="Changes Color" 
+          data-object="3D Printed" 
           data-domain="Environment" 
           class="card vertical" href="./manuscript-1">
             <span class="mono id-no">#0001</span>
@@ -2502,6 +2517,16 @@
           data-domain="" 
           class="card vertical" href="./manuscript-74">
             <span class="mono id-no">#0074</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript74/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript74/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript74/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -7509,9 +7534,9 @@
           
 
           <a 
-          data-narrative="Utopian" 
-          data-object="Changes Color" 
-          data-domain="Environment" 
+          data-narrative="" 
+          data-object="" 
+          data-domain="" 
           class="card vertical" href="./manuscript-236">
             <span class="mono id-no">#0236</span>
             
@@ -8197,6 +8222,16 @@
           class="card vertical" href="./manuscript-258">
             <span class="mono id-no">#0258</span>
             
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript258/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript258/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript258/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
+            
           </a>
         
           
@@ -8217,6 +8252,16 @@
           data-domain="" 
           class="card vertical" href="./manuscript-259">
             <span class="mono id-no">#0259</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript259/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript259/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript259/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         
@@ -8239,6 +8284,16 @@
           class="card vertical" href="./manuscript-260">
             <span class="mono id-no">#0260</span>
             
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript260/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript260/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript260/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
+            
           </a>
         
           
@@ -8259,6 +8314,16 @@
           data-domain="" 
           class="card vertical" href="./manuscript-261">
             <span class="mono id-no">#0261</span>
+            
+                
+                <picture>
+                    <source type="image/webp" srcset="../../assets/images_for_web/archive/manuscript261/scan@@sm.webp" type="image/webp">
+                    <source type="image/jpg" srcset="../../assets/images_for_web/archive/manuscript261/scan@@sm.jpg">
+                    <img loading="lazy" src="../../assets/images_for_web/archive/manuscript261/scan@@sm.jpg">
+                </picture>
+
+              <picture>
+                
             
           </a>
         

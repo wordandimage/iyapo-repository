@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"9d68e6b1-1143-417d-b910-364a0cb7c942","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":168},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Has a Motor"},"domain":{"type":"select","value":"Music"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript168"})
-      console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Music","object":"Has a Motor"}}])
+      console.log({"item_id":"9d68e6b1-1143-417d-b910-364a0cb7c942","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Dystopian - Music - Has a MotorIn a world where everything and everyone is negative this invention detects sounds positively and spreads it around in hopes to make a difference.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Dystopian - Music - Has a MotorIn a world where everything and everyone is negative this invention detects sounds positively and spreads it around in hopes to make a difference.","href":null}]},"manuscript_id":{"type":"number","value":168},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Has a Motor"},"domain":{"type":"select","value":"Music"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Lenitza Lock"}},"dir":"assets/images_for_web/archive/manuscript168"})
+      console.log([{"type":"text","label":"Name","value":"Lenitza Lock"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Music","object":"Has a Motor"}},{"type":"accordion","label":"Description","value":"<p>Dystopian - Music - Has a MotorIn a world where everything and everyone is negative this invention detects sounds positively and spreads it around in hopes to make a difference.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Lenitza Lock</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Dystopian</span></p>
               <p><span>Object:</span><span class="col-object">Has a Motor</span></p>
               <p><span>Domain:</span><span class="col-domain">Music</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>Dystopian - Music - Has a MotorIn a world where everything and everyone is negative this invention detects sounds positively and spreads it around in hopes to make a difference.</p></p>
             
             
           </div>

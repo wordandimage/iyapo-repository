@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"4d82f17f-13d1-41ca-bbf2-561b2f269eff","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":181},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Pumps Air"},"domain":{"type":"select","value":"Education"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript181"})
-      console.log([{"type":"tags","value":{"narrative":"Utopian","domain":"Education","object":"Pumps Air"}}])
+      console.log({"item_id":"4d82f17f-13d1-41ca-bbf2-561b2f269eff","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"This is a big dome that pumps fresh air forever.  They don’t die and there will be mass production of this.  It pumps fresh air and gives a chemical that cleans and heals the mind.  Nobody fights due to this.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"This is a big dome that pumps fresh air forever.  They don’t die and there will be mass production of this.  It pumps fresh air and gives a chemical that cleans and heals the mind.  Nobody fights due to this.","href":null}]},"manuscript_id":{"type":"number","value":181},"narrative":{"type":"select","value":"Utopian"},"object":{"type":"select","value":"Pumps Air"},"domain":{"type":"select","value":"Education"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Joel Casey"}},"dir":"assets/images_for_web/archive/manuscript181"})
+      console.log([{"type":"text","label":"Name","value":"Joel Casey"},{"type":"tags","value":{"narrative":"Utopian","domain":"Education","object":"Pumps Air"}},{"type":"accordion","label":"Description","value":"<p>This is a big dome that pumps fresh air forever.  They don’t die and there will be mass production of this.  It pumps fresh air and gives a chemical that cleans and heals the mind.  Nobody fights due to this.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Joel Casey</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Utopian</span></p>
               <p><span>Object:</span><span class="col-object">Pumps Air</span></p>
               <p><span>Domain:</span><span class="col-domain">Education</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>This is a big dome that pumps fresh air forever.  They don’t die and there will be mass production of this.  It pumps fresh air and gives a chemical that cleans and heals the mind.  Nobody fights due to this.</p></p>
             
             
           </div>

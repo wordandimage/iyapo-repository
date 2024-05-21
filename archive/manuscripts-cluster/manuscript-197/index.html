@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"bbd00d62-173d-4e61-9419-11defdae3b40","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":197},"narrative":{"type":"select","value":"Apocalyptic"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Fashion"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript197"})
-      console.log([{"type":"tags","value":{"narrative":"Apocalyptic","domain":"Fashion","object":"Changes Color"}}])
+      console.log({"item_id":"bbd00d62-173d-4e61-9419-11defdae3b40","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"This is a shirt that changes color when something bad is happening like when people are attacking other people.  Or when just bad things are going to happen.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"This is a shirt that changes color when something bad is happening like when people are attacking other people.  Or when just bad things are going to happen.","href":null}]},"manuscript_id":{"type":"number","value":197},"narrative":{"type":"select","value":"Apocalyptic"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Fashion"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Jenis Yava"}},"dir":"assets/images_for_web/archive/manuscript197"})
+      console.log([{"type":"text","label":"Name","value":"Jenis Yava"},{"type":"tags","value":{"narrative":"Apocalyptic","domain":"Fashion","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"<p>This is a shirt that changes color when something bad is happening like when people are attacking other people.  Or when just bad things are going to happen.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Jenis Yava</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Apocalyptic</span></p>
               <p><span>Object:</span><span class="col-object">Changes Color</span></p>
               <p><span>Domain:</span><span class="col-domain">Fashion</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>This is a shirt that changes color when something bad is happening like when people are attacking other people.  Or when just bad things are going to happen.</p></p>
             
             
           </div>

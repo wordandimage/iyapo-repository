@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"2f790e2d-02db-4cc5-8934-f8010c01f04f","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":178},"narrative":{"type":"select","value":"Revolutionary"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Space Travel"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript178"})
-      console.log([{"type":"tags","value":{"narrative":"Revolutionary","domain":"Space Travel","object":"Changes Color"}}])
+      console.log({"item_id":"2f790e2d-02db-4cc5-8934-f8010c01f04f","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"It's a thingy that travels through space and time to help human society to understand each other better.  If you need help it turns blue.  When explain the feeling it turns red/pink/purple/teal.  After it helps you it turns yellow/green.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"It's a thingy that travels through space and time to help human society to understand each other better.  If you need help it turns blue.  When explain the feeling it turns red/pink/purple/teal.  After it helps you it turns yellow/green.","href":null}]},"manuscript_id":{"type":"number","value":178},"narrative":{"type":"select","value":"Revolutionary"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Space Travel"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Showny"}},"dir":"assets/images_for_web/archive/manuscript178"})
+      console.log([{"type":"text","label":"Name","value":"Showny"},{"type":"tags","value":{"narrative":"Revolutionary","domain":"Space Travel","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"<p>It's a thingy that travels through space and time to help human society to understand each other better.  If you need help it turns blue.  When explain the feeling it turns red/pink/purple/teal.  After it helps you it turns yellow/green.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Showny</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Revolutionary</span></p>
               <p><span>Object:</span><span class="col-object">Changes Color</span></p>
               <p><span>Domain:</span><span class="col-domain">Space Travel</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>It's a thingy that travels through space and time to help human society to understand each other better.  If you need help it turns blue.  When explain the feeling it turns red/pink/purple/teal.  After it helps you it turns yellow/green.</p></p>
             
             
           </div>

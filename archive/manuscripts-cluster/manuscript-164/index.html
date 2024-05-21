@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"902fe729-2e49-448a-8a48-115925f5e652","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":164},"narrative":{"type":"select","value":"Apocalyptic"},"object":{"type":"select","value":"Tube"},"domain":{"type":"select","value":"Security"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript164"})
-      console.log([{"type":"tags","value":{"narrative":"Apocalyptic","domain":"Security","object":"Tube"}}])
+      console.log({"item_id":"902fe729-2e49-448a-8a48-115925f5e652","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"This future object is supposed to protect you in the apocalyptic time.  It is a tube that you can either shoot fire from or hit them with it.  It will hurt them because the tube is made of steel.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"This future object is supposed to protect you in the apocalyptic time.  It is a tube that you can either shoot fire from or hit them with it.  It will hurt them because the tube is made of steel.","href":null}]},"manuscript_id":{"type":"number","value":164},"narrative":{"type":"select","value":"Apocalyptic"},"object":{"type":"select","value":"Tube"},"domain":{"type":"select","value":"Security"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Osvaldo Rojano"}},"dir":"assets/images_for_web/archive/manuscript164"})
+      console.log([{"type":"text","label":"Name","value":"Osvaldo Rojano"},{"type":"tags","value":{"narrative":"Apocalyptic","domain":"Security","object":"Tube"}},{"type":"accordion","label":"Description","value":"<p>This future object is supposed to protect you in the apocalyptic time.  It is a tube that you can either shoot fire from or hit them with it.  It will hurt them because the tube is made of steel.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Osvaldo Rojano</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Apocalyptic</span></p>
               <p><span>Object:</span><span class="col-object">Tube</span></p>
               <p><span>Domain:</span><span class="col-domain">Security</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>This future object is supposed to protect you in the apocalyptic time.  It is a tube that you can either shoot fire from or hit them with it.  It will hurt them because the tube is made of steel.</p></p>
             
             
           </div>

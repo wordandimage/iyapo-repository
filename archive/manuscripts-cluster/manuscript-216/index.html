@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"d3478934-1b04-4037-b364-331bb074b0bc","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":216},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"3D Printed"},"domain":{"type":"select","value":"Food"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript216"})
-      console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Food","object":"3D Printed"}}])
+      console.log({"item_id":"d3478934-1b04-4037-b364-331bb074b0bc","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"In a dystopian world where food and technology have become the central currency.  The most delicious evil plan was able to come to fruition.  Food science and 3D printing tech created the most tasteful catastrophe that will give Hulk Hogan indigestion.  3D printed food monster created by the evil Dr. Pepper","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"In a dystopian world where food and technology have become the central currency.  The most delicious evil plan was able to come to fruition.  Food science and 3D printing tech created the most tasteful catastrophe that will give Hulk Hogan indigestion.  3D printed food monster created by the evil Dr. Pepper","href":null}]},"manuscript_id":{"type":"number","value":216},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"3D Printed"},"domain":{"type":"select","value":"Food"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Frank Washington"}},"dir":"assets/images_for_web/archive/manuscript216"})
+      console.log([{"type":"text","label":"Name","value":"Frank Washington"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Food","object":"3D Printed"}},{"type":"accordion","label":"Description","value":"<p>In a dystopian world where food and technology have become the central currency.  The most delicious evil plan was able to come to fruition.  Food science and 3D printing tech created the most tasteful catastrophe that will give Hulk Hogan indigestion.  3D printed food monster created by the evil Dr. Pepper</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Frank Washington</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Dystopian</span></p>
               <p><span>Object:</span><span class="col-object">3D Printed</span></p>
               <p><span>Domain:</span><span class="col-domain">Food</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>In a dystopian world where food and technology have become the central currency.  The most delicious evil plan was able to come to fruition.  Food science and 3D printing tech created the most tasteful catastrophe that will give Hulk Hogan indigestion.  3D printed food monster created by the evil Dr. Pepper</p></p>
             
             
           </div>

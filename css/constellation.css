@@ -130,7 +130,7 @@ details[open]{
         grid-column: auto / span calc(var(--col-count) / 2);
         height:var(--hundredvh);
         max-height:var(--hundredvh);
-        overflow:scroll;
+        overflow-y:auto;
         padding-top:20px;
     }
 

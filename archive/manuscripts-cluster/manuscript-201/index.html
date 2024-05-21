@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"e85bdbcd-39c7-4148-a57f-92769f696dba","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":201},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Self Defense"},"domain":{"type":"select","value":"Fashion"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript201"})
-      console.log([{"type":"tags","value":{"narrative":"Dystopian","domain":"Fashion","object":"Self Defense"}}])
+      console.log({"item_id":"e85bdbcd-39c7-4148-a57f-92769f696dba","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"Weapon holder jumpers (Fashion, Self Defense) It's dystopian to this world because it won’t be right carrying weapons around with you.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"Weapon holder jumpers (Fashion, Self Defense) It's dystopian to this world because it won’t be right carrying weapons around with you.","href":null}]},"manuscript_id":{"type":"number","value":201},"narrative":{"type":"select","value":"Dystopian"},"object":{"type":"select","value":"Self Defense"},"domain":{"type":"select","value":"Fashion"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Amina"}},"dir":"assets/images_for_web/archive/manuscript201"})
+      console.log([{"type":"text","label":"Name","value":"Amina"},{"type":"tags","value":{"narrative":"Dystopian","domain":"Fashion","object":"Self Defense"}},{"type":"accordion","label":"Description","value":"<p>Weapon holder jumpers (Fashion, Self Defense) It's dystopian to this world because it won’t be right carrying weapons around with you.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Amina</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Dystopian</span></p>
               <p><span>Object:</span><span class="col-object">Self Defense</span></p>
               <p><span>Domain:</span><span class="col-domain">Fashion</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>Weapon holder jumpers (Fashion, Self Defense) It's dystopian to this world because it won’t be right carrying weapons around with you.</p></p>
             
             
           </div>

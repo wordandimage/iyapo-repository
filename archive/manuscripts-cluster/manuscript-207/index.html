@@ -30,8 +30,8 @@
     <!-- favicon -->
     
     <script>
-      console.log({"item_id":"3b01100e-f555-4d6c-a2e8-9df6be9201ad","properties":{"manuscript_description":{"type":"rich_text","value":[]},"manuscript_id":{"type":"number","value":207},"narrative":{"type":"select","value":"Revolutionary"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Security"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":""}},"dir":"assets/images_for_web/archive/manuscript207"})
-      console.log([{"type":"tags","value":{"narrative":"Revolutionary","domain":"Security","object":"Changes Color"}}])
+      console.log({"item_id":"3b01100e-f555-4d6c-a2e8-9df6be9201ad","properties":{"manuscript_description":{"type":"rich_text","value":[{"type":"text","text":{"content":"This 2D drawing of a color changing vest can be worn by anyone. The electro luminance material will change colors to brighten up a darken, depending on the ambient temperature to make the wearer safe and visible.The vest also has a geo tracker for safety.  This vest is ??, since it doesn't exist.","link":null},"annotations":{"bold":false,"italic":false,"strikethrough":false,"underline":false,"code":false,"color":"default"},"plain_text":"This 2D drawing of a color changing vest can be worn by anyone. The electro luminance material will change colors to brighten up a darken, depending on the ambient temperature to make the wearer safe and visible.The vest also has a geo tracker for safety.  This vest is ??, since it doesn't exist.","href":null}]},"manuscript_id":{"type":"number","value":207},"narrative":{"type":"select","value":"Revolutionary"},"object":{"type":"select","value":"Changes Color"},"domain":{"type":"select","value":"Security"},"scan":{"type":"files","value":[{"type":"image","name":"scan"}]},"comments":{"type":"rich_text","value":[]},"manuscript_name":{"type":"title","value":"Nikhil Aroi"}},"dir":"assets/images_for_web/archive/manuscript207"})
+      console.log([{"type":"text","label":"Name","value":"Nikhil Aroi"},{"type":"tags","value":{"narrative":"Revolutionary","domain":"Security","object":"Changes Color"}},{"type":"accordion","label":"Description","value":"<p>This 2D drawing of a color changing vest can be worn by anyone. The electro luminance material will change colors to brighten up a darken, depending on the ambient temperature to make the wearer safe and visible.The vest also has a geo tracker for safety.  This vest is ??, since it doesn't exist.</p>"}])
       
       window.addEventListener('load',img_listeners);
       
@@ -91,11 +91,28 @@
           </div>
         
           
+          <div class="prop mono" data-type="text">
+            
+              <h4 class='prop-label'>Name</h4>
+              <p class='value'>Nikhil Aroi</p>
+            
+            
+          </div>
+        
+          
           <div class="prop mono" data-type="tags">
             
               <p><span>Narrative:</span><span class="col-narrative">Revolutionary</span></p>
               <p><span>Object:</span><span class="col-object">Changes Color</span></p>
               <p><span>Domain:</span><span class="col-domain">Security</span></p>
+            
+            
+          </div>
+        
+          
+          <div class="prop mono" data-type="accordion">
+            
+              <p><p>This 2D drawing of a color changing vest can be worn by anyone. The electro luminance material will change colors to brighten up a darken, depending on the ambient temperature to make the wearer safe and visible.The vest also has a geo tracker for safety.  This vest is ??, since it doesn't exist.</p></p>
             
             
           </div>
