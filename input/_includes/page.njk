@@ -52,7 +52,7 @@ landing: false
             {% for page in cms.pages %}
               {%set title = page.properties.title.value %}
               {%set url_base = "#" + title | slugify if page.properties.use_on_homepage.value else title | slugify %}
-              <a href="{{ "BASE_URL" | env }}{{url_base }}" class="expand-link bevel-mask">
+              <a href="{{ "BASE_URL" | env }}{{url_base }}" class="expand-link bevel-mask {{ 'current' if title == pg.properties.title.value }}">
                 {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
                 <h2 class="mono">{{title}}</h2>
               </a>
@@ -154,6 +154,20 @@ landing: false
                     </div>
                     
                   </div>
+                {% elseif block.type=='group' %}
+                <div class="block group">
+                  {% for p in block.value.items %}
+                    {% if p.type == 'image' %}
+                      <div class="block image-wrapper">
+                        {{ macros.page_img(p.value,rootpath) }}
+                      </div>
+                    {% else %}
+                      <div class="block">
+                        {{ p.value | md | safe }}
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
                 {% elseif block.type=='list' %}
                 <div class="block list">
                   <ul>
@@ -194,6 +208,10 @@ landing: false
       </article>
 
 
-
+  <footer class="mono">
+    <a href="twitter.com">twitter</a>|
+    <a href="instagram">instagram</a><span class='desktop-only'>|</span>
+    <a href="mailto:imagine@iyaporepository.org">imagine@iyaporepository.org</a>
+  </footer>
   </body>
 </html>

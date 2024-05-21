@@ -12,7 +12,7 @@
 
 {% macro list_item(text,items) %}
 <li>
-    {{text  | replace("- "," ") }}
+    {{text  | replace("- "," ") | md | safe }}
     <ul>
         {% if items %}
             {% for li in items %}

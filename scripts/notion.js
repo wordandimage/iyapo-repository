@@ -85,7 +85,7 @@ async function fetch_parse_block_content(block_id){
                 items=await fetch_parse_block_content(block.id)
             }
 
-            let valid_custom_types=['gallery','diptych'];
+            let valid_custom_types=['gallery','diptych','group'];
 
             let config=block.callout.rich_text[0]?.plain_text?.toLowerCase()?.split(':')?.map(a=>a.trim()) || []
             let type=config[0];
