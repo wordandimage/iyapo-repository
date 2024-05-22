@@ -140,9 +140,6 @@ details[open]{
         width:100%;
         min-height:20px;
     }
-}
-
-@media(min-width:900px){
 
     .grid:not(.grid[data-cluster="manuscripts"]) .props{
         order:1;
@@ -151,6 +148,11 @@ details[open]{
     .grid:not(.grid[data-cluster="manuscripts"]) .media{
         order:2;
     }
+}
+
+@media(min-width:900px){
+
+    
 
     .prop[data-type="tags"]:not(.empty){
         display:flex;
