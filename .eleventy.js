@@ -31,6 +31,13 @@ module.exports = function (eleventyConfig) {
           [],
           `assets/images_for_web/archive/manuscript${item.properties.manuscript_id.value}/`
         )
+      }else if(type=='moving image'){
+        return find_thumbnail(
+          [],
+          item.properties.thumbnail?.value,
+          `assets/images_for_web/archive/manuscript${item.properties.manuscript_id.value}/moving-image${item.properties.video_subid.value}/`,
+          'moving image'
+        )
       }else {
         return '';
       }
@@ -103,6 +110,26 @@ module.exports = function (eleventyConfig) {
           value:item.properties.artifact_description.value[0]?.plain_text
             .split('\n').map(a=>`<p>${a}</p>`).join('')
 
+          },
+          {type:'relatives',label:'Ancestor Manuscript',value:manuscripts.length>0?manuscripts:false}
+        ]
+      }else if(type=='moving image'){
+        let manuscripts=cms.manuscripts
+          .filter(a=>a.properties.manuscript_id.value==item.properties.manuscript_id.value)
+          .map(a=>{
+            return {
+              orientation:'vertical',
+              url: `archive/manuscripts-cluster/manuscript-${a.properties.manuscript_id.value}`,
+              image:find_thumbnail(a.properties.scan.value,[],`assets/images_for_web/archive/manuscript${a.properties.manuscript_id.value}/`)
+            }
+          })
+          
+
+        props=[
+          {type:'text',label:'Name',value:item.properties.video_name.value},
+          {type:'text',label:'Category',value:item.properties.video_category.value},
+          {type:'accordion',label:'Description',
+            value:item.properties.video_description.value[0]?.plain_text.split('\n').map(a=>`<p>${a}</p>`).join('')
           },
           {type:'relatives',label:'Ancestor Manuscript',value:manuscripts.length>0?manuscripts:false}
         ]

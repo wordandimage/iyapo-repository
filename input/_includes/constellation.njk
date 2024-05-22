@@ -21,6 +21,13 @@
   {% set archive_item_id_display = "#" + manuscript_id | zero_string + ':' + artifact_subid | zero_string(2) %}
   {% set media = item.properties.media.value %}
   {% set archive_img_root = "manuscript" + manuscript_id + "/artifact" + artifact_subid + "/img@@" %}
+{% elseif archive_item_type == "moving image" %}
+  {% set video_subid = item.properties.video_subid.value %}
+  {% set archive_item_id = artifact_subid %}
+  {% set archive_item_id_url = manuscript_id + '-' + video_subid  %}
+  {% set archive_item_id_display = "#" + manuscript_id | zero_string + ':' + video_subid | zero_string(2) %}
+  {% set media = item.properties.media.value %}
+  {% set archive_img_root = "manuscript" + manuscript_id + "/artifact" + video_subid + "/img@@" %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -128,7 +135,7 @@
       </section>
   {% endmacro %}
 
-  <body  data-theme="{{theme.value}}">
+  <body  data-theme="{{theme.value}}" class="archive-internal">
     <div class='constellation-content grid' data-cluster="{{cluster}}">
       {{ macros.breadcrumbs(cluster,base_url,archive_item_id_url,archive_item_id_display,archive_item_type) }}
       {{ media_section() }}

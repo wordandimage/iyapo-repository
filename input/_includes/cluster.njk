@@ -5,10 +5,10 @@
 
 {% if cluster == 'manuscripts' %}
     {% set items = cms.manuscripts | notion_data_sort_int("manuscript_id") %}
-    {% set media_prop = "scan" %}
 {% elseif cluster == 'artifacts' %}
     {% set items = cms.artifacts | notion_data_sort_int("manuscript_id") %}
-    {% set media_prop = "media" %}
+{% elseif cluster == 'moving images' %}
+    {% set items = cms.moving_images | notion_data_sort_int("manuscript_id") %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
   
   </head>
 
-  <body data-theme="{{theme.value}}">
+  <body data-theme="{{theme.value}}" class="archive-internal">
     <nav id="top-bar">
       {{ macros.breadcrumbs(cluster,base_url) }}
       {% if cluster == "manuscripts" %}
@@ -77,20 +77,21 @@
           {% if cluster == 'manuscripts' %}
             {% set id = item.properties.manuscript_id.value %}
             {% set href = "./manuscript-" + id%}
-            {% set display_id = "#"  + id | zero_string%}
-            {% set archive_img_root = "manuscript" + id + "/" %}
+            {% set display_value = "#"  + id | zero_string%}
             {% set narrative = 'data-narrative='+item.properties.narrative.value | dump  %}
             {% set object = 'data-object='+item.properties.object.value | dump  %}
             {% set domain = 'data-domain='+item.properties.domain.value | dump  %}
-            {% set tag_string = narrative+object+domain %}
             {% set thumb = item | thumbnail('manuscript') %}
           {% elseif cluster == 'artifacts' %}
             {% set id = item.properties.artifact_subid.value%}
             {% set href = './artifact-' + item.properties.manuscript_id.value + '-' + id %}
-            {% set display_id =  "#" + item.properties.manuscript_id.value | zero_string + ':' + id | zero_string(2) %}
-            {% set archive_img_root = "manuscript" + item.properties.manuscript_id.value + "/artifact" + id + '/img@@' %}
-            {% set tag_string = "" %}
+            {% set display_value =  item.properties.artifact_name.value %}
             {% set thumb = item | thumbnail('artifact') %}
+          {% elseif cluster == 'moving images' %}
+            {% set id = item.properties.video_subid.value %}
+            {% set href = './moving-image-' + item.properties.manuscript_id.value + '-' + id %}
+            {% set display_value =  item.properties.video_name.value %}
+            {% set thumb = item | thumbnail('moving image') %}
           {% endif %}
 
           <a 
@@ -98,9 +99,8 @@
           {{object | safe if object else ""}} 
           {{domain | safe if domain else ""}} 
           class="card {{"vertical" if cluster == 'manuscripts' else "landscape"}}" href="{{href}}">
-            <span class="mono id-no">{{display_id}}</span>
+            {% if display_value %}<span class="mono id-no">{{display_value}}</span>{% endif%}
             {%if thumb %}
-                {# {% set media = item.properties[media_prop].value %} #}
                 <picture>
                     <source type="image/webp" srcset="{{rootpath}}{{ thumb }}.webp" type="image/webp">
                     <source type="image/jpg" srcset="{{rootpath}}{{ thumb }}.jpg">

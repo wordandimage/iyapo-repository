@@ -5,21 +5,37 @@ const process_images=require('./process-images.js');
 const slugify = require('slugify');
 require('dotenv').config();
 
-let pages_database_id="98c44354161641b39e15bbb26816ad33";
+// let pages_database_id="98c44354161641b39e15bbb26816ad33";
+
+let databases=[
+    {name: "manuscripts",id:"28f1f92314ac47fb8f89cd302a6f0a90",options:{archive_type:'manuscript'}},
+    {name: "artifacts",id:"dd406cccfd91406f8207b62effb45912",options:{archive_type:'artifact'}},
+    {name: "moving_images",id:"727d1748ea79447e9ef19b2b9f888baf",options:{archive_type:'moving-image'}},
+    {name: "rare_media",id:"6e2fd89530c848b4acf99212c7ce32b7",options:{archive_type:'rare-media'}},
+    {name:"pages",id:"98c44354161641b39e15bbb26816ad33",options:{sort_prop:'nav_order',include_content:true}}
+]
+
+
+
+
 let manuscripts_database_id="28f1f92314ac47fb8f89cd302a6f0a90";
 let artifacts_database_id="dd406cccfd91406f8207b62effb45912";
 
 
 let secret=process.env.NOTION_TOKEN;
 
-let image_processing_queue=[];
+let file_processing_queue=[];
 
 
 
-let acceptable_extension=(filename)=>{
-    let fExtension = filename.match(/\.[^/.]+$/)[0];
+let extension=(filename)=>{
+    let find_extension=filename.match(/\.[^/.]+$/)
+    let fExtension = find_extension.length>0?find_extension[0]:'invalid';
     let acceptableExt = ['.jpg', '.png', '.jpeg', '.webp'];
-    return fExtension && acceptableExt.includes(fExtension.toLowerCase());
+    return {
+        value:fExtension,
+        acceptable:fExtension && acceptableExt.includes(fExtension.toLowerCase())
+    }
 }
 
 
@@ -59,9 +75,7 @@ async function fetch_parse_block_content(block_id){
         let item;
 
         if(block.type=='image'){
-            let metadata={
-                sizes:['md','lg']
-            }
+          
 
             let filename=slugify(block.id.replace(/\.[^/.]+$/, ''))
             
@@ -73,15 +87,17 @@ async function fetch_parse_block_content(block_id){
                 }
             }
 
-            image_processing_queue.push({
-                type:'standalone',
+            file_processing_queue.push({
+                archive_type:'standalone',
+                file_type:'image',
                 url:block.image.file.url,
                 name:filename,
-                metadata
+                sizes:['md','lg']
             })
         }else if(block.type=='callout'){
             let items=[];
             if(block.has_children){
+                await delay(500);
                 items=await fetch_parse_block_content(block.id)
             }
 
@@ -107,7 +123,10 @@ async function fetch_parse_block_content(block_id){
                 }
             }
 
-            if(block.has_children) item.value.items=await fetch_parse_block_content(block.id);
+            if(block.has_children){
+                await delay(500);
+                item.value.items=await fetch_parse_block_content(block.id);
+            } 
         }else{
             let n2m_output=await n2m.blockToMarkdown(block)
             item={
@@ -125,7 +144,7 @@ async function fetch_parse_block_content(block_id){
 
 
 
-async function fetch_database(database_id,{sort_prop,include_content=false,archive_type}){
+async function fetch_database(database_id,{sort_prop,include_content=false,archive_type} = {}){
     let has_more=true;
     let next_cursor;
 
@@ -156,6 +175,8 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
         let properties={};
         let manuscript_id=a?.properties?.manuscript_id?.number;
         let artifact_subid=a?.properties?.artifact_subid?.number;
+        let media_id=a?.properties?.media_id?.unique_id?.number;
+        let video_subid=a?.properties?.video_subid?.number;
 
         for(let prop of Object.keys(a.properties)){
             let b=a.properties[prop];
@@ -170,6 +191,12 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
                     properties[prop]=  {
                         type:'number',
                         value:b.number
+                    }
+                    break;
+                case 'unique_id':
+                    properties[prop]=  {
+                        type:'number',
+                        value:b.unique_id.number
                     }
                     break;
                 case 'select':
@@ -191,34 +218,55 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
                     let output_file_array=[];
 
                     for(let file of input_file_array){
-                        if(file.type=='file'&&acceptable_extension(file.name)){
+                        
+                        let ext=file.type=='file'?extension(file.name):{};
+                        if(file.type=='file'&&ext.acceptable){
+                            
                             let metadata={
                                 manuscript_id,
-                                sizes:['sm','lg']
+                                sizes:archive_type=='rare-media'?['lg']
+                                     :archive_type=='moving-image'?['sm']
+                                     :['sm','lg']
                             }
-                            if(archive_type=='artifact'){
-                                metadata.artifact_subid=artifact_subid;
-
-                            }
+                            if(archive_type=='artifact') metadata.artifact_subid=artifact_subid;
+                            if(archive_type=='moving-image') metadata.video_subid=video_subid;
+                            if(archive_type=='rare-media') metadata.media_id=media_id;
 
                             let filename=slugify(file.name.replace(/\.[^/.]+$/, ''))
                             
 
                             output_file_array.push({
                                 type:'image',
-                                name:archive_type=='artifact'?filename:'scan'
+                                name:archive_type=='manuscript'?'scan'
+                                    :archive_type=='rare-media'?'media'
+                                    :filename
                             })
                             
-                            image_processing_queue.push({
-                                type:archive_type,
+                            file_processing_queue.push({
+                                archive_type,
+                                file_type:'image',
                                 url:file.file.url,
                                 name:filename,
-                                metadata
+                                ...metadata
                             })
                         }else if(file.type=='external'){
                             output_file_array.push({
                                 type:'embed',
                                 url:file.external.url
+                            })
+                        }else{
+                            let filename=slugify(file.name.replace(/\.[^/.]+$/, ''))
+                            output_file_array.push({
+                                type:'attachment',
+                                name:filename
+                            })
+                            file_processing_queue.push({
+                                archive_type,
+                                file_type:'attachment',
+                                extension:ext.value.replace('.',''),
+                                url:file.file.url,
+                                name:filename,
+                                media_id
                             })
                         }
                         
@@ -248,7 +296,7 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
     if(include_content){
         for(let item of results){
     
-            console.log(`   loading ${item.properties.title.value} content`)
+            console.log(`         loading ${item.properties.title.value} content`)
             let mdcontent=await fetch_parse_block_content(item.item_id);
 
 
@@ -273,7 +321,7 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
             //         value:a.parent
             //     }
             // })
-            await delay(1000);
+            await delay(500);
             
             item.mdcontent=mdcontent
         }
@@ -290,17 +338,27 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
 
 module.exports = async function load_data({do_image_processing=false}={}){
     console.log('loading notion data...')
+  
+    let data={};
+    
+    for(let database of databases){
+        console.log(`   loading ${database.name}`)
+        let result=await fetch_database(database.id,database.options);
+        data[database.name]=result;
+    }
 
-    console.log('   loading manuscripts')
-    let manuscripts=await fetch_database(manuscripts_database_id,{archive_type:'manuscript'});
-    await delay(500);
-    console.log('   loading artifacts')
-    let artifacts=await fetch_database(artifacts_database_id,{archive_type:'artifact'});
-    console.log('   loading pages')
-    let pages=await fetch_database(pages_database_id,{sort_prop:'nav_order',include_content:true});
+    // console.log('   loading manuscripts')
+    // let manuscripts=await fetch_database(manuscripts_database_id,{archive_type:'manuscript'});
+    // await delay(500);
+    // console.log('   loading artifacts')
+    // let artifacts=await fetch_database(artifacts_database_id,{archive_type:'artifact'});  
+    // console.log('   loading pages')
+    // let pages=await fetch_database(pages_database_id,{sort_prop:'nav_order',include_content:true});
+
+
     console.log('   compiling tags')
     let tags={narrative:[],domain:[],object:[]}
-    for(let manuscript of manuscripts){
+    for(let manuscript of data.manuscripts){
         let narrative=manuscript.properties.narrative.value;
         let object=manuscript.properties.object.value;
         let domain=manuscript.properties.domain.value;
@@ -310,15 +368,16 @@ module.exports = async function load_data({do_image_processing=false}={}){
     }
 
     let cms={
-        manuscripts,
-        artifacts,
-        pages,
+        // manuscripts,
+        // artifacts,
+        // pages,
+        ...data,
         tags
     };
     
     if(do_image_processing){
         console.log('downloading and processing new images...')
-        let img_data=await process_images(image_processing_queue,cms);
+        let img_data=await process_images(file_processing_queue,cms);
         let img_cache = new AssetCache("img_data");
         img_cache.save(img_data, "json");
     }

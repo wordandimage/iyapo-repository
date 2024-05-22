@@ -111,7 +111,13 @@ landing: false
           </a>
           <nav id="cluster-nav">
             {% for cluster in archive_clusters%}
-              <a class='mono' style="--x:{{cluster.pos.x}}; --y:{{cluster.pos.y}};"  target="portal" data-i="{{loop.index0}}" data-name="{{cluster.name}}" href="{{base_url }}archive/{{cluster.name | slugify}}-cluster">{{cluster.name}}</a>
+              <a class='mono' 
+              style="--x:{{cluster.pos.x}}; --y:{{cluster.pos.y}};"  
+              target="portal" 
+              data-i="{{loop.index0}}" 
+              data-name="{{cluster.name}}" 
+              href="{{base_url }}archive/{{cluster.name | slugify}}-cluster">{{cluster.name}}
+              </a>
             {% endfor %}
           </nav>
       </div>

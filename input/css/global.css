@@ -374,6 +374,12 @@ a[target="_blank"]{
     }
 }
 
+@media(max-width:799px){
+    body.archive-internal .desktop-only{
+        display:none !important;
+    }
+}
+
 @media(min-width:700px){
     .mobile-only{
         display:none !important;

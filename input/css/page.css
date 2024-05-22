@@ -804,6 +804,10 @@ body[data-view="galaxy"] #aperture-dom{
     margin:30px auto;
 }
 
+.prose .block.group .block{
+    margin-bottom:0;
+}
+
 /* .prose .block.group{
     margin:20px auto;
 } */
