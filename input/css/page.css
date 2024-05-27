@@ -499,7 +499,7 @@ body[data-view="galaxy"] #masked-content{
 }
 
 
-#masked-content,.mousemoved #scope-wrapper{
+#masked-content,.no-active-transition #scope-wrapper{
     transition:opacity 0.5s;
     /* transition-delay:0.1s; */
 }

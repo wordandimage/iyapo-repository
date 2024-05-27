@@ -10,27 +10,27 @@
 
 {% if archive_item_type == "manuscript" %}
   {% set archive_item_id = manuscript_id %}
-  {% set archive_item_id_url = manuscript_id %}
+  {% set archive_item_id_url = "manuscript-" + manuscript_id %}
   {% set archive_item_id_display = "#" + manuscript_id | zero_string %}
   {% set media = item.properties.scan.value %}
   {% set archive_img_root = "archive/manuscript" + manuscript_id + "/" %}
 {% elseif archive_item_type == "artifact"%}
   {% set artifact_subid = item.properties.artifact_subid.value %}
   {% set archive_item_id = artifact_subid %}
-  {% set archive_item_id_url = manuscript_id + '-' + artifact_subid  %}
+  {% set archive_item_id_url = "artifact-" + manuscript_id + '-' + artifact_subid  %}
   {% set archive_item_id_display = "#" + manuscript_id | zero_string + ':' + artifact_subid | zero_string(2) %}
   {% set media = item.properties.media.value %}
   {% set archive_img_root = "archive/manuscript" + manuscript_id + "/artifact" + artifact_subid + "/img@@" %}
 {% elseif archive_item_type == "moving image" %}
   {% set video_subid = item.properties.video_subid.value %}
   {% set archive_item_id = artifact_subid %}
-  {% set archive_item_id_url = manuscript_id + '-' + video_subid  %}
+  {% set archive_item_id_url = "moving-image-" + manuscript_id + '-' + video_subid  %}
   {% set archive_item_id_display = "#" + manuscript_id | zero_string + ':' + video_subid | zero_string(2) %}
   {% set media = item.properties.media.value %}
   {% set archive_img_root = "archive/manuscript" + manuscript_id + "/artifact" + video_subid + "/img@@" %}
 {% elseif archive_item_type == "rare media" %}
   {% set archive_item_id = item.properties.media_name.value | slugify %}
-  {% set archive_item_id_url = item.properties.media_name.value | slugify  %}
+  {% set archive_item_id_url = item.properties.media_name.value | slugify | safe  %}
   {% set archive_item_id_display = item.properties.media_name.value %}
   {% set media = item.properties.media.value %}
   {% set archive_img_root = "rare-media/media@@" %}

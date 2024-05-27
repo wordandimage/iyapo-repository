@@ -49,7 +49,7 @@
 
 {% macro breadcrumbs(cluster,base_url,id,id_display,item_type) %}
 <nav class="breadcrumbs mono small-caps">
-    <a href="{{base_url}}archive/">ARCHIVE</a> / <a href="{{base_url}}archive/{{cluster | slugify }}-cluster/">{{cluster}}</a>{% if id %} / <a href="{{base_url}}archive/{{cluster | slugify}}-cluster/{{item_type}}-{{id}}">{{id_display}}</a>{% endif %}
+    <a href="{{base_url}}archive/">ARCHIVE</a> / <a href="{{base_url}}archive/{{cluster | slugify | safe }}-cluster/">{{cluster}}</a>{% if id %} / <a href="{{base_url}}archive/{{cluster | slugify | safe}}-cluster/{{id}}">{{id_display}}</a>{% endif %}
 </nav>
 {% endmacro %}
 

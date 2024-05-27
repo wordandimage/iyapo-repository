@@ -387,8 +387,13 @@ function parse_archive_location(url=''){
         }
     } else {
         dom.archive_window.classed('mousemoved',false);
+        dom.archive_window.classed('no-active-transition',false)
+
         update_archive_view('galaxy');
         update_spotlight_mode('mouse');
+        setTimeout(()=>{
+            dom.archive_window.classed('no-active-transition',true)
+        },10)
     }
     
 
