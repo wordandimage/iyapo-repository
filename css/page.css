@@ -384,7 +384,7 @@ body[data-view="galaxy"] #cluster-nav{
     pointer-events:none;
     position: sticky;
     z-index: 110;
-    top: calc(9px + var(--nav-height));
+    top: calc(8px + var(--nav-height));
     left: 50%;
     width: fit-content;
     transform: translateX(-50%);
@@ -997,7 +997,7 @@ footer a{
 
     #archive-window{
         position:sticky;
-        top:calc(var(--archive-h) * -1 + 111px);
+        top:calc(var(--archive-h) * -1 + 121px);
         display:block;
     }
     
