@@ -386,6 +386,7 @@ function parse_archive_location(url=''){
             update_spotlight_mode('hide');
         }
     } else {
+        dom.archive_window.classed('mousemoved',false);
         update_archive_view('galaxy');
         update_spotlight_mode('mouse');
     }
@@ -526,7 +527,7 @@ function cycle_galleries(){
             let n=parseInt(gallery.dataset.n);
             n=n==l-1?0:n+1;
             set_current(n,l,gallery)
-        },3000)
+        },8000)
     }
 
     function set_current(n,l,gallery){

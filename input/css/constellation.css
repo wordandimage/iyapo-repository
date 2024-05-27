@@ -41,6 +41,41 @@
     aspect-ratio:8.5/11;
 }
 
+.grid:not(.grid[data-cluster="manuscripts"]) #close{
+    justify-content:flex-start;
+}
+
+#close{
+    padding-top:0;
+    padding-bottom:8px;
+}
+
+/* #close{
+    position:absolute;
+    top:8px;
+    left:0;
+} */
+
+/* #close a{
+    pointer-events:all;
+    
+    
+    padding-left:8px;
+    padding-bottom:8px;
+
+    box-sizing:border-box;
+    display:flex;
+    flex-flow:row nowrap;
+} */
+
+/* .grid[data-cluster="manuscripts"] #close a{
+    padding-top:8px;
+}
+
+.grid:not(.grid[data-cluster="manuscripts"]) #close a{
+    background-color: var(--bg);
+} */
+
 .prop{
     display:flex;
     flex-flow:column nowrap;
@@ -118,6 +153,10 @@ details[open]{
     min-height:20px;
 }
 
+.props{
+    position:relative;
+}
+
 @media(min-width:800px){
     .constellation-content{
         height:var(--hundredvh);
@@ -166,4 +205,12 @@ details[open]{
         flex:1;
         min-height:52px;
     }
+}
+
+@media(min-width:1340px){
+    #close,.grid:not(.grid[data-cluster="manuscripts"]) #close{
+        padding-top:var(--spacing);
+        justify-content:flex-end;
+    }
+
 }

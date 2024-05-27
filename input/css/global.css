@@ -362,6 +362,32 @@ a[target="_blank"]{
     letter-spacing:0.05em;
 }
 
+#close{
+    /* padding:var(--spacing);
+    padding-bottom:0; */
+    width:100%;
+    display:none;
+    flex-flow:row nowrap;
+    justify-content:flex-end;
+    box-sizing: border-box;
+    padding-top:var(--spacing);
+}
+
+
+/* position:fixed;
+    right:0;
+    top:0; */
+
+#close svg{
+    width:20px;
+    height:20px;
+}
+
+#close line{
+    stroke:var(--fg);
+    stroke-width:var(--stroke-width);
+}
+
 @media(min-width:600px){
     :root{
         --col-count:12;
@@ -409,11 +435,28 @@ a[target="_blank"]{
     .breadcrumbs{
         display:none;
     }
+
+    #close{
+        display:flex;
+    }
 }
 
 @media(min-width:840px){
     :root{
         --logo-height:75px;
+    }
+}
+
+@media(min-width:1340px){
+    #close{
+        position:fixed;
+        right:var(--spacing);
+        top:0;
+        pointer-events:none;
+    }
+
+    #close a{
+        pointer-events:all;
     }
 }
 
