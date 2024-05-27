@@ -237,6 +237,7 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
 
                             output_file_array.push({
                                 type:'image',
+                                media_label:'img',
                                 name:archive_type=='manuscript'?'scan'
                                     :archive_type=='rare-media'?'media'
                                     :filename
@@ -252,13 +253,15 @@ async function fetch_database(database_id,{sort_prop,include_content=false,archi
                         }else if(file.type=='external'){
                             output_file_array.push({
                                 type:'embed',
-                                url:file.external.url
+                                url:file.external.url,
+                                media_label:'link'
                             })
                         }else{
                             let filename=slugify(file.name.replace(/\.[^/.]+$/, ''))
                             output_file_array.push({
                                 type:'attachment',
-                                name:filename
+                                name:filename,
+                                media_label:ext.value.replace('.','')
                             })
                             file_processing_queue.push({
                                 archive_type,

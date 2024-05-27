@@ -9,6 +9,8 @@
     {% set items = cms.artifacts | notion_data_sort_int("manuscript_id") %}
 {% elseif cluster == 'moving images' %}
     {% set items = cms.moving_images | notion_data_sort_int("manuscript_id") %}
+{% elseif cluster == 'rare media' %}
+    {% set items = cms.rare_media | notion_data_sort_int("media_id") %}
 {% endif %}
 
 <!DOCTYPE html>
@@ -73,6 +75,33 @@
       
     </nav>
     <main id="cards" class='grid cluster-content' data-type="{{cluster}}" data-cols="6">
+        
+        {% if cluster == "rare media" %}
+        <div class="access-points relative-grid">
+            <div class="archive-subhead"><h2 class="mono">Access Points</h2></div>
+            {% set access_points = cms.artifacts | notion_data_filter_by("is_rare_media_access_point",1) %}
+            {% for item in access_points %}
+              {% set id = item.properties.artifact_subid.value%}
+              {% set href = '../artifacts-cluster/artifact-' + item.properties.manuscript_id.value + '-' + id %}
+              {% set display_value =  item.properties.artifact_name.value %}
+              {% set thumb = item | thumbnail('artifact') %}
+              <a class="card landscape" href="{{href}}">
+                {% if display_value %}<span class="mono identifier">{{display_value}}</span>{% endif%}
+                {%if thumb %}
+                    <picture>
+                        <source type="image/webp" srcset="{{rootpath}}{{ thumb }}.webp" type="image/webp">
+                        <source type="image/jpg" srcset="{{rootpath}}{{ thumb }}.jpg">
+                        <img loading="lazy" src="{{rootpath}}{{ thumb }}.jpg">
+                    </picture>
+                {% endif %}
+              </a>
+            {% endfor %}
+        </div>
+        {# if rare media, wrap items so that we can split the grid in half #}
+        <div class="row-wrapper">
+          
+          <div class="row archive-subhead"><h2 class="mono">Media</h2></div>
+          {% endif %}
         {% for item in items %}
           {% if cluster == 'manuscripts' %}
             {% set id = item.properties.manuscript_id.value %}
@@ -92,14 +121,29 @@
             {% set href = './moving-image-' + item.properties.manuscript_id.value + '-' + id %}
             {% set display_value =  item.properties.video_name.value %}
             {% set thumb = item | thumbnail('moving image') %}
+          {% elseif cluster == 'rare media' %}
+            {% set id = item.properties.media_id.value %}
+            {% set href = item.properties.media.value[0].url if item.properties.media.value[0].media_label == "link" else  './' + item.properties.media_name.value | slugify %}
+            {% set display_value =  item.properties.media_name.value %}
           {% endif %}
 
           <a 
-          {{narrative | safe if narrative else ""}} 
-          {{object | safe if object else ""}} 
-          {{domain | safe if domain else ""}} 
-          class="card {{"vertical" if cluster == 'manuscripts' else "landscape"}}" href="{{href}}">
-            {% if display_value %}<span class="mono id-no">{{display_value}}</span>{% endif%}
+            {{narrative | safe if narrative else ""}} 
+            {{object | safe if object else ""}} 
+            {{domain | safe if domain else ""}} 
+            class="{{ "card" if cluster!=="rare media" else "row" }} 
+            {{"vertical" if cluster == 'manuscripts' else "landscape"}}" 
+            href="{{href}}"
+          >
+            {% if display_value and cluster !== "rare media" %}<span class="mono identifier">{{display_value}}</span>{% endif%}
+            {% if cluster == "rare media" %}
+              <div class="name-author-wrapper">
+                  <span class="mono identifier">{{display_value}}</span>
+                  <span class="mono">{{item.properties.authors.value[0].plain_text }}</span>
+              </div>
+              <div class="mono small-caps media-label">{{item.properties.media.value[0].media_label}}</div>
+            
+            {% endif %}
             {%if thumb %}
                 <picture>
                     <source type="image/webp" srcset="{{rootpath}}{{ thumb }}.webp" type="image/webp">
@@ -108,13 +152,10 @@
                 </picture>
 
               <picture>
-                {# <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.webp" type="image/webp">
-                <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.jpg">
-                <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/manuscript{{id}}/scan@@sm.jpg">
-              </picture> #}
             {% endif %}
           </a>
         {% endfor %}
+        {% if cluster == "rare media" %}</div>{% endif %}
     </main>
     
 

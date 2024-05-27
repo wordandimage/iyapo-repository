@@ -109,7 +109,11 @@ body[data-theme='grey'] .col-domain{
 
 
 
-
+.relative-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-gap:0px var(--spacing);
+}
 
 
 body{
@@ -333,7 +337,7 @@ a[target="_blank"]{
         opacity:1;
     }
 
-    .card:hover .id-no{
+    .card:hover .identifier{
         z-index:92;
     }
 
@@ -397,6 +401,11 @@ a[target="_blank"]{
 }
 
 @media(min-width:800px){
+    :root{
+        --spacing:20px;
+        --nav-height:80px;
+    }
+    
     .breadcrumbs{
         display:none;
     }

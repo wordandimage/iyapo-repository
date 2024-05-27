@@ -30,11 +30,15 @@
     }
 }
 
-.embed-wrapper{
+.embed-wrapper,.attachment-wrapper{
     border:1px solid var(--mid);
     box-sizing:border-box;
     aspect-ratio:16/9;
     width:100%;
+}
+
+.attachment-wrapper{
+    aspect-ratio:8.5/11;
 }
 
 .prop{
@@ -101,11 +105,7 @@ details[open]{
     content:':';
 }
 
-.relative-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    grid-gap:0px 15px;
-}
+
 
 .constellation-content section:last-of-type{
     padding-top:10px;

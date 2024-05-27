@@ -13,27 +13,33 @@
   {% set archive_item_id_url = manuscript_id %}
   {% set archive_item_id_display = "#" + manuscript_id | zero_string %}
   {% set media = item.properties.scan.value %}
-  {% set archive_img_root = "manuscript" + manuscript_id + "/" %}
+  {% set archive_img_root = "archive/manuscript" + manuscript_id + "/" %}
 {% elseif archive_item_type == "artifact"%}
   {% set artifact_subid = item.properties.artifact_subid.value %}
   {% set archive_item_id = artifact_subid %}
   {% set archive_item_id_url = manuscript_id + '-' + artifact_subid  %}
   {% set archive_item_id_display = "#" + manuscript_id | zero_string + ':' + artifact_subid | zero_string(2) %}
   {% set media = item.properties.media.value %}
-  {% set archive_img_root = "manuscript" + manuscript_id + "/artifact" + artifact_subid + "/img@@" %}
+  {% set archive_img_root = "archive/manuscript" + manuscript_id + "/artifact" + artifact_subid + "/img@@" %}
 {% elseif archive_item_type == "moving image" %}
   {% set video_subid = item.properties.video_subid.value %}
   {% set archive_item_id = artifact_subid %}
   {% set archive_item_id_url = manuscript_id + '-' + video_subid  %}
   {% set archive_item_id_display = "#" + manuscript_id | zero_string + ':' + video_subid | zero_string(2) %}
   {% set media = item.properties.media.value %}
-  {% set archive_img_root = "manuscript" + manuscript_id + "/artifact" + video_subid + "/img@@" %}
+  {% set archive_img_root = "archive/manuscript" + manuscript_id + "/artifact" + video_subid + "/img@@" %}
+{% elseif archive_item_type == "rare media" %}
+  {% set archive_item_id = item.properties.media_name.value | slugify %}
+  {% set archive_item_id_url = item.properties.media_name.value | slugify  %}
+  {% set archive_item_id_display = item.properties.media_name.value %}
+  {% set media = item.properties.media.value %}
+  {% set archive_img_root = "rare-media/media@@" %}
 {% endif %}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <title>Iyapo Repository - {{archive_item_type | capitalize}} {{archive_item_id_display}}</title>
+    <title>Iyapo Repository - {{ (archive_item_type | capitalize) if archive_item_type !== "rare media"}} {{archive_item_id_display}}</title>
     <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
     <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0A0101">
@@ -79,16 +85,20 @@
               {% if asset.type == 'image' %}
                 
                 <picture>
-                  <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.webp" type="image/webp">
-                  <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.jpg">
-                  <img loading="lazy" src="{{ rootpath }}assets/images_for_web/archive/{{archive_img_root}}{{asset.name}}@@lg.jpg">
+                  <source type="image/webp" srcset="{{ rootpath }}assets/images_for_web/{{archive_img_root}}{{asset.name if archive_item_type !== "rare media" else item.properties.media_id.value}}@@lg.webp" type="image/webp">
+                  <source type="image/jpg" srcset="{{ rootpath }}assets/images_for_web/{{archive_img_root}}{{asset.name if archive_item_type !== "rare media" else item.properties.media_id.value}}@@lg.jpg">
+                  <img loading="lazy" src="{{ rootpath }}assets/images_for_web/{{archive_img_root}}{{asset.name if archive_item_type !== "rare media" else item.properties.media_id.value }}@@lg.jpg">
                 </picture>
               {% elseif asset.type=='embed' %}
               <div class='embed-wrapper'>
                 <iframe src="{{asset.url}}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
               </div>
               <script src="https://player.vimeo.com/api/player.js"></script>
-                
+              {% elseif asset.type=='attachment' %}
+                 <div class="attachment-wrapper">
+                  <iframe src="{{ rootpath }}assets/images_for_web/{{archive_img_root}}{{item.properties.media_id.value}}@@attachment.{{asset.media_label}}#toolbar=0&navpanes=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                 </div>
+                 
               {% endif %}
             </figure>
           {% endfor %}
@@ -96,9 +106,11 @@
   {% endmacro %}
   {% macro props_section() %}
   <section class='props'>
+        {% if archive_item_type !== "rare media" %}
         <div class="prop desktop-only mono">
             <p class='value'>{{archive_item_id_display}}</p>
-          </div>
+        </div>
+        {% endif %}
         {% for prop in constellation_props %}
           
           <div class="prop mono" data-type="{{prop.type}}">

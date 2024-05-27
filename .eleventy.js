@@ -50,9 +50,7 @@ module.exports = function (eleventyConfig) {
       return process.env[value]
     });
 
-    eleventyConfig.addNunjucksFilter( "notion_data_find", function(array,property,value) {   
-      return array.find(item=>item.properties[property].value==value);
-    });
+    
 
     eleventyConfig.addNunjucksFilter("zero_string",function(id,nz=4){
         let i=id;
@@ -133,6 +131,15 @@ module.exports = function (eleventyConfig) {
           },
           {type:'relatives',label:'Ancestor Manuscript',value:manuscripts.length>0?manuscripts:false}
         ]
+      }else if(type=='rare media'){
+        props=[
+          {type:'text',label:'Name',value:item.properties.media_name.value},
+          {type:'text',label:'Author',value:item.properties.authors.value[0]?.plain_text},
+          {type:'text',label:'Category',value:item.properties.media_category.value},
+          {type:'accordion',label:'Description',
+            value:item.properties.media_description.value[0]?.plain_text.split('\n').map(a=>`<p>${a}</p>`).join('')
+          }
+        ]
       }
 
       return props.filter(a=>a.value);
@@ -142,6 +149,14 @@ module.exports = function (eleventyConfig) {
       return array.sort((a,b)=>{
         return a.properties[property].value - b.properties[property].value;
       });
+    });
+
+    eleventyConfig.addNunjucksFilter( "notion_data_find", function(array,property,value) {   
+      return array.find(item=>item.properties[property].value==value);
+    });
+
+    eleventyConfig.addNunjucksFilter( "notion_data_filter_by", function(array,property,value) {   
+      return array.filter(item=>item.properties[property].value==value);
     });
 
     eleventyConfig.addNunjucksFilter( "md", function(value) {    
