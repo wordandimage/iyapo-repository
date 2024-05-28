@@ -588,7 +588,7 @@ function heading_anchor_links(){
                 return;
             }
             navigator.clipboard
-                .writeText(`${window.location.toString().replace('#','')}#${h2.parentNode.id}`);
+                .writeText(`${window.location.toString().split('#')[0]}#${h2.parentNode.id}`);
         })
     }
 }
