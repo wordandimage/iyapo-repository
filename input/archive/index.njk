@@ -16,11 +16,24 @@
     <link rel="stylesheet" href="{{ rootpath }}css/cluster.css">
     
 
-
+    <style>
+      body::before{
+        background-color:var(--bg);
+        min-height:var(--hundredvh);
+        width:100%;
+        content:'';
+        display:block;
+      }
+    </style>
+    <script>
+      console.log({{cms | dump | safe}})
+      console.log({{pg | dump | safe}})
+      console.log("imgdata?",{{imgdata | dump | safe}})
+    </script>
   
   </head>
 
-  <body >
+  <body data-theme="{{theme.value}}">
 
   
   </body>

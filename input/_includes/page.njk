@@ -24,9 +24,6 @@ landing: false
       let is_landing={{landing | dump | safe}};
       let archive_clusters={{archive_clusters | dump | safe}};
       let base_url="{{base_url}}";
-      console.log({{cms | dump | safe}})
-      console.log({{pg | dump | safe}})
-      console.log("imgdata?",{{imgdata | dump | safe}})
     </script>
     <script type="module" src="{{ rootpath }}js/d3.js" charset="utf-8" preload></script>
     <script src="{{ rootpath }}js/page.js" charset="utf-8"></script>

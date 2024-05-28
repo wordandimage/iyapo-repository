@@ -986,7 +986,7 @@ footer a{
 
     .landing article .content-wrap{
         position:sticky;
-        top:calc(var(--archive-h) + var(--nav-height));
+        top:calc(var(--archive-h) + var(--nav-height) + var(--spacing));
     }
 
     body.landing .delay-spacer{

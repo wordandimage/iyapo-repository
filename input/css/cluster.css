@@ -30,6 +30,10 @@ body{
     margin-bottom:var(--spacing);
 }
 
+body[data-type="rare media"] #top-bar{
+    margin-bottom:0;
+}
+
 .row{
     display:flex;
     flex-flow:row nowrap;
@@ -100,12 +104,21 @@ body{
 
 #filter{
     --h:var(--h);
-    padding-bottom:4px;
+    padding-bottom:8px;
     border-bottom:var(--stroke-width) solid var(--fg);
+    box-sizing:border-box;
     /* background-color: var(--bg); */
 }
 
+#filter>#search-field{
+    width:100%;
+}
 
+
+.dropdown-arrow{
+    min-width:14px;
+    padding-bottom: 8px;
+}
 
 .dropdown-arrow path{
     stroke:var(--fg);
@@ -165,7 +178,7 @@ body{
 
 .taglist{
     grid-column:auto / span var(--col-count);
-    margin-top:var(--spacing);
+    /* margin-top:var(--spacing); */
 }
 
 .tag-select{
@@ -183,6 +196,8 @@ body{
     opacity:0;
 }
 
+
+
 /* .tag-select input[type="checkbox"]{
     opacity:0;
     width:0;
@@ -197,19 +212,37 @@ input[type="checkbox"]:checked + label{
     cursor:pointer;
     width:100%;
     display:flex;
+    flex-flow:column nowrap;
+    justify-content: space-between;
+    /* align-items: flex-end; */
+    grid-gap:10px var(--spacing);
+    order:3;
+}
+
+
+.dropdown-container{
+    display:flex;
     flex-flow:row nowrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    flex:1;
+    order:3;
 }
+
+#search-field{
+    flex:1;
+    order:2;
+}
+
 
 .none-selected-placeholder{
     display:none;
     color:var(--mid);
 }
 
-#filter summary>*:not(.none-selected-placeholder){
+/* #filter summary .dropdown-container>*:not(.none-selected-placeholder){
     display:inline;
-}
+} */
 
 #filter summary::marker,details summary::-webkit-details-marker{
     display:none;
@@ -309,10 +342,9 @@ picture{
 }
 
 @media(min-width:800px){
-    #filter{
-        padding-top:20px;
-    }
+    
 
+   
     .taglist{
         grid-column:auto / span 3;
     }
@@ -336,5 +368,26 @@ picture{
 @media(min-width:1060px){
     .cluster-content[data-cols="6"]{
         --n:6;
+    }
+    
+
+    #filter summary{
+        flex-flow:row nowrap;
+    }
+
+    .dropdown-container{
+        order:1;
+    }
+
+}
+
+@media(min-width:1340px){
+    #filter{
+        padding-top:var(--spacing);
+        min-height:calc(var(--spacing) + 20px);
+    }
+
+    .archive-subhead{
+        margin-top:calc(var(--spacing) + 20px);
     }
 }

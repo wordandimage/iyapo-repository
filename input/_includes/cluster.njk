@@ -38,7 +38,7 @@
   
   </head>
 
-  <body data-theme="{{theme.value}}" class="archive-internal">
+  <body data-theme="{{theme.value}}" class="archive-internal" data-type="{{cluster}}">
     
     <nav id="top-bar">
       <div id="close">
@@ -52,11 +52,16 @@
         <div id="filter-wrapper">
             <details id='filter' class="mono" data-selected="0">
                 <summary class='noselect'>
-                    <p class='filter-prompt desktop-only'>Filter by <span class="col-narrative">Narrative</span>, <span class="col-object">Object</span>, or <span class="col-domain">Domain</span></p>
-                    <p class='filter-prompt mobile-only'>Filter</p>
-                    <p class='none-selected-placeholder'>None selected</p>
-                    <p class='selected-tags'></p>
-                    <svg class='dropdown-arrow' width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 8L13 1" /></svg>
+                    <div class="dropdown-container">
+                      <p class='filter-prompt desktop-only'>Filter by <span class="col-narrative">Narrative</span>, <span class="col-object">Object</span>, or <span class="col-domain">Domain</span></p>
+                      <p class='filter-prompt mobile-only'>Filter</p>
+                      <p class='none-selected-placeholder'>None selected</p>
+                      <p class='selected-tags'></p>
+                      <svg class='dropdown-arrow' width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 8L13 1" /></svg>
+                    </div>
+                    
+                    
+                  <input id="search-field" autocomplete="off" class="mono" type="text" placeholder="search by name or ID">
                 </summary>
                 <div id="filter-menu">
                     {% macro taglist(category) %}
@@ -78,6 +83,12 @@
                 
             </details>
         </div>
+      {% elseif cluster == "artifacts" %}
+        <div id="filter">
+          <input id="search-field" autocomplete="off" class="mono" type="text" placeholder="search by name or ID">
+        </div>
+      {% elseif cluster == "moving images" %}
+      <div id="filter"></div>
       {% endif %}
       
     </nav>
@@ -111,8 +122,10 @@
         {% for item in items %}
           {% if cluster == 'manuscripts' %}
             {% set id = item.properties.manuscript_id.value %}
+            {% set display_id = id | zero_string %}
             {% set href = "./manuscript-" + id%}
-            {% set display_value = "#"  + id | zero_string%}
+            {% set display_value = "#"  + id | zero_string %}
+            {% set name = item.properties.manuscript_name.value %}
             {% set narrative = 'data-narrative='+item.properties.narrative.value | dump  %}
             {% set object = 'data-object='+item.properties.object.value | dump  %}
             {% set domain = 'data-domain='+item.properties.domain.value | dump  %}
@@ -121,24 +134,29 @@
             {% set id = item.properties.artifact_subid.value%}
             {% set href = './artifact-' + item.properties.manuscript_id.value + '-' + id %}
             {% set display_value =  item.properties.artifact_name.value %}
+            {% set display_id = item.properties.manuscript_id.value | zero_string + ':' + id | zero_string(2) %}
             {% set thumb = item | thumbnail('artifact') %}
+            {% set name = display_value %}
           {% elseif cluster == 'moving images' %}
             {% set id = item.properties.video_subid.value %}
             {% set href = './moving-image-' + item.properties.manuscript_id.value + '-' + id %}
             {% set display_value =  item.properties.video_name.value %}
             {% set thumb = item | thumbnail('moving image') %}
+            {% set name = display_value %}
           {% elseif cluster == 'rare media' %}
             {% set id = item.properties.media_id.value %}
             {% set href = item.properties.media.value[0].url if item.properties.media.value[0].media_label == "link" else  './' + item.properties.media_name.value | slugify %}
             {% set display_value =  item.properties.media_name.value %}
+            {% set name = display_value %}
           {% endif %}
 
           <a 
             {{narrative | safe if narrative else ""}} 
             {{object | safe if object else ""}} 
             {{domain | safe if domain else ""}} 
-            class="{{ "card" if cluster!=="rare media" else "row" }} 
-            {{"vertical" if cluster == 'manuscripts' else "landscape"}}" 
+            data-name="{{name}}"
+            data-id="{{display_id}}"
+            class="{{ "card" if cluster!=="rare media" else "row" }} {{"vertical" if cluster == 'manuscripts' else "landscape"}}" 
             href="{{href}}"
           >
             {% if display_value and cluster !== "rare media" %}<span class="mono identifier">{{display_value}}</span>{% endif%}

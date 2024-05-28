@@ -552,7 +552,6 @@ function cycle_galleries(){
 
 function target_blank(){
     document.querySelectorAll('a').forEach(link=>{
-        console.log(link.host,window.location.host);
         if(link.host!==window.location.host){
             link.setAttribute('target', '_blank');
         }

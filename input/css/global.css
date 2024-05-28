@@ -371,6 +371,7 @@ a[target="_blank"]{
     justify-content:flex-end;
     box-sizing: border-box;
     padding-top:var(--spacing);
+    padding-bottom:var(--spacing);
 }
 
 
@@ -386,6 +387,18 @@ a[target="_blank"]{
 #close line{
     stroke:var(--fg);
     stroke-width:var(--stroke-width);
+}
+
+
+input[type="text"]{
+    height:24px;
+    max-height:24px;
+    background-color: #2E2E2E;
+    outline:none;
+    border:none;
+    color:var(--hl);
+    padding:6px 4px;
+    box-sizing:border-box;
 }
 
 @media(min-width:600px){
@@ -411,9 +424,7 @@ a[target="_blank"]{
 }
 
 @media(min-width:700px){
-    .mobile-only{
-        display:none !important;
-    }
+    
 
     .mono{
         font-size:16px;
@@ -427,6 +438,10 @@ a[target="_blank"]{
 }
 
 @media(min-width:800px){
+    .mobile-only{
+        display:none !important;
+    }
+    
     :root{
         --spacing:20px;
         --nav-height:80px;
