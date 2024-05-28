@@ -153,7 +153,7 @@ landing: false
                     {{ macros.page_img(block.value,rootpath) }}
                   </div>
                 {% elseif block.type=='gallery' %}
-                  <div class="block gallery {{ block.value.options | join }}" data-length="{{block.value.items.length}}">
+                  <div class="block gallery {{ block.value.options | join(' ') }}" data-length="{{block.value.items.length}}">
                     <div class="item-wrapper">
                       {% for item in block.value.items %}
                       {% if item.type == 'image' %}
@@ -163,7 +163,8 @@ landing: false
                       {% endif %}
                     {% endfor %}
                     </div>
-                    
+                    <button class="previous mono">&lt;</button>
+                    <button class="next mono">&gt;</button>
                   </div>
                 {% elseif block.type=='group' %}
                 <div class="block group">
