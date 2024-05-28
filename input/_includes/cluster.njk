@@ -154,7 +154,7 @@
             {% set name = display_value %}
           {% elseif cluster == 'rare media' %}
             {% set id = item.properties.media_id.value %}
-            {% set href = item.properties.media.value[0].url if item.properties.media.value[0].media_label == "link" else  './' + item.properties.media_name.value | slugify %}
+            {% set href = item.properties.media.value[0].url if item.properties.media.value[0].media_label == "link" and not "vimeo" in item.properties.media.value[0].url else  './' + item.properties.media_name.value | slugify %}
             {% set display_value =  item.properties.media_name.value %}
             {% set name = display_value %}
           {% endif %}
