@@ -208,7 +208,8 @@ landing: false
                     
                   </div>
                 {% else %}
-                  <div class='block'>
+                  
+                  <div class='block {{"anchor-heading" if block.type=='heading_2'}}' {% if block.type=='heading_2'%} id="jump-to-{{block.value | replace('##','') | slugify}}" {% endif %}>
                     {{ block.value | md | safe }}
                   </div>
                       

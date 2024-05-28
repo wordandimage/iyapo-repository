@@ -182,6 +182,7 @@ function init(){
     }
 
     target_blank();
+    heading_anchor_links();
     cycle_galleries();
 
     d3.select('#toggle-nav').on('click',function(){
@@ -577,7 +578,20 @@ function cycle_galleries(){
 }
 
 
-
+function heading_anchor_links(){
+    for(let h2 of document.querySelectorAll('.prose h2')){
+        
+        h2.addEventListener('click',()=>{
+            console.log('copy h2',h2.id)
+            if (!window.isSecureContext) {
+                console.log('copy failed');
+                return;
+            }
+            navigator.clipboard
+                .writeText(`${window.location.toString().replace('#','')}#${h2.parentNode.id}`);
+        })
+    }
+}
 
 function target_blank(){
     document.querySelectorAll('a').forEach(link=>{
