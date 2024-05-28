@@ -104,7 +104,16 @@
         
         <div class="row-wrapper">
           
-          <div class="row archive-subhead"><h2 class="mono">Media</h2></div>
+          <div class="row archive-subhead">
+            <h2 class="mono">Media</h2>
+            <div class="categorylist mono">
+              <span class="category-select noselect"><input id="Love" value="Love" type="checkbox"><label for="Love">Love</label></span>
+              <span class="category-select noselect"><input id="Joy" value="Joy" type="checkbox"><label for="Joy">Joy</label></span>
+              <span class="category-select noselect"><input id="Survival" value="Survival" type="checkbox"><label for="Survival">Survival</label></span>
+              
+              
+            </div>
+          </div>
           
         
           
@@ -120,7 +129,8 @@
              
             data-name="Testing attachment"
             data-id=""
-            class="row landscape" 
+            data-category="Survival"
+            class="item row landscape" 
             href="./testing-attachment"
           >
             
@@ -148,7 +158,8 @@
              
             data-name="Testing image"
             data-id=""
-            class="row landscape" 
+            data-category="Joy"
+            class="item row landscape" 
             href="./testing-image"
           >
             
@@ -176,7 +187,8 @@
              
             data-name="Testing URL item"
             data-id=""
-            class="row landscape" 
+            data-category="Love"
+            class="item row landscape" 
             href="https://example.com/"
           >
             
