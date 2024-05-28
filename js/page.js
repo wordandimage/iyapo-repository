@@ -538,15 +538,30 @@ function update_paths(coords){
 }
 
 function cycle_galleries(){
-    let galleries=Array.from(document.querySelectorAll('.gallery.full'));
+    let galleries=Array.from(document.querySelectorAll('.gallery.carousel'));
     for(let gallery of galleries){
         let l=parseInt(gallery.dataset.length);
         set_current(0,l,gallery)
-        setInterval(()=>{
+        let interval=setInterval(interval_f,5000)
+
+        function interval_f(){
             let n=parseInt(gallery.dataset.n);
             n=n==l-1?0:n+1;
             set_current(n,l,gallery)
-        },8000)
+        }
+
+        let buttons=Array.from(gallery.querySelectorAll('button'))
+        for(let button of buttons){
+            button.addEventListener('click',function(){
+                let n=parseInt(gallery.dataset.n);
+                if(button.classList.contains('next')) n=n==l-1?0:n+1;
+                else n=n==0?l-1:n-1;
+                clearInterval(interval)
+                set_current(n,l,gallery)
+                interval=setInterval(interval_f,5000)
+            })
+        }
+
     }
 
     function set_current(n,l,gallery){
