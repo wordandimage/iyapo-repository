@@ -175,7 +175,7 @@
                   <span class="mono identifier">{{display_value}}</span>
                   <span class="mono">{{item.properties.authors.value[0].plain_text }}</span>
               </div>
-              <div class="mono small-caps media-label">{{item.properties.media.value[0].media_label}}</div>
+              <div class="mono small-caps media-label">{{"video" if item.properties.media.value[0].media_label == "link" and "vimeo" in item.properties.media.value[0].url else item.properties.media.value[0].media_label}}</div>
             
             {% endif %}
             {%if thumb %}
