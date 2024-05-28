@@ -116,17 +116,33 @@ async function fetch_parse_block_content(block_id){
         }else if(block.type=='bulleted_list_item'){
             let n2m_output=await n2m.blockToMarkdown(block);
             
-            item={
+
+            let list_item={
                 type:'list',
                 value:{
+                    
                     text:n2m_output
                 }
+                
             }
+
+            
 
             if(block.has_children){
                 await delay(500);
-                item.value.items=await fetch_parse_block_content(block.id);
+
+                list_item.value.items=await fetch_parse_block_content(block.id);
+                // list_item.value.items=
             } 
+
+            if(content.at(-1)?.type=='list') content.at(-1).value.items.push(list_item)
+            else{
+                item={
+                    type:'list',
+                    value:{items:[list_item]}
+                }
+            }
+
         }else{
             let n2m_output=await n2m.blockToMarkdown(block)
             item={

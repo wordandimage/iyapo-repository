@@ -724,9 +724,24 @@ body[data-view="galaxy"] .mousemoved #aperture-dom{
 }
 
 .prose .block ul ul{
-    padding-left:32px;
+    padding-left:var(--spacing);
     box-sizing:border-box;
 }
+
+.prose .block li p{
+    display:flex;
+    flex-flow:row nowrap;
+}
+
+.prose .block li p::before{
+    content:'-';
+    margin-right:10px;
+}
+
+.prose .block li p{
+    margin:0px auto 10px;
+}
+
 
 .block.diptych{
     display:grid;

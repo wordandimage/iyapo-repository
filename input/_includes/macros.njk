@@ -10,18 +10,18 @@
     </div>
 {% endmacro %}
 
-{% macro list_item(text,items) %}
+{% macro list_items(items) %}
+{% for li in items %}
 <li>
-    {{text  | replace("- "," ") | md | safe }}
+     {# | replace("- "," ") | md | safe #}
+    {{li.value.text | replace("- ","") | md | safe  }}
     <ul>
-        {% if items %}
-            {% for li in items %}
-                {{list_item(li.value.text,li.value.items)}}
-            {% endfor %}
-        {% endif %}
+        {{ list_items(li.value.items) }}
     </ul>
     
 </li>
+{% endfor %}
+
 {% endmacro %}
 
 

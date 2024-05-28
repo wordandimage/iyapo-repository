@@ -163,8 +163,11 @@ landing: false
                       {% endif %}
                     {% endfor %}
                     </div>
+                    {% if block.value.options == 'carousel' %}
                     <button class="previous mono">&lt;</button>
                     <button class="next mono">&gt;</button>
+                    {% endif %}
+                    
                   </div>
                 {% elseif block.type=='group' %}
                 <div class="block group">
@@ -183,7 +186,7 @@ landing: false
                 {% elseif block.type=='list' %}
                 <div class="block list">
                   <ul>
-                    {{ macros.list_item(block.value.text,block.value.items) }}
+                    {{ macros.list_items(block.value.items) }}
                   </ul>
                 </div>
                 {# <div class="block" style="min-height:1px;"></div> #}
