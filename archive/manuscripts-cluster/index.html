@@ -32,8 +32,15 @@
   
   </head>
 
-  <body data-theme="soft-black" class="archive-internal">
+  <body data-theme="soft-black" class="archive-internal" data-type="manuscripts">
+    
     <nav id="top-bar">
+      <div id="close">
+        <a  href="/archive"><svg viewBox="0 0 100 100" width="20" height="20">
+                <line x1="0" y1="0" x2="100" y2="100" vector-effect="non-scaling-stroke"></line>
+                <line x1="0" y1="100" x2="100" y2="0" vector-effect="non-scaling-stroke"></line>
+        </svg></a>
+      </div>
       
 <nav class="breadcrumbs mono small-caps">
     <a href="/iyapo-repository/archive/">ARCHIVE</a> / <a href="/iyapo-repository/archive/manuscripts-cluster/">manuscripts</a>
@@ -43,11 +50,16 @@
         <div id="filter-wrapper">
             <details id='filter' class="mono" data-selected="0">
                 <summary class='noselect'>
-                    <p class='filter-prompt desktop-only'>Filter by <span class="col-narrative">Narrative</span>, <span class="col-object">Object</span>, or <span class="col-domain">Domain</span></p>
-                    <p class='filter-prompt mobile-only'>Filter</p>
-                    <p class='none-selected-placeholder'>None selected</p>
-                    <p class='selected-tags'></p>
-                    <svg class='dropdown-arrow' width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 8L13 1" /></svg>
+                    <div class="dropdown-container">
+                      <p class='filter-prompt desktop-only'>Filter by <span class="col-narrative">Narrative</span>, <span class="col-object">Object</span>, or <span class="col-domain">Domain</span></p>
+                      <p class='filter-prompt mobile-only'>Filter</p>
+                      <p class='none-selected-placeholder'>None selected</p>
+                      <p class='selected-tags'></p>
+                      <svg class='dropdown-arrow' width="14" height="9" viewBox="0 0 14 9" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 8L13 1" /></svg>
+                    </div>
+                    
+                    
+                  <input id="search-field" autocomplete="off" class="mono" type="text" placeholder="search by name or ID">
                 </summary>
                 <div id="filter-menu">
                     
@@ -205,8 +217,9 @@
     <main id="cards" class='grid cluster-content' data-type="manuscripts" data-cols="6">
         
         
-        
           
+            
+            
             
             
             
@@ -220,8 +233,9 @@
             data-narrative="" 
             data-object="AI" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0000"
+            class="card vertical" 
             href="./manuscript-0"
           >
             <span class="mono identifier">#0000</span>
@@ -245,14 +259,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="3D Printed" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Sarah Trigg"
+            data-id="0001"
+            class="card vertical" 
             href="./manuscript-1"
           >
             <span class="mono identifier">#0001</span>
@@ -276,14 +293,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Avner Delano Zoe"
+            data-id="0002"
+            class="card vertical" 
             href="./manuscript-2"
           >
             <span class="mono identifier">#0002</span>
@@ -307,14 +327,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Beth Altringer"
+            data-id="0003"
+            class="card vertical" 
             href="./manuscript-3"
           >
             <span class="mono identifier">#0003</span>
@@ -338,14 +361,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Makes Sound" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Azamna Zhang"
+            data-id="0004"
+            class="card vertical" 
             href="./manuscript-4"
           >
             <span class="mono identifier">#0004</span>
@@ -369,14 +395,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Makes Sound" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Teresa Lamb"
+            data-id="0005"
+            class="card vertical" 
             href="./manuscript-5"
           >
             <span class="mono identifier">#0005</span>
@@ -400,14 +429,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Laura Zittrain"
+            data-id="0006"
+            class="card vertical" 
             href="./manuscript-6"
           >
             <span class="mono identifier">#0006</span>
@@ -431,14 +463,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0007"
+            class="card vertical" 
             href="./manuscript-7"
           >
             <span class="mono identifier">#0007</span>
@@ -462,14 +497,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Self Defense" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Love Aoz"
+            data-id="0008"
+            class="card vertical" 
             href="./manuscript-8"
           >
             <span class="mono identifier">#0008</span>
@@ -493,14 +531,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Carl Chen, Josh Peterson, Taja chok, Ka kishur"
+            data-id="0009"
+            class="card vertical" 
             href="./manuscript-9"
           >
             <span class="mono identifier">#0009</span>
@@ -524,14 +565,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Transmits Data" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name="Zipin Zhang, Alessa Kreger, Franco Frontera"
+            data-id="0010"
+            class="card vertical" 
             href="./manuscript-10"
           >
             <span class="mono identifier">#0010</span>
@@ -555,14 +599,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Scarlett, Sadie and Ali"
+            data-id="0011"
+            class="card vertical" 
             href="./manuscript-11"
           >
             <span class="mono identifier">#0011</span>
@@ -586,14 +633,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="M.P"
+            data-id="0012"
+            class="card vertical" 
             href="./manuscript-12"
           >
             <span class="mono identifier">#0012</span>
@@ -617,14 +667,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Brendan, Bryan, Roddy, Billy"
+            data-id="0013"
+            class="card vertical" 
             href="./manuscript-13"
           >
             <span class="mono identifier">#0013</span>
@@ -648,14 +701,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Self Defense" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0014"
+            class="card vertical" 
             href="./manuscript-14"
           >
             <span class="mono identifier">#0014</span>
@@ -679,14 +735,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0015"
+            class="card vertical" 
             href="./manuscript-15"
           >
             <span class="mono identifier">#0015</span>
@@ -710,14 +769,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0016"
+            class="card vertical" 
             href="./manuscript-16"
           >
             <span class="mono identifier">#0016</span>
@@ -741,14 +803,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0017"
+            class="card vertical" 
             href="./manuscript-17"
           >
             <span class="mono identifier">#0017</span>
@@ -772,14 +837,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Justus. C"
+            data-id="0018"
+            class="card vertical" 
             href="./manuscript-18"
           >
             <span class="mono identifier">#0018</span>
@@ -803,14 +871,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Selres"
+            data-id="0019"
+            class="card vertical" 
             href="./manuscript-19"
           >
             <span class="mono identifier">#0019</span>
@@ -834,14 +905,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0020"
+            class="card vertical" 
             href="./manuscript-20"
           >
             <span class="mono identifier">#0020</span>
@@ -865,14 +939,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Daymon, Poetry, Seavy and Raymond"
+            data-id="0021"
+            class="card vertical" 
             href="./manuscript-21"
           >
             <span class="mono identifier">#0021</span>
@@ -896,14 +973,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Seavy, Poetry, Raymond"
+            data-id="0022"
+            class="card vertical" 
             href="./manuscript-22"
           >
             <span class="mono identifier">#0022</span>
@@ -927,14 +1007,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Changes Color" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0023"
+            class="card vertical" 
             href="./manuscript-23"
           >
             <span class="mono identifier">#0023</span>
@@ -958,14 +1041,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="A.S.R"
+            data-id="0024"
+            class="card vertical" 
             href="./manuscript-24"
           >
             <span class="mono identifier">#0024</span>
@@ -989,14 +1075,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0025"
+            class="card vertical" 
             href="./manuscript-25"
           >
             <span class="mono identifier">#0025</span>
@@ -1020,14 +1109,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Makes Sound" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0026"
+            class="card vertical" 
             href="./manuscript-26"
           >
             <span class="mono identifier">#0026</span>
@@ -1051,14 +1143,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Self Defense" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Tallulah"
+            data-id="0027"
+            class="card vertical" 
             href="./manuscript-27"
           >
             <span class="mono identifier">#0027</span>
@@ -1082,14 +1177,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Transmits Data" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Izzy Stanhaus"
+            data-id="0028"
+            class="card vertical" 
             href="./manuscript-28"
           >
             <span class="mono identifier">#0028</span>
@@ -1113,14 +1211,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Changes Color" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Masit Shah"
+            data-id="0029"
+            class="card vertical" 
             href="./manuscript-29"
           >
             <span class="mono identifier">#0029</span>
@@ -1144,14 +1245,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Tube" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Jamar Bromley"
+            data-id="0030"
+            class="card vertical" 
             href="./manuscript-30"
           >
             <span class="mono identifier">#0030</span>
@@ -1175,14 +1279,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0031"
+            class="card vertical" 
             href="./manuscript-31"
           >
             <span class="mono identifier">#0031</span>
@@ -1206,14 +1313,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Geraieve"
+            data-id="0032"
+            class="card vertical" 
             href="./manuscript-32"
           >
             <span class="mono identifier">#0032</span>
@@ -1237,14 +1347,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0033"
+            class="card vertical" 
             href="./manuscript-33"
           >
             <span class="mono identifier">#0033</span>
@@ -1268,14 +1381,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Sadie Stewart"
+            data-id="0034"
+            class="card vertical" 
             href="./manuscript-34"
           >
             <span class="mono identifier">#0034</span>
@@ -1299,14 +1415,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Wearable" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Oluwole Okunseinde, Adrian Bryant, Tamica Daniel"
+            data-id="0035"
+            class="card vertical" 
             href="./manuscript-35"
           >
             <span class="mono identifier">#0035</span>
@@ -1330,14 +1449,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Tube" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="Amina Page"
+            data-id="0036"
+            class="card vertical" 
             href="./manuscript-36"
           >
             <span class="mono identifier">#0036</span>
@@ -1361,14 +1483,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Yoko, Babacar, Ouida, Scarlett"
+            data-id="0037"
+            class="card vertical" 
             href="./manuscript-37"
           >
             <span class="mono identifier">#0037</span>
@@ -1392,14 +1517,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Amira Moore"
+            data-id="0038"
+            class="card vertical" 
             href="./manuscript-38"
           >
             <span class="mono identifier">#0038</span>
@@ -1423,14 +1551,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Transmits Data" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Yoko, Babacar, Ouida, Scarlett"
+            data-id="0039"
+            class="card vertical" 
             href="./manuscript-39"
           >
             <span class="mono identifier">#0039</span>
@@ -1454,14 +1585,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Wearable" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Colin, Mike, Victor"
+            data-id="0040"
+            class="card vertical" 
             href="./manuscript-40"
           >
             <span class="mono identifier">#0040</span>
@@ -1485,14 +1619,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Changes Color" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Colin, Mike, Victor"
+            data-id="0041"
+            class="card vertical" 
             href="./manuscript-41"
           >
             <span class="mono identifier">#0041</span>
@@ -1516,14 +1653,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Has a Motor" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name="Beaman Walker Institute (Carl Walker, Seshat Walker, Dahvi Walker)"
+            data-id="0042"
+            class="card vertical" 
             href="./manuscript-42"
           >
             <span class="mono identifier">#0042</span>
@@ -1547,14 +1687,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Makes Sound" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Beaman Walker Institute (Carl Walker, Seshat Walker, Dahvi Walker)"
+            data-id="0043"
+            class="card vertical" 
             href="./manuscript-43"
           >
             <span class="mono identifier">#0043</span>
@@ -1578,14 +1721,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Self Defense" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Nikki Lawrence, Nadia Marsh, Lauren Nixon"
+            data-id="0044"
+            class="card vertical" 
             href="./manuscript-44"
           >
             <span class="mono identifier">#0044</span>
@@ -1609,14 +1755,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Unknown"
+            data-id="0045"
+            class="card vertical" 
             href="./manuscript-45"
           >
             <span class="mono identifier">#0045</span>
@@ -1640,14 +1789,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Nikki Lawrence, Nadia Marsh, Lauren Nixon"
+            data-id="0046"
+            class="card vertical" 
             href="./manuscript-46"
           >
             <span class="mono identifier">#0046</span>
@@ -1671,14 +1823,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Has a Motor" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name="Amani Sampson"
+            data-id="0047"
+            class="card vertical" 
             href="./manuscript-47"
           >
             <span class="mono identifier">#0047</span>
@@ -1702,14 +1857,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Anafidelia Tajafes"
+            data-id="0048"
+            class="card vertical" 
             href="./manuscript-48"
           >
             <span class="mono identifier">#0048</span>
@@ -1733,14 +1891,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name="Rachel Jamison"
+            data-id="0049"
+            class="card vertical" 
             href="./manuscript-49"
           >
             <span class="mono identifier">#0049</span>
@@ -1764,14 +1925,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Tube" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Walis Jolusum"
+            data-id="0050"
+            class="card vertical" 
             href="./manuscript-50"
           >
             <span class="mono identifier">#0050</span>
@@ -1795,14 +1959,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Transmits Data" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Ryan Spence"
+            data-id="0051"
+            class="card vertical" 
             href="./manuscript-51"
           >
             <span class="mono identifier">#0051</span>
@@ -1826,14 +1993,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Self Defense" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Christiana Gozo"
+            data-id="0052"
+            class="card vertical" 
             href="./manuscript-52"
           >
             <span class="mono identifier">#0052</span>
@@ -1857,14 +2027,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Sphere" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="RaeLeone Allen"
+            data-id="0053"
+            class="card vertical" 
             href="./manuscript-53"
           >
             <span class="mono identifier">#0053</span>
@@ -1888,14 +2061,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Changes Color" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Dyani Douze"
+            data-id="0054"
+            class="card vertical" 
             href="./manuscript-54"
           >
             <span class="mono identifier">#0054</span>
@@ -1919,14 +2095,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Nontsikelelo Mutiti"
+            data-id="0055"
+            class="card vertical" 
             href="./manuscript-55"
           >
             <span class="mono identifier">#0055</span>
@@ -1950,14 +2129,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Adefunke Faly"
+            data-id="0056"
+            class="card vertical" 
             href="./manuscript-56"
           >
             <span class="mono identifier">#0056</span>
@@ -1981,14 +2163,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Makes Sound" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Kate Bussert"
+            data-id="0057"
+            class="card vertical" 
             href="./manuscript-57"
           >
             <span class="mono identifier">#0057</span>
@@ -2012,14 +2197,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Tube" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Dan Wright"
+            data-id="0058"
+            class="card vertical" 
             href="./manuscript-58"
           >
             <span class="mono identifier">#0058</span>
@@ -2043,14 +2231,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Has a Motor" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Kristen Veloza"
+            data-id="0059"
+            class="card vertical" 
             href="./manuscript-59"
           >
             <span class="mono identifier">#0059</span>
@@ -2074,14 +2265,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Has a Motor" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Caitlin Cahill"
+            data-id="0060"
+            class="card vertical" 
             href="./manuscript-60"
           >
             <span class="mono identifier">#0060</span>
@@ -2105,14 +2299,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Dylana K. Dillon"
+            data-id="0061"
+            class="card vertical" 
             href="./manuscript-61"
           >
             <span class="mono identifier">#0061</span>
@@ -2136,14 +2333,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Tube" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Samira Farah"
+            data-id="0062"
+            class="card vertical" 
             href="./manuscript-62"
           >
             <span class="mono identifier">#0062</span>
@@ -2167,14 +2367,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Wearable" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Emily Beall"
+            data-id="0063"
+            class="card vertical" 
             href="./manuscript-63"
           >
             <span class="mono identifier">#0063</span>
@@ -2198,14 +2401,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Jon Pauley"
+            data-id="0064"
+            class="card vertical" 
             href="./manuscript-64"
           >
             <span class="mono identifier">#0064</span>
@@ -2229,14 +2435,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Wearable" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Freedom of Movement. Thought and Speech Suit"
+            data-id="0065"
+            class="card vertical" 
             href="./manuscript-65"
           >
             <span class="mono identifier">#0065</span>
@@ -2260,14 +2469,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Pumps Air" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Adeva Kapvsunska"
+            data-id="0066"
+            class="card vertical" 
             href="./manuscript-66"
           >
             <span class="mono identifier">#0066</span>
@@ -2291,14 +2503,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Changes Color" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Faith Kim"
+            data-id="0067"
+            class="card vertical" 
             href="./manuscript-67"
           >
             <span class="mono identifier">#0067</span>
@@ -2322,14 +2537,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Hannah Epstain"
+            data-id="0068"
+            class="card vertical" 
             href="./manuscript-68"
           >
             <span class="mono identifier">#0068</span>
@@ -2353,14 +2571,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="Andi Irwin"
+            data-id="0069"
+            class="card vertical" 
             href="./manuscript-69"
           >
             <span class="mono identifier">#0069</span>
@@ -2384,14 +2605,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Transmits Data" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Jason Eppink, Angela Washko"
+            data-id="0070"
+            class="card vertical" 
             href="./manuscript-70"
           >
             <span class="mono identifier">#0070</span>
@@ -2415,14 +2639,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Pumps Air" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Paul Peng"
+            data-id="0071"
+            class="card vertical" 
             href="./manuscript-71"
           >
             <span class="mono identifier">#0071</span>
@@ -2446,14 +2673,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Transmits Data" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Electromagnetic Clonetic Root Craft Effectivity Detection Earthworm Technology Module by Joy Poulard"
+            data-id="0072"
+            class="card vertical" 
             href="./manuscript-72"
           >
             <span class="mono identifier">#0072</span>
@@ -2477,14 +2707,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Has a Motor" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Jana Rosen Cony"
+            data-id="0073"
+            class="card vertical" 
             href="./manuscript-73"
           >
             <span class="mono identifier">#0073</span>
@@ -2508,14 +2741,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0074"
+            class="card vertical" 
             href="./manuscript-74"
           >
             <span class="mono identifier">#0074</span>
@@ -2539,14 +2775,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Sphere" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Sofia Benete"
+            data-id="0075"
+            class="card vertical" 
             href="./manuscript-75"
           >
             <span class="mono identifier">#0075</span>
@@ -2570,14 +2809,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Wearable" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Chris Thompson"
+            data-id="0076"
+            class="card vertical" 
             href="./manuscript-76"
           >
             <span class="mono identifier">#0076</span>
@@ -2601,14 +2843,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Tube" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name="Tracey Mutchell"
+            data-id="0077"
+            class="card vertical" 
             href="./manuscript-77"
           >
             <span class="mono identifier">#0077</span>
@@ -2632,14 +2877,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Steve Gurysh"
+            data-id="0078"
+            class="card vertical" 
             href="./manuscript-78"
           >
             <span class="mono identifier">#0078</span>
@@ -2663,14 +2911,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Transmits Data" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Ty Mitchell"
+            data-id="0079"
+            class="card vertical" 
             href="./manuscript-79"
           >
             <span class="mono identifier">#0079</span>
@@ -2694,14 +2945,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Andi Irwin"
+            data-id="0080"
+            class="card vertical" 
             href="./manuscript-80"
           >
             <span class="mono identifier">#0080</span>
@@ -2725,14 +2979,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="3D Printed" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="#cpar 2016"
+            data-id="0081"
+            class="card vertical" 
             href="./manuscript-81"
           >
             <span class="mono identifier">#0081</span>
@@ -2756,14 +3013,19 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Wearable" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="Shavavn &quot;Zombie&quot; Sutton
+Le COnte Dill
+Chilra Diyar"
+            data-id="0082"
+            class="card vertical" 
             href="./manuscript-82"
           >
             <span class="mono identifier">#0082</span>
@@ -2787,14 +3049,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Has a Motor" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Vivian, Amy, Becky"
+            data-id="0083"
+            class="card vertical" 
             href="./manuscript-83"
           >
             <span class="mono identifier">#0083</span>
@@ -2818,14 +3083,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Sphere" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Compartilhavclo Ideias"
+            data-id="0084"
+            class="card vertical" 
             href="./manuscript-84"
           >
             <span class="mono identifier">#0084</span>
@@ -2849,14 +3117,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0085"
+            class="card vertical" 
             href="./manuscript-85"
           >
             <span class="mono identifier">#0085</span>
@@ -2880,14 +3151,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Tube" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Ayana Allen, Sarah Hesson, Michael Da"
+            data-id="0086"
+            class="card vertical" 
             href="./manuscript-86"
           >
             <span class="mono identifier">#0086</span>
@@ -2911,14 +3185,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Self Defense" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Ahna Cohan, Rebekah Glushefsla"
+            data-id="0087"
+            class="card vertical" 
             href="./manuscript-87"
           >
             <span class="mono identifier">#0087</span>
@@ -2942,14 +3219,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Wearable" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0088"
+            class="card vertical" 
             href="./manuscript-88"
           >
             <span class="mono identifier">#0088</span>
@@ -2973,14 +3253,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Makes Sound" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Patriotic Anarchy Anthem Amplifier"
+            data-id="0089"
+            class="card vertical" 
             href="./manuscript-89"
           >
             <span class="mono identifier">#0089</span>
@@ -3004,14 +3287,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Makes Sound" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Visibility Performance Box"
+            data-id="0090"
+            class="card vertical" 
             href="./manuscript-90"
           >
             <span class="mono identifier">#0090</span>
@@ -3035,14 +3321,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Transmits Data" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0091"
+            class="card vertical" 
             href="./manuscript-91"
           >
             <span class="mono identifier">#0091</span>
@@ -3066,14 +3355,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0092"
+            class="card vertical" 
             href="./manuscript-92"
           >
             <span class="mono identifier">#0092</span>
@@ -3097,14 +3389,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Justus Seeds"
+            data-id="0093"
+            class="card vertical" 
             href="./manuscript-93"
           >
             <span class="mono identifier">#0093</span>
@@ -3128,14 +3423,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Self Defense" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Anti-climate change suit"
+            data-id="0094"
+            class="card vertical" 
             href="./manuscript-94"
           >
             <span class="mono identifier">#0094</span>
@@ -3159,14 +3457,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Wearable" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Chameleon communication kente cloth"
+            data-id="0095"
+            class="card vertical" 
             href="./manuscript-95"
           >
             <span class="mono identifier">#0095</span>
@@ -3190,14 +3491,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0096"
+            class="card vertical" 
             href="./manuscript-96"
           >
             <span class="mono identifier">#0096</span>
@@ -3221,14 +3525,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Sphere" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Dystopian garden"
+            data-id="0097"
+            class="card vertical" 
             href="./manuscript-97"
           >
             <span class="mono identifier">#0097</span>
@@ -3252,14 +3559,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0098"
+            class="card vertical" 
             href="./manuscript-98"
           >
             <span class="mono identifier">#0098</span>
@@ -3283,14 +3593,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0099"
+            class="card vertical" 
             href="./manuscript-99"
           >
             <span class="mono identifier">#0099</span>
@@ -3314,14 +3627,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Sphere" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0100"
+            class="card vertical" 
             href="./manuscript-100"
           >
             <span class="mono identifier">#0100</span>
@@ -3345,14 +3661,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Tube" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0101"
+            class="card vertical" 
             href="./manuscript-101"
           >
             <span class="mono identifier">#0101</span>
@@ -3376,14 +3695,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Changes Color" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0102"
+            class="card vertical" 
             href="./manuscript-102"
           >
             <span class="mono identifier">#0102</span>
@@ -3407,14 +3729,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Wearable" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0103"
+            class="card vertical" 
             href="./manuscript-103"
           >
             <span class="mono identifier">#0103</span>
@@ -3438,14 +3763,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0104"
+            class="card vertical" 
             href="./manuscript-104"
           >
             <span class="mono identifier">#0104</span>
@@ -3469,14 +3797,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Tube" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0105"
+            class="card vertical" 
             href="./manuscript-105"
           >
             <span class="mono identifier">#0105</span>
@@ -3500,14 +3831,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Transmits Data" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0106"
+            class="card vertical" 
             href="./manuscript-106"
           >
             <span class="mono identifier">#0106</span>
@@ -3531,14 +3865,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0107"
+            class="card vertical" 
             href="./manuscript-107"
           >
             <span class="mono identifier">#0107</span>
@@ -3562,14 +3899,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Makes Sound" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0108"
+            class="card vertical" 
             href="./manuscript-108"
           >
             <span class="mono identifier">#0108</span>
@@ -3593,14 +3933,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Has a Motor" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0109"
+            class="card vertical" 
             href="./manuscript-109"
           >
             <span class="mono identifier">#0109</span>
@@ -3624,14 +3967,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0110"
+            class="card vertical" 
             href="./manuscript-110"
           >
             <span class="mono identifier">#0110</span>
@@ -3655,14 +4001,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Pumps Air" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0111"
+            class="card vertical" 
             href="./manuscript-111"
           >
             <span class="mono identifier">#0111</span>
@@ -3686,14 +4035,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Pumps Air" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0112"
+            class="card vertical" 
             href="./manuscript-112"
           >
             <span class="mono identifier">#0112</span>
@@ -3717,14 +4069,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Tube" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0113"
+            class="card vertical" 
             href="./manuscript-113"
           >
             <span class="mono identifier">#0113</span>
@@ -3748,14 +4103,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Transmits Data" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Bashas Ahmed"
+            data-id="0114"
+            class="card vertical" 
             href="./manuscript-114"
           >
             <span class="mono identifier">#0114</span>
@@ -3779,14 +4137,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Has a Motor" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Najeeb Mozeb, Almotasem ISA"
+            data-id="0115"
+            class="card vertical" 
             href="./manuscript-115"
           >
             <span class="mono identifier">#0115</span>
@@ -3810,14 +4171,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Mostafa Ashabri, Wafid Hassan"
+            data-id="0116"
+            class="card vertical" 
             href="./manuscript-116"
           >
             <span class="mono identifier">#0116</span>
@@ -3841,14 +4205,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Self Defense" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Mohamed Sharafaldin, Asub Sadon"
+            data-id="0117"
+            class="card vertical" 
             href="./manuscript-117"
           >
             <span class="mono identifier">#0117</span>
@@ -3872,14 +4239,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Pumps Air" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Pamela Pimentel"
+            data-id="0118"
+            class="card vertical" 
             href="./manuscript-118"
           >
             <span class="mono identifier">#0118</span>
@@ -3903,14 +4273,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Wearable" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="Caroline Hermans"
+            data-id="0119"
+            class="card vertical" 
             href="./manuscript-119"
           >
             <span class="mono identifier">#0119</span>
@@ -3934,14 +4307,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Has a Motor" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="Antigone C.R."
+            data-id="0120"
+            class="card vertical" 
             href="./manuscript-120"
           >
             <span class="mono identifier">#0120</span>
@@ -3965,14 +4341,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Transmits Data" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Anneliese Martinez"
+            data-id="0121"
+            class="card vertical" 
             href="./manuscript-121"
           >
             <span class="mono identifier">#0121</span>
@@ -3996,14 +4375,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Sphere" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0122"
+            class="card vertical" 
             href="./manuscript-122"
           >
             <span class="mono identifier">#0122</span>
@@ -4027,14 +4409,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Changes Color" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="SoySos"
+            data-id="0123"
+            class="card vertical" 
             href="./manuscript-123"
           >
             <span class="mono identifier">#0123</span>
@@ -4058,14 +4443,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Madison Wenzlick"
+            data-id="0124"
+            class="card vertical" 
             href="./manuscript-124"
           >
             <span class="mono identifier">#0124</span>
@@ -4089,14 +4477,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="David Gordon"
+            data-id="0125"
+            class="card vertical" 
             href="./manuscript-125"
           >
             <span class="mono identifier">#0125</span>
@@ -4120,14 +4511,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="3D Printed" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Dennis S. Williams"
+            data-id="0126"
+            class="card vertical" 
             href="./manuscript-126"
           >
             <span class="mono identifier">#0126</span>
@@ -4151,14 +4545,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Self Defense" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="David Newbury"
+            data-id="0127"
+            class="card vertical" 
             href="./manuscript-127"
           >
             <span class="mono identifier">#0127</span>
@@ -4182,14 +4579,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Wearable" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Angelina"
+            data-id="0128"
+            class="card vertical" 
             href="./manuscript-128"
           >
             <span class="mono identifier">#0128</span>
@@ -4213,14 +4613,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Lauren Valley"
+            data-id="0129"
+            class="card vertical" 
             href="./manuscript-129"
           >
             <span class="mono identifier">#0129</span>
@@ -4244,14 +4647,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Sphere" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Naeem Martinez"
+            data-id="0130"
+            class="card vertical" 
             href="./manuscript-130"
           >
             <span class="mono identifier">#0130</span>
@@ -4275,14 +4681,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Makes Sound" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Nica Ross"
+            data-id="0131"
+            class="card vertical" 
             href="./manuscript-131"
           >
             <span class="mono identifier">#0131</span>
@@ -4306,14 +4715,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Makes Sound" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Ginger Brooks Takahashi"
+            data-id="0132"
+            class="card vertical" 
             href="./manuscript-132"
           >
             <span class="mono identifier">#0132</span>
@@ -4337,14 +4749,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Transmits Data" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Nico Cerqvera"
+            data-id="0133"
+            class="card vertical" 
             href="./manuscript-133"
           >
             <span class="mono identifier">#0133</span>
@@ -4368,14 +4783,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Tube" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Desi Gonzalez"
+            data-id="0134"
+            class="card vertical" 
             href="./manuscript-134"
           >
             <span class="mono identifier">#0134</span>
@@ -4399,14 +4817,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Transmits Data" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Sands FishViirj Kan (?)"
+            data-id="0135"
+            class="card vertical" 
             href="./manuscript-135"
           >
             <span class="mono identifier">#0135</span>
@@ -4430,14 +4851,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Wearable" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Shama Subramony"
+            data-id="0136"
+            class="card vertical" 
             href="./manuscript-136"
           >
             <span class="mono identifier">#0136</span>
@@ -4461,14 +4885,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Wearable" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Zenon Levin"
+            data-id="0137"
+            class="card vertical" 
             href="./manuscript-137"
           >
             <span class="mono identifier">#0137</span>
@@ -4492,14 +4919,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Changes Color" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Natasha RouseBenjamin C. Kinney"
+            data-id="0138"
+            class="card vertical" 
             href="./manuscript-138"
           >
             <span class="mono identifier">#0138</span>
@@ -4523,14 +4953,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Tube" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Andre Uhl"
+            data-id="0139"
+            class="card vertical" 
             href="./manuscript-139"
           >
             <span class="mono identifier">#0139</span>
@@ -4554,14 +4987,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="P. CaesarTyler Callnen"
+            data-id="0140"
+            class="card vertical" 
             href="./manuscript-140"
           >
             <span class="mono identifier">#0140</span>
@@ -4585,14 +5021,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Self Defense" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="Dave BonnerJosh Bonsen"
+            data-id="0141"
+            class="card vertical" 
             href="./manuscript-141"
           >
             <span class="mono identifier">#0141</span>
@@ -4616,14 +5055,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Wearable" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Danielle Wood"
+            data-id="0142"
+            class="card vertical" 
             href="./manuscript-142"
           >
             <span class="mono identifier">#0142</span>
@@ -4647,14 +5089,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Has a Motor" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Charles Anjali"
+            data-id="0143"
+            class="card vertical" 
             href="./manuscript-143"
           >
             <span class="mono identifier">#0143</span>
@@ -4678,14 +5123,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Wade &amp; Erika"
+            data-id="0144"
+            class="card vertical" 
             href="./manuscript-144"
           >
             <span class="mono identifier">#0144</span>
@@ -4709,14 +5157,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Ariel WarrentEllis Waldman "
+            data-id="0145"
+            class="card vertical" 
             href="./manuscript-145"
           >
             <span class="mono identifier">#0145</span>
@@ -4740,14 +5191,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Caroline Record"
+            data-id="0146"
+            class="card vertical" 
             href="./manuscript-146"
           >
             <span class="mono identifier">#0146</span>
@@ -4771,14 +5225,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="P. CaesarTyler Callnen"
+            data-id="0147"
+            class="card vertical" 
             href="./manuscript-147"
           >
             <span class="mono identifier">#0147</span>
@@ -4802,14 +5259,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Tube" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Zahera Khan"
+            data-id="0148"
+            class="card vertical" 
             href="./manuscript-148"
           >
             <span class="mono identifier">#0148</span>
@@ -4833,14 +5293,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Pumps Air" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Ara Kling"
+            data-id="0149"
+            class="card vertical" 
             href="./manuscript-149"
           >
             <span class="mono identifier">#0149</span>
@@ -4864,14 +5327,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Transmits Data" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Chloe Desavlies"
+            data-id="0150"
+            class="card vertical" 
             href="./manuscript-150"
           >
             <span class="mono identifier">#0150</span>
@@ -4895,14 +5361,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="3D Printed" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Naomi Chamber"
+            data-id="0151"
+            class="card vertical" 
             href="./manuscript-151"
           >
             <span class="mono identifier">#0151</span>
@@ -4926,14 +5395,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Changes Color" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Tresa M. Green"
+            data-id="0152"
+            class="card vertical" 
             href="./manuscript-152"
           >
             <span class="mono identifier">#0152</span>
@@ -4957,14 +5429,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Has a Motor" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Melissa Edmond"
+            data-id="0153"
+            class="card vertical" 
             href="./manuscript-153"
           >
             <span class="mono identifier">#0153</span>
@@ -4988,14 +5463,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Sphere" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="??"
+            data-id="0154"
+            class="card vertical" 
             href="./manuscript-154"
           >
             <span class="mono identifier">#0154</span>
@@ -5019,14 +5497,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Tube" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Lindsay Lee Long"
+            data-id="0155"
+            class="card vertical" 
             href="./manuscript-155"
           >
             <span class="mono identifier">#0155</span>
@@ -5050,14 +5531,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Has a Motor" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Sophia Williams"
+            data-id="0156"
+            class="card vertical" 
             href="./manuscript-156"
           >
             <span class="mono identifier">#0156</span>
@@ -5081,14 +5565,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Briannah Mckoy"
+            data-id="0157"
+            class="card vertical" 
             href="./manuscript-157"
           >
             <span class="mono identifier">#0157</span>
@@ -5112,14 +5599,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Sphere" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Jahrell Little"
+            data-id="0158"
+            class="card vertical" 
             href="./manuscript-158"
           >
             <span class="mono identifier">#0158</span>
@@ -5143,14 +5633,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Wearable" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="McCarder Edwards"
+            data-id="0159"
+            class="card vertical" 
             href="./manuscript-159"
           >
             <span class="mono identifier">#0159</span>
@@ -5174,14 +5667,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Wearable" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Karla Robinson"
+            data-id="0160"
+            class="card vertical" 
             href="./manuscript-160"
           >
             <span class="mono identifier">#0160</span>
@@ -5205,14 +5701,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Has a Motor" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Rhea Rahman"
+            data-id="0161"
+            class="card vertical" 
             href="./manuscript-161"
           >
             <span class="mono identifier">#0161</span>
@@ -5236,14 +5735,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Mystiq Hagans"
+            data-id="0162"
+            class="card vertical" 
             href="./manuscript-162"
           >
             <span class="mono identifier">#0162</span>
@@ -5267,14 +5769,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Self Defense" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Nadia Williams"
+            data-id="0163"
+            class="card vertical" 
             href="./manuscript-163"
           >
             <span class="mono identifier">#0163</span>
@@ -5298,14 +5803,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Tube" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Osvaldo Rojano"
+            data-id="0164"
+            class="card vertical" 
             href="./manuscript-164"
           >
             <span class="mono identifier">#0164</span>
@@ -5329,14 +5837,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Has a Motor" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Jacob Olmo"
+            data-id="0165"
+            class="card vertical" 
             href="./manuscript-165"
           >
             <span class="mono identifier">#0165</span>
@@ -5360,14 +5871,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Wearable" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Malaysia"
+            data-id="0166"
+            class="card vertical" 
             href="./manuscript-166"
           >
             <span class="mono identifier">#0166</span>
@@ -5391,14 +5905,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Pumps Air" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Isabella N.S."
+            data-id="0167"
+            class="card vertical" 
             href="./manuscript-167"
           >
             <span class="mono identifier">#0167</span>
@@ -5422,14 +5939,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Has a Motor" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Lenitza Lock"
+            data-id="0168"
+            class="card vertical" 
             href="./manuscript-168"
           >
             <span class="mono identifier">#0168</span>
@@ -5453,14 +5973,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Tube" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Evelyn Bravo"
+            data-id="0169"
+            class="card vertical" 
             href="./manuscript-169"
           >
             <span class="mono identifier">#0169</span>
@@ -5484,14 +6007,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Tube" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Seana Leece"
+            data-id="0170"
+            class="card vertical" 
             href="./manuscript-170"
           >
             <span class="mono identifier">#0170</span>
@@ -5515,14 +6041,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Mashawna Starling"
+            data-id="0171"
+            class="card vertical" 
             href="./manuscript-171"
           >
             <span class="mono identifier">#0171</span>
@@ -5546,14 +6075,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Has a Motor" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0172"
+            class="card vertical" 
             href="./manuscript-172"
           >
             <span class="mono identifier">#0172</span>
@@ -5577,14 +6109,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Makes Sound" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Semaj Bishop"
+            data-id="0173"
+            class="card vertical" 
             href="./manuscript-173"
           >
             <span class="mono identifier">#0173</span>
@@ -5608,14 +6143,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="Haley Rivera"
+            data-id="0174"
+            class="card vertical" 
             href="./manuscript-174"
           >
             <span class="mono identifier">#0174</span>
@@ -5639,14 +6177,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Changes Color" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Ricardo Mahon"
+            data-id="0175"
+            class="card vertical" 
             href="./manuscript-175"
           >
             <span class="mono identifier">#0175</span>
@@ -5670,14 +6211,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="Makes Sound" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Roxy"
+            data-id="0176"
+            class="card vertical" 
             href="./manuscript-176"
           >
             <span class="mono identifier">#0176</span>
@@ -5701,14 +6245,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Self Defense" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0177"
+            class="card vertical" 
             href="./manuscript-177"
           >
             <span class="mono identifier">#0177</span>
@@ -5732,14 +6279,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Changes Color" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Showny"
+            data-id="0178"
+            class="card vertical" 
             href="./manuscript-178"
           >
             <span class="mono identifier">#0178</span>
@@ -5763,14 +6313,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Pumps Air" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Justin"
+            data-id="0179"
+            class="card vertical" 
             href="./manuscript-179"
           >
             <span class="mono identifier">#0179</span>
@@ -5794,14 +6347,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Jaimar"
+            data-id="0180"
+            class="card vertical" 
             href="./manuscript-180"
           >
             <span class="mono identifier">#0180</span>
@@ -5825,14 +6381,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Pumps Air" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name="Joel Casey"
+            data-id="0181"
+            class="card vertical" 
             href="./manuscript-181"
           >
             <span class="mono identifier">#0181</span>
@@ -5856,14 +6415,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Hannah Hanovick"
+            data-id="0182"
+            class="card vertical" 
             href="./manuscript-182"
           >
             <span class="mono identifier">#0182</span>
@@ -5887,14 +6449,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="James Rigsoff"
+            data-id="0183"
+            class="card vertical" 
             href="./manuscript-183"
           >
             <span class="mono identifier">#0183</span>
@@ -5918,14 +6483,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Transmits Data" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Ariel Barlow"
+            data-id="0184"
+            class="card vertical" 
             href="./manuscript-184"
           >
             <span class="mono identifier">#0184</span>
@@ -5949,14 +6517,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Jill Khoury"
+            data-id="0185"
+            class="card vertical" 
             href="./manuscript-185"
           >
             <span class="mono identifier">#0185</span>
@@ -5980,14 +6551,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0186"
+            class="card vertical" 
             href="./manuscript-186"
           >
             <span class="mono identifier">#0186</span>
@@ -6011,14 +6585,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0187"
+            class="card vertical" 
             href="./manuscript-187"
           >
             <span class="mono identifier">#0187</span>
@@ -6042,14 +6619,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="3D Printed" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Cyd"
+            data-id="0188"
+            class="card vertical" 
             href="./manuscript-188"
           >
             <span class="mono identifier">#0188</span>
@@ -6073,14 +6653,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Ryuk "
+            data-id="0189"
+            class="card vertical" 
             href="./manuscript-189"
           >
             <span class="mono identifier">#0189</span>
@@ -6104,14 +6687,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Gabriel"
+            data-id="0190"
+            class="card vertical" 
             href="./manuscript-190"
           >
             <span class="mono identifier">#0190</span>
@@ -6135,14 +6721,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Pumps Air" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Cyd"
+            data-id="0191"
+            class="card vertical" 
             href="./manuscript-191"
           >
             <span class="mono identifier">#0191</span>
@@ -6166,14 +6755,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Ari"
+            data-id="0192"
+            class="card vertical" 
             href="./manuscript-192"
           >
             <span class="mono identifier">#0192</span>
@@ -6197,14 +6789,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="3D Printed" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Stacey Robinson"
+            data-id="0193"
+            class="card vertical" 
             href="./manuscript-193"
           >
             <span class="mono identifier">#0193</span>
@@ -6228,14 +6823,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Changes Color" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Maryom S."
+            data-id="0194"
+            class="card vertical" 
             href="./manuscript-194"
           >
             <span class="mono identifier">#0194</span>
@@ -6259,14 +6857,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Education" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0195"
+            class="card vertical" 
             href="./manuscript-195"
           >
             <span class="mono identifier">#0195</span>
@@ -6290,14 +6891,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Sphere" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Amaya"
+            data-id="0196"
+            class="card vertical" 
             href="./manuscript-196"
           >
             <span class="mono identifier">#0196</span>
@@ -6321,14 +6925,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Changes Color" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Jenis Yava"
+            data-id="0197"
+            class="card vertical" 
             href="./manuscript-197"
           >
             <span class="mono identifier">#0197</span>
@@ -6352,14 +6959,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Sphere" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="D. Benton"
+            data-id="0198"
+            class="card vertical" 
             href="./manuscript-198"
           >
             <span class="mono identifier">#0198</span>
@@ -6383,14 +6993,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Michael Mitchell"
+            data-id="0199"
+            class="card vertical" 
             href="./manuscript-199"
           >
             <span class="mono identifier">#0199</span>
@@ -6414,14 +7027,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Michael Mitchell"
+            data-id="0200"
+            class="card vertical" 
             href="./manuscript-200"
           >
             <span class="mono identifier">#0200</span>
@@ -6445,14 +7061,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Amina"
+            data-id="0201"
+            class="card vertical" 
             href="./manuscript-201"
           >
             <span class="mono identifier">#0201</span>
@@ -6476,14 +7095,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Wearable" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Yodira"
+            data-id="0202"
+            class="card vertical" 
             href="./manuscript-202"
           >
             <span class="mono identifier">#0202</span>
@@ -6507,14 +7129,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Makes Sound" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Maysam Buhail"
+            data-id="0203"
+            class="card vertical" 
             href="./manuscript-203"
           >
             <span class="mono identifier">#0203</span>
@@ -6538,14 +7163,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Health" 
-            class="card 
-            vertical" 
+            data-name="Noel "
+            data-id="0204"
+            class="card vertical" 
             href="./manuscript-204"
           >
             <span class="mono identifier">#0204</span>
@@ -6569,14 +7197,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Ruju Kabra"
+            data-id="0205"
+            class="card vertical" 
             href="./manuscript-205"
           >
             <span class="mono identifier">#0205</span>
@@ -6600,14 +7231,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Transmits Data" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Jen Lzu"
+            data-id="0206"
+            class="card vertical" 
             href="./manuscript-206"
           >
             <span class="mono identifier">#0206</span>
@@ -6631,14 +7265,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Changes Color" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Nikhil Aroi"
+            data-id="0207"
+            class="card vertical" 
             href="./manuscript-207"
           >
             <span class="mono identifier">#0207</span>
@@ -6662,14 +7299,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Self Defense" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Olisa &amp; Brian"
+            data-id="0208"
+            class="card vertical" 
             href="./manuscript-208"
           >
             <span class="mono identifier">#0208</span>
@@ -6693,14 +7333,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Vudu Luc"
+            data-id="0209"
+            class="card vertical" 
             href="./manuscript-209"
           >
             <span class="mono identifier">#0209</span>
@@ -6724,14 +7367,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Wearable" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0210"
+            class="card vertical" 
             href="./manuscript-210"
           >
             <span class="mono identifier">#0210</span>
@@ -6755,14 +7401,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Transmits Data" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0211"
+            class="card vertical" 
             href="./manuscript-211"
           >
             <span class="mono identifier">#0211</span>
@@ -6786,14 +7435,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Lalin Anik"
+            data-id="0212"
+            class="card vertical" 
             href="./manuscript-212"
           >
             <span class="mono identifier">#0212</span>
@@ -6817,14 +7469,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Roberto"
+            data-id="0213"
+            class="card vertical" 
             href="./manuscript-213"
           >
             <span class="mono identifier">#0213</span>
@@ -6848,14 +7503,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Alexandra"
+            data-id="0214"
+            class="card vertical" 
             href="./manuscript-214"
           >
             <span class="mono identifier">#0214</span>
@@ -6879,14 +7537,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Makes Sound" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Jenna Choo"
+            data-id="0215"
+            class="card vertical" 
             href="./manuscript-215"
           >
             <span class="mono identifier">#0215</span>
@@ -6910,14 +7571,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="3D Printed" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Frank Washington"
+            data-id="0216"
+            class="card vertical" 
             href="./manuscript-216"
           >
             <span class="mono identifier">#0216</span>
@@ -6941,14 +7605,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Changes Color" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Scott Stephen"
+            data-id="0217"
+            class="card vertical" 
             href="./manuscript-217"
           >
             <span class="mono identifier">#0217</span>
@@ -6972,14 +7639,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Self Defense" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Harriet"
+            data-id="0218"
+            class="card vertical" 
             href="./manuscript-218"
           >
             <span class="mono identifier">#0218</span>
@@ -7003,14 +7673,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Changes Color" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Madeline Rowley"
+            data-id="0219"
+            class="card vertical" 
             href="./manuscript-219"
           >
             <span class="mono identifier">#0219</span>
@@ -7034,14 +7707,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Self Defense" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name="Becky"
+            data-id="0220"
+            class="card vertical" 
             href="./manuscript-220"
           >
             <span class="mono identifier">#0220</span>
@@ -7065,14 +7741,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Changes Color" 
             data-domain="Food" 
-            class="card 
-            vertical" 
+            data-name="Alex Stauff"
+            data-id="0221"
+            class="card vertical" 
             href="./manuscript-221"
           >
             <span class="mono identifier">#0221</span>
@@ -7096,14 +7775,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Melissa"
+            data-id="0222"
+            class="card vertical" 
             href="./manuscript-222"
           >
             <span class="mono identifier">#0222</span>
@@ -7127,14 +7809,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Space Travel" 
-            class="card 
-            vertical" 
+            data-name="Sarah"
+            data-id="0223"
+            class="card vertical" 
             href="./manuscript-223"
           >
             <span class="mono identifier">#0223</span>
@@ -7158,14 +7843,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Sydney Lytle"
+            data-id="0224"
+            class="card vertical" 
             href="./manuscript-224"
           >
             <span class="mono identifier">#0224</span>
@@ -7189,14 +7877,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Tube" 
             data-domain="Politics" 
-            class="card 
-            vertical" 
+            data-name="Brandon Schulleri"
+            data-id="0225"
+            class="card vertical" 
             href="./manuscript-225"
           >
             <span class="mono identifier">#0225</span>
@@ -7220,14 +7911,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Music" 
-            class="card 
-            vertical" 
+            data-name="Saima"
+            data-id="0226"
+            class="card vertical" 
             href="./manuscript-226"
           >
             <span class="mono identifier">#0226</span>
@@ -7251,14 +7945,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="Changes Color" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Krista Krebs"
+            data-id="0227"
+            class="card vertical" 
             href="./manuscript-227"
           >
             <span class="mono identifier">#0227</span>
@@ -7282,14 +7979,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Sphere" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Jenn Bakel"
+            data-id="0228"
+            class="card vertical" 
             href="./manuscript-228"
           >
             <span class="mono identifier">#0228</span>
@@ -7313,14 +8013,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Revolutionary" 
             data-object="Sphere" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Jean Bakel"
+            data-id="0229"
+            class="card vertical" 
             href="./manuscript-229"
           >
             <span class="mono identifier">#0229</span>
@@ -7344,14 +8047,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Apocalyptic" 
             data-object="3D Printed" 
             data-domain="Fashion" 
-            class="card 
-            vertical" 
+            data-name="Michael Higgins"
+            data-id="0230"
+            class="card vertical" 
             href="./manuscript-230"
           >
             <span class="mono identifier">#0230</span>
@@ -7375,14 +8081,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Pumps Air" 
             data-domain="Security" 
-            class="card 
-            vertical" 
+            data-name="Sarah Kahn"
+            data-id="0231"
+            class="card vertical" 
             href="./manuscript-231"
           >
             <span class="mono identifier">#0231</span>
@@ -7406,14 +8115,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Lauren Goshinski"
+            data-id="0232"
+            class="card vertical" 
             href="./manuscript-232"
           >
             <span class="mono identifier">#0232</span>
@@ -7437,14 +8149,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Changes Color" 
             data-domain="Environment" 
-            class="card 
-            vertical" 
+            data-name="Lauren Goshinski"
+            data-id="0233"
+            class="card vertical" 
             href="./manuscript-233"
           >
             <span class="mono identifier">#0233</span>
@@ -7468,14 +8183,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Anonymous"
+            data-id="0234"
+            class="card vertical" 
             href="./manuscript-234"
           >
             <span class="mono identifier">#0234</span>
@@ -7499,14 +8217,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name="Brittney Chantele"
+            data-id="0235"
+            class="card vertical" 
             href="./manuscript-235"
           >
             <span class="mono identifier">#0235</span>
@@ -7530,14 +8251,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0236"
+            class="card vertical" 
             href="./manuscript-236"
           >
             <span class="mono identifier">#0236</span>
@@ -7561,14 +8285,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Utopian" 
             data-object="Makes Sound" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0237"
+            class="card vertical" 
             href="./manuscript-237"
           >
             <span class="mono identifier">#0237</span>
@@ -7592,14 +8319,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="Dystopian" 
             data-object="Self Defense" 
             data-domain="Game" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0238"
+            class="card vertical" 
             href="./manuscript-238"
           >
             <span class="mono identifier">#0238</span>
@@ -7623,14 +8353,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0239"
+            class="card vertical" 
             href="./manuscript-239"
           >
             <span class="mono identifier">#0239</span>
@@ -7654,14 +8387,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0240"
+            class="card vertical" 
             href="./manuscript-240"
           >
             <span class="mono identifier">#0240</span>
@@ -7685,14 +8421,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0241"
+            class="card vertical" 
             href="./manuscript-241"
           >
             <span class="mono identifier">#0241</span>
@@ -7716,14 +8455,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0242"
+            class="card vertical" 
             href="./manuscript-242"
           >
             <span class="mono identifier">#0242</span>
@@ -7747,14 +8489,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0243"
+            class="card vertical" 
             href="./manuscript-243"
           >
             <span class="mono identifier">#0243</span>
@@ -7778,14 +8523,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0244"
+            class="card vertical" 
             href="./manuscript-244"
           >
             <span class="mono identifier">#0244</span>
@@ -7809,14 +8557,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0245"
+            class="card vertical" 
             href="./manuscript-245"
           >
             <span class="mono identifier">#0245</span>
@@ -7840,14 +8591,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0246"
+            class="card vertical" 
             href="./manuscript-246"
           >
             <span class="mono identifier">#0246</span>
@@ -7871,14 +8625,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0247"
+            class="card vertical" 
             href="./manuscript-247"
           >
             <span class="mono identifier">#0247</span>
@@ -7902,14 +8659,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0248"
+            class="card vertical" 
             href="./manuscript-248"
           >
             <span class="mono identifier">#0248</span>
@@ -7933,14 +8693,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0249"
+            class="card vertical" 
             href="./manuscript-249"
           >
             <span class="mono identifier">#0249</span>
@@ -7964,14 +8727,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0250"
+            class="card vertical" 
             href="./manuscript-250"
           >
             <span class="mono identifier">#0250</span>
@@ -7995,14 +8761,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0251"
+            class="card vertical" 
             href="./manuscript-251"
           >
             <span class="mono identifier">#0251</span>
@@ -8026,14 +8795,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0252"
+            class="card vertical" 
             href="./manuscript-252"
           >
             <span class="mono identifier">#0252</span>
@@ -8057,14 +8829,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0253"
+            class="card vertical" 
             href="./manuscript-253"
           >
             <span class="mono identifier">#0253</span>
@@ -8088,14 +8863,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0254"
+            class="card vertical" 
             href="./manuscript-254"
           >
             <span class="mono identifier">#0254</span>
@@ -8119,14 +8897,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0255"
+            class="card vertical" 
             href="./manuscript-255"
           >
             <span class="mono identifier">#0255</span>
@@ -8150,14 +8931,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0256"
+            class="card vertical" 
             href="./manuscript-256"
           >
             <span class="mono identifier">#0256</span>
@@ -8181,14 +8965,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0257"
+            class="card vertical" 
             href="./manuscript-257"
           >
             <span class="mono identifier">#0257</span>
@@ -8212,14 +8999,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0258"
+            class="card vertical" 
             href="./manuscript-258"
           >
             <span class="mono identifier">#0258</span>
@@ -8243,14 +9033,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0259"
+            class="card vertical" 
             href="./manuscript-259"
           >
             <span class="mono identifier">#0259</span>
@@ -8274,14 +9067,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0260"
+            class="card vertical" 
             href="./manuscript-260"
           >
             <span class="mono identifier">#0260</span>
@@ -8305,14 +9101,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0261"
+            class="card vertical" 
             href="./manuscript-261"
           >
             <span class="mono identifier">#0261</span>
@@ -8336,14 +9135,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0262"
+            class="card vertical" 
             href="./manuscript-262"
           >
             <span class="mono identifier">#0262</span>
@@ -8367,14 +9169,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0263"
+            class="card vertical" 
             href="./manuscript-263"
           >
             <span class="mono identifier">#0263</span>
@@ -8398,14 +9203,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0264"
+            class="card vertical" 
             href="./manuscript-264"
           >
             <span class="mono identifier">#0264</span>
@@ -8429,14 +9237,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0265"
+            class="card vertical" 
             href="./manuscript-265"
           >
             <span class="mono identifier">#0265</span>
@@ -8460,14 +9271,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0266"
+            class="card vertical" 
             href="./manuscript-266"
           >
             <span class="mono identifier">#0266</span>
@@ -8491,14 +9305,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0267"
+            class="card vertical" 
             href="./manuscript-267"
           >
             <span class="mono identifier">#0267</span>
@@ -8522,14 +9339,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0268"
+            class="card vertical" 
             href="./manuscript-268"
           >
             <span class="mono identifier">#0268</span>
@@ -8553,14 +9373,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0269"
+            class="card vertical" 
             href="./manuscript-269"
           >
             <span class="mono identifier">#0269</span>
@@ -8584,14 +9407,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0270"
+            class="card vertical" 
             href="./manuscript-270"
           >
             <span class="mono identifier">#0270</span>
@@ -8615,14 +9441,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0271"
+            class="card vertical" 
             href="./manuscript-271"
           >
             <span class="mono identifier">#0271</span>
@@ -8646,14 +9475,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0272"
+            class="card vertical" 
             href="./manuscript-272"
           >
             <span class="mono identifier">#0272</span>
@@ -8677,14 +9509,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0273"
+            class="card vertical" 
             href="./manuscript-273"
           >
             <span class="mono identifier">#0273</span>
@@ -8708,14 +9543,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0274"
+            class="card vertical" 
             href="./manuscript-274"
           >
             <span class="mono identifier">#0274</span>
@@ -8739,14 +9577,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0275"
+            class="card vertical" 
             href="./manuscript-275"
           >
             <span class="mono identifier">#0275</span>
@@ -8770,14 +9611,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0276"
+            class="card vertical" 
             href="./manuscript-276"
           >
             <span class="mono identifier">#0276</span>
@@ -8801,14 +9645,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0277"
+            class="card vertical" 
             href="./manuscript-277"
           >
             <span class="mono identifier">#0277</span>
@@ -8832,14 +9679,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0278"
+            class="card vertical" 
             href="./manuscript-278"
           >
             <span class="mono identifier">#0278</span>
@@ -8863,14 +9713,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0279"
+            class="card vertical" 
             href="./manuscript-279"
           >
             <span class="mono identifier">#0279</span>
@@ -8894,14 +9747,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0280"
+            class="card vertical" 
             href="./manuscript-280"
           >
             <span class="mono identifier">#0280</span>
@@ -8925,14 +9781,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0281"
+            class="card vertical" 
             href="./manuscript-281"
           >
             <span class="mono identifier">#0281</span>
@@ -8956,14 +9815,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0282"
+            class="card vertical" 
             href="./manuscript-282"
           >
             <span class="mono identifier">#0282</span>
@@ -8987,14 +9849,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0283"
+            class="card vertical" 
             href="./manuscript-283"
           >
             <span class="mono identifier">#0283</span>
@@ -9018,14 +9883,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0284"
+            class="card vertical" 
             href="./manuscript-284"
           >
             <span class="mono identifier">#0284</span>
@@ -9049,14 +9917,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0285"
+            class="card vertical" 
             href="./manuscript-285"
           >
             <span class="mono identifier">#0285</span>
@@ -9080,14 +9951,17 @@
             
             
             
+            
+            
           
 
           <a 
             data-narrative="" 
             data-object="" 
             data-domain="" 
-            class="card 
-            vertical" 
+            data-name=""
+            data-id="0286"
+            class="card vertical" 
             href="./manuscript-286"
           >
             <span class="mono identifier">#0286</span>

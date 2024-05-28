@@ -386,8 +386,14 @@ function parse_archive_location(url=''){
             update_spotlight_mode('hide');
         }
     } else {
+        dom.archive_window.classed('mousemoved',false);
+        dom.archive_window.classed('no-active-transition',false)
+
         update_archive_view('galaxy');
         update_spotlight_mode('mouse');
+        setTimeout(()=>{
+            dom.archive_window.classed('no-active-transition',true)
+        },10)
     }
     
 
@@ -526,7 +532,7 @@ function cycle_galleries(){
             let n=parseInt(gallery.dataset.n);
             n=n==l-1?0:n+1;
             set_current(n,l,gallery)
-        },3000)
+        },8000)
     }
 
     function set_current(n,l,gallery){
@@ -546,7 +552,6 @@ function cycle_galleries(){
 
 function target_blank(){
     document.querySelectorAll('a').forEach(link=>{
-        console.log(link.host,window.location.host);
         if(link.host!==window.location.host){
             link.setAttribute('target', '_blank');
         }
