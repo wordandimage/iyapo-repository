@@ -40,7 +40,7 @@ landing: false
         <nav id="page-nav">
           {# {% set page0 = sheet[0] %} #}
           <div class='page-link-wrapper'>
-            <a href="/" id="mobile-logo" class='bevel-mask'>
+            <a href="/" id="mobile-logo" class='bevel-mask expand-link'>
               {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
               <svg width="94" height="26">
                 <use href="#small-logo-path" />
@@ -49,10 +49,18 @@ landing: false
             {% for page in cms.pages %}
               {%set title = page.properties.title.value %}
               {%set url_base = "#" + title | slugify if page.properties.use_on_homepage.value else title | slugify %}
+              {% if landing and page.properties.use_on_homepage.value%}
+              <button class="expand-link bevel-mask" id="go-to-about">
+                {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
+                <h2 class="mono">{{title}}</h2>
+              </button>
+              {% else %}
               <a href="{{ "BASE_URL" | env }}{{url_base }}" class="expand-link bevel-mask {{ 'current' if title == pg.properties.title.value }}">
                 {{macros.bevel_box("left right bottom top",["br","bl","tr","tl"]) }}
                 <h2 class="mono">{{title}}</h2>
               </a>
+              {% endif %}
+              
             {% endfor %}
           </div>
           <button id="toggle-nav">

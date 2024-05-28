@@ -171,6 +171,11 @@ body[data-type="moving images"] #filter{
     overflow:scroll;
 }
 
+#filter-menu::after{
+    content:'';
+    height:var(--spacing);
+}
+
 .selected-tags button::before,
 .selected-tags button::after{
     color:var(--fg);
@@ -186,7 +191,7 @@ body[data-type="moving images"] #filter{
 
 .taglist{
     grid-column:auto / span var(--col-count);
-    /* margin-top:var(--spacing); */
+    margin-top:var(--spacing);
 }
 
 .categorylist{
@@ -374,6 +379,7 @@ picture{
    
     .taglist{
         grid-column:auto / span 3;
+        margin-top:0;
     }
 
     .row-wrapper{
