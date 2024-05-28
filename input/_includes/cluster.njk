@@ -61,7 +61,7 @@
                     </div>
                     
                     
-                  <input id="search-field" autocomplete="off" class="mono" type="text" placeholder="search by name or ID">
+                  <input id="search-field" autocomplete="off" class="mono" type="text" placeholder="Search by name or ID#">
                 </summary>
                 <div id="filter-menu">
                     {% macro taglist(category) %}
@@ -85,7 +85,7 @@
         </div>
       {% elseif cluster == "artifacts" %}
         <div id="filter">
-          <input id="search-field" autocomplete="off" class="mono" type="text" placeholder="search by name or ID">
+          <input id="search-field" autocomplete="off" class="mono" type="text" placeholder="Search by name or ID#">
         </div>
       {% elseif cluster == "moving images" %}
       <div id="filter"></div>
@@ -117,7 +117,16 @@
         {# if rare media, wrap items so that we can split the grid in half #}
         <div class="row-wrapper">
           
-          <div class="row archive-subhead"><h2 class="mono">Media</h2></div>
+          <div class="row archive-subhead">
+            <h2 class="mono">Media</h2>
+            <div class="categorylist mono">
+              <span class="category-select noselect"><input id="Love" value="Love" type="checkbox"><label for="Love">Love</label></span>
+              <span class="category-select noselect"><input id="Joy" value="Joy" type="checkbox"><label for="Joy">Joy</label></span>
+              <span class="category-select noselect"><input id="Survival" value="Survival" type="checkbox"><label for="Survival">Survival</label></span>
+              
+              
+            </div>
+          </div>
           {% endif %}
         {% for item in items %}
           {% if cluster == 'manuscripts' %}
@@ -156,7 +165,8 @@
             {{domain | safe if domain else ""}} 
             data-name="{{name}}"
             data-id="{{display_id}}"
-            class="{{ "card" if cluster!=="rare media" else "row" }} {{"vertical" if cluster == 'manuscripts' else "landscape"}}" 
+            data-category="{{ item.properties.media_category.value}}"
+            class="item {{ "card" if cluster!=="rare media" else "row" }} {{"vertical" if cluster == 'manuscripts' else "landscape"}}" 
             href="{{href}}"
           >
             {% if display_value and cluster !== "rare media" %}<span class="mono identifier">{{display_value}}</span>{% endif%}

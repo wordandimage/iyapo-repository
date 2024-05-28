@@ -16,6 +16,7 @@ let cards;
 let search_field;
 
 let search_val='';
+let radio_val='';
 
 
 function init(){
@@ -26,6 +27,24 @@ function init(){
             filter_cards();
         })
     }
+    radio_checkboxes=Array.from(document.querySelectorAll('.category-select input'));
+    for(let checkbox of radio_checkboxes){
+        checkbox.addEventListener('change',(e)=>{
+            for(let box of radio_checkboxes){
+                if(box.value!==checkbox.value) box.checked=false;
+                
+            }
+            if(checkbox.checked) radio_val=checkbox.value;
+            else radio_val='';
+            card_container.classList.toggle('filtering',radio_val.length>0);
+            for(let media_item of Array.from(document.querySelectorAll('.item'))){
+
+                media_item.classList.toggle('in-filter',media_item.dataset.category == radio_val);
+            }
+
+        })
+    }
+
     tag_boxes= Array.from(document.querySelectorAll('#filter input[type="checkbox"]'));
     tags_selected_box=document.querySelector('.selected-tags');
     filter_box=document.querySelector('#filter');
