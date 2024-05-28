@@ -148,6 +148,15 @@ function init(){
         //     x:win.w/2,
         //     y:win.y/2
         // }
+
+        document.querySelector('#go-to-about').addEventListener('click',()=>{
+            window.scroll({left:0,top:win.h + 110,behavior:'smooth'})
+            document.querySelector('#page-nav').classList.remove('open')
+            reset_to_galaxy()
+            
+        })
+
+
         set_up_logo();
         set_scroll();
         window.addEventListener('resize',set_size);
@@ -183,6 +192,17 @@ function init(){
     
 }
 
+
+function reset_to_galaxy(){
+    dom.archive_window.classed('mousemoved',false);
+    dom.archive_window.classed('no-active-transition',false)
+
+    update_archive_view('galaxy');
+    update_spotlight_mode('mouse');
+    setTimeout(()=>{
+        dom.archive_window.classed('no-active-transition',true)
+    },10)
+}
 
 function poisson_point_place(points=[],dimensions={x:1,y:1},radius=0.05,constraints={x:[0,1],y:[0,1]}){
     let new_point={x:-1,y:-1};
@@ -292,6 +312,7 @@ function set_scroll(){
         dom.body.classed('transitioned-logo',scroll_y>100)
 
         dom.archive_window.classed('collapsed',scroll_y-100>win.h)
+        document.querySelector('#go-to-about').classList.toggle('current',scroll_y-100>win.h)
     })
 }
 
@@ -386,14 +407,7 @@ function parse_archive_location(url=''){
             update_spotlight_mode('hide');
         }
     } else {
-        dom.archive_window.classed('mousemoved',false);
-        dom.archive_window.classed('no-active-transition',false)
-
-        update_archive_view('galaxy');
-        update_spotlight_mode('mouse');
-        setTimeout(()=>{
-            dom.archive_window.classed('no-active-transition',true)
-        },10)
+        reset_to_galaxy()
     }
     
 
